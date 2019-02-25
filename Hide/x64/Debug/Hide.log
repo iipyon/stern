@@ -1,17 +1,1 @@
-﻿  BaseSwitch.cpp
-  BasicList.cpp
-  BasicObject.cpp
-  BigStar.cpp
-  BossEnemy.cpp
-  Controller.cpp
-  Enemy.cpp
-  GravityStar.cpp
-  main.cpp
-  Map.cpp
-  NormalEnemy.cpp
-  Physical.cpp
-  Player.cpp
-  SmallStar.cpp
-  Star.cpp
-  コードを生成中...
-  Hide.vcxproj -> C:\Users\murasa_Qz\Desktop\ひな形\Hina\x64\Debug\stern.exe
+﻿  Hide.vcxproj -> C:\Users\tatsuki\source\repos\stern\x64\Debug\stern.exe
