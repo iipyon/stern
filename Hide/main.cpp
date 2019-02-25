@@ -1,5 +1,10 @@
 #include "DxLib.h"
 
+//----------------------------------
+//クラス作成の際、関数（メソッド）はpublic
+//変数はprivateで入れてください(W・T)
+//----------------------------------
+
 // WinMain関数
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
