@@ -2,10 +2,10 @@
 #include"Star.h"
 
 //--------------------------------
-//¬‚³‚È¯
+//•’Ê‚Ì¯
 //--------------------------------
 
-class SmallStar : public Star {
+class NormalStar : public Star {
 public:
 
 private:

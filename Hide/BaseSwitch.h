@@ -12,7 +12,7 @@ public:
 	{}
 	//ƒƒ\ƒbƒh
 	void Switch();
-private:
+protected:
 	//•Ï”
 	bool status;//‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚Ì”»’è?
 };

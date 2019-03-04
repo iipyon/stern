@@ -11,3 +11,7 @@ void BasicObject::Draw()
 void BasicObject::Init()
 {
 }
+
+void BasicObject::Update()
+{
+}

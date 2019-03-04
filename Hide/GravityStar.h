@@ -7,7 +7,8 @@
 
 class GravityStar :public Star {
 public:
-
+	void Inhale();//‹zˆø
 private:
+protected:
 	//GravityStar *gravitystar;//ƒŠƒXƒg—p?
 };

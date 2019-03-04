@@ -1,9 +1,9 @@
-#include "NormalEnemy.h"
+#include "FlyingEnemy.h"
 
 //----------------------------------
-//G‹›“G
+//G‹›“G(”òs)
 //----------------------------------
 
-void NormalEnemy::Move()
+void FlyingEnemy::Move()
 {
 }

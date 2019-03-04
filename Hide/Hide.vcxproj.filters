@@ -58,6 +58,24 @@
     <Filter Include="ヘッダー ファイル\List">
       <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Animater">
+      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Animater">
+      <UniqueIdentifier>{1a15e955-2752-4421-9151-5a0e65ab883c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Effect">
+      <UniqueIdentifier>{27785c7f-3521-4753-9f05-24a729abc29c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Effect">
+      <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Player">
+      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Player">
+      <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,25 +90,13 @@
     <ClCompile Include="BaseSwitch.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル\Chara</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
     <ClCompile Include="BossEnemy.cpp">
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
-    <ClCompile Include="NormalEnemy.cpp">
-      <Filter>ソース ファイル\Chara\Ememy</Filter>
-    </ClCompile>
     <ClCompile Include="Star.cpp">
-      <Filter>ソース ファイル\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="SmallStar.cpp">
-      <Filter>ソース ファイル\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="BigStar.cpp">
       <Filter>ソース ファイル\Star</Filter>
     </ClCompile>
     <ClCompile Include="GravityStar.cpp">
@@ -105,6 +111,33 @@
     <ClCompile Include="BasicList.cpp">
       <Filter>ソース ファイル\List</Filter>
     </ClCompile>
+    <ClCompile Include="Animater.cpp">
+      <Filter>ソース ファイル\Animater</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>ソース ファイル\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyingEnemy.cpp">
+      <Filter>ソース ファイル\Chara\Ememy</Filter>
+    </ClCompile>
+    <ClCompile Include="WalkingEnemy.cpp">
+      <Filter>ソース ファイル\Chara\Ememy</Filter>
+    </ClCompile>
+    <ClCompile Include="SlowingEnemy.cpp">
+      <Filter>ソース ファイル\Chara\Ememy</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEnemy.cpp">
+      <Filter>ソース ファイル\Chara\Ememy</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalStar.cpp">
+      <Filter>ソース ファイル\Star</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Chara\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -116,23 +149,11 @@
     <ClInclude Include="BaseSwitch.h">
       <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>ヘッダー ファイル\Chara</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="BossEnemy.h">
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="SmallStar.h">
-      <Filter>ヘッダー ファイル\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="BigStar.h">
-      <Filter>ヘッダー ファイル\Star</Filter>
     </ClInclude>
     <ClInclude Include="Star.h">
       <Filter>ヘッダー ファイル\Star</Filter>
@@ -148,6 +169,33 @@
     </ClInclude>
     <ClInclude Include="BasicList.h">
       <Filter>ヘッダー ファイル\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Animater.h">
+      <Filter>ヘッダー ファイル\Animater</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>ヘッダー ファイル\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyingEnemy.h">
+      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkingEnemy.h">
+      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SlowingEnemy.h">
+      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEnemy.h">
+      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalStar.h">
+      <Filter>ヘッダー ファイル\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\Chara\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

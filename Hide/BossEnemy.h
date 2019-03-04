@@ -10,6 +10,6 @@ public:
 	//ƒƒ\ƒbƒh
 	void Move();
 
+protected:
 private:
-	
 };

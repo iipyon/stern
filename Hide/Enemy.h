@@ -7,12 +7,15 @@
 
 class Enemy :public Physical {
 public :
-	Enemy():
-		life(0)
-	{}
+	Enemy() {
+		hp = 0;
+		damage = 0;
+	}
 	//メソッド
-	void Move();
-private:
+	virtual void Move();
+	bool Attack();
+protected:
 	//変数
-	int life;
+	int hp;//残り体力
+	int damage;
 };
