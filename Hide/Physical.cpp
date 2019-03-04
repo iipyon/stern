@@ -11,3 +11,7 @@ float Physical::Gravity(const float gra_)
 	return gra * gra_;
 }
 */
+
+void Physical::exercise(bool judge)
+{
+}

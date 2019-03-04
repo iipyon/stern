@@ -7,3 +7,8 @@
 void Enemy::Move()
 {
 }
+
+bool Enemy::Attack()
+{
+	return false;
+}

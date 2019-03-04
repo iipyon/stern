@@ -2,10 +2,10 @@
 #include"Enemy.h"
 
 //---------------------------------
-//雑魚敵
+//雑魚敵(飛行)
 //---------------------------------
 
-class NormalEnemy : public Enemy{
+class FlyingEnemy : public Enemy{
 public:
 	//NormalEnemy* list;//リスト構造のため一応記述
 	//メソッド
