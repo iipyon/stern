@@ -1,5 +1,6 @@
 #pragma once
 #include"Physic.h"
+#include"DxLib.h"
 
 //---------------------------------
 //プレイヤー
@@ -14,6 +15,7 @@ public:
 		invincible = 0;
 		hp = 0;
 		interval = 0;
+		graph = LoadGraph("img/player.png");
 	}
 	//メソッド
 	void update();//更新処理

@@ -1,4 +1,6 @@
 #include "DxLib.h"
+#include"GameTaskSystem.h"
+#include"Player.h"
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic
@@ -16,12 +18,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	// ＤＸライブラリ初期化処理
 	if (DxLib_Init() == -1) { return -1; };
 
+	//gts = new GameTaskSystem;
+	GameTaskSystem *gts = new GameTaskSystem;
 	//-------------------------------------------------
 	SetDrawScreen(DX_SCREEN_BACK);//裏画面設定
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {//画面更新＆メッセージ処理&画面殺害
 		
-
+		gts->update();
 
 	}
 

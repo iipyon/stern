@@ -1,4 +1,5 @@
 #include "Rendering.h"
+#include"DxLib.h"
 
 bool Rendering::switch_anime()
 {
@@ -7,4 +8,5 @@ bool Rendering::switch_anime()
 
 void Rendering::draw()
 {
+	DrawGraph(x, y, graph, 1);
 }
