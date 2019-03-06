@@ -70,6 +70,12 @@
     <Filter Include="ヘッダー ファイル\Rendering">
       <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem">
+      <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem">
+      <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +135,12 @@
     <ClCompile Include="ThrowingEnemy.cpp">
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
+    <ClCompile Include="GameTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -187,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="ThrowingEnemy.h">
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
