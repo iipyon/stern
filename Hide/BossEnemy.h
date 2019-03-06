@@ -8,7 +8,8 @@
 class Boss : public Enemy {
 public:
 	//ƒƒ\ƒbƒh
-	void Move();
+	void move();
+	void update();
 
 protected:
 private:

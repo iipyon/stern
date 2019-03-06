@@ -1,5 +1,9 @@
 #include "BulletEnemy.h"
 
-void BulletEnemy::Move()
+void BulletEnemy::move()
+{
+}
+
+void BulletEnemy::update()
 {
 }

@@ -4,11 +4,19 @@
 //“G‘S”Ê
 //----------------------------------
 
-void Enemy::Move()
+void Enemy::move()
 {
 }
 
-bool Enemy::Attack()
+bool Enemy::attack()
 {
 	return false;
+}
+
+void Enemy::update()
+{
+}
+
+void Enemy::damage(int)
+{
 }

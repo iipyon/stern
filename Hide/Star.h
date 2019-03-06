@@ -1,20 +1,22 @@
 #pragma once
-#include"Physical.h"
+#include"Physic.h"
 
 //---------------------------------
 //星全般
 //---------------------------------
 
-class Star : public Physical {
+class Star : public Physic {
 public:
-	Star() {
-		bright = 0;
-		radius = 0;
-	}
+	Star(int, int, int);
 	//メソッド
-	bool Attack();
+	bool attack();
+	bool damage(int);
+
 private:
 	//変数
 	int bright;//輝度
-	float radius;//半径(size)（円で判定を行うため）
+	int radius;//半径(size)（円で判定を行うため）
+	bool contact;
+	int power;
+	int life;
 };

@@ -1,10 +1,11 @@
 #pragma once
 #include"Enemy.h"
 
-class WalkingEnemy : public Enemy {
+class ThrowingEnemy :public Enemy {
 public:
+	//ThrowingEnemy();
 	void move();
 	void update();
-private:
 protected:
+
 };
