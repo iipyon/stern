@@ -3,7 +3,8 @@
 
 class BulletEnemy : public Enemy {
 public:
-	void Move();
+	void move();
+	void update();
 private:
 protected:
 };

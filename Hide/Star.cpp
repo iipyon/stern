@@ -4,7 +4,16 @@
 //¯‘S”Ê
 //---------------------------------
 
-bool Star::Attack()
+Star::Star(int, int, int)
+{
+}
+
+bool Star::attack()
+{
+	return false;
+}
+
+bool Star::damage(int)
 {
 	return false;
 }

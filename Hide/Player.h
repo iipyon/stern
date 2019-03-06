@@ -1,11 +1,11 @@
 #pragma once
-#include"Physical.h"
+#include"Physic.h"
 
 //---------------------------------
 //プレイヤー
 //---------------------------------
 
-class Player :public Physical {
+class Player :public Physic {
 public:
 	Player()
 	{
@@ -16,21 +16,27 @@ public:
 		interval = 0;
 	}
 	//メソッド
-	void Update();//更新処理
-	bool Damage(void);//ダメージを受ける処理
+	void update();//更新処理
+	bool damage(void);//ダメージを受ける処理
+	void draw_interface(int);//UI描画
+	void move();//移動処理
+	void check_foot();//足元判定
+	bool knockback(int);//ノックバック
+
 protected:
 	//変数
-	double angle;//星を出す角度
-	int invincible;//無敵時間
-	int hp;//残り体力
-	int interval;//星のクールタイム
 	int life;//残機
+	double angle;//カーソルの傾き
+	int invincible;//無敵時間
+	int hp;//HP
+	int interval;//星の発射間隔
+	bool foot_status;//設置しているか
+	bool knockback_status;//ノックバック中か
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {
 	public:
 		PlayerInterface() {
-			//life = Player::life;
 		}
 		//メソッド
 		void Draw(int st);

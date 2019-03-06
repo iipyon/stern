@@ -1,4 +1,5 @@
 #pragma once
+#include"Point.h"
 
 //---------------------------------
 //マップデータ
@@ -6,17 +7,18 @@
 
 class Map {
 public:
-	/*
-	Map():
-	{}
-	*/
-	void Init();
-	void Draw();
+	
+	Map(char*);
+	void draw();
+	void update();
+	int get_left(Point);
+	int get_right(Point);
+	int get_top(Point);
+	int get_bottom(Point);
 
 private:
 	int data[1][1];//仮の数値
 	int graph;//絵
-	int maxsizex;
-	int maxsizey;
-	int chip;//マップチップ
+	int mapsizex;
+	int mapsizey;
 };

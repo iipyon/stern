@@ -3,6 +3,10 @@
 //ƒ{ƒX“G
 //-----------------------------------
 
-void Boss::Move()
+void Boss::move()
+{
+}
+
+void Boss::update()
 {
 }

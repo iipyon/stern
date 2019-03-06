@@ -1,20 +1,20 @@
 #pragma once
-#include"Animater.h"
+#include"Rendering.h"
 
 //---------------------------------
 //物理運動
 //---------------------------------
 
-class Physical : public Animater {
+class Physic : public Rendering {
 public:
-	Physical() {
+	Physic() {
 		gravity = 0;
 		repulsion = 0;
 		weight = 0;
 	}
 	//メソッド
 	//float Gravity(float gra_);
-	void exercise(bool judge);//物理運動を行うものだけ処理を行う
+	void exercise();//物理運動を行うものだけ処理を行う
 protected:
 	//変数
 	float gravity;//重力

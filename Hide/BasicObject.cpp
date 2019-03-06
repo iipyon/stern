@@ -4,14 +4,11 @@
 //Šî–{‚Æ‚È‚éƒNƒ‰ƒX
 //-----------------------------------
 
-void BasicObject::Draw()
+
+void BasicObject::update()
 {
 }
 
-void BasicObject::Init()
-{
-}
-
-void BasicObject::Update()
+void BasicObject::get_point()
 {
 }

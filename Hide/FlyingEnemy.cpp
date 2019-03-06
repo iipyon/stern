@@ -4,6 +4,10 @@
 //G‹›“G(”òs)
 //----------------------------------
 
-void FlyingEnemy::Move()
+void FlyingEnemy::move()
+{
+}
+
+void FlyingEnemy::update()
 {
 }
