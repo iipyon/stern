@@ -29,3 +29,8 @@
 # Logs
 Log.txt
 *.tlog
+
+# Addition
+Debug/
+Release/
+x64/
