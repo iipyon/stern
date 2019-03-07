@@ -76,6 +76,12 @@
     <Filter Include="ソース ファイル\TaskSystem">
       <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Chara\Camera">
+      <UniqueIdentifier>{435de237-89e4-45a2-b6ea-0d7e287f347d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Camera">
+      <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -141,6 +147,9 @@
     <ClCompile Include="Resource.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>ソース ファイル\Chara\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -205,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>ヘッダー ファイル\Chara\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,6 @@ public:
 	bool key_press(int);
 	//bool Get(KEY_INPUT *key);
 private:
-	int crrent[256];//キーボード対応させる
+	int current[256];//キーボード対応させる
 	int previous[256];//１フレーム前の配列を記憶
 };

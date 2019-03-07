@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="BaseSwitch.h" />
