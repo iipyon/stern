@@ -1,11 +1,14 @@
 #include "GameTaskSystem.h"
 
 
-
 GameTaskSystem::GameTaskSystem()
 {
-	player = new Player;
-	map = new Map((char*)("img/data.txt"));
+}
+
+GameTaskSystem::~GameTaskSystem()
+{
+	player.reset();
+	map.reset();
 }
 
 void GameTaskSystem::update()
