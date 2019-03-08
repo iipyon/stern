@@ -2,11 +2,10 @@
 
 void Keyboard::update()
 {
-	for(int i=0;i<256;++i)
-	previous[i] = current[i];
+	*previous=*current;
 	char Buf[256];
-	for (int i = 0; i < 256; ++i)
-	current[i] = GetHitKeyStateAll(Buf);
+	GetHitKeyStateAll(Buf);
+	*current = *Buf;
 	
 }
 
