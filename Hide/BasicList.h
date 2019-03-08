@@ -1,4 +1,5 @@
 #pragma once
+#include<memory>
 
 //カプセル化するクラス
 //対象オブジェクトを包みリスト化する

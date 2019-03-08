@@ -1,13 +1,18 @@
 #include "GameTaskSystem.h"
 
 
-
 GameTaskSystem::GameTaskSystem()
 {
-	player = new Player;
+}
+
+GameTaskSystem::~GameTaskSystem()
+{
+	player.reset();
+	map.reset();
 }
 
 void GameTaskSystem::update()
 {
+	map->update();
 	player->update();
 }

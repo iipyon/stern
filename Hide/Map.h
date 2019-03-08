@@ -17,7 +17,7 @@ public:
 	int get_bottom(Point);
 
 private:
-	int data[1][1];//‰¼‚Ì”’l
+	int data[20][20];//‰¼‚Ì”’l
 	int graph;//ŠG
 	int mapsizex;
 	int mapsizey;
