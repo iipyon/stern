@@ -14,7 +14,7 @@ Keyboard::~Keyboard()
 
 void Keyboard::update()
 {
-	// —Ìˆæ‚ğ“ü‚ê‘Ö‚¦‚é
+	//é ˜åŸŸã‚’å…¥ã‚Œæ›¿ãˆã‚‹
 	work = current;
 	current = previous;
 	previous = work;
