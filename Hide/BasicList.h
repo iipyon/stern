@@ -18,7 +18,7 @@ public:
     bool lead();  //アドレスを先頭に戻す
     bool exist();   //生きてますか？
     bool proceed();  //アドレスを次に移動する
-    bool create();//インスタンスを生成する
+    bool create(std::shared_ptr<T>);//インスタンスのアドレスを受け取る
     bool clone();
     bool destroy(); //インスタンスを削除する
     std::shared_ptr<T> get();       //currentを返す
@@ -65,12 +65,11 @@ template <typename T> bool BasicList<T>::exist()
     return ret;
 }
 
-template <typename T> bool BasicList<T>::create()
+template <typename T> bool BasicList<T>::create(std::shared_ptr<T> new_content)
 {
     bool ret = true;
     std::shared_ptr<List<T>> new_instance = std::make_shared<List<T>>();   //リストオブジェクトを新規作成する
-    new_instance->content = std::make_shared<T>(); //オブジェクトを新規作成する
-
+	new_instance->content = new_content;	//リストに内容(content)を登録する　作成はしない
     
     if(current == nullptr && previous == nullptr){
         //最初のリストを作成する処理
@@ -102,10 +101,11 @@ template <typename T> bool BasicList<T>::clone()
 
 template <typename T> bool BasicList<T>::destroy()
 {
+	//先頭削除問題未解決！！！
     bool ret = false;
     if(current != nullptr){
-        current = current->next;
-        previous->next = current;
+        current = std::move(current->next);
+        previous->next = std::move(current);
         ret = true;
     }
     return ret;
