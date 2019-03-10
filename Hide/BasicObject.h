@@ -8,7 +8,8 @@ class BasicObject {
 public:
 	//Å’áŒÀ‚Ì‰Šú‰»
 	BasicObject() {
-		velocity = 0;
+		velocityX = 0;
+		velocityY = 0;
 		x = 0;
 		y = 0;
 		height = 0;
@@ -27,5 +28,6 @@ protected:
 	int height;
 	int width;
 	//ˆÚ“®—Ê
-	float velocity;
+	float velocityX;
+	float velocityY;
 };

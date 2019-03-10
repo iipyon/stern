@@ -4,8 +4,11 @@
 //¯‘S”Ê
 //---------------------------------
 
-Star::Star(int, int, int)
+Star::Star(int power_, int life_, int weight_)
 {
+	power = power_;
+	weight = weight_;
+	life = life_;
 }
 
 bool Star::attack()
@@ -17,3 +20,4 @@ bool Star::damage(int)
 {
 	return false;
 }
+
