@@ -3,6 +3,7 @@
 
 GameTaskSystem::GameTaskSystem()
 {
+	normalstar->lead();//リストを先頭に戻す
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -13,6 +14,12 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::update()
 {
+	//ノーマルスター
+	std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0,0,0);
+	normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
+	
+	normalstar->get()->update();
+
 	map->update();
 	player->update();
 }

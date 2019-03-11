@@ -39,8 +39,17 @@ void Map::update()
 	draw();
 }
 
-int Map::get_left(Point)
+int Map::get_left(Point chara_)
 {
+	int sx = chara_.x / 30;
+	int sy = chara_.y / 30;
+	int ex = (chara_.x + chara_.w) / 30;
+	int ey = (chara_.y + chara_.h) / 30;
+	for (int y = sy; y < ey; ++y) {
+		for (int x = sx; sx < ex; ++x) {
+			return data[y][x];
+		}
+	}
 	return 0;
 }
 
@@ -54,7 +63,18 @@ int Map::get_top(Point)
 	return 0;
 }
 
-int Map::get_bottom(Point)
+int Map::get_bottom(Point chara_)
 {
+	//ƒ}ƒbƒvƒ^ƒCƒ‹‚P‚Â‚ª30*30‚Ì‚½‚ß
+	int sx = chara_.x / 30;
+	int sy = chara_.y / 30;
+	int ex = (chara_.x + chara_.w) / 30;
+	int ey = (chara_.y + chara_.h) / 30;
+	//”ÍˆÍ“à‚ÌáŠQ•¨‚ğ’T‚·
+	for (int y = sy; y <= ey; ++y) {
+		for (int x = sx; sx <= ex; ++x) {
+			return data[y][x];
+		}
+	}
 	return 0;
 }

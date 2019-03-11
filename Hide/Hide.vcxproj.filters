@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\main">
       <UniqueIdentifier>{29168e77-7234-4a27-8c21-a64c55cd0a04}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Base">
       <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
     </Filter>
@@ -81,6 +78,9 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\Chara\Camera">
       <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
