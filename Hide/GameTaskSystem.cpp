@@ -20,6 +20,6 @@ void GameTaskSystem::update()
 	
 	normalstar->get()->update();
 
-	map->update();
-	player->update();
+	gts->map->update();
+	gts->player->update();
 }

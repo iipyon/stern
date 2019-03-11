@@ -7,6 +7,8 @@
 //•Ï”‚Íprivate‚Å“ü‚ê‚Ä‚­‚¾‚³‚¢(WET)
 //----------------------------------
 
+GameTaskSystem *gts = new GameTaskSystem;
+
 // WinMainŠÖ”
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
@@ -19,7 +21,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	if (DxLib_Init() == -1) { return -1; };
 
 	//gts = new GameTaskSystem;
-	GameTaskSystem *gts = new GameTaskSystem;
 	//-------------------------------------------------
 	SetDrawScreen(DX_SCREEN_BACK);//— ‰æ–Êİ’è
 
