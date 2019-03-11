@@ -7,7 +7,7 @@
 //変数はprivateで入れてください(W・T)
 //----------------------------------
 
-GameTaskSystem *gts = new GameTaskSystem;
+GameTaskSystem *gts;
 
 // WinMain関数
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
@@ -19,7 +19,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	// ＤＸライブラリ初期化処理
 	if (DxLib_Init() == -1) { return -1; };
-
+	gts = new GameTaskSystem;
 	//gts = new GameTaskSystem;
 	//-------------------------------------------------
 	SetDrawScreen(DX_SCREEN_BACK);//裏画面設定
@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		gts->update();
 
 	}
-
+	delete gts;
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
 	return 0;					// ソフトの終了
