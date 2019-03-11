@@ -19,19 +19,20 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x, 0, 15, 0, 1.5, st, graph, FALSE);
+	DrawRotaGraph2(x, 0, 0, 0, 1, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
 {
+	draw(ang, x_);
 	if (CheckHitKey(KEY_INPUT_Z)){
 		gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, 0, gts->player->get_angle());
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, gts->player->x, gts->player->get_angle());
 		gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 		gts->normalstar->get()->update();
 	}
-	draw(ang, x_);
+	
 }
 
 Player::Player()
