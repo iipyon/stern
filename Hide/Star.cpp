@@ -4,8 +4,10 @@
 //¯‘S”Ê
 //---------------------------------
 
-Star::Star(int power_, int life_, int weight_)
+Star::Star(int power_, int life_, int weight_,int x_,double angle_)
 {
+	x = x_;
+	angle = angle_;
 	power = power_;
 	weight = weight_;
 	life = life_;
@@ -20,4 +22,5 @@ bool Star::damage(int)
 {
 	return false;
 }
+
 

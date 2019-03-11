@@ -8,9 +8,9 @@
 
 class NormalStar : public Star {
 public:
-	NormalStar(int power_, int life_, int weight_) : Star(power_, life_, weight_) {
+	NormalStar(int power_, int life_, int weight_,int x_,double angle_) : Star(power_, life_, weight_,x_,angle_) {
 		x = 300;
-		y = 100;
+		y = 0;
 		contact = false;
 		bright = 0;
 		radius = 0;

@@ -1,6 +1,7 @@
 #include "Player.h"
 #include"Point.h"
 #include"GameTaskSystem.h"
+#include"Keyboard.h"
 
 //----------------------------------
 //プレイヤー
@@ -18,11 +19,18 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x, 20, 15, 15, 1.5, st, graph, FALSE);
+	DrawRotaGraph2(x, 0, 15, 0, 1.5, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
 {
+	if (CheckHitKey(KEY_INPUT_Z)){
+		gts->normalstar->lead();//リストを先頭に戻す
+		//ノーマルスター
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, 0, gts->player->get_angle());
+		gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
+		gts->normalstar->get()->update();
+	}
 	draw(ang, x_);
 }
 
@@ -39,6 +47,7 @@ Player::Player()
 	interval = 0;
 	foot_status = false;
 	graph = LoadGraph("img/player.png");
+	starmanager = std::make_unique<StarManager>();
 }
 
 double Player::get_angle()
@@ -77,6 +86,7 @@ void Player::draw_interface(int)
 void Player::move()
 {
 	//固定数値ではなくvelocityを入れる
+	//Keyboardに変更する
 	if (CheckHitKey(KEY_INPUT_RIGHT)) {
 		x += 2;
 	}
