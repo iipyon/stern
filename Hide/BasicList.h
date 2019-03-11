@@ -2,15 +2,6 @@
 #include <iostream>
 #include<memory>
 
-namespace std {
-	class list_exception : public runtime_error {
-	public:
-		list_exception(const char *_Message, int res) : _Errinfo(res), runtime_error(_Message) {}
-	private:
-		int _Errinfo;
-	};
-};
-
 //カプセル化するクラス
 //対象オブジェクトを包みリスト化する
 template <typename T> class List{
