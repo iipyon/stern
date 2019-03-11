@@ -1,5 +1,15 @@
 #pragma once
+#include <iostream>
 #include<memory>
+
+namespace std {
+	class list_exception : public runtime_error {
+	public:
+		list_exception(const char *_Message, int res) : _Errinfo(res), runtime_error(_Message) {}
+	private:
+		int _Errinfo;
+	};
+};
 
 //カプセル化するクラス
 //対象オブジェクトを包みリスト化する
@@ -101,9 +111,9 @@ template <typename T> bool BasicList<T>::clone()
 
 template <typename T> bool BasicList<T>::destroy()
 {
-	//先頭削除問題未解決！！！
     bool ret = false;
     if(current != nullptr){
+		if (current == head)head = current->next;	// 先頭を削除した場合、headを次へずらす
         current = std::move(current->next);
         previous->next = std::move(current);
         ret = true;
