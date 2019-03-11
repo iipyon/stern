@@ -8,7 +8,7 @@
 
 void Player::PlayerInterface::Draw(int st)
 {
-	
+
 }
 
 Player::StarManager::StarManager()
@@ -37,6 +37,7 @@ Player::Player()
 	invincible = 0;
 	hp = 0;
 	interval = 0;
+	foot_status = false;
 	graph = LoadGraph("img/player.png");
 }
 
@@ -94,11 +95,11 @@ void Player::move()
 void Player::check_foot()
 {
 	//¡‚Ì‰æ‘œ‚Ì‘å‚«‚³‚ª30*30‚Ì‚½‚ß
-	Point foot{ x,y +30,30,1 };
+	Point foot{ x,y + 30,30,1 };
 	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
 	//‰¼‚Ì“–‚½‚è”»’è
 	//Map‚ÌGet_bottom‚ðŒÄ‚Ô?
-	if (gts->map->get_bottom(foot)) {
+	if (gts->map->get_bottom(foot) != 0) {
 		foot_status = true;
 	}
 	else {

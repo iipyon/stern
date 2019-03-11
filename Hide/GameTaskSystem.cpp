@@ -3,13 +3,12 @@
 
 GameTaskSystem::GameTaskSystem()
 {
+	normalstar = std::make_shared<BasicList<NormalStar>>();
 	normalstar->lead();//ƒŠƒXƒg‚ğæ“ª‚É–ß‚·
 }
 
 GameTaskSystem::~GameTaskSystem()
 {
-	player.reset();
-	map.reset();
 }
 
 void GameTaskSystem::update()
