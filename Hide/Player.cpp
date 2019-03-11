@@ -1,12 +1,14 @@
 #include "Player.h"
+#include"Point.h"
+#include"GameTaskSystem.h"
 
 //----------------------------------
 //ƒvƒŒƒCƒ„[
 //----------------------------------
 
-
 void Player::PlayerInterface::Draw(int st)
 {
+	
 }
 
 Player::StarManager::StarManager()
@@ -16,7 +18,7 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x, 0, 15, 0, 1.5, st, graph, FALSE);
+	DrawRotaGraph2(x, 20, 15, 15, 1.5, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
@@ -28,12 +30,19 @@ Player::Player()
 {
 	x = 200;
 	y = 200;
+	height = 30;
+	width = 30;
 	life = 0;
 	angle = 0;
 	invincible = 0;
 	hp = 0;
 	interval = 0;
 	graph = LoadGraph("img/player.png");
+}
+
+double Player::get_angle()
+{
+	return angle;
 }
 
 void Player::update()
@@ -83,9 +92,15 @@ void Player::move()
 
 void Player::check_foot()
 {
+	//¡‚Ì‰æ‘œ‚Ì‘å‚«‚³‚ª30*30‚Ì‚½‚ß
+	Point foot{ x - 15,y + 15,30,1 };
 	//‰¼‚Ì“–‚½‚è”»’è
-	if (y > 540) {
-		y = 540;
+	//Map‚ÌGet_bottom‚ðŒÄ‚Ô?
+	if (gts->map->get_bottom(foot)) {
+		foot_status = true;
+	}
+	else {
+		foot_status = false;
 	}
 }
 

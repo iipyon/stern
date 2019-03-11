@@ -3,6 +3,7 @@
 #include"DxLib.h"
 #include<memory>
 
+
 //---------------------------------
 //プレイヤー
 //---------------------------------
@@ -11,6 +12,7 @@ class Player :public Physic {
 public:
 	Player();
 	//メソッド
+	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
 	bool damage(void);//ダメージを受ける処理
 	void draw_interface(int);//UI描画
