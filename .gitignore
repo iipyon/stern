@@ -31,6 +31,10 @@ Log.txt
 *.tlog
 
 # Addition
-Debug/
-Release/
-x64/
+/.vs/
+/Debug/
+/Release/
+/x64/
+/Hide/Debug/
+/Hide/Release/
+/Hide/x64/
