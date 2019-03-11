@@ -59,6 +59,7 @@ void Player::update()
 	starmanager->update(angle, x);
 	draw();
 
+	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", x);
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", y);
 }
@@ -93,7 +94,8 @@ void Player::move()
 void Player::check_foot()
 {
 	//¡‚Ì‰æ‘œ‚Ì‘å‚«‚³‚ª30*30‚Ì‚½‚ß
-	Point foot{ x - 15,y + 15,30,1 };
+	Point foot{ x,y +30,30,1 };
+	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
 	//‰¼‚Ì“–‚½‚è”»’è
 	//Map‚ÌGet_bottom‚ðŒÄ‚Ô?
 	if (gts->map->get_bottom(foot)) {
