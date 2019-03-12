@@ -8,10 +8,6 @@ void Camera::move(int, int)
 {
 }
 
-void Camera::change()
-{
-}
-
 bool Camera::get()
 {
 	return false;
