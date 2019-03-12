@@ -1,5 +1,9 @@
 #include "WalkingEnemy.h"
 
-void WalkingEnemy::Move()
+void WalkingEnemy::move()
+{
+}
+
+void WalkingEnemy::update()
 {
 }

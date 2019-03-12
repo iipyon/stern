@@ -130,13 +130,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animater.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="GameTaskSystem.cpp" />
+    <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
     <ClCompile Include="BasicList.cpp" />
     <ClCompile Include="BasicObject.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
-    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GravityStar.cpp" />
@@ -144,32 +145,36 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="FlyingEnemy.cpp" />
-    <ClCompile Include="Physical.cpp" />
+    <ClCompile Include="Physic.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="SlowingEnemy.cpp" />
     <ClCompile Include="NormalStar.cpp" />
+    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animater.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="GameTaskSystem.h" />
+    <ClInclude Include="Rendering.h" />
     <ClInclude Include="BaseSwitch.h" />
     <ClInclude Include="BasicList.h" />
     <ClInclude Include="BasicObject.h" />
     <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="BulletEnemy.h" />
-    <ClInclude Include="Controller.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GravityStar.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="FlyingEnemy.h" />
-    <ClInclude Include="Physical.h" />
+    <ClInclude Include="Physic.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="SlowingEnemy.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

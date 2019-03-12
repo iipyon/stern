@@ -29,3 +29,12 @@
 # Logs
 Log.txt
 *.tlog
+
+# Addition
+/.vs/
+/Debug/
+/Release/
+/x64/
+/Hide/Debug/
+/Hide/Release/
+/Hide/x64/

@@ -4,6 +4,6 @@
 //‘æ‚R‚Ì¯iˆø—Í‚Ì‚ ‚é¯j
 //---------------------------------
 
-void GravityStar::Inhale()
+void GravityStar::update()
 {
 }

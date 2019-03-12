@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\main">
       <UniqueIdentifier>{29168e77-7234-4a27-8c21-a64c55cd0a04}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Base">
       <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
     </Filter>
@@ -46,23 +43,11 @@
     <Filter Include="ヘッダー ファイル\Map">
       <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Controller">
-      <UniqueIdentifier>{4c4eac01-93a1-48ab-a931-4b1c6b564a3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Controller">
-      <UniqueIdentifier>{2e076f1a-50ca-4347-b0ad-26e458d1d47c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\List">
       <UniqueIdentifier>{af458478-b2a3-4565-8a7c-21f71d02b4e0}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\List">
       <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Animater">
-      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Animater">
-      <UniqueIdentifier>{1a15e955-2752-4421-9151-5a0e65ab883c}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Effect">
       <UniqueIdentifier>{27785c7f-3521-4753-9f05-24a729abc29c}</UniqueIdentifier>
@@ -76,15 +61,33 @@
     <Filter Include="ヘッダー ファイル\Chara\Player">
       <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Rendering">
+      <UniqueIdentifier>{1a15e955-2752-4421-9151-5a0e65ab883c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Rendering">
+      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem">
+      <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem">
+      <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Camera">
+      <UniqueIdentifier>{435de237-89e4-45a2-b6ea-0d7e287f347d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Camera">
+      <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル\main</Filter>
     </ClCompile>
     <ClCompile Include="BasicObject.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Physical.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
     <ClCompile Include="BaseSwitch.cpp">
@@ -105,14 +108,8 @@
     <ClCompile Include="Map.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>ソース ファイル\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="BasicList.cpp">
       <Filter>ソース ファイル\List</Filter>
-    </ClCompile>
-    <ClCompile Include="Animater.cpp">
-      <Filter>ソース ファイル\Animater</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>ソース ファイル\Effect</Filter>
@@ -121,9 +118,6 @@
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
     <ClCompile Include="WalkingEnemy.cpp">
-      <Filter>ソース ファイル\Chara\Ememy</Filter>
-    </ClCompile>
-    <ClCompile Include="SlowingEnemy.cpp">
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
     <ClCompile Include="BulletEnemy.cpp">
@@ -138,12 +132,27 @@
     <ClCompile Include="Keyboard.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Physic.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering.cpp">
+      <Filter>ソース ファイル\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowingEnemy.cpp">
+      <Filter>ソース ファイル\Chara\Ememy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>ソース ファイル\Chara\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Physical.h">
       <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="BaseSwitch.h">
@@ -164,14 +173,8 @@
     <ClInclude Include="Map.h">
       <Filter>ヘッダー ファイル\Map</Filter>
     </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>ヘッダー ファイル\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="BasicList.h">
       <Filter>ヘッダー ファイル\List</Filter>
-    </ClInclude>
-    <ClInclude Include="Animater.h">
-      <Filter>ヘッダー ファイル\Animater</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>ヘッダー ファイル\Effect</Filter>
@@ -180,9 +183,6 @@
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="WalkingEnemy.h">
-      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="SlowingEnemy.h">
       <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="BulletEnemy.h">
@@ -196,6 +196,27 @@
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Physic.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering.h">
+      <Filter>ヘッダー ファイル\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowingEnemy.h">
+      <Filter>ヘッダー ファイル\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>ヘッダー ファイル\Chara\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

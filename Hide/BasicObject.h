@@ -8,19 +8,26 @@ class BasicObject {
 public:
 	//最低限の初期化
 	BasicObject() {
-		velocity = 0;
+		velocityX = 0;
+		velocityY = 0;
 		x = 0;
 		y = 0;
-		graph = 0;
+		height = 0;
+		width = 0;
 	}
 
 	//メソッド（関数）
-	void Draw();
-	void Init();
-	void Update();
+	virtual void update();
+	void get_point();
+
 protected:
-	//変数
-	float velocity;//移動量
-	float x, y;//座標(ポジション)
-	int graph;//画像へのパス
+	//座標
+	int x;
+	int y;
+	//幅・高さ
+	int height;
+	int width;
+	//移動量
+	float velocityX;
+	float velocityY;
 };

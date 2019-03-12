@@ -3,7 +3,8 @@
 
 class WalkingEnemy : public Enemy {
 public:
-	void Move();
+	void move();
+	void update();
 private:
 protected:
 };
