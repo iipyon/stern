@@ -150,6 +150,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>ソース ファイル\Chara\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="CoreTask.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -217,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>ヘッダー ファイル\Chara\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTask.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
