@@ -1,6 +1,6 @@
 #include "Player.h"
 #include"Point.h"
-#include"GameTaskSystem.h"
+#include"CoreTask.h"
 #include"Keyboard.h"
 
 //----------------------------------
@@ -26,11 +26,11 @@ void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
 	if (CheckHitKey(KEY_INPUT_Z)){
-		gts->normalstar->lead();//リストを先頭に戻す
+		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, gts->player->x, gts->player->get_angle());
-		gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
-		gts->normalstar->get()->update();
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->x, ct->gts->player->get_angle());
+		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
+		ct->gts->normalstar->get()->update();
 	}
 	
 }
@@ -110,7 +110,7 @@ void Player::check_foot()
 	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_bottomを呼ぶ?
-	if (gts->map->get_bottom(foot) != 0) {
+	if (ct->gts->map->get_bottom(foot) != 0) {
 		foot_status = true;
 	}
 	else {

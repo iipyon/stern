@@ -19,5 +19,3 @@ public:
 	std::shared_ptr<BasicList<NormalStar>> normalstar;
 };
 
-extern GameTaskSystem *gts;
-
