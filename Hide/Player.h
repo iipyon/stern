@@ -52,5 +52,5 @@ protected:
 	int interval;//星の発射間隔
 	bool foot_status;//設置しているか
 	bool knockback_status;//ノックバック中か
-	std::unique_ptr<StarManager> starmanager = std::make_unique<StarManager>();
+	std::unique_ptr<StarManager> starmanager;
 };

@@ -1,6 +1,7 @@
 #include "Player.h"
 #include"Point.h"
 #include"GameTaskSystem.h"
+#include"Keyboard.h"
 
 //----------------------------------
 //プレイヤー
@@ -8,7 +9,7 @@
 
 void Player::PlayerInterface::Draw(int st)
 {
-	
+
 }
 
 Player::StarManager::StarManager()
@@ -18,12 +19,20 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x, 20, 15, 15, 1.5, st, graph, FALSE);
+	DrawRotaGraph2(x, 0, 0, 0, 1, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
+	if (CheckHitKey(KEY_INPUT_Z)){
+		gts->normalstar->lead();//リストを先頭に戻す
+		//ノーマルスター
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, gts->player->x, gts->player->get_angle());
+		gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
+		gts->normalstar->get()->update();
+	}
+	
 }
 
 Player::Player()
@@ -37,7 +46,9 @@ Player::Player()
 	invincible = 0;
 	hp = 0;
 	interval = 0;
+	foot_status = false;
 	graph = LoadGraph("img/player.png");
+	starmanager = std::make_unique<StarManager>();
 }
 
 double Player::get_angle()
@@ -59,6 +70,7 @@ void Player::update()
 	starmanager->update(angle, x);
 	draw();
 
+	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", x);
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", y);
 }
@@ -75,6 +87,7 @@ void Player::draw_interface(int)
 void Player::move()
 {
 	//固定数値ではなくvelocityを入れる
+	//Keyboardに変更する
 	if (CheckHitKey(KEY_INPUT_RIGHT)) {
 		x += 2;
 	}
@@ -93,10 +106,11 @@ void Player::move()
 void Player::check_foot()
 {
 	//今の画像の大きさが30*30のため
-	Point foot{ x - 15,y + 15,30,1 };
+	Point foot{ x,y + 30,30,1 };
+	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_bottomを呼ぶ?
-	if (gts->map->get_bottom(foot)) {
+	if (gts->map->get_bottom(foot) != 0) {
 		foot_status = true;
 	}
 	else {
