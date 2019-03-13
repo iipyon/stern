@@ -17,12 +17,13 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
-	extern float exercise;
-	extern bool attack;
+	Physic::exercise();
+	Enemy::attack();
 }
 
-bool Enemy::damage(int)
+bool Enemy::damage(int d_)
 {
+	hp -= d_;
 	if (hp <= 0) {
 		return true;
 	}
