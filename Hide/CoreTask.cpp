@@ -4,7 +4,7 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	scene = title;//本当はタイトル
+	scene = Scene::title;//本当はタイトル
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
@@ -14,17 +14,17 @@ void CoreTask::update()
 {
 	keyboard->update();
 	switch (scene) {
-	case title:
+	case Scene::title:
 		tts->update();
 		break;
-	case stageselect:
+	case Scene::stageselect:
 		break;
-	case game:
+	case Scene::game:
 		gts->update();
 		break;
-	case gameover:
+	case Scene::gameover:
 		break;
-	case clear:
+	case Scene::clear:
 		break;
 	}
 }

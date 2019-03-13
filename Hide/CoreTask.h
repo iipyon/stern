@@ -4,7 +4,7 @@
 #include"TitleTaskSystem.h"
 #include"Keyboard.h"
 
-enum Scene {
+enum class Scene {
 	title,
 	stageselect,
 	game,

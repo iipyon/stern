@@ -10,14 +10,14 @@ TitleTaskSystem::TitleTaskSystem()
 
 void TitleTaskSystem::update()
 {
-	//シーン遷移
+	//	//キーボードで入力を撮ってステージセレクトに遷移
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
 		WaitTimer(600 * 3);
-		ct->scene = stageselect;
+		ct->scene = Scene::stageselect;
 	}
 	draw();
 	titlestar->update();
-	//キーボードで入力を撮ってステージセレクトに遷移
+
 	DrawString(50, 0, "現在タイトルタスクです", GetColor(255, 0, 0));
 }
 
