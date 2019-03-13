@@ -4,16 +4,17 @@
 #include"TitleTaskSystem.h"
 #include"Keyboard.h"
 
+enum Scene {
+	title,
+	stageselect,
+	game,
+	gameover,
+	clear
+};
+
 class CoreTask {
 private:
 public:
-	enum Scene {
-		title,
-		stageselect,
-		game,
-		gameover,
-		clear
-	};
 	Scene scene;//‚Ç‚ÌƒV[ƒ“‚©‚ç‚Å‚à•Ï‚¦‚ç‚ê‚é‚æ‚¤‚É
 
 	CoreTask();

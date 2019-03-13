@@ -13,7 +13,7 @@ void TitleTaskSystem::update()
 	//ƒV[ƒ“‘JˆÚ
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
 		WaitTimer(600 * 3);
-		ct->scene = ct->stageselect;
+		ct->scene = stageselect;
 	}
 	draw();
 	titlestar->update();
