@@ -14,7 +14,7 @@ public :
 	virtual void move();
 	bool attack();
 	void update();
-	void damage(int);
+	bool damage(int);
 protected:
 	//•Ï”
 	int hp;//c‚è‘Ì—Í

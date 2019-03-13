@@ -6,6 +6,8 @@
 
 void Enemy::move()
 {
+	velocityX;
+	velocityY;
 }
 
 bool Enemy::attack()
@@ -15,8 +17,14 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
+	extern float exercise;
+	extern bool attack;
 }
 
-void Enemy::damage(int)
+bool Enemy::damage(int)
 {
+	if (hp <= 0) {
+		return true;
+	}
+	return false;
 }
