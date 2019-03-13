@@ -152,6 +152,7 @@
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
+    <ClCompile Include="TitleTaskSystem.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
+    <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
