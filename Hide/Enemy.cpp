@@ -3,11 +3,15 @@
 //----------------------------------
 //“G‘S”Ê
 //----------------------------------
-
+Enemy::Enemy()
+{
+	hp = 0;
+	power = 0;
+	knock_back = 0;
+}
 void Enemy::move()
 {
-	velocityX;
-	velocityY;
+	
 }
 
 bool Enemy::attack()
@@ -17,8 +21,10 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
-	Physic::exercise();
-	Enemy::attack();
+	Enemy *Enmyupdate;
+	Enmyupdate = new Enemy();
+	Enmyupdate->exercise();
+	Enmyupdate->attack();
 }
 
 bool Enemy::damage(int d_)

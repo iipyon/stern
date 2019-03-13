@@ -11,10 +11,12 @@ public :
 	Enemy(int, int, int) {
 
 	}
+	Enemy();
 	virtual void move();
 	bool attack();
 	void update();
 	bool damage(int);
+
 protected:
 	//•Ï”
 	int hp;//c‚è‘Ì—Í
