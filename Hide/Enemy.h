@@ -8,7 +8,8 @@
 class Enemy :public Physic {
 public :
 	//メソッド
-	Enemy();
+	//コンストラクタ
+	Enemy(int life, int damage, int gravity);
 	virtual void move();
 	bool attack();
 	void update();

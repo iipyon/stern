@@ -2,9 +2,11 @@
 //----------------------------------
 //“G‘S”Ê
 //----------------------------------
-Enemy::Enemy()
+Enemy::Enemy(int life, int damage, int gravity)
 {
-
+	life = 0;
+	damage = 0;
+	gravity = 0;
 }
 void Enemy::move()
 {
