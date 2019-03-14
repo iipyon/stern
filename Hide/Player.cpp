@@ -18,18 +18,20 @@ void Player::PlayerInterface::draw()
 {
 	//écã@
 	DrawGraph(500, 0, lifegraph, FALSE);
-	DrawFormatString(540, 0, GetColor(255, 255, 255), " Å~ %d", ct->gts->player->life);
+	DrawFormatString(540, 0, GetColor(255, 255, 255), " Å~ %d",life);
 	//HP
 	for (int i = 0; i < 3; ++i) {
 		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
-		for (int j = 0; j < ct->gts->player->hp; ++j) {
+		for (int j = 0; j < hp; ++j) {
 			DrawGraph(40 * j, 0, hpgraph, TRUE);
 		}
 	}
 }
 
-void Player::PlayerInterface::update()
+void Player::PlayerInterface::update(int hp_,int life_)
 {
+	hp = hp_;
+	life = life_;
 	draw();
 }
 
@@ -90,7 +92,7 @@ void Player::update()
 	}
 	//---------------------------------------
 	starmanager->update(angle, x);
-	playerinterface->update();
+	playerinterface->update(hp,life);
 	draw();
 
 	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);

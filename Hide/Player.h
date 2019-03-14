@@ -26,8 +26,10 @@ public:
 		PlayerInterface();
 		//ƒƒ\ƒbƒh
 		void draw();
-		void update();
+		void update(int ,int);
 	private:
+		int hp;
+		int life;
 		int hpgraph;
 		int hpfreamgraph;
 		int lifegraph;
