@@ -23,12 +23,16 @@ public:
 	//プレイヤーインターフェイス
 	class PlayerInterface {
 	public:
-		PlayerInterface() {
-		}
+		PlayerInterface();
 		//メソッド
-		void Draw(int st);
+		void draw();
+		void update();
 	private:
+		int hp;
 		int life;
+		int hpgraph;
+		int hpfreamgraph;
+		int lifegraph;
 	};
 
 	//星を出すカーソル
@@ -53,4 +57,5 @@ protected:
 	bool foot_status;//設置しているか
 	bool knockback_status;//ノックバック中か
 	std::unique_ptr<StarManager> starmanager;
+	std::unique_ptr<PlayerInterface> playerinterface;
 };
