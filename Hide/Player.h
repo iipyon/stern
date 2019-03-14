@@ -28,8 +28,6 @@ public:
 		void draw();
 		void update();
 	private:
-		int hp;
-		int life;
 		int hpgraph;
 		int hpfreamgraph;
 		int lifegraph;
