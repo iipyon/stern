@@ -1,14 +1,10 @@
 #include "Enemy.h"
-
 //----------------------------------
 //“G‘S”Ê
 //----------------------------------
 Enemy::Enemy()
 {
-	hp = 0;
-	power = 0;
-	knock_back = 0;
-	Enmyupdate = new Enemy();
+
 }
 void Enemy::move()
 {
@@ -22,9 +18,8 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
-	
-	Enmyupdate->exercise();
-	Enmyupdate->attack();
+	this->exercise();
+	this->attack();
 }
 
 bool Enemy::damage(int d_)

@@ -9,8 +9,6 @@ class Enemy :public Physic {
 public :
 	//ƒƒ\ƒbƒh
 	Enemy();
-	Enemy *Enmyupdate;
-	
 	virtual void move();
 	bool attack();
 	void update();
