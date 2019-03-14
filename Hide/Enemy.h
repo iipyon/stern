@@ -7,9 +7,13 @@
 
 class Enemy :public Physic {
 public :
+	int life;
+	int damaged;
+	int gravity;
 	//メソッド
 	//コンストラクタ
-	Enemy(int life, int damage, int gravity);
+	Enemy();
+	Enemy(int E_life, int E_damage, int E_gravity);
 	virtual void move();
 	bool attack();
 	void update();
