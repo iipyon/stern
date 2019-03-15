@@ -1,6 +1,8 @@
 #include"Map.h"
 #include"DxLib.h"
 #include<fstream>
+//1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
+#define chipsize 30
 
 //----------------------------------
 //マップデータ
@@ -8,8 +10,7 @@
 
 Map::Map(char *mapfp)
 {
-	//1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
-	chipsize = 30;
+
 	mapsizex = 600;
 	mapsizey = 600;
 	//使う画像決定
