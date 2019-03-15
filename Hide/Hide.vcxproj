@@ -131,11 +131,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
-    <ClCompile Include="BasicList.cpp" />
     <ClCompile Include="BasicObject.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />

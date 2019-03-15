@@ -43,9 +43,6 @@
     <Filter Include="ヘッダー ファイル\Map">
       <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\List">
-      <UniqueIdentifier>{af458478-b2a3-4565-8a7c-21f71d02b4e0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\List">
       <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
     </Filter>
@@ -108,9 +105,6 @@
     <ClCompile Include="Map.cpp">
       <Filter>ソース ファイル\Map</Filter>
     </ClCompile>
-    <ClCompile Include="BasicList.cpp">
-      <Filter>ソース ファイル\List</Filter>
-    </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>ソース ファイル\Effect</Filter>
     </ClCompile>
@@ -154,6 +148,9 @@
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
     <ClCompile Include="TitleTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -228,6 +225,9 @@
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="TitleTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>

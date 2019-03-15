@@ -8,6 +8,7 @@ CoreTask::CoreTask()
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
+	cts = std::make_unique<ClearTaskSystem>();
 }
 
 void CoreTask::update()
