@@ -4,7 +4,7 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	scene = Scene::title;//本当はタイトル
+	scene = Scene::game;//本当はタイトル
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();

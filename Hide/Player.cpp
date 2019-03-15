@@ -7,9 +7,32 @@
 //プレイヤー
 //----------------------------------
 
-void Player::PlayerInterface::Draw(int st)
+Player::PlayerInterface::PlayerInterface()
 {
+	hpgraph = LoadGraph("img/hp.png");
+	hpfreamgraph = LoadGraph("img/hpfream.png");
+	lifegraph = LoadGraph("img/life.png");
+}
 
+void Player::PlayerInterface::draw()
+{
+	//残機
+	DrawGraph(500, 0, lifegraph, FALSE);
+	DrawFormatString(540, 0, GetColor(255, 255, 255), " × %d",life);
+	//HP
+	for (int i = 0; i < 3; ++i) {
+		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
+		for (int j = 0; j < hp; ++j) {
+			DrawGraph(40 * j, 0, hpgraph, TRUE);
+		}
+	}
+}
+
+void Player::PlayerInterface::update(int hp_,int life_)
+{
+	hp = hp_;
+	life = life_;
+	draw();
 }
 
 Player::StarManager::StarManager()
@@ -25,14 +48,14 @@ void Player::StarManager::draw(double st, int x)
 void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
-	if (CheckHitKey(KEY_INPUT_Z)){
+	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
 		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
 		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->x, ct->gts->player->get_angle());
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 		ct->gts->normalstar->get()->update();
 	}
-	
+
 }
 
 Player::Player()
@@ -44,11 +67,12 @@ Player::Player()
 	life = 0;
 	angle = 0;
 	invincible = 0;
-	hp = 0;
+	hp = 2;
 	interval = 0;
 	foot_status = false;
 	graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
+	playerinterface = std::make_unique<PlayerInterface>();
 }
 
 double Player::get_angle()
@@ -60,14 +84,15 @@ void Player::update()
 {
 	//仮の移動とカーソル角度調整-------------
 	move();
-	if (CheckHitKey(KEY_INPUT_Q)) {
+	if (ct->keyboard->key_press(KEY_INPUT_Q)) {
 		angle += 0.05;
 	}
-	if (CheckHitKey(KEY_INPUT_E)) {
+	if (ct->keyboard->key_press(KEY_INPUT_E)) {
 		angle -= 0.05;
 	}
 	//---------------------------------------
 	starmanager->update(angle, x);
+	playerinterface->update(hp,life);
 	draw();
 
 	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
@@ -88,16 +113,16 @@ void Player::move()
 {
 	//固定数値ではなくvelocityを入れる
 	//Keyboardに変更する
-	if (CheckHitKey(KEY_INPUT_RIGHT)) {
+	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
 		x += 2;
 	}
-	if (CheckHitKey(KEY_INPUT_LEFT)) {
+	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
 		x -= 2;
 	}
-	if (CheckHitKey(KEY_INPUT_UP)) {
+	if (ct->keyboard->key_press(KEY_INPUT_UP)) {
 		y -= 2;
 	}
-	if (CheckHitKey(KEY_INPUT_DOWN)) {
+	if (ct->keyboard->key_press(KEY_INPUT_DOWN)) {
 		y += 2;
 	}
 	check_foot();
