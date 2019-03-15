@@ -136,7 +136,6 @@
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
-    <ClCompile Include="BasicList.cpp" />
     <ClCompile Include="BasicObject.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
