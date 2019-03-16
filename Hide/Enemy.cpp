@@ -14,10 +14,6 @@ Enemy::Enemy(int E_life, int E_damaged, int E_gravity)
 	damaged = E_damaged;
 	gravity = E_gravity;
 }
-void Enemy::move()
-{
-	
-}
 
 bool Enemy::attack()
 {

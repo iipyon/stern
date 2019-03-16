@@ -15,7 +15,10 @@ public :
 	//コンストラクタ
 	Enemy();
 	Enemy(int E_life, int E_damaged, int E_gravity);
-	virtual void move();
+	//仮想関数
+	virtual void move() {
+
+	}
 	bool attack();
 	void update();
 	bool damage(int);
