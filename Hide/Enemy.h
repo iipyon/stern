@@ -6,10 +6,11 @@
 //----------------------------------
 
 class Enemy :public Physic {
-public :
+	//メンバー関数
 	int life;
 	int damaged;
 	int gravity;
+public :
 	//メソッド
 	//コンストラクタ
 	Enemy();
