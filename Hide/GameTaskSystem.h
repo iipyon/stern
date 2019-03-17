@@ -15,7 +15,7 @@ public:
 	void update();
 	//~GameTaskSystem();
 	std::unique_ptr<Player> player = std::make_unique<Player>();
-	std::unique_ptr<Map> map = std::make_unique<Map>((char*)("img/data.txt"));
+	std::unique_ptr<Map> map = std::make_unique<Map>();
 	std::shared_ptr<BasicList<NormalStar>> normalstar;
 };
 

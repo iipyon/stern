@@ -8,13 +8,17 @@
 //マップデータ
 //----------------------------------
 
-Map::Map(char *mapfp)
+Map::Map()
 {
-
+	//可変
 	mapsizex = 600;
 	mapsizey = 600;
+}
+
+void Map::init(char* mapfp, char* chipfp)
+{
 	//使う画像決定
-	graph = LoadGraph("img/chip.png");
+	graph = LoadGraph(chipfp);
 	//ファイル読み込み
 	std::ifstream mapdata(mapfp);
 	if (!mapdata) { return; }
