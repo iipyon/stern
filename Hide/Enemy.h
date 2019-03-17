@@ -6,15 +6,23 @@
 //----------------------------------
 
 class Enemy :public Physic {
+	//メンバー関数
+	int life;
+	int damaged;
+	int gravity;
 public :
 	//メソッド
-	Enemy(int, int, int) {
+	//コンストラクタ
+	Enemy();
+	Enemy(int E_life, int E_damaged, int E_gravity);
+	//仮想関数
+	virtual void move() {
 
 	}
-	virtual void move();
 	bool attack();
 	void update();
-	void damage(int);
+	bool damage(int);
+
 protected:
 	//変数
 	int hp;//残り体力
