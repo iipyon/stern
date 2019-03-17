@@ -150,6 +150,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleTaskSystem.h" />

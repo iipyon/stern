@@ -4,9 +4,10 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	scene = Scene::game;//本当はタイトル
+	scene = Scene::title;//本当はタイトル
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
+	ssts = std::make_unique<StageSelectTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
 }
@@ -19,6 +20,7 @@ void CoreTask::update()
 		tts->update();
 		break;
 	case Scene::stageselect:
+		ssts->update();
 		break;
 	case Scene::game:
 		gts->update();

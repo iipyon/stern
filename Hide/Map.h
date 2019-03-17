@@ -7,8 +7,8 @@
 
 class Map {
 public:
-	
-	Map(char*);
+	Map();
+	void init(char*, char*);
 	void draw();
 	void update();
 	int get_left(Point);

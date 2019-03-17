@@ -2,6 +2,7 @@
 #include<memory>
 #include"GameTaskSystem.h"
 #include"TitleTaskSystem.h"
+#include"StageSelectTaskSystem.h"
 #include"Keyboard.h"
 #include "ClearTaskSystem.h"
 
@@ -22,6 +23,7 @@ public:
 	void update();
 	std::unique_ptr<GameTaskSystem> gts;
 	std::unique_ptr<TitleTaskSystem> tts;
+	std::unique_ptr<StageSelectTaskSystem> ssts;
 	std::unique_ptr<Keyboard> keyboard;
 	std::unique_ptr<ClearTaskSystem> cts;
 };
