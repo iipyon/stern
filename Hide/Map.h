@@ -21,4 +21,5 @@ private:
 	int graph;//ŠG
 	int mapsizex;
 	int mapsizey;
+
 };
