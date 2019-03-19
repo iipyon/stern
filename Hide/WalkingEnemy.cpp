@@ -2,16 +2,16 @@
 
 void WalkingEnemy::move()
 {
-	switch(WakingState())
+	switch(wakingstate)
 	{
-	case walk:
-		velocityX += 1;
+	case WakingState::walk:
+		velocityX = 1;
 		break;
-	case stay:
-		velocityX += 0;
+	case WakingState::stay:
+		velocityX = 0;
 		break;
-	case run:
-		velocityX += 2;
+	case WakingState::run:
+		velocityX = 2;
 		break;
 	}
 }

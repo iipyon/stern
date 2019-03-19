@@ -9,6 +9,7 @@ class WalkingEnemy : public Enemy {
 		run,
 	};
 public:
+	WakingState wakingstate;
 	void move();
 	void update();
 private:

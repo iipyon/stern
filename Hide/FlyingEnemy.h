@@ -14,6 +14,7 @@ class FlyingEnemy : public Enemy{
 public:
 	//NormalEnemy* list;//リスト構造のため一応記述
 	//メソッド
+	FlyingState flayingstate;
 	void move();
 	void update();
 protected:
