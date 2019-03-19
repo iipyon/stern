@@ -51,7 +51,7 @@ void Player::StarManager::update(double ang, int x_)
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
 		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->x, ct->gts->player->get_angle());
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->point.x, ct->gts->player->get_angle());
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 		ct->gts->normalstar->get()->update();
 	}
@@ -60,10 +60,10 @@ void Player::StarManager::update(double ang, int x_)
 
 Player::Player()
 {
-	x = 200;
-	y = 200;
-	height = 30;
-	width = 30;
+	point.x = 200;
+	point.y = 200;
+	point.h = 30;
+	point.w = 30;
 	life = 0;
 	angle = 0;
 	invincible = 0;
@@ -91,13 +91,13 @@ void Player::update()
 		angle -= 0.05;
 	}
 	//---------------------------------------
-	starmanager->update(angle, x);
+	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
 	draw();
 
 	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
-	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", x);
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", y);
+	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);
+	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);
 }
 
 bool Player::damage(void)
@@ -114,16 +114,16 @@ void Player::move()
 	//固定数値ではなくvelocityを入れる
 	//Keyboardに変更する
 	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		x += 2;
+		point.x += 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		x -= 2;
+		point.x -= 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_UP)) {
-		y -= 2;
+		point.y -= 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_DOWN)) {
-		y += 2;
+		point.y += 2;
 	}
 	check_foot();
 }
@@ -131,7 +131,7 @@ void Player::move()
 void Player::check_foot()
 {
 	//今の画像の大きさが30*30のため
-	Point foot{ x,y + 30,30,1 };
+	Point foot{ point.x,point.y + 30,30,1 };
 	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_bottomを呼ぶ?
