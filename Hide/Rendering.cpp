@@ -8,5 +8,5 @@ bool Rendering::switch_anime()
 
 void Rendering::draw()
 {
-	DrawGraph(x, y, graph, 1);
+	DrawGraph(point.x, point.y, graph, 1);
 }
