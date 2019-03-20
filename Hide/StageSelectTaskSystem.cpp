@@ -5,6 +5,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 {
 	mass = std::make_unique<StageSelectTaskMass>();
 	chara = std::make_unique<StageSelectChara>();
+	txtbox = std::make_unique<StageSelectTextBox>();
+
 	stage = 1;
 	for (int i = 0; i < sizeof(state); ++i) {
 		state[i] = false;
@@ -30,8 +32,6 @@ void StageSelectTaskSystem::update()
 		case 4:
 			ct->gts->map->init((char*)"", (char*)"");
 			break;
-		default:
-			break;
 		}
 		ct->scene = Scene::game;//ゲームシーンに遷移
 	}
@@ -40,6 +40,7 @@ void StageSelectTaskSystem::update()
 		mass->update();
 	}
 	chara->update(stage);
+	txtbox->update(stage);
 	DrawFormatString(0, 0, GetColor(0, 255, 0), "現在ステージ %d を選択中", stage);
 }
 

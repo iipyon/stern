@@ -168,6 +168,9 @@
     <ClCompile Include="StageSelectTaskMass.cpp">
       <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
     </ClCompile>
+    <ClCompile Include="StageselectTaskTextBox.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -252,6 +255,9 @@
       <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectTaskMass.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectTaskTextBox.h">
       <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include<memory>
 #include"StageselectChara.h"
 #include"StageSelectTaskMass.h"
+#include"StageselectTaskTextBox.h"
 #include"Point.h"
 
 class StageSelectTaskSystem {
@@ -18,4 +19,5 @@ public:
 	
 	std::unique_ptr<StageSelectTaskMass> mass;
 	std::unique_ptr<StageSelectChara> chara;
+	std::unique_ptr<StageSelectTextBox> txtbox;
 };
