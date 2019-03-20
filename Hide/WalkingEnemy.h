@@ -2,14 +2,14 @@
 #include"Enemy.h"
 
 class WalkingEnemy : public Enemy {
-	enum WakingState
+	enum class WalkingState
 	{
 		walk,
 		stay,
 		run,
 	};
+	WalkingState wakingstate;
 public:
-	WakingState wakingstate;
 	void move();
 	void update();
 private:

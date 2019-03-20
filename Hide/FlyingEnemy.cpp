@@ -6,12 +6,12 @@
 
 void FlyingEnemy::move()
 {
-	switch(flayingstate)
+	switch(flyingstate)
 	{
-	case FlyingEnemy::fly:
+	case FlyingState::fly:
 		velocityY = 1;
 		break;
-	case FlyingEnemy::stay:
+	case FlyingState::stay:
 		velocityY = 0;
 		break;
 	}

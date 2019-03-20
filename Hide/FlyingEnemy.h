@@ -6,15 +6,15 @@
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
-	enum FlyingState
+	enum class FlyingState
 	{
 		fly,
 		stay,
 	};
+	FlyingState flyingstate;
 public:
 	//NormalEnemy* list;//リスト構造のため一応記述
 	//メソッド
-	FlyingState flayingstate;
 	void move();
 	void update();
 protected:
