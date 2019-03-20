@@ -156,6 +156,9 @@
     <ClCompile Include="StageSelectTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicResource.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -234,6 +237,9 @@
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicResource.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>
