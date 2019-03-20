@@ -52,9 +52,6 @@
     <Filter Include="ヘッダー ファイル\Effect">
       <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Chara\Player">
-      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Chara\Player">
       <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,15 @@
     </Filter>
     <Filter Include="ソース ファイル\Base">
       <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Player">
+      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem\StageSelect">
+      <UniqueIdentifier>{50b42b3b-6a90-46a3-a60d-8b486af1c3d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem\StageSelectTask">
+      <UniqueIdentifier>{17a6a756-f80a-46ed-8ebb-bc33b9552788}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -153,8 +159,14 @@
     <ClCompile Include="ClearTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="StageselectChara.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
     <ClCompile Include="StageSelectTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectTaskMass.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +246,13 @@
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectChara.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectTaskMass.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

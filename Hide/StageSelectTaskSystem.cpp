@@ -3,6 +3,8 @@
 
 StageSelectTaskSystem::StageSelectTaskSystem()
 {
+	mass = std::make_unique<StageSelectTaskMass>();
+	chara = std::make_unique<StageSelectChara>();
 	stage = 1;
 	for (int i = 0; i < sizeof(state); ++i) {
 		state[i] = false;
@@ -12,8 +14,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-	
-	if(ct->keyboard->key_down(KEY_INPUT_Z)){
+
+	if (ct->keyboard->key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
 		switch (stage)
 		{
 		case 1:
@@ -34,6 +36,10 @@ void StageSelectTaskSystem::update()
 		ct->scene = Scene::game;//ゲームシーンに遷移
 	}
 	draw();
+	for (int i = 0; i < sizeof(mass); ++i) {
+		mass->update();
+	}
+	chara->update(stage);
 	DrawFormatString(0, 0, GetColor(0, 255, 0), "現在ステージ %d を選択中", stage);
 }
 

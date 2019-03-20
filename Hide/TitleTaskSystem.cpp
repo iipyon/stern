@@ -12,12 +12,11 @@ void TitleTaskSystem::update()
 {
 	//	//キーボードで入力を撮ってステージセレクトに遷移
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
-		WaitTimer(600 * 3);
+		//WaitTimer(600 * 3);
 		ct->scene = Scene::stageselect;
 	}
 	draw();
 	titlestar->update();
-
 	DrawString(50, 0, "現在タイトルタスクです", GetColor(255, 0, 0));
 }
 

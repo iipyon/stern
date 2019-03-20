@@ -150,6 +150,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="StageselectChara.cpp" />
+    <ClCompile Include="StageSelectTaskMass.cpp" />
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
@@ -158,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="StageSelectTaskMass.h" />
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
