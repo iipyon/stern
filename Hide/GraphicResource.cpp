@@ -5,18 +5,18 @@
 //インストラクタ
 GraphicResource::GraphicResource()
 {
-	handle = 0;
-}
-GraphicResource::GraphicResource(int** G_hundle)
-{
-	handle = G_hundle;
+	*handle = new int[256];
 }
 //デストラクタ
 GraphicResource::~GraphicResource()
 {
-	DeleteGraph(**handle);
+	for (int c = 0; c < 256; ++c)
+	{
+		DeleteGraph(*handle[c]);
+	}
 }
-bool GraphicResource::load(char* FileName, int XNum, int YNum, int XSize, int YSize)
+bool GraphicResource::load(char* FileName, int AllNum, int XNum, int YNum, 
+						   int XSize, int YSize, int **G_handle)
 {
 	//ファイル読み込み
 	std::ifstream Graphic_R(FileName);
@@ -25,17 +25,17 @@ bool GraphicResource::load(char* FileName, int XNum, int YNum, int XSize, int YS
 	switch (graphicstate)
 	{
 	case GraphicState::player_stay_right:
-
-		//分割総数は手入力(10のところ) 
-		LoadDivGraph(FileName, 10, XNum, YNum, XSize, YSize, *handle);
+		*handle = *G_handle;
 		break;
-
 	case GraphicState::player_stay_left:
-		LoadDivGraph(FileName, 10, XNum, YNum, XSize, YSize, *handle);
+		*handle = *G_handle;
 		break;
 	}
-	//
+	LoadDivGraph(FileName, AllNum, XNum, YNum, XSize, YSize, *handle);
+
+	//ファイルを閉じる
 	Graphic_R.close();
+
 	return true;
 }
 

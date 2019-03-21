@@ -1,20 +1,22 @@
 #pragma once
 class GraphicResource
 {
-	//ハンドル 
-	int** handle;
+
+public:
 	//状態
 	enum class GraphicState {
 		player_stay_right, player_stay_left,
 	};
-	GraphicState graphicstate;
-public:
 	//インストラクタ
 	GraphicResource();
-	GraphicResource(int** G_handle);
 	//デストラクタ
 	~GraphicResource();
-	bool load(char* FileName, int XNum, int YNum, int XSize, int YSize);
+	bool load(char* FileName, int AllNum,int XNum, int YNum,
+		      int XSize, int YSize, int** G_handl);
 	int get(int);
+private:
+	GraphicState graphicstate;
+	//ハンドル 
+	int** handle;
 protected:
 };
