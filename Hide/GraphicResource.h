@@ -1,6 +1,15 @@
 ﻿#pragma once
+#include <iostream>
+#include <memory>
 #include "GraphicState.h"
 #define HANDLE_MAX 10	//10種類のアニメーション画像
+
+struct GraphicObject {
+	std::string name;
+	int* handle;
+	int max;
+};
+
 class GraphicResource
 {
 public:
@@ -11,7 +20,5 @@ public:
 		      int XSize, int YSize, int** G_handl);
 	int get(int);
 private:
-	GraphicState graphicstate;
-	//ハンドル 
-	int handle[HANDLE_MAX];
+	std::unique_ptr<GraphicObject[]> graph;
 };

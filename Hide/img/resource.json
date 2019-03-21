@@ -1,12 +1,16 @@
 {
   "graph": [
     {
+      "name" :  "player",
       "path": "/hoge",
-      "slide": 10
+      "width": 32,
+      "height": 32,
+      "line": 1,
+      "column": 4
     },
     {
       "path": "/foo",
-      "slide": 20
+      "line": 20
     }
   ]
 }

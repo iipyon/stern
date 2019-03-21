@@ -16,14 +16,32 @@ GraphicResource::GraphicResource()
 	}
 	std::istreambuf_iterator<char> it(ifs);
 	std::istreambuf_iterator<char> last;
-	std::string json_str(it, last);
-	std::string err, path;
-	int slide;
+	std::string json_str(it, last);		//string形式のjson
+	std::string err;
 	auto json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
 	auto foo = json["graph"];
+	int count_of_graph = 0;
 	for (auto &item : json["graph"].array_items()) {
-		path = item["path"].string_value();
-		slide = item["slide"].number_value();
+		//画像の枚数を数える
+		count_of_graph++;
+	}
+	graph = std::make_unique<GraphicObject[]>(count_of_graph);	//画像の枚数分の領域を確保する
+	int i = 0;
+	for (auto &item : json["graph"].array_items()) {
+		LoadDivGraph(
+			item["path"].string_value().c_str(),
+			item["column"].int_value() * item["line"].int_value(),
+			item["column"].int_value(),
+			item["line"].int_value(), 
+			item["width"].int_value(), 
+			item["height"].int_value(),
+			graph[i].handle
+		);
+		graph[i].name = item["name"].string_value();
+			item["path"].string_value();
+		graph[i].max = item["max"].number_value();
+//		slide = item["max"].number_value();
+		i++;
 	}
 
 
