@@ -6,17 +6,18 @@
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
+	
+	
+	//NormalEnemy* list;//リスト構造のため一応記述
+	//メソッド
 	enum class FlyingState
 	{
 		fly,
 		stay,
 	};
-	FlyingState flyingstate;
-public:
-	//NormalEnemy* list;//リスト構造のため一応記述
-	//メソッド
 	void move();
 	void update();
+private:
+	FlyingState flyingstate;
 protected:
-
 };
