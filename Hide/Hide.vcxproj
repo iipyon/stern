@@ -134,6 +134,8 @@
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
+    <ClCompile Include="GraphicResource.cpp" />
+    <ClCompile Include="json11.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
     <ClCompile Include="BasicObject.cpp" />
@@ -161,6 +163,9 @@
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
+    <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="GraphicState.h" />
+    <ClInclude Include="json11.hpp" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="BaseSwitch.h" />
     <ClInclude Include="BasicList.h" />

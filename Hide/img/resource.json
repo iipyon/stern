@@ -1,0 +1,12 @@
+{
+  "graph": [
+    {
+      "path": "/hoge",
+      "slide": 10
+    },
+    {
+      "path": "/foo",
+      "slide": 20
+    }
+  ]
+}

@@ -5,6 +5,7 @@
 #include"StageSelectTaskSystem.h"
 #include"Keyboard.h"
 #include "ClearTaskSystem.h"
+#include "GraphicResource.h"
 
 enum class Scene {
 	title,
@@ -26,6 +27,7 @@ public:
 	std::unique_ptr<StageSelectTaskSystem> ssts;
 	std::unique_ptr<Keyboard> keyboard;
 	std::unique_ptr<ClearTaskSystem> cts;
+	std::unique_ptr<GraphicResource> graph;
 };
 
 extern CoreTask *ct;

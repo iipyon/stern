@@ -1,39 +1,66 @@
-#include"GraphicResource.h" 
+ï»¿#include"GraphicResource.h" 
 #include"DxLib.h" 
-#include<fstream> 
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <iterator>
+#include "json11.hpp"
 
-//ƒCƒ“ƒXƒgƒ‰ƒNƒ^
+//ã‚¤ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 GraphicResource::GraphicResource()
 {
-	*handle = new int[256];
+	std::ifstream ifs("img/resource.json");
+	if (ifs.fail())
+	{
+		throw "resource.json is not found.";	//ãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã‚ãªã„ã¨ä¾‹å¤–ã‚’è¿”ã™
+	}
+	std::istreambuf_iterator<char> it(ifs);
+	std::istreambuf_iterator<char> last;
+	std::string json_str(it, last);
+	std::string err, path;
+	int slide;
+	auto json = json11::Json::parse(json_str,err);	//json11ã§åˆ©ç”¨ã§ãã‚‹å½¢å¼ã«å¤‰æ›
+	auto foo = json["graph"];
+	for (auto &item : json["graph"].array_items()) {
+		path = item["path"].string_value();
+		slide = item["slide"].number_value();
+	}
+
+
+	//std::string obj = json5[0]["string"].string_value();
+	//*handle = new int[256];
+	json11::Json json2 = json11::Json::array{
+		json11::Json::object { { "k", "v" } }
+	};
+	std::string str2 = json2[0]["k"].string_value();
 }
-//ƒfƒXƒgƒ‰ƒNƒ^
+//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 GraphicResource::~GraphicResource()
 {
 	for (int c = 0; c < 256; ++c)
 	{
-		DeleteGraph(*handle[c]);
+		//DeleteGraph(*handle[c]);
 	}
 }
 bool GraphicResource::load(char* FileName, int AllNum, int XNum, int YNum, 
 						   int XSize, int YSize, int **G_handle)
 {
-	//ƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+	//ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	std::ifstream Graphic_R(FileName);
-	//“Ç‚İ‚İ¸”s‚µ‚½‚ç•Ô‚·
+	//èª­ã¿è¾¼ã¿å¤±æ•—ã—ãŸã‚‰è¿”ã™
 	if (!Graphic_R) { return false; }
 	switch (graphicstate)
 	{
 	case GraphicState::player_stay_right:
-		*handle = *G_handle;
+		//*handle = *G_handle;
 		break;
 	case GraphicState::player_stay_left:
-		*handle = *G_handle;
+		//*handle = *G_handle;
 		break;
 	}
-	LoadDivGraph(FileName, AllNum, XNum, YNum, XSize, YSize, *handle);
+	//LoadDivGraph(FileName, AllNum, XNum, YNum, XSize, YSize, *handle);
 
-	//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 	Graphic_R.close();
 
 	return true;
@@ -41,6 +68,7 @@ bool GraphicResource::load(char* FileName, int AllNum, int XNum, int YNum,
 
 int GraphicResource::get(int kg_)
 {
-	//ƒnƒ“ƒhƒ‹‚ğ•Ô‚·
-	return *handle[kg_];
+	//ãƒãƒ³ãƒ‰ãƒ«ã‚’è¿”ã™
+	//return *handle[kg_];
+	return 0;
 }

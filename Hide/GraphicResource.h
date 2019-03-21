@@ -1,22 +1,17 @@
-#pragma once
+ï»¿#pragma once
+#include "GraphicState.h"
+#define HANDLE_MAX 10	//10ç¨®é¡ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”»åƒ
 class GraphicResource
 {
-
 public:
-	//ó‘Ô
-	enum class GraphicState {
-		player_stay_right, player_stay_left,
-	};
-	//ƒCƒ“ƒXƒgƒ‰ƒNƒ^
+
 	GraphicResource();
-	//ƒfƒXƒgƒ‰ƒNƒ^
 	~GraphicResource();
 	bool load(char* FileName, int AllNum,int XNum, int YNum,
 		      int XSize, int YSize, int** G_handl);
 	int get(int);
 private:
 	GraphicState graphicstate;
-	//ƒnƒ“ƒhƒ‹ 
-	int** handle;
-protected:
+	//ãƒãƒ³ãƒ‰ãƒ« 
+	int handle[HANDLE_MAX];
 };

@@ -10,6 +10,7 @@ CoreTask::CoreTask()
 	ssts = std::make_unique<StageSelectTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
+	graph = std::make_unique<GraphicResource>();
 }
 
 void CoreTask::update()
