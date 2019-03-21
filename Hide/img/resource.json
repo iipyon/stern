@@ -1,4 +1,4 @@
-{
+﻿{
   "graph": [
     {
       "name" :  "player",
@@ -10,13 +10,13 @@
       "scope": "all"
     },
     {
-      "name": "�v���O���������ʎq",
-      "path": "�摜�p�X",
-      "width": "1�}�X�̉���(px)",
-      "height": "1�}�X�̏c��(px)",
-      "line": "�摜�̍s��",
-      "column": "�摜�̗�",
-      "scope": "�ǂݍ��ݎ��͈̔�(�������̋@�\)"
+      "name": "プログラム内識別子",
+      "path": "画像パス",
+      "width": "1マスの横幅(px)",
+      "height": "1マスの縦幅(px)",
+      "line": "画像の行数",
+      "column": "画像の列数",
+      "scope": "読み込み時の範囲(未実装の機能)"
     }
   ]
 }
