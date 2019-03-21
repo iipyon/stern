@@ -28,6 +28,7 @@ GraphicResource::GraphicResource()
 	graph = std::make_unique<GraphicObject[]>(count_of_graph);	//画像の枚数分の領域を確保する
 	int i = 0;
 	for (auto &item : json["graph"].array_items()) {
+		graph[i].handle = new int[count_of_graph];	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
 		LoadDivGraph(
 			item["path"].string_value().c_str(),
 			item["column"].int_value() * item["line"].int_value(),
@@ -36,9 +37,8 @@ GraphicResource::GraphicResource()
 			item["width"].int_value(), 
 			item["height"].int_value(),
 			graph[i].handle
-		);
-		graph[i].name = item["name"].string_value();
-			item["path"].string_value();
+		);		//JSONに書かれた情報をLoadDivGraphから読み込む
+		graph[i].name = item["name"].string_value();	//JSONで指定された"name"はget()の引数に文字列として指定が可能
 		graph[i].max = item["line"].int_value()*item["column"].int_value();
 //		slide = item["max"].number_value();
 		i++;
@@ -47,9 +47,8 @@ GraphicResource::GraphicResource()
 //デストラクタ
 GraphicResource::~GraphicResource()
 {
-	for (int c = 0; c < 256; ++c)
-	{
-		//DeleteGraph(*handle[c]);
+	for (int i = 0; i < count_of_graph; i++) {
+		delete graph[i].handle;	//画像は消さずにハンドル領域を削除する
 	}
 }
 bool GraphicResource::load(std::string name)
