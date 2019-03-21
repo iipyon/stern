@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include"BasicObject.h"
 
-//ƒLƒƒƒ‰ƒNƒ^[
+//ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼
 class StageSelectChara : public BasicObject {
 private:
 	int graph;

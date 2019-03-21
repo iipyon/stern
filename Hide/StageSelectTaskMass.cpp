@@ -1,9 +1,9 @@
-#include "StageSelectTaskMass.h"
+ï»¿#include "StageSelectTaskMass.h"
 #include"DxLib.h"
 
 StageSelectTaskMass::StageSelectTaskMass()
 {
-	//153‚¸‚Â 153 -30  123
+	//153ãšã¤ 153 -30  123
 	// 30   183   336
 	x = 30;
 	y = 100;
@@ -17,7 +17,7 @@ void StageSelectTaskMass::update()
 
 void StageSelectTaskMass::draw()
 {
-	//4ƒ}ƒX•`‰æ
+	//4ãƒã‚¹æç”»
 	for (int i = 0; i < 4; ++i) {
 		DrawGraph(153 * i + x , y, graph, TRUE);
 	}
