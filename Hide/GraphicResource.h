@@ -16,9 +16,10 @@ public:
 
 	GraphicResource();
 	~GraphicResource();
-	bool load(char* FileName, int AllNum,int XNum, int YNum,
-		      int XSize, int YSize, int** G_handl);
-	int get(int);
+	bool load(std::string);
+	GraphicObject get(std::string);
 private:
+	int count_of_graph;	//画像枚数
+	int get_index(std::string);
 	std::unique_ptr<GraphicObject[]> graph;
 };

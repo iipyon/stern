@@ -39,18 +39,10 @@ GraphicResource::GraphicResource()
 		);
 		graph[i].name = item["name"].string_value();
 			item["path"].string_value();
-		graph[i].max = item["max"].number_value();
+		graph[i].max = item["line"].int_value()*item["column"].int_value();
 //		slide = item["max"].number_value();
 		i++;
 	}
-
-
-	//std::string obj = json5[0]["string"].string_value();
-	//*handle = new int[256];
-	json11::Json json2 = json11::Json::array{
-		json11::Json::object { { "k", "v" } }
-	};
-	std::string str2 = json2[0]["k"].string_value();
 }
 //デストラクタ
 GraphicResource::~GraphicResource()
@@ -60,33 +52,19 @@ GraphicResource::~GraphicResource()
 		//DeleteGraph(*handle[c]);
 	}
 }
-bool GraphicResource::load(char* FileName, int AllNum, int XNum, int YNum, 
-						   int XSize, int YSize, int **G_handle)
+bool GraphicResource::load(std::string name)
 {
-	//ファイル読み込み
-	std::ifstream Graphic_R(FileName);
-	//読み込み失敗したら返す
-	if (!Graphic_R) { return false; }
-	switch (graphicstate)
-	{
-	case GraphicState::player_stay_right:
-		//*handle = *G_handle;
-		break;
-	case GraphicState::player_stay_left:
-		//*handle = *G_handle;
-		break;
-	}
-	//LoadDivGraph(FileName, AllNum, XNum, YNum, XSize, YSize, *handle);
-
-	//ファイルを閉じる
-	Graphic_R.close();
-
 	return true;
 }
 
-int GraphicResource::get(int kg_)
+GraphicObject GraphicResource::get(std::string name)
 {
-	//ハンドルを返す
-	//return *handle[kg_];
-	return 0;
+	return graph[get_index(name)];
+}
+
+int GraphicResource::get_index(std::string name)
+{
+	for (int i = 0; i < count_of_graph; i++) {
+		if (graph[i].name == name) return i;
+	}
 }
