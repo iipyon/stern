@@ -66,4 +66,5 @@ int GraphicResource::get_index(std::string name)
 	for (int i = 0; i < count_of_graph; i++) {
 		if (graph[i].name == name) return i;
 	}
+	return -1;
 }

@@ -2,7 +2,6 @@
 #include <iostream>
 #include <memory>
 #include "GraphicState.h"
-#define HANDLE_MAX 10	//10種類のアニメーション画像
 
 struct GraphicObject {
 	std::string name;
