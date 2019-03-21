@@ -133,6 +133,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
+    <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />

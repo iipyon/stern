@@ -171,6 +171,9 @@
     <ClCompile Include="StageselectTaskTextBox.cpp">
       <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -259,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="StageselectTaskTextBox.h">
       <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
