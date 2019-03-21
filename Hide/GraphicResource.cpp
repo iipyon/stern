@@ -51,8 +51,11 @@ GraphicResource::~GraphicResource()
 		delete graph[i].handle;	//画像は消さずにハンドル領域を削除する
 	}
 }
-bool GraphicResource::load(std::string name)
+bool GraphicResource::load(std::string scope)
 {
+	//scopeの文字列の画像をjsonから検索し、読み込む
+	//失敗すれば0、成功すれば0以外を返す
+	//処理は未実装
 	return true;
 }
 
