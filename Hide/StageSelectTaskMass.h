@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 class StageSelectTaskMass {
 private:
-	//À•W
+	//åº§æ¨™
 	int x;
 	int y;
-	//‰æ‘œ
+	//ç”»åƒ
 	int graph;
 public:
 	StageSelectTaskMass();
