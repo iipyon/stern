@@ -6,7 +6,6 @@
 #include <iterator>
 #include "json11.hpp"
 
-//インストラクタ
 GraphicResource::GraphicResource()
 {
 	std::ifstream ifs("img/resource.json");
@@ -18,13 +17,14 @@ GraphicResource::GraphicResource()
 	std::istreambuf_iterator<char> last;
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
-	auto json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
-	auto foo = json["graph"];
+	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
 	int count_of_graph = 0;
 	for (auto &item : json["graph"].array_items()) {
 		//画像の枚数を数える
 		count_of_graph++;
 	}
+
+	//下記の処理はload()へ移動予定
 	graph = std::make_unique<GraphicObject[]>(count_of_graph);	//画像の枚数分の領域を確保する
 	int i = 0;
 	for (auto &item : json["graph"].array_items()) {
@@ -43,6 +43,7 @@ GraphicResource::GraphicResource()
 //		slide = item["max"].number_value();
 		i++;
 	}
+
 }
 //デストラクタ
 GraphicResource::~GraphicResource()
@@ -56,6 +57,8 @@ bool GraphicResource::load(std::string scope)
 	//scopeの文字列の画像をjsonから検索し、読み込む
 	//失敗すれば0、成功すれば0以外を返す
 	//処理は未実装
+	for (auto &item : json["graph"].array_items()) {
+	}
 	return true;
 }
 
