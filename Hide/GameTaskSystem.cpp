@@ -1,4 +1,4 @@
-#include "GameTaskSystem.h"
+ï»¿#include "GameTaskSystem.h"
 
 
 GameTaskSystem::GameTaskSystem()
@@ -12,7 +12,7 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::update()
 {
-	//ƒŠƒXƒg‚ğæ“ª‚É–ß‚·
+	//ãƒªã‚¹ãƒˆã‚’å…ˆé ­ã«æˆ»ã™
 	normalstar->lead();
 
 	map->update();
