@@ -1,4 +1,4 @@
-#include "CoreTask.h"
+﻿#include "CoreTask.h"
 
 GameTaskSystem *gts;
 
