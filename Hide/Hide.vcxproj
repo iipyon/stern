@@ -169,13 +169,12 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
+    <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="json11.hpp" />
     <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
-    <ClInclude Include="GraphicResource.h" />
-    <ClInclude Include="GraphicState.h" />
-    <ClInclude Include="json11.hpp" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="BaseSwitch.h" />
     <ClInclude Include="BasicList.h" />
