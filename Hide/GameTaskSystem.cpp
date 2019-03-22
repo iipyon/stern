@@ -1,4 +1,4 @@
-#include "GameTaskSystem.h"
+﻿#include "GameTaskSystem.h"
 
 
 GameTaskSystem::GameTaskSystem()
@@ -12,7 +12,13 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::update()
 {
+	//リストを先頭に戻す
+	normalstar->lead();
+
 	map->update();
-	//normalstar->get()->update();
+	while (normalstar->exist()) {
+		normalstar->get()->update();
+		normalstar->proceed();
+	}
 	player->update();
 }
