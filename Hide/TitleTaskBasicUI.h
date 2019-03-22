@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 class TitleTaskBasicUI {
 protected:
 	int x;
 	int y;
-	int strwidth;//•¶š—ñ‚Ì•‚ğŠi”[
+	int strwidth;//æ–‡å­—åˆ—ã®å¹…ã‚’æ ¼ç´
 public:
 	TitleTaskBasicUI();
 	void get_width(const char*);
