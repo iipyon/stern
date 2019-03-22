@@ -15,9 +15,9 @@ class FlyingEnemy : public Enemy{
 		fly,
 		stay,
 	};
+	FlyingState flyingstate;
 	void move();
 	void update();
 private:
-	FlyingState flyingstate;
 protected:
 };

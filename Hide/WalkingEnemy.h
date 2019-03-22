@@ -9,9 +9,9 @@ public:
 		stay,
 		run,
 	};
+	WalkingState wakingstate;
 	void move();
 	void update();
 private:
-	WalkingState wakingstate;
 protected:
 };
