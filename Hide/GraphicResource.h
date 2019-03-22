@@ -5,7 +5,10 @@
 #include "json11.hpp"
 
 struct GraphicObject {
-	bool exist= false;
+	GraphicObject(){
+		exist = false;
+	}
+	bool exist;
 	std::string name;
 	int* handle;
 	int max;
@@ -17,8 +20,8 @@ public:
 
 	GraphicResource();
 	~GraphicResource();
-	bool load(std::string);
-	GraphicObject get(std::string);
+	bool load(std::string _scope);
+	GraphicObject get(std::string name);
 private:
 	int get_index(std::string);
 	bool exist_name(std::string);

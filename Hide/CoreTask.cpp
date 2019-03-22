@@ -4,13 +4,13 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
+	graph = std::make_unique<GraphicResource>();
 	scene = Scene::title;//–{“–‚Í^Cg‹
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	ssts = std::make_unique<StageSelectTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
-	graph = std::make_unique<GraphicResource>();
 	gots = std::make_unique<GameOverTaskSystem>();
 }
 
@@ -25,6 +25,7 @@ void CoreTask::update()
 		ssts->update();
 		break;
 	case Scene::game:
+		//graph->load("player");
 		gts->update();
 		break;
 	case Scene::gameover:

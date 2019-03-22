@@ -78,7 +78,10 @@ bool GraphicResource::load(std::string _scope)
 
 GraphicObject GraphicResource::get(std::string name)
 {
-	return graph[get_index(name)];
+	int index = get_index(name);
+	GraphicObject ret;
+	if (index != -1) ret = graph[index];
+	return ret;
 }
 
 void GraphicResource::register_graph(json11::Json item)
