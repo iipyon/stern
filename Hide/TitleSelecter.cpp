@@ -1,4 +1,4 @@
-#include "TitleSelecter.h"
+ï»¿#include "TitleSelecter.h"
 #include "CoreTask.h"
 
 TitleSelecter::TitleSelecter()
@@ -23,7 +23,7 @@ void TitleSelecter::draw()
 
 void TitleSelecter::switch_button()
 {
-	//W¬•K—v‚È‹C‚ª‚·‚é-----------------------------------
+	//é›†æˆå¿…è¦ãªæ°—ãŒã™ã‚‹-----------------------------------
 	if (ct->keyboard->key_down(KEY_INPUT_DOWN)) {
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
