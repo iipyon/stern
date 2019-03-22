@@ -157,6 +157,10 @@
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
+    <ClCompile Include="TitleExitButton.cpp" />
+    <ClCompile Include="TitleSelecter.cpp" />
+    <ClCompile Include="TitleStartButton.cpp" />
+    <ClCompile Include="TitleTaskBasicUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
@@ -189,6 +193,10 @@
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
+    <ClInclude Include="TitleExitButton.h" />
+    <ClInclude Include="TitleSelecter.h" />
+    <ClInclude Include="TitleStartButton.h" />
+    <ClInclude Include="TitleTaskBasicUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
