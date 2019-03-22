@@ -1,22 +1,24 @@
-#pragma once
+ï»¿#pragma once
+#include <iostream>
+#include <memory>
+#include "GraphicState.h"
+
+struct GraphicObject {
+	std::string name;
+	int* handle;
+	int max;
+};
+
 class GraphicResource
 {
-
 public:
-	//ó‘Ô
-	enum class GraphicState {
-		player_stay_right, player_stay_left,
-	};
-	//ƒCƒ“ƒXƒgƒ‰ƒNƒ^
+
 	GraphicResource();
-	//ƒfƒXƒgƒ‰ƒNƒ^
 	~GraphicResource();
-	bool load(char* FileName, int AllNum,int XNum, int YNum,
-		      int XSize, int YSize, int** G_handl);
-	int get(int);
+	bool load(std::string);
+	GraphicObject get(std::string);
 private:
-	GraphicState graphicstate;
-	//ƒnƒ“ƒhƒ‹ 
-	int** handle;
-protected:
+	int count_of_graph;	//ç”»åƒæšæ•°
+	int get_index(std::string);
+	std::unique_ptr<GraphicObject[]> graph;
 };
