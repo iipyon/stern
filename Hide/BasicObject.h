@@ -1,5 +1,5 @@
 #pragma once
-
+#include"Point.h"
 //----------------------------------
 //基本となるクラス
 //----------------------------------
@@ -12,8 +12,8 @@ public:
 		velocityY = 0;
 		x = 0;
 		y = 0;
-		height = 0;
-		width = 0;
+		width;
+		height;
 	}
 
 	//メソッド（関数）
@@ -21,12 +21,11 @@ public:
 	void get_point();
 
 protected:
-	//座標
 	int x;
 	int y;
-	//幅・高さ
-	int height;
 	int width;
+	int height;
+	Point point;
 	//移動量
 	float velocityX;
 	float velocityY;
