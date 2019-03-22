@@ -12,7 +12,13 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::update()
 {
+	//ƒŠƒXƒg‚ğæ“ª‚É–ß‚·
+	normalstar->lead();
+
 	map->update();
-	//normalstar->get()->update();
+	while (normalstar->exist()) {
+		normalstar->get()->update();
+		normalstar->proceed();
+	}
 	player->update();
 }

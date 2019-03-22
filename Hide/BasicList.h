@@ -79,9 +79,11 @@ template <typename T> bool BasicList<T>::create(std::shared_ptr<T> new_content)
     }
     else if(current != nullptr){
         //二つ目以降のリストを作成する処理
-        previous = std::move(current);      //所有権を移動する
-        current = std::move(new_instance);  //所有権を移動する
+		new_instance->next = current->next;
+        previous = current;      //所有権を移動する
+        current = new_instance;  //所有権を移動する
         previous->next = current;           //所有権を複製する
+		//new_instance->next = 
     }
     else ret = false;   //終端でcreateした場合は作成不可
     
