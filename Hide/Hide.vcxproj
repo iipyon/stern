@@ -133,6 +133,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
+    <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="json11.cpp" />
@@ -152,14 +153,23 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="StageselectChara.cpp" />
+    <ClCompile Include="StageSelectTaskMass.cpp" />
     <ClCompile Include="StageSelectTaskSystem.cpp" />
+    <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
+    <ClCompile Include="TitleExitButton.cpp" />
+    <ClCompile Include="TitleSelecter.cpp" />
+    <ClCompile Include="TitleStartButton.cpp" />
+    <ClCompile Include="TitleTaskBasicUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="GameOverTaskSystem.h" />
+    <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
@@ -183,9 +193,15 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="StageSelectTaskMass.h" />
     <ClInclude Include="StageSelectTaskSystem.h" />
+    <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
+    <ClInclude Include="TitleExitButton.h" />
+    <ClInclude Include="TitleSelecter.h" />
+    <ClInclude Include="TitleStartButton.h" />
+    <ClInclude Include="TitleTaskBasicUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
