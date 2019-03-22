@@ -88,7 +88,7 @@ void Player::move()
 {
 	//固定数値ではなくvelocityを入れる
 	//Keyboardに変更する
-	if (CheckHitKey(KEY_INPUT_RIGHT)) {
+	/*if (CheckHitKey(KEY_INPUT_RIGHT)) {
 		x += 2;
 	}
 	if (CheckHitKey(KEY_INPUT_LEFT)) {
@@ -99,6 +99,24 @@ void Player::move()
 	}
 	if (CheckHitKey(KEY_INPUT_DOWN)) {
 		y += 2;
+	}*/
+	//左右移動--------------------------------------------
+	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
+		velocityX = 2;
+		x += velocityX;
+	}
+	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
+		velocityX = 2;
+		x -= velocityX;
+	}
+	//---------------------------------------------------
+	//ダッシュ
+	if (ct->keyboard->key_press(KEY_INPUT_Z) &&
+			ct->keyboard->key_press(KEY_INPUT_LEFT) {
+
+	}
+	//ジャンプ
+	if (ct->keyboard->key_press(KEY_INPUT_X)) {
 	}
 	check_foot();
 }
