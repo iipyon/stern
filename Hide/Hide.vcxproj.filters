@@ -91,6 +91,9 @@
     <Filter Include="ヘッダー ファイル\TaskSystem\TitleTask">
       <UniqueIdentifier>{270aa47b-4acd-48e2-925c-f9a8500c7aa3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Enum">
+      <UniqueIdentifier>{89108384-705d-4ed9-879f-48c407076afe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -177,6 +180,11 @@
     <ClCompile Include="GameOverTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicResource.cpp">
+      <Filter>ソース ファイル\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
+      <Filter>リソース ファイル</Filter>
     <ClCompile Include="TitleTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
     </ClCompile>
@@ -281,6 +289,14 @@
     <ClInclude Include="GameOverTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
+    <ClInclude Include="GraphicResource.h">
+      <Filter>ヘッダー ファイル\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicState.h">
+      <Filter>ヘッダー ファイル\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>リソース ファイル</Filter>
     <ClInclude Include="TitleTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>

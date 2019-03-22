@@ -5,6 +5,7 @@
 #include"StageSelectTaskSystem.h"
 #include"Keyboard.h"
 #include "ClearTaskSystem.h"
+#include "GraphicResource.h"
 #include "GameOverTaskSystem.h"
 
 enum class Scene {
@@ -18,7 +19,7 @@ enum class Scene {
 class CoreTask {
 private:
 public:
-	Scene scene;//‚Ç‚ÌƒV[ƒ“‚©‚ç‚Å‚à•Ï‚¦‚ç‚ê‚é‚æ‚¤‚É
+	Scene scene;//ã©ã®ã‚·ãƒ¼ãƒ³ã‹ã‚‰ã§ã‚‚å¤‰ãˆã‚‰ã‚Œã‚‹ã‚ˆã†ã«
 
 	CoreTask();
 	void update();
@@ -27,6 +28,7 @@ public:
 	std::unique_ptr<StageSelectTaskSystem> ssts;
 	std::unique_ptr<Keyboard> keyboard;
 	std::unique_ptr<ClearTaskSystem> cts;
+	std::unique_ptr<GraphicResource> graph;
 	std::unique_ptr<GameOverTaskSystem> gots;
 };
 
