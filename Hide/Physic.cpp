@@ -19,8 +19,8 @@ void Physic::exercise()
 	if (ct->gts->map->get_left(point)==1 || ct->gts->map->get_right(point)==1) {
 		rebound_X();
 	}
-	x += (int)velocityX;
-	y += (int)velocityY;
+	point.x += (int)velocityX;
+	point.y += (int)velocityY;
 }
 
 void Physic::rebound_X()

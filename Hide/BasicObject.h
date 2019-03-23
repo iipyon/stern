@@ -10,10 +10,6 @@ public:
 	BasicObject() {
 		velocityX = 0;
 		velocityY = 0;
-		x = 0;
-		y = 0;
-		width;
-		height;
 	}
 
 	//メソッド（関数）
@@ -21,10 +17,6 @@ public:
 	void get_point();
 
 protected:
-	int x;
-	int y;
-	int width;
-	int height;
 	Point point;
 	//移動量
 	float velocityX;

@@ -16,10 +16,10 @@ public:
 	//メソッド
 	//float Gravity(float gra_);
 	void exercise();//物理運動を行うものだけ処理を行う
-
+	Point point;
 protected:
 	//変数
-	Point point;
+
 	float gravity;//重力
 	float repulsion;//反発係数
 	int weight;//重さ(物体)
