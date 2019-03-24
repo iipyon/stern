@@ -11,6 +11,7 @@
 class Player :public Physic {
 public:
 	Player();
+	void init();
 	//メソッド
 	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
@@ -24,6 +25,7 @@ public:
 	class PlayerInterface {
 	public:
 		PlayerInterface();
+		
 		//メソッド
 		void draw();
 		void update(int ,int);

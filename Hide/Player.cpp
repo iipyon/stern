@@ -69,13 +69,15 @@ Player::Player()
 	hp = 2;
 	interval = 0;
 	foot_status = false;
-	ct->keyboard->update(); //例外が発生する処理
-	//ct->graph;
-	GraphicObject obj = ct->graph->get("player");
-	graph = *obj.handle;
 	//graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
+
+}
+
+void Player::init()
+{
+	init_render("player");	//resource.jsonのnameが"player"のものをセットする
 }
 
 double Player::get_angle()
@@ -96,7 +98,7 @@ void Player::update()
 	//---------------------------------------
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
-	draw();
+	draw(true);
 
 	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);

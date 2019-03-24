@@ -5,13 +5,18 @@
 #include "json11.hpp"
 
 struct GraphicObject {
-	GraphicObject(){
+	GraphicObject() {
 		exist = false;
+		loop = false;
+		max = 1;
+		rate = 0;
 	}
 	bool exist;
+	bool loop;	//ループの有無
 	std::string name;
 	int* handle;
-	int max;
+	int max;	//最大枚数
+	int rate;	//切替速度
 };
 
 class GraphicResource

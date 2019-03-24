@@ -1,16 +1,21 @@
-#pragma once
+ï»¿#pragma once
 #include"BasicObject.h"
+#include "GraphicResource.h"
 
 class Rendering : public BasicObject {
-public:
-	Rendering() {
-		
-	}
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ğØ‚è‘Ö‚¦‚é
-	bool switch_anime();
-	void draw();
+private:
+	int max;	//æœ€å¤§æšæ•°
+	int rate; //åˆ‡æ›¿é€Ÿåº¦
+	int cnt;//ä½•æšç›®ã«ã„ã‚‹ã‹
+	bool loop;//ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹
+
 protected:
-	int cnt;//‰½–‡–Ú‚É‚¢‚é‚©
-	bool loop;//ƒ‹[ƒv‚·‚é‚©
-	int graph;
+	int graph;	//ã“ã‚Œã¯*handle_graphã«ç§»è¡Œã™ã‚‹å»ƒæ­¢äºˆå®šã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+	int *handle_graph;
+
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+	void init_render(std::string scope);
+	bool switch_anime();
+	void draw(bool new_gen=false);
+
 };
