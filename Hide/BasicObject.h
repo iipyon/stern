@@ -2,25 +2,24 @@
 #include"Point.h"
 
 //----------------------------------
-//Šî–{‚Æ‚È‚éƒNƒ‰ƒX
+//åŸºæœ¬ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹
 //----------------------------------
 
 class BasicObject {
 public:
-	//Å’áŒÀ‚Ì‰Šú‰»
+	//æœ€ä½é™ã®åˆæœŸåŒ–
 	BasicObject() {
 		velocityX = 0;
 		velocityY = 0;
 	}
 
-	//ƒƒ\ƒbƒhiŠÖ”j
+	//ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆé–¢æ•°ï¼‰
 	virtual void update();
 	Point get_point();
 
 protected:
-	//À•W
 	Point point;
-	//ˆÚ“®—Ê
+	//ç§»å‹•é‡
 	float velocityX;
 	float velocityY;
 };
