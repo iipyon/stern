@@ -93,7 +93,7 @@ void Player::update()
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
 	draw();
-
+	exercise();
 	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);
