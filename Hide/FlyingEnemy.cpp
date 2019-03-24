@@ -1,7 +1,7 @@
-#include "FlyingEnemy.h"
+ï»¿#include "FlyingEnemy.h"
 
 //----------------------------------
-//G‹›“G(”òs)
+//é›‘é­šæ•µ(é£›è¡Œ)
 //----------------------------------
 
 void FlyingEnemy::move()

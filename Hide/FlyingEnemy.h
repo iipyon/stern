@@ -1,15 +1,13 @@
-#pragma once
+ï»¿#pragma once
 #include"Enemy.h"
 
 //---------------------------------
-//G‹›“G(”òs)
+//é›‘é­šæ•µ(é£›è¡Œ)
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
-	
-	
-	//NormalEnemy* list;//ƒŠƒXƒg\‘¢‚Ì‚½‚ßˆê‰‹Lq
-	//ƒƒ\ƒbƒh
+public:
+	//ãƒ¡ã‚½ãƒƒãƒ‰
 	enum class FlyingState
 	{
 		fly,

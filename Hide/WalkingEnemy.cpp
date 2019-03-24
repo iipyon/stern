@@ -1,5 +1,8 @@
-#include "WalkingEnemy.h"
+﻿#include "WalkingEnemy.h"
 
+//----------------------------------
+//雑魚敵(歩行)
+//----------------------------------
 void WalkingEnemy::move()
 {
 	switch(wakingstate)
