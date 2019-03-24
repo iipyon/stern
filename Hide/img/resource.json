@@ -1,22 +1,27 @@
-﻿{
+{
   "graph": [
     {
       "name" :  "player",
-      "path": "/hoge",
-      "width": 32,
-      "height": 32,
+      "path": "img/player.png",
+      "width": 30,
+      "height": 30,
       "line": 1,
-      "column": 4,
-      "scope": "all"
+      "column": 1,
+      "scope": [
+        "player"
+      ]
     },
     {
-      "name": "プログラム内識別子",
-      "path": "画像パス",
-      "width": "1マスの横幅(px)",
-      "height": "1マスの縦幅(px)",
-      "line": "画像の行数",
-      "column": "画像の列数",
-      "scope": "読み込み時の範囲(未実装の機能)"
+      "name": "star",
+      "path": "img/star.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "player",
+        "star"
+      ]
     }
   ]
 }
