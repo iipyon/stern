@@ -20,6 +20,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
 	if (DxLib_Init() == -1) { return -1; };
 	
+	SetMainWindowText("Stern");
+
+
 	ct = new CoreTask;
 
 	//-------------------------------------------------

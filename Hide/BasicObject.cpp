@@ -9,6 +9,7 @@ void BasicObject::update()
 {
 }
 
-void BasicObject::get_point()
+Point BasicObject::get_point()
 {
+	return point;
 }

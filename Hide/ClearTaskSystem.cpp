@@ -3,13 +3,17 @@
 
 ClearTaskSystem::ClearTaskSystem()
 {
+	init();
+}
+
+void ClearTaskSystem::init()
+{
 	timer = 120;	//標準値(仮に2秒
 }
 
 void ClearTaskSystem::update()
 {
-	timer--;
-	if (timer < 0) ct->scene = Scene::title;	//タイトル(？)に戻る
+	if (timer-- < 0) ct->scene = Scene::title;	//タイトル(？)に戻る
 	draw();
 }
 

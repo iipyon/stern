@@ -4,12 +4,14 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	scene = Scene::title;//本当はタイトル
+	scene = Scene::title;//窶怒窶懌凪堙債タﾂイﾂトﾂ�窶ｹ
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	ssts = std::make_unique<StageSelectTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
+	graph = std::make_unique<GraphicResource>();
+	gots = std::make_unique<GameOverTaskSystem>();
 }
 
 void CoreTask::update()

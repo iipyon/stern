@@ -53,7 +53,6 @@ void Player::StarManager::update(double ang, int x_)
 		//ノーマルスター
 		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->point.x, ct->gts->player->get_angle());
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
-		ct->gts->normalstar->get()->update();
 	}
 
 }
