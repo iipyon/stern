@@ -9,9 +9,11 @@ public:
 		stay,
 		run,
 	};
-	WalkingState wakingstate;
+	WalkingState walkingstate;
 	void move();
 	void update();
 private:
+	//敵が行動するカウンター
+	int WalkingEnemycnt = 0;
 protected:
 };

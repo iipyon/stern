@@ -17,5 +17,7 @@ public:
 	void move();
 	void update();
 private:
+	//敵が行動するカウンター
+	int FlyingEnemycnt = 0;
 protected:
 };
