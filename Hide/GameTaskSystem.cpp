@@ -1,9 +1,11 @@
-#include "GameTaskSystem.h"
+﻿#include "GameTaskSystem.h"
 
 
 GameTaskSystem::GameTaskSystem()
 {
 	normalstar = std::make_shared<BasicList<NormalStar>>();
+	map = std::make_unique<Map>();
+	player = std::make_unique<Player>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -12,7 +14,13 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::update()
 {
+	//リストを先頭に戻す
+	normalstar->lead();
+
 	map->update();
-	//normalstar->get()->update();
+	while (normalstar->exist()) {
+		normalstar->get()->update();
+		normalstar->proceed();
+	}
 	player->update();
 }

@@ -1,0 +1,27 @@
+{
+  "graph": [
+    {
+      "name" :  "player",
+      "path": "img/player.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "star",
+      "path": "img/star.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "player",
+        "star"
+      ]
+    }
+  ]
+}

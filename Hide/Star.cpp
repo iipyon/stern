@@ -6,7 +6,7 @@
 
 Star::Star(int power_, int life_, int weight_,int x_,double angle_)
 {
-	x = x_;
+	point.x = x_;
 	angle = angle_;
 	power = power_;
 	weight = weight_;
