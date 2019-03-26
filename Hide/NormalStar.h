@@ -13,4 +13,5 @@ public:
 	void inhale(int, int, float);
 
 private:
+	Point gravity_point;
 };

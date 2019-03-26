@@ -29,4 +29,10 @@ protected:
 	bool contact;
 	int power;
 	int life;
+	Point enemy_point;
+	struct p {
+		int x = 0, y = 0;
+	}
+	p[4];
+	bool check_hit(Point);
 };
