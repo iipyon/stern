@@ -6,7 +6,7 @@ class StageSelectChara : public BasicObject {
 private:
 	int graph;
 public:
-	StageSelectChara();
+	StageSelectChara(Point);
 	void update(int&);
 	void draw();
 	void select_stage(int&);

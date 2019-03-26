@@ -7,6 +7,7 @@
 
 class Boss : public Enemy {
 public:
+	Boss(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
 	//ƒƒ\ƒbƒh
 	void move();
 	void update();

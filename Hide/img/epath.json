@@ -4,26 +4,28 @@
     {
       "x" :  "100",
       "y": "100",
+	  "w": "30",
+	  "h": "30",
+	   "gravity":"0",
+	  "repulsion":"0",
+	  "weight":"0",
+	  "life":"0",
+	  "damage":"0",
       "name": "NCNC",
       "kind": "walking",
     },
     {
       "x": "100",
       "y": "300",
+	   "w": "30",
+	  "h": "30",
+	  "gravity":"0",
+	  "repulsion":"0",
+	  "weight":"0",
+	  "life":"0",
+	  "damage":"0",
       "name": "PTPT",
       "kind": "flying",
-    },
-    {
-      "x": "200",
-      "y": "100",
-      "graph": "PTPT",
-      "kind": "flying",
-    },
-    {
-      "x": "200",
-      "y": "200",
-      "graph": "CLB",
-      "kind": "walking",
     }
   ]
 }
