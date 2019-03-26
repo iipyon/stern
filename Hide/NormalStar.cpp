@@ -16,11 +16,10 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", power);
-	//‰¼‚ÌˆÚ“®//moveijì‚ç‚ËH
 	if (contact) {
-		x += (int)(-sin(angle) * velocityX);
-		y += (int)(cos(angle) * velocityY);
-			if (ct->gts->map->get_bottom(Point{ x,y,width,height }) && ct->gts->map->get_top(Point{ x,y,width,height }) && ct->gts->map->get_left(Point{ x,y,width,height }) && ct->gts->map->get_right(Point{ x,y,width,height })) {
+		point.x += (int)(-sin(angle) * velocityX);
+		point.y += (int)(cos(angle) * velocityY);
+			if (ct->gts->map->get_bottom(Point{ point.x,point.y,point.w,point.h }) && ct->gts->map->get_top(Point{ point.x,point.y,point.w,point.h }) && ct->gts->map->get_left(Point{ point.x,point.y,point.w,point.h }) && ct->gts->map->get_right(Point{ point.x,point.y,point.w,point.h })) {
 			contact = true;
 
 		}
@@ -29,7 +28,6 @@ void NormalStar::update()
 		this->exercise();
 	}
 	if (attack()) {
-		//enemy‚Ìƒ_ƒ[ƒW‚ðŒÄ‚Ô
 	}
 
 
@@ -37,14 +35,9 @@ void NormalStar::update()
 	if (damage(1)) {
 		ct->gts->normalstar->destroy();
 	}
-	//if(gravitystar‚ª‚ ‚é‚©‚Ç‚¤‚©)o//d—Í‚ª‚©‚©‚é”ÍˆÍ‚ðŒˆ‚ß‚Ä‹ß‚­‚É‚È‚©‚Á‚½‚çfalse‚Å‚à‚¢‚¢‚©‚à
-	//gravitystar‚ÌÀ•W‚ðŽæ‚è‘±‚¯‚é
-	//inhale(gravitystar‚ÌÀ•W);
-	//p
 }
 
 void NormalStar::inhale(int, int, float)
 {
-	//ˆÚ“®—Ê‚Égravitystar‚ÌÀ•W‚Æ‚Ì·‚ðo‚µ‚Ä‘«‚µ‘±‚¯‚é
 }
 
