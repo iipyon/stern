@@ -14,9 +14,7 @@ public:
 		weight = 0;
 	}
 	//メソッド
-	//float Gravity(float gra_);
 	void exercise();//物理運動を行うものだけ処理を行う
-	Point point;
 protected:
 	//変数
 

@@ -1,0 +1,29 @@
+{
+  "1": 
+  [
+    {
+      "x" :  "100",
+      "y": "100",
+      "name": "NCNC",
+      "kind": "walking",
+    },
+    {
+      "x": "100",
+      "y": "300",
+      "name": "PTPT",
+      "kind": "flying",
+    },
+    {
+      "x": "200",
+      "y": "100",
+      "graph": "PTPT",
+      "kind": "flying",
+    },
+    {
+      "x": "200",
+      "y": "200",
+      "graph": "CLB",
+      "kind": "walking",
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 #include "WalkingEnemy.h"
 
+WalkingEnemy::WalkingEnemy()
+{
+
+}
+
 void WalkingEnemy::move()
 {
 }

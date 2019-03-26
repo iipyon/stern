@@ -8,11 +8,7 @@
 class BasicObject {
 public:
 	//最低限の初期化
-	BasicObject() {
-		velocityX = 0;
-		velocityY = 0;
-	}
-
+	BasicObject();
 	//メソッド（関数）
 	virtual void update();
 	Point get_point();
