@@ -1,8 +1,7 @@
-�ｿ#pragma once
+﻿#pragma once
 #include"Enemy.h"
 
 //---------------------------------
-//髮鷹ｭ壽雰(鬟幄｡)
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
@@ -19,7 +18,6 @@ public:
 	void move();
 	void update();
 private:
-	//謨ｵ縺瑚｡悟虚縺吶ｋ繧ｫ繧ｦ繝ｳ繧ｿ繝ｼ
 	int FlyingEnemycnt = 0;
 protected:
 };

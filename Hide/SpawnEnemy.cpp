@@ -1,4 +1,4 @@
-#include "SpawnEnemy.h"
+ï»¿#include "SpawnEnemy.h"
 #include"DxLib.h" 
 #include"CoreTask.h"
 #include <fstream>
@@ -10,25 +10,25 @@
 SpawnEnemy::SpawnEnemy()
 {
 	std::ifstream epath("img/epath.json");
-	if (epath.fail()) throw "resource.json is not found.";//—áŠOˆ—
+	if (epath.fail()) throw "resource.json is not found.";//ä¾‹å¤–å‡¦ç†
 	std::istreambuf_iterator<char> it(epath);
 	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);		//stringŒ`®‚Ìjson
+	std::string str_json(it, last);		//stringå½¢å¼ã®json
 	std::string err;
-	data = json11::Json::parse(str_json, err);//Json‚Åg‚¦‚é‚æ‚¤‚É‚·‚é
+	data = json11::Json::parse(str_json, err);//Jsonã§ä½¿ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
 }
 
 void SpawnEnemy::create(std::string stg)
 {
-	//enemyƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉKind,X,Y‚ª•K—v‚È‰Â”\«
+	//enemyã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«Kind,X,YãŒå¿…è¦ãªå¯èƒ½æ€§
 	for (auto &enemy : data[stg].array_items())
-	{	//intŒ^‚É‚·‚é
-		//Œ^•ÏŠ·
-		//StringŒ^‚É‚·‚éA‚»‚Ì‚ ‚ÆcharŒ^‚É•ÏŠ·
+	{	//intå‹ã«ã™ã‚‹
+		//å‹å¤‰æ›
+		//Stringå‹ã«ã™ã‚‹ã€ãã®ã‚ã¨charå‹ã«å¤‰æ›
 		//graph = item["graph"].string_value().c_str();    //"img/f.png";
 		if(enemy["kind"].string_value().c_str() == "walking") {
-			//•às(ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Éx,y,graph,kind‚ğ’Ç‰Á‚·‚é)
-		    ct->gts->walking_enemy->lead();//ƒŠƒXƒg‚ğæ“ª‚É–ß‚·
+			//æ­©è¡Œ(ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«x,y,graph,kindã‚’è¿½åŠ ã™ã‚‹)
+		    ct->gts->walking_enemy->lead();//ãƒªã‚¹ãƒˆã‚’å…ˆé ­ã«æˆ»ã™
 			//---------------------------------------------------------------------------------------------------------
 			//(Point point_, PhysicState physic_state_, EnemyState enemy_state_)
 			class Point point = { enemy["x"].int_value(),enemy["y"].int_value(), enemy["w"].int_value(), enemy["h"].int_value() };
@@ -37,11 +37,11 @@ void SpawnEnemy::create(std::string stg)
 			//---------------------------------------------------------------------------------------------------------
 
 			std::shared_ptr<WalkingEnemy> new_instance = std::make_shared<WalkingEnemy>(point,physic_state,enemy_state);
-			ct->gts->walking_enemy->create(new_instance);//V‹KƒIƒuƒWƒFƒNƒg‚ğƒŠƒXƒgŠÇ—‘ÎÛ‚Æ‚·‚é
+			ct->gts->walking_enemy->create(new_instance);//æ–°è¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒªã‚¹ãƒˆç®¡ç†å¯¾è±¡ã¨ã™ã‚‹
 			break;
 		}	
 
-		//switch•¶‚Å“G‚Ìí—Ş‚ğ¯•Ê‚µAƒŠƒXƒg‚ğ\’z‚·‚é
-		//Create();//“G‚ÌƒŠƒXƒg
+		//switchæ–‡ã§æ•µã®ç¨®é¡ã‚’è­˜åˆ¥ã—ã€ãƒªã‚¹ãƒˆã‚’æ§‹ç¯‰ã™ã‚‹
+		//Create();//æ•µã®ãƒªã‚¹ãƒˆ
 	}
 }
