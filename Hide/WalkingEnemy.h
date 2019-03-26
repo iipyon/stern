@@ -11,7 +11,8 @@ public:
 		run
 	};
 	WalkingState walkingstate;
-	WalkingEnemy();
+  
+	WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
 	void move();
 	void update();
 	void check_left();

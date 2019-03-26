@@ -8,9 +8,14 @@
 //プレイヤー
 //---------------------------------
 
+struct PlayerState {
+	int life;
+	int hp;
+};
+
 class Player :public Physic {
 public:
-	Player();
+	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
 	//メソッド
 	double get_angle();//星の移動のために角度情報が必要
@@ -18,7 +23,6 @@ public:
 	bool damage(void);//ダメージを受ける処理
 	void draw_interface(int);//UI描画
 	void move();//移動処理
-	void check_foot();//足元判定
 	bool knockback(int);//ノックバック
 
 	//プレイヤーインターフェイス
@@ -56,7 +60,6 @@ protected:
 	int invincible;//無敵時間
 	int hp;//HP
 	int interval;//星の発射間隔
-	bool foot_status;//設置しているか
 	bool knockback_status;//ノックバック中か
 	std::unique_ptr<StarManager> starmanager;
 	std::unique_ptr<PlayerInterface> playerinterface;

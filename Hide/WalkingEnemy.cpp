@@ -1,14 +1,14 @@
 ﻿#include "WalkingEnemy.h"
 #include"CoreTask.h"
 
-//----------------------------------
-//雑魚敵(歩行)
-//----------------------------------
-WalkingEnemy::WalkingEnemy()
+WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_) : Enemy(point_,physic_state_,enemy_state_)
 {
-	left_status = false;
+  /*  必要か判断ができない初期化処理
+  left_status = false;
 	right_status = false;
+  */
 }
+
 void WalkingEnemy::move()
 {
 	switch (walkingstate)

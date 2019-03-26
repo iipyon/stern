@@ -2,17 +2,10 @@
 //----------------------------------
 //“G‘S”Ê
 //----------------------------------
-Enemy::Enemy()
+Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state) : Physic(point,physic_state)
 {
-	life = 0;
-	damaged = 0;
-	gravity = 0;
-}
-Enemy::Enemy(int E_life, int E_damaged, int E_gravity)
-{
-	life = E_life;
-	damaged = E_damaged;
-	gravity = E_gravity;
+	life = enemy_state.life;
+	damaged = enemy_state.damage;
 }
 
 bool Enemy::attack()

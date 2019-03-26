@@ -2,10 +2,8 @@
 #include"CoreTask.h"
 #include"Dxlib.h"
 
-StageSelectChara::StageSelectChara()
+StageSelectChara::StageSelectChara(Point point_) : BasicObject(point_)
 {
-	point.x = 30;
-	point.y = 100;
 	graph = LoadGraph("img/stageselect/chara.png");
 	velocityX = 0;
 }

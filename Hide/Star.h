@@ -5,9 +5,17 @@
 //星全般
 //---------------------------------
 
+struct StarState {
+	int bright;
+	int radius;
+	int power;
+	int life;
+	double angle;
+};
+
 class Star : public Physic {
 public:
-	Star(int, int, int, int, double);
+	Star(Point point_, PhysicState physic_state_, StarState star_state);
 	//Star();//これを抜くとNormalStarコンストラクタでエラーが起こる
 	//メソッド
 	bool attack();

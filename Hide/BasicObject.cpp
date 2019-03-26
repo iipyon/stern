@@ -4,6 +4,14 @@
 //Šî–{‚Æ‚È‚éƒNƒ‰ƒX
 //-----------------------------------
 
+BasicObject::BasicObject(Point point_) {
+	velocityX = 0;
+	velocityY = 0;
+	point.x = point_.x;
+	point.y = point_.y;
+	point.w = point_.w;
+	point.h = point_.h;
+}
 
 void BasicObject::update()
 {

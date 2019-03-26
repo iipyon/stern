@@ -4,7 +4,8 @@
 StageSelectTaskSystem::StageSelectTaskSystem()
 {
 	mass = std::make_unique<StageSelectTaskMass>();
-	chara = std::make_unique<StageSelectChara>();
+	class Point point = { 30,100,30,30 };
+	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
 
 	stage = 1;
