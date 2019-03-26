@@ -4,6 +4,13 @@
 //ï®óùâ^ìÆ
 //----------------------------------
 
+Physic::Physic(Point point, PhysicState physic_state) : Rendering(point)
+{
+	gravity = physic_state.gravity;
+	repulsion = physic_state.repulsion;
+	weight = physic_state.weight;
+}
+
 
 void Physic::exercise()
 {

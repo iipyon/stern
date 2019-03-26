@@ -51,24 +51,23 @@ void Player::StarManager::update(double ang, int x_)
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
 		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->point.x, ct->gts->player->get_angle());
+		//Point point_, PhysicState physic_state_, StarState star_state
+		class Point point = { ct->gts->player->point.x,-30,0,0 };
+		struct PhysicState physic_state = { 0,0,0 };
+		struct StarState star_state = { 0,0,0,0,ct->gts->player->get_angle() };//	int bright, int radius, int power, int life, double angle;
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(point,physic_state,star_state);
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 	}
 
 }
 
-Player::Player()
+Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):Physic(point_,physic_state_)
 {
-	point.x = 200;
-	point.y = 200;
-	point.h = 30;
-	point.w = 30;
-	life = 0;
+	life = player_state.life;
+	hp = player_state.life;
 	angle = 0;
 	invincible = 0;
-	hp = 2;
 	interval = 0;
-	foot_status = false;
 	//graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
@@ -100,7 +99,6 @@ void Player::update()
 	playerinterface->update(hp,life);
 	draw(true);
 	exercise();
-	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);
 }
@@ -129,22 +127,6 @@ void Player::move()
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_DOWN)) {
 		point.y += 2;
-	}
-	check_foot();
-}
-
-void Player::check_foot()
-{
-	//今の画像の大きさが30*30のため
-	Point foot{ point.x,point.y + 30,30,1 };
-	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
-	//仮の当たり判定
-	//MapのGet_bottomを呼ぶ?
-	if (ct->gts->map->get_bottom(foot) != 0) {
-		foot_status = true;
-	}
-	else {
-		foot_status = false;
 	}
 }
 

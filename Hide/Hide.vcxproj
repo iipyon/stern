@@ -153,6 +153,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="StageselectChara.cpp" />
     <ClCompile Include="StageSelectTaskMass.cpp" />
     <ClCompile Include="StageSelectTaskSystem.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="SpawnEnemy.h" />
     <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />

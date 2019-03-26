@@ -17,5 +17,6 @@ protected:
 	void init_render(std::string scope);
 	bool switch_anime();
 	void draw(bool new_gen=false);
-
+public:
+	Rendering(Point point);
 };

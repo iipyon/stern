@@ -20,6 +20,10 @@ void Rendering::draw(bool new_gen)
 	}
 }
 
+Rendering::Rendering(Point point) : BasicObject(point)
+{
+}
+
 void Rendering::init_render(std::string scope)
 {
 	GraphicObject obj = ct->graph->get(scope);
