@@ -91,6 +91,12 @@
     <Filter Include="ヘッダー ファイル\TaskSystem\TitleTask">
       <UniqueIdentifier>{270aa47b-4acd-48e2-925c-f9a8500c7aa3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Spawn">
+      <UniqueIdentifier>{fd39dde5-ed9b-49c6-88de-f35b12fe3229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Spawn">
+      <UniqueIdentifier>{329d85d2-f570-4f2f-8f6b-91226b9c1f42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -197,6 +203,9 @@
     </ClCompile>
     <ClCompile Include="GraphicResource.cpp">
       <Filter>ソース ファイル\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnEnemy.cpp">
+      <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="GraphicResource.h">
       <Filter>ヘッダー ファイル\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnEnemy.h">
+      <Filter>ヘッダー ファイル\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
