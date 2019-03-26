@@ -6,12 +6,13 @@
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
+	
 public:
 	//メソッド
 	enum class FlyingState
 	{
 		fly,
-		stay,
+		stay
 	};
 	FlyingState flyingstate;
 	void move();

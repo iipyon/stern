@@ -9,8 +9,8 @@ void FlyingEnemy::move()
 	switch(flyingstate)
 	{
 	case FlyingState::fly:
-		//2マス浮いて2マス戻る
-		if (FlyingEnemycnt < 2) {
+		//2マス分
+		if (FlyingEnemycnt < 60) {
 			velocityY = 1;
 		}
 		else{
@@ -29,8 +29,8 @@ void FlyingEnemy::update()
 {
 	//FlyingEnemyをカウントする
 	FlyingEnemycnt++;
-	//4以上になったらリセット
-	if (FlyingEnemycnt > 4) {
+	//120以上になったらリセット
+	if (FlyingEnemycnt > 120) {
 		FlyingEnemycnt = 0;
 	}
 }
