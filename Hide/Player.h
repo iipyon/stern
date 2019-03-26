@@ -1,30 +1,36 @@
-#pragma once
+ï»¿#pragma once
 #include"Physic.h"
 #include"DxLib.h"
 #include<memory>
 
 
 //---------------------------------
-//ƒvƒŒƒCƒ„[
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
 //---------------------------------
+
+struct PlayerState {
+	int life;
+	int hp;
+};
 
 class Player :public Physic {
 public:
-	Player();
-	//ƒƒ\ƒbƒh
-	double get_angle();//¯‚ÌˆÚ“®‚Ì‚½‚ß‚ÉŠp“xî•ñ‚ª•K—v
-	void update();//XVˆ—
-	bool damage(void);//ƒ_ƒ[ƒW‚ğó‚¯‚éˆ—
-	void draw_interface(int);//UI•`‰æ
-	void move();//ˆÚ“®ˆ—
-	void check_foot();//‘«Œ³”»’è
-	bool knockback(int);//ƒmƒbƒNƒoƒbƒN
+	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
+	void init();
+	//ãƒ¡ã‚½ãƒƒãƒ‰
+	double get_angle();//æ˜Ÿã®ç§»å‹•ã®ãŸã‚ã«è§’åº¦æƒ…å ±ãŒå¿…è¦
+	void update();//æ›´æ–°å‡¦ç†
+	bool damage(void);//ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ã‚‹å‡¦ç†
+	void draw_interface(int);//UIæç”»
+	void move();//ç§»å‹•å‡¦ç†
+	bool knockback(int);//ãƒãƒƒã‚¯ãƒãƒƒã‚¯
 
-	//ƒvƒŒƒCƒ„[ƒCƒ“ƒ^[ƒtƒFƒCƒX
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 	class PlayerInterface {
 	public:
 		PlayerInterface();
-		//ƒƒ\ƒbƒh
+		
+		//ãƒ¡ã‚½ãƒƒãƒ‰
 		void draw();
 		void update(int ,int);
 	private:
@@ -35,11 +41,11 @@ public:
 		int lifegraph;
 	};
 
-	//¯‚ğo‚·ƒJ[ƒ\ƒ‹
+	//æ˜Ÿã‚’å‡ºã™ã‚«ãƒ¼ã‚½ãƒ«
 	class StarManager {
 	public:
 		StarManager();
-		//ƒƒ\ƒbƒh
+		//ãƒ¡ã‚½ãƒƒãƒ‰
 		void draw(double st, int x);
 		void update(double ang,int x);
 	private:
@@ -48,14 +54,13 @@ public:
 	};
 
 protected:
-	//•Ï”
-	int life;//c‹@
-	double angle;//ƒJ[ƒ\ƒ‹‚ÌŒX‚«
-	int invincible;//–³“GŠÔ
+	//å¤‰æ•°
+	int life;//æ®‹æ©Ÿ
+	double angle;//ã‚«ãƒ¼ã‚½ãƒ«ã®å‚¾ã
+	int invincible;//ç„¡æ•µæ™‚é–“
 	int hp;//HP
-	int interval;//¯‚Ì”­ËŠÔŠu
-	bool foot_status;//İ’u‚µ‚Ä‚¢‚é‚©
-	bool knockback_status;//ƒmƒbƒNƒoƒbƒN’†‚©
+	int interval;//æ˜Ÿã®ç™ºå°„é–“éš”
+	bool knockback_status;//ãƒãƒƒã‚¯ãƒãƒƒã‚¯ä¸­ã‹
 	std::unique_ptr<StarManager> starmanager;
 	std::unique_ptr<PlayerInterface> playerinterface;
 };

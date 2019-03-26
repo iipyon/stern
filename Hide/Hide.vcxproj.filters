@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,56 +12,23 @@
     <Filter Include="ソース ファイル\main">
       <UniqueIdentifier>{29168e77-7234-4a27-8c21-a64c55cd0a04}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Base">
-      <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Chara">
       <UniqueIdentifier>{c4448bff-90fc-4599-80b3-c956f1dc3e5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara">
-      <UniqueIdentifier>{92c4b293-56cb-4cbe-847e-f47804cea029}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Chara\Ememy">
       <UniqueIdentifier>{38fbc9b0-c73c-4b97-bf94-cf54e2e3ce2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Enemy">
-      <UniqueIdentifier>{42e5447f-324b-4d6e-839c-59b2234ad6fd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Star">
       <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Star">
-      <UniqueIdentifier>{f12f1ca8-b0e5-49ed-b4d5-79571ce3fcf0}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Map">
       <UniqueIdentifier>{3f9948e2-adf9-4002-af77-6e7388a98a5d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Map">
-      <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\List">
-      <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Effect">
       <UniqueIdentifier>{27785c7f-3521-4753-9f05-24a729abc29c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Effect">
-      <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Chara\Player">
-      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Chara\Player">
-      <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Rendering">
       <UniqueIdentifier>{1a15e955-2752-4421-9151-5a0e65ab883c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Rendering">
-      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\TaskSystem">
-      <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\TaskSystem">
       <UniqueIdentifier>{1e8aec2d-f714-42fe-8164-25957ca28c46}</UniqueIdentifier>
@@ -73,11 +36,66 @@
     <Filter Include="ソース ファイル\Chara\Camera">
       <UniqueIdentifier>{435de237-89e4-45a2-b6ea-0d7e287f347d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Chara\Player">
+      <UniqueIdentifier>{607f891a-a8a9-4052-b3c6-8a80a4a43cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem\StageSelectTask">
+      <UniqueIdentifier>{17a6a756-f80a-46ed-8ebb-bc33b9552788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TaskSystem\TitleTask">
+      <UniqueIdentifier>{25bbd419-8e80-4fbb-865e-ae0b313feee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Base">
+      <UniqueIdentifier>{c8532197-5d7f-4e16-834c-e1b725bc68c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara">
+      <UniqueIdentifier>{92c4b293-56cb-4cbe-847e-f47804cea029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Enemy">
+      <UniqueIdentifier>{42e5447f-324b-4d6e-839c-59b2234ad6fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Chara\Player">
+      <UniqueIdentifier>{994d0b90-a9b1-4780-83a9-39b5a3f015c5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ヘッダー ファイル\Chara\Camera">
       <UniqueIdentifier>{0e8a579f-3904-456c-b3e5-95fcd657e408}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{43aff083-0b0e-4d14-a842-1266d3084b2d}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Star">
+      <UniqueIdentifier>{f12f1ca8-b0e5-49ed-b4d5-79571ce3fcf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map">
+      <UniqueIdentifier>{f121a0c1-848c-41f3-8a43-d9db5efc6e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\List">
+      <UniqueIdentifier>{58557f4d-7373-4063-bc0e-94854bb8bc4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Effect">
+      <UniqueIdentifier>{1acbfc11-b36e-4c33-9d58-5c67ce676283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Rendering">
+      <UniqueIdentifier>{87f10f8c-6a8a-4ccc-a91d-42efccb98016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem">
+      <UniqueIdentifier>{db42f046-bbae-4115-8a3c-8dfc0b028a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem\StageSelect">
+      <UniqueIdentifier>{50b42b3b-6a90-46a3-a60d-8b486af1c3d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem\TitleTask">
+      <UniqueIdentifier>{270aa47b-4acd-48e2-925c-f9a8500c7aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Spawn">
+      <UniqueIdentifier>{fd39dde5-ed9b-49c6-88de-f35b12fe3229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Spawn">
+      <UniqueIdentifier>{329d85d2-f570-4f2f-8f6b-91226b9c1f42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,14 +165,47 @@
     <ClCompile Include="CoreTask.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
-    <ClCompile Include="TitleTaskSystem.cpp">
-      <Filter>ソース ファイル\TaskSystem</Filter>
-    </ClCompile>
     <ClCompile Include="ClearTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="StageselectChara.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
     <ClCompile Include="StageSelectTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectTaskMass.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
+    <ClCompile Include="StageselectTaskTextBox.cpp">
+      <Filter>ソース ファイル\TaskSystem\StageSelectTask</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleExitButton.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleSelecter.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleStartButton.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTaskBasicUI.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
+      <Filter>リソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicResource.cpp">
+      <Filter>ソース ファイル\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnEnemy.cpp">
+      <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,14 +278,47 @@
     <ClInclude Include="CoreTask.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
-    <ClInclude Include="TitleTaskSystem.h">
-      <Filter>ヘッダー ファイル\TaskSystem</Filter>
-    </ClInclude>
     <ClInclude Include="ClearTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
     </ClInclude>
     <ClInclude Include="StageSelectTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectChara.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectTaskMass.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageselectTaskTextBox.h">
+      <Filter>ヘッダー ファイル\TaskSystem\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleExitButton.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleSelecter.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleStartButton.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTaskBasicUI.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
+    </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>リソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicResource.h">
+      <Filter>ヘッダー ファイル\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnEnemy.h">
+      <Filter>ヘッダー ファイル\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

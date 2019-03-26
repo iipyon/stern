@@ -1,10 +1,10 @@
-#include "Player.h"
+ï»¿#include "Player.h"
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
 
 //----------------------------------
-//ƒvƒŒƒCƒ„[
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
 //----------------------------------
 
 Player::PlayerInterface::PlayerInterface()
@@ -16,9 +16,9 @@ Player::PlayerInterface::PlayerInterface()
 
 void Player::PlayerInterface::draw()
 {
-	//c‹@
+	//æ®‹æ©Ÿ
 	DrawGraph(500, 0, lifegraph, FALSE);
-	DrawFormatString(540, 0, GetColor(255, 255, 255), " ~ %d",life);
+	DrawFormatString(540, 0, GetColor(255, 255, 255), " Ã— %d",life);
 	//HP
 	for (int i = 0; i < 3; ++i) {
 		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
@@ -49,30 +49,34 @@ void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
-		ct->gts->normalstar->lead();//ƒŠƒXƒg‚ğæ“ª‚É–ß‚·
-		//ƒm[ƒ}ƒ‹ƒXƒ^[
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(0, 0, 0, ct->gts->player->x, ct->gts->player->get_angle());
-		ct->gts->normalstar->create(new_instance);//V‹KƒIƒuƒWƒFƒNƒg‚ğƒŠƒXƒgŠÇ—‘ÎÛ‚Æ‚·‚é
-		ct->gts->normalstar->get()->update();
+		ct->gts->normalstar->lead();//ãƒªã‚¹ãƒˆã‚’å…ˆé ­ã«æˆ»ã™
+		//ãƒãƒ¼ãƒãƒ«ã‚¹ã‚¿ãƒ¼
+		//Point point_, PhysicState physic_state_, StarState star_state
+		class Point point = { ct->gts->player->point.x,-30,0,0 };
+		struct PhysicState physic_state = { 0,0,0 };
+		struct StarState star_state = { 0,0,0,0,ct->gts->player->get_angle() };//	int bright, int radius, int power, int life, double angle;
+		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(point,physic_state,star_state);
+		ct->gts->normalstar->create(new_instance);//æ–°è¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒªã‚¹ãƒˆç®¡ç†å¯¾è±¡ã¨ã™ã‚‹
 	}
 
 }
 
-Player::Player()
+Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):Physic(point_,physic_state_)
 {
-	x = 200;
-	y = 200;
-	height = 30;
-	width = 30;
-	life = 0;
+	life = player_state.life;
+	hp = player_state.life;
 	angle = 0;
 	invincible = 0;
-	hp = 2;
 	interval = 0;
-	foot_status = false;
-	graph = LoadGraph("img/player.png");
+	//graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
+
+}
+
+void Player::init()
+{
+	init_render("player");	//resource.jsonã®nameãŒ"player"ã®ã‚‚ã®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 }
 
 double Player::get_angle()
@@ -82,7 +86,7 @@ double Player::get_angle()
 
 void Player::update()
 {
-	//‰¼‚ÌˆÚ“®‚ÆƒJ[ƒ\ƒ‹Šp“x’²®-------------
+	//ä»®ã®ç§»å‹•ã¨ã‚«ãƒ¼ã‚½ãƒ«è§’åº¦èª¿æ•´-------------
 	move();
 	if (ct->keyboard->key_press(KEY_INPUT_Q)) {
 		angle += 0.05;
@@ -91,13 +95,12 @@ void Player::update()
 		angle -= 0.05;
 	}
 	//---------------------------------------
-	starmanager->update(angle, x);
+	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
-	draw();
-
-	DrawFormatString(0, 100, GetColor(255, 0, 0), "%d", foot_status);
-	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", x);
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", y);
+	draw(true);
+	exercise();
+	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);
+	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);
 }
 
 bool Player::damage(void)
@@ -111,35 +114,19 @@ void Player::draw_interface(int)
 
 void Player::move()
 {
-	//ŒÅ’è”’l‚Å‚Í‚È‚­velocity‚ğ“ü‚ê‚é
-	//Keyboard‚É•ÏX‚·‚é
+	//å›ºå®šæ•°å€¤ã§ã¯ãªãvelocityã‚’å…¥ã‚Œã‚‹
+	//Keyboardã«å¤‰æ›´ã™ã‚‹
 	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		x += 2;
+		point.x += 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		x -= 2;
+		point.x -= 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_UP)) {
-		y -= 2;
+		point.y -= 2;
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_DOWN)) {
-		y += 2;
-	}
-	check_foot();
-}
-
-void Player::check_foot()
-{
-	//¡‚Ì‰æ‘œ‚Ì‘å‚«‚³‚ª30*30‚Ì‚½‚ß
-	Point foot{ x,y + 30,30,1 };
-	DrawBox(foot.x, foot.y, foot.x + foot.w, foot.y + foot.h, GetColor(0, 255, 0), TRUE);
-	//‰¼‚Ì“–‚½‚è”»’è
-	//Map‚ÌGet_bottom‚ğŒÄ‚Ô?
-	if (ct->gts->map->get_bottom(foot) != 0) {
-		foot_status = true;
-	}
-	else {
-		foot_status = false;
+		point.y += 2;
 	}
 }
 

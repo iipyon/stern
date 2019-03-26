@@ -5,6 +5,11 @@
 //敵全般
 //----------------------------------
 
+struct EnemyState {
+	int life;
+	int damage;
+};
+
 class Enemy :public Physic {
 	//メンバー関数
 	int life;
@@ -13,8 +18,7 @@ class Enemy :public Physic {
 public :
 	//メソッド
 	//コンストラクタ
-	Enemy();
-	Enemy(int E_life, int E_damaged, int E_gravity);
+	Enemy(Point point, PhysicState physic_state,EnemyState enemy_state);
 	//仮想関数
 	virtual void move() {
 

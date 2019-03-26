@@ -5,13 +5,18 @@
 
 
 //--------------------------------
-//•’Ê‚Ì¯
+//â€¢Ââ€™ÃŠâ€šÃŒÂÂ¯
 //--------------------------------
+
+NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_,physic_state_,star_state)
+{
+
+}
 
 void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", power);
-	//‰¼‚ÌˆÚ“®//moveijì‚ç‚ËH
+	//â€°Â¼â€šÃŒË†Ãšâ€œÂ®//moveÂiÂjÂÃ¬â€šÃ§â€šÃ‹ÂH
 	if (contact) {
 		x += (int)(-sin(angle) * velocityX);
 		y += (int)(cos(angle) * velocityY);
@@ -24,21 +29,22 @@ void NormalStar::update()
 		this->exercise();
 	}
 	if (attack()) {
-		//enemy‚Ìƒ_ƒ[ƒW‚ğŒÄ‚Ô
+		//enemyâ€šÃŒÆ’_Æ’ÂÂ[Æ’Wâ€šÃ°Å’Ã„â€šÃ”
 	}
+
 
 	draw();
 	if (damage(1)) {
 		ct->gts->normalstar->destroy();
 	}
-	//if(gravitystar‚ª‚ ‚é‚©‚Ç‚¤‚©)o//d—Í‚ª‚©‚©‚é”ÍˆÍ‚ğŒˆ‚ß‚Ä‹ß‚­‚É‚È‚©‚Á‚½‚çfalse‚Å‚à‚¢‚¢‚©‚à
-	//gravitystar‚ÌÀ•W‚ğæ‚è‘±‚¯‚é
-	//inhale(gravitystar‚ÌÀ•W);
-	//p
+	//if(gravitystarâ€šÂªâ€šÂ â€šÃ©â€šÂ©â€šÃ‡â€šÂ¤â€šÂ©)Âo//Âdâ€”Ãâ€šÂªâ€šÂ©â€šÂ©â€šÃ©â€ÃË†Ãâ€šÃ°Å’Ë†â€šÃŸâ€šÃ„â€¹ÃŸâ€šÂ­â€šÃ‰â€šÃˆâ€šÂ©â€šÃâ€šÂ½â€šÃ§falseâ€šÃ…â€šÃ â€šÂ¢â€šÂ¢â€šÂ©â€šÃ 
+	//gravitystarâ€šÃŒÂÃ€â€¢Wâ€šÃ°Å½Ã¦â€šÃ¨â€˜Â±â€šÂ¯â€šÃ©
+	//inhale(gravitystarâ€šÃŒÂÃ€â€¢W);
+	//Âp
 }
 
 void NormalStar::inhale(int, int, float)
 {
-	//ˆÚ“®—Ê‚Égravitystar‚ÌÀ•W‚Æ‚Ì·‚ğo‚µ‚Ä‘«‚µ‘±‚¯‚é
+	//Ë†Ãšâ€œÂ®â€”ÃŠâ€šÃ‰gravitystarâ€šÃŒÂÃ€â€¢Wâ€šÃ†â€šÃŒÂÂ·â€šÃ°Âoâ€šÂµâ€šÃ„â€˜Â«â€šÂµâ€˜Â±â€šÂ¯â€šÃ©
 }
 

@@ -7,9 +7,7 @@
 
 class BasicSwitch : public BasicObject {
 public:
-	BasicSwitch() :
-		status(false)
-	{}
+	BasicSwitch(Point);
 	//ƒƒ\ƒbƒh
 	void Switch();
 protected:

@@ -1,23 +1,22 @@
 #include"Star.h"
 
 //---------------------------------
-//¯‘S”Ê
+//ÂÂ¯â€˜Sâ€ÃŠ
 //---------------------------------
 
-Star::Star(int power_, int life_, int weight_,int x_,double angle_)
+Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Physic(point_, physic_state_)
 {
-	x = x_;
-	angle = angle_;
-	power = power_;
-	weight = weight_;
-	life = life_;
-	contact = false;
-	bright = 0;//¡‚Ì‚Æ‚±‚ë
+	bright = star_state.bright;
+	radius = star_state.radius;
+	power = star_state.power;
+	life = star_state.life;
+	angle = star_state.angle;
+  contact = false;
 }
 
 bool Star::attack()
 {
-	//‰~‚Æ‹éŒ`‚Ì“–‚½‚è”»’è
+	//â€°~â€šÃ†â€¹Ã©Å’`â€šÃŒâ€œâ€“â€šÂ½â€šÃ¨â€Â»â€™Ã¨
 	return false;
 }
 

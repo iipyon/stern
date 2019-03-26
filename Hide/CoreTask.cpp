@@ -1,15 +1,17 @@
-#include "CoreTask.h"
+ï»¿#include "CoreTask.h"
 
 GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	scene = Scene::title;//–{“–‚Íƒ^ƒCƒgƒ‹
+	graph = std::make_unique<GraphicResource>();
+	scene = Scene::title;//â€“{â€œâ€“â€šÃÂƒ^ÂƒCÂƒgÂƒâ€¹
 	tts = std::make_unique<TitleTaskSystem>();
 	gts = std::make_unique<GameTaskSystem>();
 	ssts = std::make_unique<StageSelectTaskSystem>();
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
+	gots = std::make_unique<GameOverTaskSystem>();
 }
 
 void CoreTask::update()
@@ -23,6 +25,7 @@ void CoreTask::update()
 		ssts->update();
 		break;
 	case Scene::game:
+		//graph->load("player");
 		gts->update();
 		break;
 	case Scene::gameover:

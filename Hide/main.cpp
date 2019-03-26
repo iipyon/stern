@@ -1,37 +1,41 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include"CoreTask.h"
 #include"Player.h"
 
 //----------------------------------
-//ƒNƒ‰ƒXì¬‚ÌÛAŠÖ”iƒƒ\ƒbƒhj‚Ípublic
-//•Ï”‚Íprivate‚Å“ü‚ê‚Ä‚­‚¾‚³‚¢(WET)
+//ã‚¯ãƒ©ã‚¹ä½œæˆã®éš›ã€é–¢æ•°ï¼ˆãƒ¡ã‚½ãƒƒãƒ‰ï¼‰ã¯public
+//å¤‰æ•°ã¯privateã§å…¥ã‚Œã¦ãã ã•ã„(Wãƒ»T)
 //----------------------------------
 
 CoreTask *ct;
 
-// WinMainŠÖ”
+// WinMainé–¢æ•°
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
-	// ‰æ–Êƒ‚[ƒh‚Ìİ’è
-	SetGraphMode(600, 600, 32);//ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ğŒˆ‚ß‚é
-	ChangeWindowMode(TRUE);// ƒEƒBƒ“ƒhƒEƒ‚[ƒh•ÏX
+	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
+	SetGraphMode(600, 600, 32);//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã‚’æ±ºã‚ã‚‹
+	ChangeWindowMode(TRUE);// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´
 
-	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+	// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
 	if (DxLib_Init() == -1) { return -1; };
 	
+	SetMainWindowText("Stern");
+
+
 	ct = new CoreTask;
-
+	ct->graph->load("player");	//resource.jsonã®scopeã«playerãŒå«ã¾ã‚Œã¦ã„ã‚‹ç”»åƒã‚’å…¨ã¦ãƒ­ãƒ¼ãƒ‰
+	ct->gts->player->init();	//init_render("player"); ã‚’å®Ÿè¡Œã€‚resource.jsonã®nameãŒ"player"ã®ç”»åƒã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	//-------------------------------------------------
-	SetDrawScreen(DX_SCREEN_BACK);//— ‰æ–Êİ’è
+	SetDrawScreen(DX_SCREEN_BACK);//è£ç”»é¢è¨­å®š
 
-	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {//‰æ–ÊXV•ƒƒbƒZ[ƒWˆ—&‰æ–ÊEŠQ
+	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {//ç”»é¢æ›´æ–°ï¼†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†&ç”»é¢æ®ºå®³
 		
 		ct->update();
 
 	}
 	delete ct;
-	DxLib_End();				// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
+	DxLib_End();				// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
 
-	return 0;					// ƒ\ƒtƒg‚ÌI—¹
+	return 0;					// ã‚½ãƒ•ãƒˆã®çµ‚äº†
 }

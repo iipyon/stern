@@ -1,16 +1,25 @@
-#pragma once
+ï¿½ï½¿#pragma once
 #include"Enemy.h"
 
 //---------------------------------
-//G‹›“G(”òs)
+//é«®é·¹ï½­å£½é›°(é¬Ÿå¹„ï½¡)
 //---------------------------------
 
 class FlyingEnemy : public Enemy{
+	
 public:
-	//NormalEnemy* list;//ƒŠƒXƒg\‘¢‚Ì‚½‚ßˆê‰‹Lq
-	//ƒƒ\ƒbƒh
+	enum class FlyingState
+	{
+		fly,
+		stay
+	};
+	FlyingState flyingstate;
+	FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
+	//NormalEnemy* list;//ãƒªã‚¹ãƒˆæ§‹é€ ã®ãŸã‚ä¸€å¿œè¨˜è¿°
 	void move();
 	void update();
+private:
+	//è¬¨ï½µç¸ºç‘šï½¡æ‚Ÿè™šç¸ºå¶ï½‹ç¹§ï½«ç¹§ï½¦ç¹ï½³ç¹§ï½¿ç¹ï½¼
+	int FlyingEnemycnt = 0;
 protected:
-
 };
