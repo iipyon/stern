@@ -16,7 +16,7 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", power);
-	if (contact) {
+	if (contact==false) {
 		point.x += (int)(-sin(angle) * velocityX);
 		point.y += (int)(cos(angle) * velocityY);
 			if (ct->gts->map->get_bottom(Point{ point.x,point.y,point.w,point.h }) &&
