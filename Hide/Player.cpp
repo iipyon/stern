@@ -52,13 +52,12 @@ void Player::StarManager::update(double ang, int x_)
 		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
 		//Point point_, PhysicState physic_state_, StarState star_state
-		class Point point = { ct->gts->player->point.x,-30,0,0 };
-		struct PhysicState physic_state = { 0,0,0 };
-		struct StarState star_state = { 0,0,0,0,ct->gts->player->get_angle() };//	int bright, int radius, int power, int life, double angle;
+		class Point point = { ct->gts->player->point.x,0,0,0 };
+		struct PhysicState physic_state = { 0,0,0 };//	float gravity; float repulsion;int weight;
+		struct StarState star_state = { 10,10,10,50,ct->gts->player->angle };//	int bright, int radius, int power, int life, double angle;
 		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(point,physic_state,star_state);
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 	}
-
 }
 
 Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):Physic(point_,physic_state_)
