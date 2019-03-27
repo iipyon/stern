@@ -4,7 +4,7 @@
 GameTaskSystem::GameTaskSystem()
 {
 	//Point point_, PhysicState physic_state_, PlayerState player_state
-	class Point point = {100,100,30,30};
+	class Point point = {100,300,30,30};
 	struct PhysicState physic_state = { 1,0,0 };//gra,rep,wei
 	struct PlayerState player_state = { 3,2 };//life,hp
 
