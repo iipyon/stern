@@ -7,6 +7,7 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
   left_status = false;
 	right_status = false;
   */
+	init_render("walking");
 }
 
 void WalkingEnemy::move()
@@ -87,6 +88,7 @@ void WalkingEnemy::check_right()
 }
 void WalkingEnemy::update()
 {
+	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d", point.x);
 	//WalkingEnemyをカウントする
 	WalkingEnemycnt++;
 	//仮　300(10マス) + 300(10マス)分
@@ -95,4 +97,5 @@ void WalkingEnemy::update()
 	}
 	check_left();
 	check_right();
+	draw(true);
 }

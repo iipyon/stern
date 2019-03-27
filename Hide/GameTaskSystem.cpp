@@ -26,11 +26,21 @@ void GameTaskSystem::update()
 {
 	//リストを先頭に戻す
 	normalstar->lead();
+	walking_enemy->lead();
 
 	map->update();
+	//☆------------------------------
 	while (normalstar->exist()) {
 		normalstar->get()->update();
 		normalstar->proceed();
 	}
+	//--------------------------------
+	//敵------------------------------
+	while (walking_enemy->exist()) {
+		walking_enemy->get()->update();
+		walking_enemy->proceed();
+	}
+	//--------------------------------
+
 	player->update();
 }
