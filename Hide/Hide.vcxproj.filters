@@ -94,7 +94,7 @@
     <Filter Include="ソース ファイル\Spawn">
       <UniqueIdentifier>{329d85d2-f570-4f2f-8f6b-91226b9c1f42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\TaskSystem\Star">
+    <Filter Include="ソース ファイル\Star">
       <UniqueIdentifier>{19f03915-6e16-43f9-9ef6-2a56844f0732}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -115,10 +115,10 @@
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
     <ClCompile Include="Star.cpp">
-      <Filter>ソース ファイル\TaskSystem\Star</Filter>
+      <Filter>ソース ファイル\Star</Filter>
     </ClCompile>
     <ClCompile Include="GravityStar.cpp">
-      <Filter>ソース ファイル\TaskSystem\Star</Filter>
+      <Filter>ソース ファイル\Star</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>ソース ファイル\Map</Filter>
@@ -136,7 +136,7 @@
       <Filter>ソース ファイル\Chara\Ememy</Filter>
     </ClCompile>
     <ClCompile Include="NormalStar.cpp">
-      <Filter>ソース ファイル\TaskSystem\Star</Filter>
+      <Filter>ソース ファイル\Star</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>ソース ファイル\Chara\Player</Filter>

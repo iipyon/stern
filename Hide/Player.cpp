@@ -52,9 +52,9 @@ void Player::StarManager::update(double ang, int x_)
 		ct->gts->normalstar->lead();//リストを先頭に戻す
 		//ノーマルスター
 		//Point point_, PhysicState physic_state_, StarState star_state
-		class Point point = { ct->gts->player->point.x,0,0,0 };
+		class Point point = { x_,0,0,0 };
 		struct PhysicState physic_state = { 0,0,0 };//	float gravity; float repulsion;int weight;
-		struct StarState star_state = { 10,10,10,50,ct->gts->player->angle };//	int bright, int radius, int power, int life, double angle;
+		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(point,physic_state,star_state);
 		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
 	}
@@ -98,8 +98,8 @@ void Player::update()
 	playerinterface->update(hp,life);
 	draw(true);
 	exercise();
-	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);
+	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
+	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T
 }
 
 bool Player::damage(void)
@@ -123,9 +123,6 @@ void Player::move()
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_UP)) {
 		point.y -= 2;
-	}
-	if (ct->keyboard->key_press(KEY_INPUT_DOWN)) {
-		point.y += 2;
 	}
 }
 
