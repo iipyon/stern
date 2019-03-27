@@ -21,10 +21,10 @@ void NormalStar::update()
 	if (!contact) {
 		point.x += (int)(-sin(angle) * velocityX);
 		point.y += (int)(cos(angle) * velocityY);
-		if (ct->gts->map->get_bottom(Point{ point.x,point.y,point.w,point.h }) &&
-			ct->gts->map->get_top(Point{ point.x,point.y,point.w,point.h }) &&
-			ct->gts->map->get_left(Point{ point.x,point.y,point.w,point.h }) &&
-			ct->gts->map->get_right(Point{ point.x,point.y,point.w,point.h })) {
+		if (ct->gts->map->get_bottom(point) &&
+			ct->gts->map->get_top(point) &&
+			ct->gts->map->get_left(point) &&
+			ct->gts->map->get_right(point)) {
 			contact = true;
 		}
 	}
