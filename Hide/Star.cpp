@@ -11,12 +11,11 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 	power = star_state.power;
 	life = star_state.life;
 	angle = star_state.angle;
-  contact = false;
+	contact = false;
 }
 
 bool Star::attack()
 {
-	//‰~‚Æ‹éŒ`‚Ì“–‚½‚è”»’è
 	return false;
 }
 
