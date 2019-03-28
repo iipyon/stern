@@ -4,6 +4,7 @@
 #include"StageSelectTaskMass.h"
 #include"StageselectTaskTextBox.h"
 #include"Point.h"
+#include"SpawnEnemy.h"//敵生成をステージ選択直後に行うため
 
 class StageSelectTaskSystem {
 protected:
@@ -20,4 +21,6 @@ public:
 	std::unique_ptr<StageSelectTaskMass> mass;
 	std::unique_ptr<StageSelectChara> chara;
 	std::unique_ptr<StageSelectTextBox> txtbox;
+
+	std::unique_ptr<SpawnEnemy> spawnenemy;//敵の生成
 };
