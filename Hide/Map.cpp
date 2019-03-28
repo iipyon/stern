@@ -115,7 +115,7 @@ int Map::get_left(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
 			
@@ -132,7 +132,7 @@ int Map::get_right(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -149,7 +149,7 @@ int Map::get_top(Point chara_)
 	int ey = chara_.y / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
 
@@ -167,7 +167,7 @@ int Map::get_bottom(Point chara_)
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//今回の場合は１のチップのみに当たり判定を持たせる
+			if (data[y][x] >= 1) {//今回の場合は１のチップのみに当たり判定を持たせる
 				return 1;
 			}
 

@@ -1,4 +1,4 @@
-#include"Star.h"
+﻿#include"Star.h"
 #include"CoreTask.h"
 //---------------------------------
 //¯‘S”Ê
@@ -64,12 +64,12 @@ bool Star::damage(int damage_)
 }
 
 bool Star::check_hit(Point enemy_) {
-	p[0] = { enemy_.x - enemy_.w / 2,enemy_.y - enemy_.h / 2 };
-	p[1] = { enemy_.x + enemy_.w / 2,enemy_.y - enemy_.h / 2 };
-	p[2] = { enemy_.x - enemy_.w / 2,enemy_.y + enemy_.h / 2 };
-	p[3] = { enemy_.x + enemy_.w / 2,enemy_.y + enemy_.h / 2 };
+	p[0] = { enemy_.x,enemy_.y};
+	p[1] = { enemy_.x + enemy_.w,enemy_.y};
+	p[2] = { enemy_.x ,enemy_.y + enemy_.h };
+	p[3] = { enemy_.x + enemy_.w,enemy_.y + enemy_.h };
 	for (int i = 0; i < 4; ++i) {
-		if ((p[i].x - point.x)*(p[i].x - point.x) + (p[i].y - point.y)*(p[i].y - point.y) >= radius * radius) {
+		if ((p[i].x - point.x)*(p[i].x - point.x) + (p[i].y - point.y)*(p[i].y - point.y) <= radius * radius) {
 			return true;
 		}
 	}
