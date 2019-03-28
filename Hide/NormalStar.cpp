@@ -42,5 +42,7 @@ void NormalStar::update()
 
 void NormalStar::inhale(int, int, float)
 {
+	/*gravity_point = ct->gts->gravitystar->get()->get_point();
+	velocityX += (gravity_point.x - point.x) * 5;
+	velocityY += (gravity_point.x - point.x) * 5;*/
 }
-
