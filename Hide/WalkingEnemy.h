@@ -10,7 +10,13 @@ public:
 		stay,
 		run
 	};
+	//Enemyに共通するためEnemyClassにいれてもいいかもしれない
+	enum class AngleState {
+		left,
+		right
+	};
 	WalkingState walkingstate;
+	AngleState anglestate;
   
 	WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
 	void move();
@@ -19,10 +25,5 @@ public:
 	void check_right();
 		
 private:
-	//敵が行動するカウンター
-	int WalkingEnemycnt = 0;
-	bool left_status;
-	bool right_status;
-
 protected:
 };

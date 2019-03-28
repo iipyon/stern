@@ -32,7 +32,7 @@ void SpawnEnemy::create(std::string stg)
 			//---------------------------------------------------------------------------------------------------------
 			//(Point point_, PhysicState physic_state_, EnemyState enemy_state_)
 			class Point point = { enemy["x"].int_value(),enemy["y"].int_value(), enemy["w"].int_value(), enemy["h"].int_value() };
-			struct PhysicState physic_state = { (float)enemy["garavity"].number_value(),(float)enemy["repulsion"].number_value(),enemy["weight"].int_value() };//float gravity, float repulsion, int weight;
+			struct PhysicState physic_state = { (float)enemy["gravity"].number_value(),(float)enemy["repulsion"].number_value(),enemy["weight"].int_value() };//float gravity, float repulsion, int weight;
 			struct EnemyState enemy_state = { enemy["life"].int_value(),enemy["damage"].int_value() };//life,damage
 			//---------------------------------------------------------------------------------------------------------
 
