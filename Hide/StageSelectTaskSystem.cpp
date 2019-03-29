@@ -19,7 +19,6 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-
 	if (ct->keyboard->key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
 		switch (stage)
 		{
@@ -37,6 +36,9 @@ void StageSelectTaskSystem::update()
 			ct->gts->map->init((char*)"", (char*)"");
 			break;
 		}
+		ct->gts->init();
+		ct->cts->init();
+		ct->gts->goal->init();
 		ct->scene = Scene::game;//ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ
 	}
 	draw();
