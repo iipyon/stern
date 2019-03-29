@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 #include"Point.h"
 
 //---------------------------------
-//ƒ}ƒbƒvƒf[ƒ^
+//ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿
 //---------------------------------
 
 class Map {
@@ -15,10 +15,10 @@ public:
 	int get_right(Point);
 	int get_top(Point);
 	int get_bottom(Point);
-
+	int get_circle(Point, int);
 private:
-	int data[20][20];//‰¼‚Ì”’l
-	int graph;//ŠG
+	int data[20][20];//ä»®ã®æ•°å€¤
+	int graph;//çµµ
 	int mapsizex;
 	int mapsizey;
 

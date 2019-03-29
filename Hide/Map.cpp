@@ -1,25 +1,25 @@
-#include"Map.h"
+ï»¿#include"Map.h"
 #include"DxLib.h"
 #include<fstream>
-//1’Ã‚Ìƒ`ƒbƒv‚Ì‘å‚«‚³‚ğ30‚Æl‚¦‚é(Ÿè)//ƒ`ƒbƒvƒTƒCƒY‚Í32‚ª‘Ã“–
+//1æ´¥ã®ãƒãƒƒãƒ—ã®å¤§ãã•ã‚’30ã¨è€ƒãˆã‚‹(å‹æ‰‹)//ãƒãƒƒãƒ—ã‚µã‚¤ã‚ºã¯32ãŒå¦¥å½“
 #define chipsize 30
 
 //----------------------------------
-//ƒ}ƒbƒvƒf[ƒ^
+//ãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿
 //----------------------------------
 
 Map::Map()
 {
-	//‰Â•Ï
+	//å¯å¤‰
 	mapsizex = 600;
 	mapsizey = 600;
 }
 
 void Map::init(char* mapfp, char* chipfp)
 {
-	//g‚¤‰æ‘œŒˆ’è
+	//ä½¿ã†ç”»åƒæ±ºå®š
 	graph = LoadGraph(chipfp);
-	//ƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+	//ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	std::ifstream mapdata(mapfp);
 	if (!mapdata) { return; }
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
@@ -27,7 +27,7 @@ void Map::init(char* mapfp, char* chipfp)
 			mapdata >> data[y][x];
 		}
 	}
-	//ƒtƒ@ƒCƒ‹•Â‚¶
+	//ãƒ•ã‚¡ã‚¤ãƒ«é–‰ã˜
 	mapdata.close();
 }
 
@@ -45,7 +45,7 @@ void Map::update()
 	draw();
 }
 //-----------------------------------------------------------------------------------------------------------
-//–â‘è“_@chara‚ª“ñ‚Â‚Ìƒ}ƒbƒvƒ`ƒbƒv‚ğ‚Ü‚½‚¢‚Å‚¢‚é‚Æ‚«¶i‚Ü‚½‚Íã)‚Ìƒ`ƒbƒv‚Ì‚İƒŠƒ^[ƒ“‚³‚êA‚Ù‚©‚Ìƒ`ƒbƒv‚ª–³‹‚³‚ê‚é
+//å•é¡Œç‚¹ã€€charaãŒäºŒã¤ã®ãƒãƒƒãƒ—ãƒãƒƒãƒ—ã‚’ã¾ãŸã„ã§ã„ã‚‹ã¨ãå·¦ï¼ˆã¾ãŸã¯ä¸Š)ã®ãƒãƒƒãƒ—ã®ã¿ãƒªã‚¿ãƒ¼ãƒ³ã•ã‚Œã€ã»ã‹ã®ãƒãƒƒãƒ—ãŒç„¡è¦–ã•ã‚Œã‚‹
 //-----------------------------------------------------------------------------------------------------------
 /*int Map::get_left(Point chara_)
 {
@@ -91,12 +91,12 @@ int Map::get_top(Point chara_)
 
 int Map::get_bottom(Point chara_)
 {
-	//ƒ}ƒbƒvƒ^ƒCƒ‹‚P‚Â‚ª30*30‚Ì‚½‚ß
+	//ãƒãƒƒãƒ—ã‚¿ã‚¤ãƒ«ï¼‘ã¤ãŒ30*30ã®ãŸã‚
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y + chara_.h) / chipsize;
 	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = ((chara_.y + chara_.h)+1) / chipsize;
-	//”ÍˆÍ“à‚ÌáŠQ•¨‚ğ’T‚·
+	//ç¯„å›²å†…ã®éšœå®³ç‰©ã‚’æ¢ã™
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; sx <= ex; ++x) {
 			return data[y][x];
@@ -105,7 +105,7 @@ int Map::get_bottom(Point chara_)
 	return 0;
 }*/
 //-----------------------------------------------------------------------------------------------------------
-//‰¼ˆ—@ƒ`ƒbƒv‚ª“–‚½‚è”»’è‚ğ‚Á‚Ä‚¢‚é‚Æ‚«‚Ì‚İ1‚ğ•Ô‚·@¡Œãƒ_ƒ[ƒW°‚Í2‚ğ•Ô‚·‚È‚Ç‚ÌŠg’£‚ª‰Â”\
+//ä»®å‡¦ç†ã€€ãƒãƒƒãƒ—ãŒå½“ãŸã‚Šåˆ¤å®šã‚’æŒã£ã¦ã„ã‚‹ã¨ãã®ã¿1ã‚’è¿”ã™ã€€ä»Šå¾Œãƒ€ãƒ¡ãƒ¼ã‚¸åºŠã¯2ã‚’è¿”ã™ãªã©ã®æ‹¡å¼µãŒå¯èƒ½
 //-----------------------------------------------------------------------------------------------------------
 int Map::get_left(Point chara_)
 {
@@ -115,7 +115,7 @@ int Map::get_left(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//¡‰ñ‚Ìê‡‚Í‚P‚Ìƒ`ƒbƒv‚Ì‚İ‚É“–‚½‚è”»’è‚ğ‚½‚¹‚é
+			if (data[y][x] == 1) {//ä»Šå›ã®å ´åˆã¯ï¼‘ã®ãƒãƒƒãƒ—ã®ã¿ã«å½“ãŸã‚Šåˆ¤å®šã‚’æŒãŸã›ã‚‹
 				return 1;
 			}
 			
@@ -132,7 +132,7 @@ int Map::get_right(Point chara_)
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//¡‰ñ‚Ìê‡‚Í‚P‚Ìƒ`ƒbƒv‚Ì‚İ‚É“–‚½‚è”»’è‚ğ‚½‚¹‚é
+			if (data[y][x] == 1) {//ä»Šå›ã®å ´åˆã¯ï¼‘ã®ãƒãƒƒãƒ—ã®ã¿ã«å½“ãŸã‚Šåˆ¤å®šã‚’æŒãŸã›ã‚‹
 				return 1;
 			}
 
@@ -149,7 +149,7 @@ int Map::get_top(Point chara_)
 	int ey = chara_.y / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//¡‰ñ‚Ìê‡‚Í‚P‚Ìƒ`ƒbƒv‚Ì‚İ‚É“–‚½‚è”»’è‚ğ‚½‚¹‚é
+			if (data[y][x] == 1) {//ä»Šå›ã®å ´åˆã¯ï¼‘ã®ãƒãƒƒãƒ—ã®ã¿ã«å½“ãŸã‚Šåˆ¤å®šã‚’æŒãŸã›ã‚‹
 				return 1;
 			}
 
@@ -164,10 +164,30 @@ int Map::get_bottom(Point chara_)
 	int sy = (chara_.y + chara_.h) / chipsize;
 	int ex = (chara_.x + chara_.w-1) / chipsize;
 	int ey = (chara_.y + chara_.h) / chipsize;
-	//”ÍˆÍ“à‚ÌáŠQ•¨‚ğ’T‚·
+	//ç¯„å›²å†…ã®éšœå®³ç‰©ã‚’æ¢ã™
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] == 1) {//¡‰ñ‚Ìê‡‚Í‚P‚Ìƒ`ƒbƒv‚Ì‚İ‚É“–‚½‚è”»’è‚ğ‚½‚¹‚é
+			if (data[y][x] == 1) {//ä»Šå›ã®å ´åˆã¯ï¼‘ã®ãƒãƒƒãƒ—ã®ã¿ã«å½“ãŸã‚Šåˆ¤å®šã‚’æŒãŸã›ã‚‹
+				return 1;
+			}
+
+		}
+	}
+	return 0;
+}
+int Map::get_circle(Point star_,int r_)
+{
+	/*int sx = (star_.x-r_) / chipsize;//æœ¬æ¥ã¯ã“ã®ã¯ãšã ãŒæç”»ã¨å½“ãŸã‚Šåˆ¤å®šãŒãšã‚Œã¦ã„ã‚‹
+	int sy = (star_.y-r_) / chipsize;
+	int ex = (star_.x + r_ ) / chipsize;
+	int ey = (star_.y + r_ ) / chipsize;*/
+	int sx = (star_.x ) / chipsize;
+	int sy = (star_.y ) / chipsize;
+	int ex = (star_.x + r_*3) / chipsize;
+	int ey = (star_.y + r_*3) / chipsize;
+	for (int y = sy; y <= ey; ++y) {
+		for (int x = sx; x <= ex; ++x) {
+			if (data[y][x] >= 1) {//ä»Šå›ã®å ´åˆã¯ï¼‘ã®ãƒãƒƒãƒ—ã®ã¿ã«å½“ãŸã‚Šåˆ¤å®šã‚’æŒãŸã›ã‚‹
 				return 1;
 			}
 
