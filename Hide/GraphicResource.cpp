@@ -6,6 +6,19 @@
 #include <iterator>
 #include "json11.hpp"
 
+void GraphicResource::datum::set_default_to_empty()
+{
+	//未定義の項目に対していデフォルト値を設定する
+	if (column == 0) column = 1;
+	if (line == 0) line = 1;
+	if (width == 0) width = 32;
+	if (height == 0) height = 32;
+	//if (speed == 0) speed = 0;
+	//if (loop == false) loop = false;
+	if (sheets == 0) sheets = line * column;
+
+}
+
 GraphicResource::GraphicResource()
 {
 	std::ifstream ifs("img/resource.json");
@@ -66,22 +79,39 @@ void GraphicResource::register_graph(json11::Json item)
 {
 	for (int i = 0; i < count_of_graph; i++) {
 		if (graph[i].exist == false) {
-			graph[i].handle = new int[count_of_graph];	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
+			struct datum dat;
+			dat.name = item["name"].string_value();
+			dat.path = item["path"].string_value();
+			dat.column = item["column"].int_value();
+			dat.line = item["line"].int_value();
+			dat.width = item["width"].int_value();
+			dat.height = item["height"].int_value();
+			dat.loop = item["loop"].bool_value();
+			dat.speed = item["speed"].int_value();
+			dat.sheets = item["sheets"].int_value();
+			dat.set_default_to_empty();
+
+			graph[i].handle = new int[dat.sheets];	//アニメーション画像のフレーム枚数分のハンドル領域を確保する
 			graph[i].exist = true;	//存在フラグを立てる
-			graph[i].name = item["name"].string_value();
-			graph[i].max = item["line"].int_value()*item["column"].int_value();	//最大枚数を求める
+			graph[i].name = dat.name;
+			graph[i].max = dat.sheets;	//最大枚数を求める
 			LoadDivGraph(
-				item["path"].string_value().c_str(),
-				item["column"].int_value() * item["line"].int_value(),
-				item["column"].int_value(),
-				item["line"].int_value(),
-				item["width"].int_value(),
-				item["height"].int_value(),
+				dat.path.c_str() ,
+				dat.sheets,
+				dat.column,
+				dat.line,
+				dat.width,
+				dat.height,
 				graph[i].handle
 			);		//JSONに書かれた情報をLoadDivGraphから読み込む
 			break;
 		}
 	}
+}
+
+void GraphicResource::set_default(json11::Json item)
+{
+
 }
 
 bool GraphicResource::exist_name(std::string name)
