@@ -29,8 +29,10 @@ void CoreTask::update()
 		gts->update();
 		break;
 	case Scene::gameover:
+		gots->update();
 		break;
 	case Scene::clear:
+		cts->update();
 		break;
 	}
 }

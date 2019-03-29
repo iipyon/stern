@@ -8,6 +8,7 @@
 #include"ThrowingEnemy.h"
 #include"FlyingEnemy.h"
 #include"BossEnemy.h"
+#include"Goal.h"
 
 class GameTaskSystem
 {
@@ -16,10 +17,12 @@ protected:
 public:
 	GameTaskSystem();
 	~GameTaskSystem();
+	void init();
 	void update();
 	//~GameTaskSystem();
 	std::unique_ptr<Player> player;
 	std::unique_ptr<Map> map;
+	std::unique_ptr<Goal> goal;
 	//Åô
 	std::shared_ptr<BasicList<NormalStar>> normalstar;
 	//ìG

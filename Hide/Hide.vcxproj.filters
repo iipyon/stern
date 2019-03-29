@@ -207,6 +207,9 @@
     <ClCompile Include="SpawnEnemy.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
+    <ClCompile Include="Goal.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="SpawnEnemy.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="Goal.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
