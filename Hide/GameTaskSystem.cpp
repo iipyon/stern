@@ -30,12 +30,14 @@ void GameTaskSystem::update()
 
 	map->update();
 	//☆------------------------------
+	normalstar->lead();
 	while (normalstar->exist()) {
 		normalstar->get()->update();
 		normalstar->proceed();
 	}
 	//--------------------------------
 	//敵------------------------------
+	walking_enemy->lead();
 	while (walking_enemy->exist()) {
 		walking_enemy->get()->update();
 		walking_enemy->proceed();
