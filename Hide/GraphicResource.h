@@ -39,7 +39,6 @@ private:
 	int get_index(std::string);
 	bool exist_name(std::string);
 	void register_graph(json11::Json);
-	void set_default(json11::Json);
 	//構造体
 	struct datum{
 		std::string name, path;

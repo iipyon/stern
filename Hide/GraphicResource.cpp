@@ -109,10 +109,6 @@ void GraphicResource::register_graph(json11::Json item)
 	}
 }
 
-void GraphicResource::set_default(json11::Json item)
-{
-
-}
 
 bool GraphicResource::exist_name(std::string name)
 {
