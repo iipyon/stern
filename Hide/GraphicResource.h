@@ -4,12 +4,6 @@
 #include "GraphicState.h"
 #include "json11.hpp"
 
-struct GraphicJsonFormat {
-	std::string name;
-	int width;
-	int height;
-};
-
 struct GraphicObject {
 	//画像の実体を管理する
 	GraphicObject() {
