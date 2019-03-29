@@ -42,7 +42,7 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x, 0, 0, 0, 1, st, graph, FALSE);
+	DrawRotaGraph2(x+15, 0, 15, 0, 1, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
