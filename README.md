@@ -25,3 +25,6 @@
 * Deployment instructions
 
 * ...
+
+# Copyright
+Copyright (c) 2013 Dropbox, Inc.

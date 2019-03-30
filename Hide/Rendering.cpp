@@ -27,7 +27,7 @@ Rendering::Rendering(Point point) : BasicObject(point)
 void Rendering::init_render(std::string scope)
 {
 	GraphicObject obj = ct->graph->get(scope);
-	if (obj.exist == false) throw "存在しない画像スコープ";
+	if (obj.exist == false) throw std::runtime_error("The scope is not exist.");
 	cnt = 0;
 	max = obj.max;
 	rate = obj.rate;
