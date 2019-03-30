@@ -28,11 +28,6 @@ void Player::PlayerInterface::draw()
 	}
 }
 
-void Player::initialize() {
-	class Point p_point = { 100,300,30,30 };
-	point = p_point;
-}
-
 void Player::PlayerInterface::update(int hp_,int life_)
 {
 	hp = hp_;
@@ -80,6 +75,8 @@ Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state
 
 void Player::init()
 {
+	class Point p_point = { 100,300,30,30 };
+	point = p_point;
 	init_render("player");	//resource.jsonのnameが"player"のものをセットする
 }
 

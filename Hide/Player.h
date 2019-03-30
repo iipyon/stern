@@ -17,7 +17,6 @@ class Player :public Physic {
 public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();
-	void initialize();
 	//メソッド
 	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
