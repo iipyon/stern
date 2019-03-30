@@ -11,7 +11,7 @@
 	  "life":1,
 	  "damage":0,
       "name": "NCNC",
-      "kind": "walking"
+      "kind": "walk"
     },
     {
       "x": 200,
@@ -24,7 +24,7 @@
 	  "life":1,
 	  "damage":0,
       "name": "PTPT",
-      "kind": "walking"
+      "kind": "walk"
     }
   ]
 }
