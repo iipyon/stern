@@ -120,19 +120,33 @@ void Player::move()
 {
 	//左右移動
 	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		velocityX = -2;
+		if (ct->keyboard->key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
+			/*velocityX--;*/
+			velocityX = -4.0f;
+		}
+		else {
+			velocityX = -2.0f;
+		}
 	}
 	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		velocityX = +2;
+		if (ct->keyboard->key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
+			/*if (velocityX <= +6) {
+				velocityX++;
+			}*/
+			velocityX = 4.0f;
+		}
+		else {
+			velocityX = 2.0f;
+		}
 	}
 	//ジャンプ
 	if (ct->keyboard->key_down(KEY_INPUT_X)) {
 		if (velocityY == 0 && velocityY == preY) {
-			velocityY -= 10;
+			velocityY -= 18.0f;
 		}
 	}
-	//ダッシュ
-	preY = int(velocityY);
+	//前のvelocityYを保持
+	preY = velocityY;
 }
 
 bool Player::knockback(int)

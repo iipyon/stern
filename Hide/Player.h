@@ -61,7 +61,7 @@ protected:
 	double angle;//カーソルの傾き
 	int invincible;//無敵時間
 	int hp;//HP
-	int preY;
+	float preY; //前のフレームのvelocityYを保持
 	int interval;//星の発射間隔
 	bool knockback_status;//ノックバック中か
 	std::unique_ptr<StarManager> starmanager;
