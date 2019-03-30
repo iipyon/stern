@@ -9,6 +9,8 @@ Goal::Goal(Point point_): Rendering(point_)
 
 void Goal::init()
 {
+	class Point g_point = { 30,510,30,30 };
+	point = g_point;
 	init_render("goal");
 }
 
