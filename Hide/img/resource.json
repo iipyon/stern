@@ -31,7 +31,20 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"walking"
+		"walking",
+		"enemy"
+      ]
+    },
+	{
+      "name": "flying",
+      "path": "img/flying_enemy.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+		"flying",
+		"enemy"
       ]
     },
 	{
