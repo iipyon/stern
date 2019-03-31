@@ -13,7 +13,6 @@ GameTaskSystem::GameTaskSystem()
 	map = std::make_unique<Map>();
 	player = std::make_unique<Player>(p_point,p_physic_state,player_state);
 
-	//normalstar = std::make_shared<BasicList<NormalStar>>();
 	walking_enemy = std::make_shared<BasicList<WalkingEnemy>>();
 	boss = std::make_shared<BasicList<Boss>>();
 	flying_enemy = std::make_shared<BasicList<FlyingEnemy>>();
