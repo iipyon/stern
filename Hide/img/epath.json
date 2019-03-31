@@ -24,7 +24,7 @@
 	  "life":1,
 	  "damage":0,
       "name": "PTPT",
-      "kind": "walk"
+      "kind": "fly"
     }
   ]
 }

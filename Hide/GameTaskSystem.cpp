@@ -51,6 +51,11 @@ void GameTaskSystem::update()
 		walking_enemy->get()->update();
 		walking_enemy->proceed();
 	}
+	flying_enemy->lead();
+	while (flying_enemy->exist()) {
+		flying_enemy->get()->update();
+		flying_enemy->proceed();
+	}
 	//--------------------------------
 
 	player->update();
