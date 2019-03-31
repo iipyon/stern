@@ -49,14 +49,13 @@ void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
-		ct->gts->normalstar->lead();//リストを先頭に戻す
-		//ノーマルスター
-		//Point point_, PhysicState physic_state_, StarState star_state
 		class Point point = { x_,0,0,0 };
 		struct PhysicState physic_state = { 0,0,0 };//	float gravity; float repulsion;int weight;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
-		std::shared_ptr<NormalStar> new_instance = std::make_shared<NormalStar>(point,physic_state,star_state);
-		ct->gts->normalstar->create(new_instance);//新規オブジェクトをリスト管理対象とする
+
+		ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
+		//ノーマルスター
+		//Point point_, PhysicState physic_state_, StarState star_state
 	}
 }
 
