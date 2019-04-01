@@ -19,6 +19,7 @@ public:
 	~GameTaskSystem();
 	void init();
 	void update();
+	void finalize();
 	//~GameTaskSystem();
 	std::unique_ptr<Player> player;
 	std::unique_ptr<Map> map;

@@ -17,7 +17,6 @@ void Goal::init()
 void Goal::update()
 {
 	if (hit(ct->gts->player->get_point())) {
-		ct->cts->init();
 		to_cleartask();
 	}
 }
@@ -38,5 +37,7 @@ bool Goal::hit(Point player_)
 void Goal::to_cleartask()
 {
 	//クリアシーンに遷移
+	ct->gts->finalize();
+	ct->cts->init();
 	ct->scene = Scene::clear;
 }
