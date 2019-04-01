@@ -1,17 +1,17 @@
 ﻿#include "GameTaskSystem.h"
-
+#include <vector> 
 
 GameTaskSystem::GameTaskSystem()
 {
 	//Point point_, PhysicState physic_state_, PlayerState player_state
-	class Point p_point = {100,300,30,30};
+	class Point p_point = { 100,300,30,30 };
 	class Point g_point = { 30,510,30,30 };
 	struct PhysicState p_physic_state = { 1,0,0 };//gra,rep,wei
 	struct PlayerState player_state = { 3,2 };//life,hp
 
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
-	player = std::make_unique<Player>(p_point,p_physic_state,player_state);
+	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
 
 	walking_enemy = std::make_shared<BasicList<WalkingEnemy>>();
 	boss = std::make_shared<BasicList<Boss>>();
@@ -55,4 +55,11 @@ void GameTaskSystem::update()
 	//--------------------------------
 
 	player->update();
+}
+
+void GameTaskSystem::finalize()
+{
+	while (!normalstar.empty()) {//空でないなら
+		normalstar.pop_back();//消し去る
+	}
 }
