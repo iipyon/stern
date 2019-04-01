@@ -59,8 +59,7 @@ void GameTaskSystem::update()
 
 void GameTaskSystem::finalize()
 {
-	normalstar.begin();
-	while (!normalstar.empty()) {
-		normalstar.pop_back();
+	while (!normalstar.empty()) {//空でないなら
+		normalstar.pop_back();//消し去る
 	}
 }
