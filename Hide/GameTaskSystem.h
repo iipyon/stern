@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Player.h"
 #include"Map.h"
 #include<memory>
@@ -23,9 +23,9 @@ public:
 	std::unique_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
-	//™
-	std::shared_ptr<BasicList<NormalStar>> normalstar;
-	//“G
+	//â˜†
+	std::vector<NormalStar> normalstar;
+	//æ•µ
 	std::shared_ptr<BasicList<WalkingEnemy>> walking_enemy;
 	std::shared_ptr<BasicList<FlyingEnemy>>  flying_enemy;
 	std::shared_ptr<BasicList<Boss>> boss;
