@@ -31,24 +31,18 @@ void SpawnEnemy::create(std::string stg)
 		//---------------------------------------------------------------------------------------------------------
 		//歩行
 		if(enemy["kind"].string_value() == "walk") {
-			//歩行(コンストラクタ引数にx,y,graph,kindを追加する)
-		    ct->gts->walking_enemy->lead();//リストを先頭に戻す
-			std::shared_ptr<WalkingEnemy> new_instance = std::make_shared<WalkingEnemy>(point,physic_state,enemy_state);
-			ct->gts->walking_enemy->create(new_instance);//新規オブジェクトをリスト管理対象とする
+			//生成して現在の最後尾に登録
+			ct->gts->walking_enemy.push_back(WalkingEnemy{ point,physic_state,enemy_state });
 		}	
 		//飛行
 		if (enemy["kind"].string_value() == "fly") {
-			//歩行(コンストラクタ引数にx,y,graph,kindを追加する)
-			ct->gts->flying_enemy->lead();//リストを先頭に戻す
-			std::shared_ptr<FlyingEnemy> new_instance = std::make_shared<FlyingEnemy>(point, physic_state, enemy_state);
-			ct->gts->flying_enemy->create(new_instance);//新規オブジェクトをリスト管理対象とする
+			//生成して現在の最後尾に登録
+			ct->gts->flying_enemy.push_back(FlyingEnemy{ point,physic_state,enemy_state });
 		}
 		//投げつける奴
 		if (enemy["kind"].string_value() == "throw") {
-			//歩行(コンストラクタ引数にx,y,graph,kindを追加する)
-			ct->gts->throwing_enemy->lead();//リストを先頭に戻す
-			std::shared_ptr<ThrowingEnemy> new_instance = std::make_shared<ThrowingEnemy>(point, physic_state, enemy_state);
-			ct->gts->throwing_enemy->create(new_instance);//新規オブジェクトをリスト管理対象とする
+			//生成して現在の最後尾に登録
+			ct->gts->throwing_enemy.push_back(ThrowingEnemy{ point,physic_state,enemy_state });
 		}
 	}
 }

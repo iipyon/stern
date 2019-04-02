@@ -27,9 +27,9 @@ public:
 	//☆
 	std::vector<NormalStar> normalstar;
 	//敵
-	std::shared_ptr<BasicList<WalkingEnemy>> walking_enemy;
-	std::shared_ptr<BasicList<FlyingEnemy>>  flying_enemy;
-	std::shared_ptr<BasicList<Boss>> boss;
-	std::shared_ptr<BasicList<ThrowingEnemy>> throwing_enemy;
+	std::vector<WalkingEnemy> walking_enemy;
+	std::vector<FlyingEnemy>  flying_enemy;
+	std::vector<Boss> boss;
+	std::vector<ThrowingEnemy> throwing_enemy;
 };
 
