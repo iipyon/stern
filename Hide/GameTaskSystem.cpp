@@ -12,12 +12,6 @@ GameTaskSystem::GameTaskSystem()
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
-
-/*	walking_enemy = std::make_shared<BasicList<WalkingEnemy>>();
-	boss = std::make_shared<BasicList<Boss>>();
-	flying_enemy = std::make_shared<BasicList<FlyingEnemy>>();
-	throwing_enemy = std::make_shared<BasicList<ThrowingEnemy>>();
-	*/
 }
 
 GameTaskSystem::~GameTaskSystem()
