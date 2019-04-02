@@ -12,11 +12,6 @@ GameTaskSystem::GameTaskSystem()
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
-
-	walking_enemy = std::make_shared<BasicList<WalkingEnemy>>();
-	boss = std::make_shared<BasicList<Boss>>();
-	flying_enemy = std::make_shared<BasicList<FlyingEnemy>>();
-	throwing_enemy = std::make_shared<BasicList<ThrowingEnemy>>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -32,8 +27,6 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
-	//リストを先頭に戻す
-	walking_enemy->lead();
 	map->update();
 	goal->update();
 	//☆------------------------------
@@ -41,16 +34,12 @@ void GameTaskSystem::update()
 		itr->update();
 	}
 	//--------------------------------
-	//敵------------------------------
-	walking_enemy->lead();
-	while (walking_enemy->exist()) {
-		walking_enemy->get()->update();
-		walking_enemy->proceed();
+	//敵------------------------------先頭から終端まで
+	for (auto itr = walking_enemy.begin(); itr != walking_enemy.end(); ++itr) {
+		itr->update();//歩行敵のupdateを呼ぶ
 	}
-	flying_enemy->lead();
-	while (flying_enemy->exist()) {
-		flying_enemy->get()->update();
-		flying_enemy->proceed();
+	for (auto itr = flying_enemy.begin(); itr != flying_enemy.end(); ++itr) {
+		itr->update();
 	}
 	//--------------------------------
 
@@ -61,5 +50,14 @@ void GameTaskSystem::finalize()
 {
 	while (!normalstar.empty()) {//空でないなら
 		normalstar.pop_back();//消し去る
+	}
+	while (!walking_enemy.empty()) {
+		walking_enemy.pop_back();
+	}
+	while (!flying_enemy.empty()) {
+		flying_enemy.pop_back();
+	}
+	while (!throwing_enemy.empty()) {
+		throwing_enemy.pop_back();
 	}
 }

@@ -16,40 +16,29 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 
 bool Star::attack()
 {
-	ct->gts->flying_enemy->lead();
-	while (ct->gts->flying_enemy->exist()) {
-		enemy_point = ct->gts->flying_enemy->get()->get_point();
+	for (auto itr = ct->gts->walking_enemy.begin(); itr != ct->gts->walking_enemy.end(); ++itr) {
+		enemy_point = itr->get_point();
 		if (check_hit(enemy_point)) {
-			ct->gts->flying_enemy->get()->damage(power);
+			itr->damage(power);
 		}
-		ct->gts->flying_enemy->proceed();
 	}
-
-	ct->gts->walking_enemy->lead();
-	while (ct->gts->walking_enemy->exist()) {
-		enemy_point = ct->gts->walking_enemy->get()->get_point();
+	for (auto itr = ct->gts->flying_enemy.begin(); itr != ct->gts->flying_enemy.end(); ++itr) {
+		enemy_point = itr->get_point();
 		if (check_hit(enemy_point)) {
-			ct->gts->walking_enemy->get()->damage(power);
+			itr->damage(power);
 		}
-		ct->gts->walking_enemy->proceed();
 	}
-
-	ct->gts->throwing_enemy->lead();
-	while (ct->gts->throwing_enemy->exist()) {
-		enemy_point = ct->gts->throwing_enemy->get()->get_point();
+	for (auto itr = ct->gts->throwing_enemy.begin(); itr != ct->gts->throwing_enemy.end(); ++itr) {
+		enemy_point = itr->get_point();
 		if (check_hit(enemy_point)) {
-			ct->gts->throwing_enemy->get()->damage(power);
+			itr->damage(power);
 		}
-		ct->gts->throwing_enemy->proceed();
 	}
-
-	ct->gts->boss->lead();
-	while (ct->gts->boss->exist()) {
-		enemy_point = ct->gts->boss->get()->get_point();
+	for (auto itr = ct->gts->boss.begin(); itr != ct->gts->boss.end(); ++itr) {
+		enemy_point = itr->get_point();
 		if (check_hit(enemy_point)) {
-			ct->gts->boss->get()->damage(power);
+			itr->damage(power);
 		}
-		ct->gts->boss->proceed();
 	}
 	return false;
 }
