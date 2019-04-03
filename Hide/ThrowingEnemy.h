@@ -3,18 +3,12 @@
 
 class ThrowingEnemy :public Enemy {
 public:
-	//Enemyに共通するためEnemyClassにいれてもいいかもしれない
-	enum class AngleState {
-		left,
-		right
-	};
-	AngleState anglestate;
-
 	ThrowingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
-	void move();
+	void move();//移動
+	void appear_shot();
 	void update();
-	void playercheck_left();
-	void playercheck_right();
+	void change_angle();
+	AngleState get_anglestate();
 
 private:
 	int x;

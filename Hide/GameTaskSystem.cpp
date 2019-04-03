@@ -41,7 +41,10 @@ void GameTaskSystem::update()
 	for (auto itr = flying_enemy.begin(); itr != flying_enemy.end(); ++itr) {
 		itr->update();
 	}
-	for (auto itr = enemy_shot00.begin(); itr != enemy_shot00.end(); ++itr) {
+	for (auto itr = throwing_enemy.begin(); itr != throwing_enemy.end(); ++itr) {
+		itr->update();
+	}
+	for (auto itr = enemy_bullet.begin(); itr != enemy_bullet.end(); ++itr) {
 		itr->update();
 	}
 	//--------------------------------
@@ -63,7 +66,7 @@ void GameTaskSystem::finalize()
 	while (!throwing_enemy.empty()) {
 		throwing_enemy.pop_back();
 	}
-	while (!enemy_shot00.empty()) {
-		throwing_enemy.pop_back();
+	while (!enemy_bullet.empty()) {
+		enemy_bullet.pop_back();
 	}
 }
