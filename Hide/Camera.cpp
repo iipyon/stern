@@ -18,3 +18,8 @@ bool Camera::get()
 {
 	return false;
 }
+
+Point Camera::get_range()
+{
+	return range;
+}
