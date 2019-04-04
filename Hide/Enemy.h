@@ -5,9 +5,16 @@
 //“G‘S”Ê
 //----------------------------------
 
+//Enemy‚É‹¤’Ê‚·‚é‚½‚ßEnemyClass‚É‚¢‚ê‚Ä‚à‚¢‚¢‚©‚à‚µ‚ê‚È‚¢
+enum class AngleState {
+	left,
+	right
+};
+
 struct EnemyState {
 	int life;
 	int damage;
+	AngleState anglestate;
 };
 
 class Enemy :public Physic {
@@ -32,9 +39,5 @@ protected:
 	int hp;//Žc‚è‘Ì—Í
 	int power;
 	int knock_back;
-
-	enum state {
-
-	};
-
+	AngleState anglestate;
 };

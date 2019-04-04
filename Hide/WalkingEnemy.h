@@ -10,11 +10,6 @@ public:
 		stay,
 		run
 	};
-	//Enemyに共通するためEnemyClassにいれてもいいかもしれない
-	enum class AngleState {
-		left,
-		right
-	};
 	WalkingState walkingstate;
 	AngleState anglestate;
   

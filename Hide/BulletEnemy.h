@@ -7,5 +7,6 @@ public:
 	void move();
 	void update();
 private:
+	int angle;
 protected:
 };

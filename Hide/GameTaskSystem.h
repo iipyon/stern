@@ -6,7 +6,8 @@
 #include"NormalStar.h"
 #include"WalkingEnemy.h"
 #include"ThrowingEnemy.h"
-#include"EnemyShot00.h"
+#include"EnemyShot00.h"//どこにあるかわからない
+#include"BulletEnemy.h"
 #include"FlyingEnemy.h"
 #include"BossEnemy.h"
 #include"Goal.h"
@@ -32,6 +33,6 @@ public:
 	std::vector<FlyingEnemy>  flying_enemy;
 	std::vector<Boss> boss;
 	std::vector<ThrowingEnemy> throwing_enemy;
-	std::vector<EnemyShot00> enemy_shot00;
+	std::vector<BulletEnemy> enemy_bullet;
 };
 

@@ -48,6 +48,30 @@
       ]
     },
 	{
+      "name": "throwing",
+      "path": "img/flying_enemy.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+		"throwing",
+		"enemy"
+      ]
+    },
+	{
+      "name": "bullet",
+      "path": "img/bullet.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+		"bullet",
+		"enemy"
+      ]
+    },
+	{
       "name": "goal",
       "path": "img/goal.png",
       "width": 30,

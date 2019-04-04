@@ -6,6 +6,7 @@ Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state) : Ph
 {
 	life = enemy_state.life;
 	damaged = enemy_state.damage;
+	anglestate = enemy_state.anglestate;
 }
 
 bool Enemy::attack()
