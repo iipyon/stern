@@ -28,7 +28,8 @@ void Physic::exercise()
 		Point hit = point;
 		if (ct->gts->map->get_left(hit) == 1 || ct->gts->map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			point.x = preX;
-			rebound_X();
+			velocityX = 0;
+			//rebound_X();
 			break;
 		}
 	}
@@ -41,7 +42,8 @@ void Physic::exercise()
 		Point hit = point;
 		if (ct->gts->map->get_bottom(hit) == 1 || ct->gts->map->get_top(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			point.y = preY;
-			rebound_Y();
+			velocityY = 0;
+			//rebound_Y();
 			break;
 		}
 	
@@ -49,7 +51,7 @@ void Physic::exercise()
 
 }
 
-void Physic::rebound_X()
+/*void Physic::rebound_X()
 {
 	velocityX *= -repulsion;
 }
@@ -57,5 +59,5 @@ void Physic::rebound_X()
 void Physic::rebound_Y()
 {
 	velocityY *= -repulsion;
-}
+}*/
 

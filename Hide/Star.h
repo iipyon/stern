@@ -20,7 +20,9 @@ public:
 	//ƒƒ\ƒbƒh
 	bool attack();
 	bool damage(int);
-
+	void exercise();
+	void rebound_X();
+	void rebound_Y();
 protected:
 	//•Ï”
 	double angle;
@@ -29,6 +31,7 @@ protected:
 	bool contact;
 	int power;
 	int life;
+	Point starpoint;
 	Point enemy_point;
 	struct p {
 		int x = 0, y = 0;

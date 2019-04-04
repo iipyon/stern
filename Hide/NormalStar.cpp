@@ -10,8 +10,8 @@
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
-	velocityX = 3;
-	velocityY = 3;
+	velocityX = 20;
+	velocityY = 20;
 	init_render("star");
 }
 
@@ -28,13 +28,12 @@ void NormalStar::update()
 	else {
 		exercise();
 	}
-	if (attack()) {
-	}
+	attack();
 
 	draw(true);
-	if (damage(1)) {
+	/*if (damage(1)) {
 		//ct->gts->normalstar->destroy();
-	}
+	}*/
 }
 
 void NormalStar::inhale(int, int, float)
