@@ -20,8 +20,6 @@ public:
 	void change_state();
 	void update();
 private:
-	int preY;//移動前をとる
-	int destinationY;//移動先をとる
-	int movecnt;//ブロックに当たっている間とり誤差をなくす
+	int movecnt;//ブロックに当たっている間とり誤差をなくしたかった
 protected:
 };

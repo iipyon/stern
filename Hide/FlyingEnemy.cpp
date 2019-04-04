@@ -9,8 +9,6 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 {
 	//必要か判断ができない初期化処理
 	flyingstate = FlyingState::down;
-	preY = point.y;
-	destinationY = preY + 120;
 	movecnt = 0;
 	init_render("flying");
 }
@@ -19,7 +17,7 @@ void FlyingEnemy::move()
 {
 	switch (flyingstate)
 	{
-	//飛行
+		//飛行
 	case FlyingState::down:
 		velocityY = 1;
 		break;
@@ -33,15 +31,32 @@ void FlyingEnemy::move()
 	point.y += (int)velocityY;
 }
 
-void FlyingEnemy::change_state() {
-	if (ct->gts->map->get_bottom(point) || ct->gts->map->get_top(point)) movecnt++;
-	if (point.y > destinationY || point.y + movecnt > destinationY) { flyingstate = FlyingState::up; movecnt = 0; }
-	if (point.y < preY || point.y - movecnt < preY) { flyingstate = FlyingState::down; movecnt = 0; }
+void FlyingEnemy::change_state()
+{
+	DrawFormatString(0, 450, GetColor(255, 255, 0), "tophitcnt : %d", movecnt);
+	DrawFormatString(0, 500, GetColor(255, 255, 0), "point.y : %d", point.y);
+	//   
+	movecnt++;// 
+	if (movecnt <= 120) {
+		flyingstate = FlyingState::down;
+		if (ct->gts->map->get_bottom(point)) {
+			flyingstate = FlyingState::stay;
+		}
+	}
+	else if (movecnt <= 240) {
+		flyingstate = FlyingState::up;
+		if (ct->gts->map->get_top(point)) {
+			flyingstate = FlyingState::stay;
+		}
+	}
+	if (movecnt >= 240) {
+		movecnt = 0;
+	}
 }
 
 void FlyingEnemy::update()
 {
-	//exercise();;
+	//exercise();
 	change_state();
 	move();
 	draw(true);
