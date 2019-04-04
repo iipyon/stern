@@ -11,6 +11,7 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 	flyingstate = FlyingState::down;
 	preY = point.y;
 	destinationY = preY + 120;
+	movecnt = 0;
 	init_render("flying");
 }
 
@@ -33,15 +34,15 @@ void FlyingEnemy::move()
 }
 
 void FlyingEnemy::change_state() {
-	if (point.y > destinationY) flyingstate = FlyingState::up;
-	if (point.y < preY) flyingstate = FlyingState::down;
+	if (ct->gts->map->get_bottom(point) || ct->gts->map->get_top(point)) movecnt++;
+	if (point.y > destinationY || point.y + movecnt > destinationY) { flyingstate = FlyingState::up; movecnt = 0; }
+	if (point.y < preY || point.y - movecnt < preY) { flyingstate = FlyingState::down; movecnt = 0; }
 }
 
 void FlyingEnemy::update()
 {
-	//exercise();
+	//exercise();;
 	change_state();
 	move();
-	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d", velocityY);
 	draw(true);
 }
