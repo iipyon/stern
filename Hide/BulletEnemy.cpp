@@ -22,7 +22,6 @@ void BulletEnemy::move()
 
 void BulletEnemy::update()
 {
-	DrawFormatString(300, 100, GetColor(255, 0, 0), "%d", velocityX);
 	move();
 	exercise();
 	draw(true);
