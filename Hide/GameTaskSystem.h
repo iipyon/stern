@@ -11,6 +11,7 @@
 #include"FlyingEnemy.h"
 #include"BossEnemy.h"
 #include"Goal.h"
+#include"Camera.h"
 
 class GameTaskSystem
 {
@@ -26,6 +27,7 @@ public:
 	std::unique_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
+	std::unique_ptr<Camera> camera;
 	//☆
 	std::vector<NormalStar> normalstar;
 	//敵

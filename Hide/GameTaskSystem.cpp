@@ -11,6 +11,7 @@ GameTaskSystem::GameTaskSystem()
 
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
+	camera = std::make_unique<Camera>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
 }
 
