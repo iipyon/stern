@@ -21,10 +21,10 @@ void Physic::exercise()
 		repulsion = 0.0f;
 	}
 	int prevelX = int(velocityX);
-	while (velocityX != 0) {
+	while (prevelX != 0) {
 		int preX = point.x;
-		if (velocityX >= 1) { point.x += 1; velocityX -= 1; }
-		else if (velocityX <= -1) { point.x -= 1; velocityX += 1; }
+		if (velocityX >= 1) { point.x += 1; prevelX -= 1; }
+		else if (velocityX <= -1) { point.x -= 1; prevelX += 1; }
 		Point hit = point;
 		if (ct->gts->map->get_left(hit) == 1 || ct->gts->map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 			point.x = preX;

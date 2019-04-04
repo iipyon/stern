@@ -10,8 +10,8 @@
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
-	velocityX = 20;
-	velocityY = 20;
+	velocityX = 50;
+	velocityY = 50;
 	init_render("star");
 }
 
@@ -19,10 +19,20 @@ void NormalStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", angle);
 	if (!contact) {
-		point.x += (int)(-sin(angle) * velocityX);
-		point.y += (int)(cos(angle) * velocityY);
-		if (ct->gts->map->get_circle(point,radius)){
-			contact = true;
+		int prevelX = int(-sin(angle) * velocityX);
+		int prevelY = int(cos(angle) * velocityY);
+		while (prevelX != 0&& prevelY != 0) {
+			int preX = point.x;
+			if (-sin(angle) *velocityX >= 1) { point.x += 1; prevelX -= 1; }
+			else if (-sin(angle) *velocityX <= -1) { point.x -= 1; prevelX += 1; }
+			int preY = point.y;
+			if (cos(angle) *velocityY >= 1) { point.y += 1; prevelY -= 1; }
+			else if (cos(angle) *velocityY <= -1) { point.y -= 1; prevelY += 1; }
+			Point hit = point;
+			if (ct->gts->map->get_circle(point, radius)) {
+				contact = true;
+				break;
+			}
 		}
 	}
 	else {
