@@ -15,7 +15,7 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 }
 
 void Star::exercise() {
-	starpoint = { point.x - radius, point.y - point.y - radius, radius * 2, radius * 2 };
+	Point starpoint = { point.x - radius, point.y - point.y - radius, radius * 2, radius * 2 };
 	velocityY += gravity;
 
 	if (velocityX <= 0.5f && velocityY <= 0.5f) {
@@ -60,6 +60,7 @@ void Star::rebound_Y()
 }
 bool Star::attack()
 {
+	Point enemy_point;
 	for (auto itr = ct->gts->walking_enemy.begin(); itr != ct->gts->walking_enemy.end(); ++itr) {
 		enemy_point = itr->get_point();
 		if (check_hit(enemy_point)) {
@@ -97,6 +98,11 @@ bool Star::damage(int damage_)
 }
 
 bool Star::check_hit(Point enemy_) {
+
+	struct p {
+		int x = 0, y = 0;
+	}
+	p[4];
 	p[0] = { enemy_.x,enemy_.y};
 	p[1] = { enemy_.x + enemy_.w,enemy_.y};
 	p[2] = { enemy_.x ,enemy_.y + enemy_.h };
