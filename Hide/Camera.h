@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include"DxLib.h"
 #include"Point.h"
 
@@ -7,11 +7,12 @@ public:
 	//Camera();
 	void update();
 	void move(int, int);
+	Point get_range(); //rangeã®æƒ…å ±ã‚’é€ã‚‹
 	//void change();
 	bool get();
 private:
 	Point range;
-	bool mode;//enum‚Å—pˆÓ‚·‚é‰Â”\«‚ ‚è
-	int preX;//ˆÚ“®‘O‚ÌÀ•W
+	bool mode;//enumã§ç”¨æ„ã™ã‚‹å¯èƒ½æ€§ã‚ã‚Š
+	int preX;//ç§»å‹•å‰ã®åº§æ¨™
 	int preY;
 };
