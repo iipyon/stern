@@ -51,7 +51,7 @@ void Physic::exercise()
 
 }
 
-/*void Physic::rebound_X()
+/*void Physic::rebound_X()//バウンドの処理が必要になったら書くよ
 {
 	velocityX *= -repulsion;
 }
