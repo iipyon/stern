@@ -15,13 +15,14 @@ class Physic : public Rendering {
 public:
 	Physic(Point point,PhysicState physic_state);
 	//メソッド
-	void exercise();//物理運動を行うものだけ処理を行う
+	virtual void exercise();//物理運動を行うものだけ処理を行う
+	/*virtual void rebound_X();
+	virtual void rebound_Y();*/
 protected:
 	//変数
 	float gravity;//重力
 	float repulsion;//反発係数
 	int weight;//重さ(物体)
 
-	void rebound_X();
-	void rebound_Y();
+
 };
