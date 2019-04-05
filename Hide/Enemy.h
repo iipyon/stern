@@ -40,4 +40,5 @@ protected:
 	int power;
 	int knock_back;
 	AngleState anglestate;
+
 };

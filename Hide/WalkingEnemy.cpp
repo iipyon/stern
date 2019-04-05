@@ -77,5 +77,6 @@ void WalkingEnemy::update()
 	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d", velocityX);
 	check_left();
 	check_right();
+	attack();
 	draw(true);
 }
