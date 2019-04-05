@@ -74,7 +74,7 @@ Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state
 
 void Player::init()
 {
-	class Point p_point = { 100,300,30,30 };
+	class Point p_point = { 500,30,30,30 };
 	point = p_point;
 	init_render("player");	//resource.jsonのnameが"player"のものをセットする
 }
