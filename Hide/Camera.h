@@ -5,6 +5,7 @@
 class Camera {
 public:
 	//Camera();
+	void init();
 	void update();
 	void move(int, int);
 	Point get_range(); //rangeの情報を送る
@@ -12,6 +13,7 @@ public:
 	bool get();
 private:
 	Point range;
+	int camera;
 	bool mode;//enumで用意する可能性あり
 	int preX;//移動前の座標
 	int preY;
