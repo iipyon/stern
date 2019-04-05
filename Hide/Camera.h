@@ -5,6 +5,7 @@
 class Camera {
 public:
 	//Camera();
+	void init();
 	void update();
 	void move(int, int);
 	Point get_range(); //rangeの情報を送る

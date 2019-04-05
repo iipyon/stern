@@ -21,6 +21,7 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
+	camera->init();
 	player->init();
 	goal->init();
 }
@@ -28,6 +29,7 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
+	
 	map->update();
 	goal->update();
 	//☆------------------------------
@@ -51,6 +53,7 @@ void GameTaskSystem::update()
 	//--------------------------------
 
 	player->update();
+	camera->update();
 }
 
 void GameTaskSystem::finalize()
