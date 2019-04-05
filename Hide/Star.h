@@ -34,6 +34,6 @@ protected:
 	void exercise();
 	bool check_hit(Point);
 private:
-	void rebound_X();
-	void rebound_Y();
+	float rebound_X(int);
+	float rebound_Y(int);
 };
