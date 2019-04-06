@@ -22,6 +22,7 @@ void NormalStar::update()
 	if (!contact) {
 		int prevelX = int(-sin(angle) * velocityX);
 		int prevelY = int(cos(angle) * velocityY);
+	
 		while (prevelX != 0) {
 			int preX = starpoint.x;
 			if (-sin(angle) *velocityX >= 1) { starpoint.x += 1; point.x += 1; prevelX -= 1; }
@@ -29,6 +30,8 @@ void NormalStar::update()
 			Point hit = starpoint;
 			if (ct->gts->map->get_left(hit) == 1 || ct->gts->map->get_right(hit) == 1) {
 				point.x = preX;
+				velocityX *= -sin(angle);
+				velocityY *= cos(angle);
 				contact = true;
 				break;
 			}
@@ -40,6 +43,8 @@ void NormalStar::update()
 			Point hit = starpoint;
 			if (ct->gts->map->get_bottom(hit) == 1 || ct->gts->map->get_top(hit) == 1) {
 				point.y = preY;
+				velocityX *= -sin(angle);
+				velocityY *= cos(angle);
 				contact = true;
 				break;
 			}
