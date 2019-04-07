@@ -15,36 +15,34 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 }
 
 void Star::exercise() {
-	Point starpoint = { point.x, point.y+1, radius * 2, radius * 2 };
+	Point starpoint = { point.x, point.y, radius * 2+1, radius * 2+1 };
 
 
 
 	velocityY += gravity;
-	/*	int prevelX = int(velocityX);
+
 		if (abs(velocityX) <= 0.5f) {
 			velocityX = 0;
 		}
-		else {
+		else if (ct->gts->map->get_left(starpoint) == 1||ct->gts->map->get_right(starpoint) == 1) {
 			velocityX = rebound_X(velocityX);
 		}
-		while (velocityX != 0) {
+		int prevelX = int(velocityX);
+		while (prevelX != 0) {
 			int preX = starpoint.x;
-			if (velocityX >= 1) { starpoint.x += 1; point.x += 1; velocityX -= 1; }
-			else if (velocityX <= -1) { starpoint.x -= 1; point.x -= 1; velocityX += 1; }
+			if (prevelX >= 1) { starpoint.x += 1; point.x += 1; prevelX -= 1; }
+			else if (prevelX <= -1) { starpoint.x -= 1; point.x -= 1; prevelX += 1; }
 			Point hit = starpoint;
 			if (ct->gts->map->get_left(hit) == 1 || ct->gts->map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 				point.x = preX;
 				break;
 			}
-		}*/
+		}
 	if (abs(velocityY) <= 0.5f) {
 		velocityY = 0;
 	}
-	else {
-		if (ct->gts->map->get_bottom(starpoint) == 1) {
+	else if (ct->gts->map->get_bottom(starpoint) == 1) {
 			velocityY = rebound_Y(velocityY);
-		}
-
 	}
 	int prevelY = int(velocityY);
 	while (prevelY != 0) {
