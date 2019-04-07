@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include"Point.h"
+#include "json11.hpp"
 
 //---------------------------------
 //マップデータ
@@ -21,5 +22,5 @@ private:
 	int graph;//絵
 	int mapsizex;
 	int mapsizey;
-
+	json11::Json mapdata;
 };
