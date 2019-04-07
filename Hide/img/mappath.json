@@ -1,0 +1,25 @@
+{
+  "map": [
+    {
+      "name": "background",
+      "number": 0,
+      "path": "img/",
+      "width": 32,
+      "height": 32,
+      "scope": [
+        "background"
+      ]
+    },
+    {
+      "name": "brock",
+      "number": 1,
+      "path": "img/",
+      "width": 32,
+      "height": 32,
+      "scope": [
+        "brock"
+      ]
+    }
+  ]
+} 
+
