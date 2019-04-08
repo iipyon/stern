@@ -15,34 +15,34 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 }
 
 void Star::exercise() {
-	Point starpoint = { point.x, point.y, radius * 2+1, radius * 2+1 };
+	Point starpoint = { point.x, point.y, radius * 2, radius * 2 };
 
 
 
 	velocityY += gravity;
 
-		if (abs(velocityX) <= 0.5f) {
-			velocityX = 0;
+	if (abs(velocityX) <= 1) {
+		velocityX = 0;
+	}
+	else if (ct->gts->map->get_left(starpoint) == 1 || ct->gts->map->get_right(starpoint) == 1) {
+		velocityX = rebound_X(velocityX);
+	}
+	int prevelX = int(velocityX);
+	while (prevelX != 0) {
+		int preX = starpoint.x;
+		if (prevelX >= 1) { starpoint.x += 1; point.x += 1; prevelX -= 1; }
+		else if (prevelX <= -1) { starpoint.x -= 1; point.x -= 1; prevelX += 1; }
+		Point hit = starpoint;
+		if (ct->gts->map->get_hit(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
+			point.x = preX;
+			break;
 		}
-		else if (ct->gts->map->get_left(starpoint) == 1||ct->gts->map->get_right(starpoint) == 1) {
-			velocityX = rebound_X(velocityX);
-		}
-		int prevelX = int(velocityX);
-		while (prevelX != 0) {
-			int preX = starpoint.x;
-			if (prevelX >= 1) { starpoint.x += 1; point.x += 1; prevelX -= 1; }
-			else if (prevelX <= -1) { starpoint.x -= 1; point.x -= 1; prevelX += 1; }
-			Point hit = starpoint;
-			if (ct->gts->map->get_left(hit) == 1 || ct->gts->map->get_right(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
-				point.x = preX;
-				break;
-			}
-		}
-	if (abs(velocityY) <= 0.5f) {
+	}
+	if (abs(velocityY) <= 2&&ct->gts->map->get_bottom(starpoint) == 1) {//<=2にすることで星ががくがくしなくなる
 		velocityY = 0;
 	}
 	else if (ct->gts->map->get_bottom(starpoint) == 1) {
-			velocityY = rebound_Y(velocityY);
+		velocityY = rebound_Y(velocityY);
 	}
 	int prevelY = int(velocityY);
 	while (prevelY != 0) {
@@ -51,7 +51,7 @@ void Star::exercise() {
 		if (prevelY >= 1) { starpoint.y += 1; point.y += 1; prevelY -= 1; }
 		else if (prevelY <= -1) { starpoint.y -= 1; point.y -= 1; prevelY += 1; }
 		Point hit = starpoint;
-		if (ct->gts->map->get_bottom(hit) == 1 || ct->gts->map->get_top(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
+		if (ct->gts->map->get_hit(hit) == 1) {//＝＝1の部分はマップ変更時に要変更
 
 			point.y = preY;
 			break;

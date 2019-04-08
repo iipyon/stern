@@ -15,7 +15,7 @@ public:
 	int get_right(Point);
 	int get_top(Point);
 	int get_bottom(Point);
-	int get_circle(Point, int);
+	int get_hit(Point);
 private:
 	int data[20][20];//仮の数値
 	int graph;//絵
