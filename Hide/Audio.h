@@ -4,6 +4,7 @@
 
 struct AudioObject {
 	bool loop;
+	bool exist;
 	std::string  name;
 	std::string  path;
 	int handle;
@@ -15,9 +16,11 @@ private:
 	bool loop;
 	std::unique_ptr<AudioObject[]> audio;
 	json11::Json json;
+	bool exist(std::string);
+	void set_default();
 public:
 	Audio();
 	~Audio();
 	void play(std::string name);
-	void load();
+	void load(std::string name);
 };

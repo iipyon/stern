@@ -6,7 +6,7 @@
 Audio::Audio()
 {
 	std::ifstream audiopath("img/audiosource.json");
-	if (audiopath.fail()) throw "resource.json is not found.";//例外処理
+	if (audiopath.fail()) throw "audiosource.json is not found.";//例外処理
 	std::istreambuf_iterator<char> it(audiopath);
 	std::istreambuf_iterator<char> last;
 	std::string str_json(it, last);	//string形式のjson
@@ -16,6 +16,7 @@ Audio::Audio()
 		count_size++;//最大数を数える
 	}
 	audio = std::make_unique<AudioObject[]>(count_size);//メモリ確保
+	for (int i = 0; i < count_size; ++i) { audio[i].exist = false; }
 }
 
 Audio::~Audio()
@@ -37,17 +38,45 @@ void Audio::play(std::string name)
 	}
 }
 
-void Audio::load()
+void Audio::load(std::string scope_)
 {
-	for (int i = 0; i < count_size; ++i) {
-		for (auto &audiosource : json["audio"].array_items())
-		{
-			audio[i].name = audiosource["name"].string_value();//名前
-			audio[i].loop = audiosource["loop"].bool_value();//ループ再生を行うか
-			audio[i].path = audiosource["path"].string_value();
+	for (auto &audiosource : json["audio"].array_items())
+	{
+		for (auto &scope : audiosource["scope"].array_items()) {
+			if (scope_ == scope.string_value()) {
+				if (exist(audiosource["name"].string_value()) == false) {
+					for (int i = 0; i < count_size; ++i) {
+						if (audio[i].exist == false) {
+							audio[i].name = audiosource["name"].string_value();//名前
+							audio[i].loop = audiosource["loop"].bool_value();//ループ再生を行うか
+							audio[i].path = audiosource["path"].string_value();
+							audio[i].handle = LoadSoundMem(audio[i].path.c_str());
 
-			audio[i].handle = LoadSoundMem(audio[i].path.c_str());
+							if (audio[i].handle == -1) throw std::runtime_error("audio file is not found.");//ファイルが読み込めないと例外を返す
+							audio[i].exist = true;
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+bool Audio::exist(std::string name) {
+	//nameが存在しているか調べるメソッド
+	bool ret = false;
+	for (int i = 0; i < count_size; i++) {
+		if (audio[i].name == name) {
+			//存在していたら
+			ret = true;
 			break;
 		}
 	}
+	return ret;
+}
+
+void Audio::set_default()
+{
+	loop = false;
 }

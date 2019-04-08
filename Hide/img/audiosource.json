@@ -3,7 +3,11 @@
   {
   	  "name" : "jump",
 	  "loop" : false,
-	  "path" : "ogg/jump.ogg"
+	  "path" : "ogg/jump.ogg",
+	  "scope": [
+        "jump",
+		"action"
+      ]
   }
   ]
 }
