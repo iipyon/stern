@@ -1,4 +1,4 @@
-#include "Audio.h"
+ï»¿#include "Audio.h"
 #include<fstream>
 #include<memory>
 #include"DxLib.h"
@@ -6,16 +6,16 @@
 Audio::Audio()
 {
 	std::ifstream audiopath("img/audiosource.json");
-	if (audiopath.fail()) throw "resource.json is not found.";//—áŠOˆ—
+	if (audiopath.fail()) throw "resource.json is not found.";//ä¾‹å¤–å‡¦ç†
 	std::istreambuf_iterator<char> it(audiopath);
 	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);	//stringŒ`®‚Ìjson
+	std::string str_json(it, last);	//stringå½¢å¼ã®json
 	std::string err;
-	json = json11::Json::parse(str_json, err);//Json‚Åg‚¦‚é‚æ‚¤‚É‚·‚é
+	json = json11::Json::parse(str_json, err);//Jsonã§ä½¿ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
 	for (auto &item : json["audio"].array_items()) {
-		count_size++;//Å‘å”‚ğ”‚¦‚é
+		count_size++;//æœ€å¤§æ•°ã‚’æ•°ãˆã‚‹
 	}
-	audio = std::make_unique<AudioObject[]>(count_size);//ƒƒ‚ƒŠŠm•Û
+	audio = std::make_unique<AudioObject[]>(count_size);//ãƒ¡ãƒ¢ãƒªç¢ºä¿
 }
 
 Audio::~Audio()
@@ -42,8 +42,8 @@ void Audio::load()
 	for (int i = 0; i < count_size; ++i) {
 		for (auto &audiosource : json["audio"].array_items())
 		{
-			audio[i].name = audiosource["name"].string_value();//–¼‘O
-			audio[i].loop = audiosource["loop"].bool_value();//ƒ‹[ƒvÄ¶‚ğs‚¤‚©
+			audio[i].name = audiosource["name"].string_value();//åå‰
+			audio[i].loop = audiosource["loop"].bool_value();//ãƒ«ãƒ¼ãƒ—å†ç”Ÿã‚’è¡Œã†ã‹
 			audio[i].path = audiosource["path"].string_value();
 
 			audio[i].handle = LoadSoundMem(audio[i].path.c_str());
