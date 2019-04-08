@@ -17,7 +17,7 @@ private:
 	std::unique_ptr<AudioObject[]> audio;
 	json11::Json json;
 	bool exist(std::string);
-	void set_default();
+	void set_default(AudioObject ao);
 public:
 	Audio();
 	~Audio();

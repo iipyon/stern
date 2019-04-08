@@ -34,6 +34,7 @@ void Audio::play(std::string name)
 			if (audio[i].loop) playtype = DX_PLAYTYPE_LOOP;
 			else playtype = DX_PLAYTYPE_BACK;
 			PlaySoundMem(audio[i].handle, playtype);
+			break;
 		}
 	}
 }
@@ -47,6 +48,7 @@ void Audio::load(std::string scope_)
 				if (exist(audiosource["name"].string_value()) == false) {
 					for (int i = 0; i < count_size; ++i) {
 						if (audio[i].exist == false) {
+							set_default(audio[i]);
 							audio[i].name = audiosource["name"].string_value();//名前
 							audio[i].loop = audiosource["loop"].bool_value();//ループ再生を行うか
 							audio[i].path = audiosource["path"].string_value();
@@ -76,7 +78,7 @@ bool Audio::exist(std::string name) {
 	return ret;
 }
 
-void Audio::set_default()
+void Audio::set_default(AudioObject ao)
 {
-	loop = false;
+	ao.loop = false;//ループ記述がない場合falseにする（ループしない）
 }
