@@ -7,6 +7,7 @@
 #include "ClearTaskSystem.h"
 #include "GraphicResource.h"
 #include "GameOverTaskSystem.h"
+#include"Audio.h"
 
 enum class Scene {
 	title,
@@ -30,6 +31,7 @@ public:
 	std::unique_ptr<ClearTaskSystem> cts;
 	std::unique_ptr<GraphicResource> graph;
 	std::unique_ptr<GameOverTaskSystem> gots;
+	std::unique_ptr<Audio> audio;
 };
 
 extern CoreTask *ct;
