@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	SetDrawScreen(DX_SCREEN_BACK);//裏画面設定
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {//画面更新＆メッセージ処理&画面殺害
-		
+		if (ct->keyboard->key_down(KEY_INPUT_ESCAPE))break;	//xボタンで終了するとメモリリークが起こるため。
 		ct->update();
 
 	}
