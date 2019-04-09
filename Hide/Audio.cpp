@@ -48,9 +48,11 @@ void Audio::load(std::string scope_)
 				if (exist(audiosource["name"].string_value()) == false) {
 					for (int i = 0; i < count_size; ++i) {
 						if (audio[i].exist == false) {
-							set_default(audio[i]);
+							//set_default(audio[i]);
 							audio[i].name = audiosource["name"].string_value();//名前
-							audio[i].loop = audiosource["loop"].bool_value();//ループ再生を行うか
+							//ループの記述がない場合、falseが入る("loop" : false,の全て書いてないとfalse)
+							//"loop" : , と書くと再生されない
+							audio[i].loop = audiosource[false,"loop"].bool_value();//ループ再生を行うか
 							audio[i].path = audiosource["path"].string_value();
 							audio[i].handle = LoadSoundMem(audio[i].path.c_str());
 
