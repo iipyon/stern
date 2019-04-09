@@ -73,6 +73,7 @@ void Audio::stop(std::string name)
 			//再生中なら
 			if (CheckSoundMem(audio[i].handle) == 1) {
 				StopSoundMem(audio[i].handle);//停止
+				break;
 			}
 		}
 	}
