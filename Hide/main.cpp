@@ -4,7 +4,7 @@
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic
-//変数はprivateで入れてください(W・T)
+//変数はprivateで入れてください
 //----------------------------------
 
 CoreTask *ct;
@@ -24,6 +24,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 
 	ct = new CoreTask;
+	//音
+	ct->audio->load("action");
+	//画像
 	ct->graph->load("goal");
 	ct->graph->load("player");	//resource.jsonのscopeにplayerが含まれている画像を全てロード
 	ct->graph->load("enemy");   //scope:enemyの画像をすべて読み込む

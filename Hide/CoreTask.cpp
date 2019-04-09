@@ -12,6 +12,7 @@ CoreTask::CoreTask()
 	keyboard = std::make_unique<Keyboard>();
 	cts = std::make_unique<ClearTaskSystem>();
 	gots = std::make_unique<GameOverTaskSystem>();
+	audio = std::make_unique<Audio>();
 }
 
 void CoreTask::update()

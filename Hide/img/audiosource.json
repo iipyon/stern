@@ -1,0 +1,13 @@
+{
+  "audio":[
+  {
+  	  "name" : "jump",
+	  "loop" : false,
+	  "path" : "ogg/jump.ogg",
+	  "scope": [
+        "jump",
+		"action"
+      ]
+  }
+  ]
+}
