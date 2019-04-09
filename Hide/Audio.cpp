@@ -48,13 +48,12 @@ void Audio::load(std::string scope_)
 				if (exist(audiosource["name"].string_value()) == false) {
 					for (int i = 0; i < count_size; ++i) {
 						if (audio[i].exist == false) {
-							//set_default(audio[i]);
 							audio[i].name = audiosource["name"].string_value();//名前
-							//ループの記述がない場合、falseが入る("loop" : false,の全て書いてないとfalse)
-							//"loop" : , と書くと再生されない
-							audio[i].loop = audiosource[false,"loop"].bool_value();//ループ再生を行うか
+							audio[i].loop = audiosource["loop"].bool_value();//ループ再生を行うか
 							audio[i].path = audiosource["path"].string_value();
 							audio[i].handle = LoadSoundMem(audio[i].path.c_str());
+							//デフォルト値を入れる
+							set_default(audio[i]);
 
 							if (audio[i].handle == -1) throw std::runtime_error("audio file is not found.");//ファイルが読み込めないと例外を返す
 							audio[i].exist = true;
@@ -82,5 +81,7 @@ bool Audio::exist(std::string name) {
 
 void Audio::set_default(AudioObject ao)
 {
-	ao.loop = false;//ループ記述がない場合falseにする（ループしない）
+	if (ao.loop == NULL) {
+		ao.loop = false;//ループ記述がない場合falseにする（ループしない）
+	}
 }
