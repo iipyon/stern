@@ -1,6 +1,7 @@
 ﻿#include"Map.h"
 #include"DxLib.h"
 #include<fstream>
+#include "json11.hpp"
 //1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
 #define chipsize 30
 
@@ -13,6 +14,17 @@ Map::Map()
 	//可変
 	mapsizex = 600;
 	mapsizey = 600;
+
+	std::ifstream mappath("img/mappath.json");
+	if (mappath.fail())
+	{
+		throw std::runtime_error("resource.json is not found.");	//ファイルが読み込めないと例外を返す
+	}
+	std::istreambuf_iterator<char> it(mappath);
+	std::istreambuf_iterator<char> last;
+	std::string json_str(it, last);		//string形式のjson
+	std::string err;
+	mapdata = json11::Json::parse(json_str, err);	//json11で利用できる形式に変換
 }
 
 void Map::init(char* mapfp, char* chipfp)
@@ -126,9 +138,9 @@ int Map::get_left(Point chara_)
 
 int Map::get_right(Point chara_)
 {
-	int sx = (chara_.x + chara_.w) / chipsize;
+	int sx = (chara_.x + chara_.w-1) / chipsize;
 	int sy = chara_.y / chipsize;
-	int ex = (chara_.x + chara_.w) / chipsize;
+	int ex = (chara_.x + chara_.w-1) / chipsize;
 	int ey = (chara_.y + chara_.h-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
