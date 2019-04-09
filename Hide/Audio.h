@@ -23,4 +23,5 @@ public:
 	~Audio();
 	void play(std::string name);
 	void load(std::string name);
+	void stop(std::string name);
 };

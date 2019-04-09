@@ -66,6 +66,18 @@ void Audio::load(std::string scope_)
 	}
 }
 
+void Audio::stop(std::string name)
+{
+	for (int i = 0; i < count_size; ++i) {
+		if (audio[i].name == name) {
+			//再生中なら
+			if (CheckSoundMem(audio[i].handle) == 1) {
+				StopSoundMem(audio[i].handle);//停止
+			}
+		}
+	}
+}
+
 bool Audio::exist(std::string name) {
 	//nameが存在しているか調べるメソッド
 	bool ret = false;
