@@ -13,10 +13,6 @@ BasicObject::BasicObject(Point point_) {
 	point.h = point_.h;
 }
 
-void BasicObject::update()
-{
-}
-
 Point BasicObject::get_point()
 {
 	return point;
