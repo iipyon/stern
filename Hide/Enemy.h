@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include"Physic.h"
 
 //----------------------------------
-//“G‘S”Ê
+//æ•µå…¨èˆ¬
 //----------------------------------
 
-//Enemy‚É‹¤’Ê‚·‚é‚½‚ßEnemyClass‚É‚¢‚ê‚Ä‚à‚¢‚¢‚©‚à‚µ‚ê‚È‚¢
+//Enemyã«å…±é€šã™ã‚‹ãŸã‚EnemyClassã«ã„ã‚Œã¦ã‚‚ã„ã„ã‹ã‚‚ã—ã‚Œãªã„
 enum class AngleState {
 	left,
 	right
@@ -18,27 +18,27 @@ struct EnemyState {
 };
 
 class Enemy :public Physic {
-	//ƒƒ“ƒo[ŠÖ”
+private:
+	//ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
 	int life;
 	int damaged;
 	int gravity;
-public :
-	//ƒƒ\ƒbƒh
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	Enemy(Point point, PhysicState physic_state,EnemyState enemy_state);
-	//‰¼‘zŠÖ”
-	virtual void move() {
 
-	}
-	virtual bool attack();
+
+public :
+	Enemy(Point point, PhysicState physic_state, EnemyState enemy_state);
+	//ãƒ¡ã‚½ãƒƒãƒ‰
 	virtual void update();
 	virtual bool damage(int);
 
 protected:
-	//•Ï”
-	int hp;//c‚è‘Ì—Í
+	//ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+	int hp;//æ®‹ã‚Šä½“åŠ›
 	int power;
 	int knock_back;
 	AngleState anglestate;
+	//ãƒ¡ã‚½ãƒƒãƒ‰
+	virtual void move();
+	virtual bool attack();
 
 };

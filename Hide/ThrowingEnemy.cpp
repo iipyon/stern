@@ -22,7 +22,7 @@ void ThrowingEnemy::appear_shot()
 		struct PhysicState physic_state = { 0,0,0 };//	float gravity; float repulsion;int weight;
 		struct EnemyState Enemy_state = { 1,1,anglestate };//	int life, int damage, int power, int life, double angle;
 
-		ct->gts->enemys.push_back(BulletEnemy{ b_point,physic_state,Enemy_state });	//新規インスタンスを生成して最後尾へ登録する
+		ct->gts->enemys->push_back(std::make_unique<BulletEnemy>(b_point,physic_state,Enemy_state ));	//新規インスタンスを生成して最後尾へ登録する
 		cnt = 0;
 	}
 }

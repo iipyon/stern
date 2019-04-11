@@ -24,6 +24,7 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
+	move();
 	exercise();
 	attack();
 	draw(true);
@@ -36,4 +37,8 @@ bool Enemy::damage(int d_)
 		return true;
 	}
 	return false;
+}
+
+void Enemy::move() {
+
 }

@@ -1,5 +1,6 @@
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
+#include <memory>
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -13,6 +14,7 @@ GameTaskSystem::GameTaskSystem()
 	map = std::make_unique<Map>();
 	camera = std::make_unique<Camera>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
+	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -38,11 +40,10 @@ void GameTaskSystem::update()
 	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
-	for (auto itr = enemys.begin(); itr != enemys.end(); ++itr) {
-		itr->update();
+	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr){
+		(*itr)->update();
 	}
 	//--------------------------------
-
 	player->update();
 	camera->update();
 }
@@ -52,7 +53,7 @@ void GameTaskSystem::finalize()
 	while (!normalstar.empty()) {//空でないなら
 		normalstar.pop_back();//消し去る
 	}
-	while (!enemys.empty()) {
-		enemys.pop_back();
+	while (!enemys->empty()) {
+		enemys->pop_back();
 	}
 }

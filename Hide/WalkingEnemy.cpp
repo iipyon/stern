@@ -11,6 +11,9 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 
 void WalkingEnemy::move()
 {
+	check_left();
+	check_right();
+
 	switch (walkingstate)
 	{
 	//歩行
@@ -69,14 +72,4 @@ void WalkingEnemy::check_right()
 	if (ct->gts->map->get_right(right) != 0) {
 		anglestate = AngleState::left;
 	}
-}
-void WalkingEnemy::update()
-{
-	exercise();
-	move();
-	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d", velocityX);
-	check_left();
-	check_right();
-	attack();
-	draw(true);
 }

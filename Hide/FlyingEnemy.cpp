@@ -15,6 +15,7 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 
 void FlyingEnemy::move()
 {
+	change_state();
 	switch (flyingstate)
 	{
 		//飛行
