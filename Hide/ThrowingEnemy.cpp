@@ -44,14 +44,5 @@ AngleState ThrowingEnemy::get_anglestate()
 	return anglestate;
 }
 
-void ThrowingEnemy::update()
-{
-	++cnt;
-	appear_shot();
-	exercise();
-	move();
-	DrawFormatString(400, 0, GetColor(0, 0, 0), "%d",cnt);
-	draw(true);
-}
 
 

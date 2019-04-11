@@ -55,11 +55,3 @@ void FlyingEnemy::change_state()
 	}
 }
 
-void FlyingEnemy::update()
-{
-	//exercise();
-	change_state();
-	move();
-	attack();
-	draw(true);
-}
