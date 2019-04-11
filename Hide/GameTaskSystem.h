@@ -31,7 +31,8 @@ public:
 	//☆
 	std::vector<NormalStar> normalstar;
 	//敵
-	std::shared_ptr<std::vector<std::unique_ptr<Enemy> > > enemys;
+	std::shared_ptr<std::vector<std::unique_ptr<Enemy>>> enemys;
+	std::shared_ptr<std::vector<std::unique_ptr<Enemy>>> enemy_transaction;
 
 };
 

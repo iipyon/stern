@@ -15,6 +15,7 @@ GameTaskSystem::GameTaskSystem()
 	camera = std::make_unique<Camera>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
+	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -46,6 +47,12 @@ void GameTaskSystem::update()
 	//--------------------------------
 	player->update();
 	camera->update();
+
+	//トランザクションの実行
+	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
+	}
+	enemy_transaction->clear();	//enemy_transactionを空にする
 }
 
 void GameTaskSystem::finalize()
