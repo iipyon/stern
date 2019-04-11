@@ -8,7 +8,7 @@ StageSelectChara::StageSelectChara(Point point_) : BasicObject(point_)
 	velocityX = 0;
 }
 
-void StageSelectChara::update(int& stage_)
+void StageSelectChara::update()
 {
 	select_stage(stage_);
 	move();

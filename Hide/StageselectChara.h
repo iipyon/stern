@@ -7,7 +7,7 @@ private:
 	int graph;
 public:
 	StageSelectChara(Point);
-	void update(int&);
+	void update();
 	void draw();
 	void select_stage(int&);
 	void move();
