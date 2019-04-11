@@ -38,7 +38,3 @@ bool Enemy::damage(int d_)
 	}
 	return false;
 }
-
-void Enemy::move() {
-
-}

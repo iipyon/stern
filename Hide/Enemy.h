@@ -28,7 +28,7 @@ private:
 public :
 	Enemy(Point point, PhysicState physic_state, EnemyState enemy_state);
 	//メソッド
-	virtual void update();
+	virtual void update() final;
 	virtual bool damage(int);
 
 protected:
@@ -38,7 +38,7 @@ protected:
 	int knock_back;
 	AngleState anglestate;
 	//メソッド
-	virtual void move();
-	virtual bool attack();
+	virtual void move() = 0;	//抽象クラス
+	bool attack();
 
 };
