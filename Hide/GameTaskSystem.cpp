@@ -57,10 +57,6 @@ void GameTaskSystem::update()
 
 void GameTaskSystem::finalize()
 {
-	while (!normalstar.empty()) {//空でないなら
-		normalstar.pop_back();//消し去る
-	}
-	while (!enemys->empty()) {
-		enemys->pop_back();
-	}
+	normalstar.clear();
+	enemys->clear();
 }
