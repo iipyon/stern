@@ -30,9 +30,9 @@ public :
 	virtual void move() {
 
 	}
-	bool attack();
-	void update();
-	bool damage(int);
+	virtual bool attack();
+	virtual void update();
+	virtual bool damage(int);
 
 protected:
 	//•Ï”

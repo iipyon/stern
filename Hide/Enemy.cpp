@@ -24,8 +24,9 @@ bool Enemy::attack()
 
 void Enemy::update()
 {
-	this->exercise();
-	this->attack();
+	exercise();
+	attack();
+	draw(true);
 }
 
 bool Enemy::damage(int d_)

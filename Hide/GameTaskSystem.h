@@ -31,10 +31,6 @@ public:
 	//☆
 	std::vector<NormalStar> normalstar;
 	//敵
-	std::vector<WalkingEnemy> walking_enemy;
-	std::vector<FlyingEnemy>  flying_enemy;
-	std::vector<Boss> boss;
-	std::vector<ThrowingEnemy> throwing_enemy;
-	std::vector<BulletEnemy> enemy_bullet;
+	std::vector<Enemy> enemys;
 };
 

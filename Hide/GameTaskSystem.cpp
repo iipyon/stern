@@ -38,16 +38,7 @@ void GameTaskSystem::update()
 	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
-	for (auto itr = walking_enemy.begin(); itr != walking_enemy.end(); ++itr) {
-		itr->update();//歩行敵のupdateを呼ぶ
-	}
-	for (auto itr = flying_enemy.begin(); itr != flying_enemy.end(); ++itr) {
-		itr->update();
-	}
-	for (auto itr = throwing_enemy.begin(); itr != throwing_enemy.end(); ++itr) {
-		itr->update();
-	}
-	for (auto itr = enemy_bullet.begin(); itr != enemy_bullet.end(); ++itr) {
+	for (auto itr = enemys.begin(); itr != enemys.end(); ++itr) {
 		itr->update();
 	}
 	//--------------------------------
@@ -61,16 +52,7 @@ void GameTaskSystem::finalize()
 	while (!normalstar.empty()) {//空でないなら
 		normalstar.pop_back();//消し去る
 	}
-	while (!walking_enemy.empty()) {
-		walking_enemy.pop_back();
-	}
-	while (!flying_enemy.empty()) {
-		flying_enemy.pop_back();
-	}
-	while (!throwing_enemy.empty()) {
-		throwing_enemy.pop_back();
-	}
-	while (!enemy_bullet.empty()) {
-		enemy_bullet.pop_back();
+	while (!enemys.empty()) {
+		enemys.pop_back();
 	}
 }
