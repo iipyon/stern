@@ -16,7 +16,7 @@ public:
 	FlyingState flyingstate;
 
 	FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
-	void move();
+	void move() override;
 	void change_state();
 private:
 	int movecnt;//ブロックに当たっている間とり誤差をなくしたかった
