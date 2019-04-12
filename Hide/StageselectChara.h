@@ -2,12 +2,14 @@
 #include"BasicObject.h"
 
 //キャラクター
-class StageSelectChara : public BasicObject {
+class StageSelectChara{
 private:
+	Point point;
+	float velocityX;
 	int graph;
 public:
 	StageSelectChara(Point);
-	void update();
+	void update(int&);
 	void draw();
 	void select_stage(int&);
 	void move();
