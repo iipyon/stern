@@ -32,17 +32,17 @@ void SpawnEnemy::create(std::string stg)
 		//歩行
 		if(enemy["kind"].string_value() == "walk") {
 			//生成して現在の最後尾に登録
-			ct->gts->walking_enemy.push_back(WalkingEnemy{ point,physic_state,enemy_state });
+			ct->gts->enemys->push_back(std::make_unique<WalkingEnemy>(point, physic_state, enemy_state));
 		}	
 		//飛行
 		if (enemy["kind"].string_value() == "fly") {
 			//生成して現在の最後尾に登録
-			ct->gts->flying_enemy.push_back(FlyingEnemy{ point,physic_state,enemy_state });
+			ct->gts->enemys->push_back(std::make_unique<FlyingEnemy>(point,physic_state,enemy_state ));
 		}
 		//投げつける奴
 		if (enemy["kind"].string_value() == "throw") {
 			//生成して現在の最後尾に登録
-			ct->gts->throwing_enemy.push_back(ThrowingEnemy{ point,physic_state,enemy_state });
+			ct->gts->enemys->push_back(std::make_unique<ThrowingEnemy>( point,physic_state,enemy_state ));
 		}
 	}
 }

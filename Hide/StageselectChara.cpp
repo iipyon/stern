@@ -2,10 +2,11 @@
 #include"CoreTask.h"
 #include"Dxlib.h"
 
-StageSelectChara::StageSelectChara(Point point_) : BasicObject(point_)
+StageSelectChara::StageSelectChara(Point point_)
 {
 	graph = LoadGraph("img/stageselect/chara.png");
 	velocityX = 0;
+	point = point_;
 }
 
 void StageSelectChara::update(int& stage_)
