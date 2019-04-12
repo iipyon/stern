@@ -29,7 +29,7 @@ public :
 	Enemy(Point point, PhysicState physic_state, EnemyState enemy_state);
 	//メソッド
 	virtual void update() final;
-	virtual bool damage(int);
+	virtual bool damage(int) final;
 
 protected:
 	//プロパティ
@@ -39,6 +39,6 @@ protected:
 	AngleState anglestate;
 	//メソッド
 	virtual void move() = 0;	//抽象クラス
-	bool attack();
+	virtual bool attack() final;
 
 };
