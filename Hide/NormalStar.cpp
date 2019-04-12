@@ -55,8 +55,10 @@ void NormalStar::update()
 	}
 	attack();
 
-	draw(true);
-
+	draw();
+	/*if (damage(1)) {
+		//ct->gts->normalstar->destroy();
+	}*/
 }
 
 void NormalStar::inhale(int, int, float)

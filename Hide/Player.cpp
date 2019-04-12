@@ -97,7 +97,7 @@ void Player::update()
 	//---------------------------------------
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
-	draw(true);
+	draw();
 	exercise();
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T

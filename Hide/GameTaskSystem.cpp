@@ -1,5 +1,6 @@
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
+#include <memory>
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -13,6 +14,8 @@ GameTaskSystem::GameTaskSystem()
 	map = std::make_unique<Map>();
 	camera = std::make_unique<Camera>();
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
+	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
+	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -38,39 +41,22 @@ void GameTaskSystem::update()
 	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
-	for (auto itr = walking_enemy.begin(); itr != walking_enemy.end(); ++itr) {
-		itr->update();//歩行敵のupdateを呼ぶ
-	}
-	for (auto itr = flying_enemy.begin(); itr != flying_enemy.end(); ++itr) {
-		itr->update();
-	}
-	for (auto itr = throwing_enemy.begin(); itr != throwing_enemy.end(); ++itr) {
-		itr->update();
-	}
-	for (auto itr = enemy_bullet.begin(); itr != enemy_bullet.end(); ++itr) {
-		itr->update();
+	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr){
+		(*itr)->update();
 	}
 	//--------------------------------
-
 	player->update();
 	camera->update();
+
+	//トランザクションの実行
+	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
+	}
+	enemy_transaction->clear();	//enemy_transactionを空にする
 }
 
 void GameTaskSystem::finalize()
 {
-	while (!normalstar.empty()) {//空でないなら
-		normalstar.pop_back();//消し去る
-	}
-	while (!walking_enemy.empty()) {
-		walking_enemy.pop_back();
-	}
-	while (!flying_enemy.empty()) {
-		flying_enemy.pop_back();
-	}
-	while (!throwing_enemy.empty()) {
-		throwing_enemy.pop_back();
-	}
-	while (!enemy_bullet.empty()) {
-		enemy_bullet.pop_back();
-	}
+	normalstar.clear();
+	enemys->clear();
 }

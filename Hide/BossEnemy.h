@@ -1,16 +1,15 @@
-#pragma once
+ï»¿#pragma once
 #include"Enemy.h"
 
 //--------------------------------
-//ƒ{ƒX“G
+//ãƒœã‚¹æ•µ
 //--------------------------------
 
 class Boss : public Enemy {
 public:
 	Boss(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
-	//ƒƒ\ƒbƒh
-	void move();
-	void update();
+	//ãƒ¡ã‚½ãƒƒãƒ‰
+	void move() override;
 
 protected:
 private:

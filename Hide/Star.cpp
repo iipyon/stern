@@ -75,28 +75,10 @@ float Star::rebound_Y(int velY)
 bool Star::attack()
 {
 	Point enemy_point;
-	for (auto itr = ct->gts->walking_enemy.begin(); itr != ct->gts->walking_enemy.end(); ++itr) {
-		enemy_point = itr->get_point();
+	for (auto itr = ct->gts->enemys->begin(); itr != ct->gts->enemys->end(); ++itr) {
+		enemy_point = (*itr)->get_point();
 		if (check_hit(enemy_point)) {
-			itr->damage(power);
-		}
-	}
-	for (auto itr = ct->gts->flying_enemy.begin(); itr != ct->gts->flying_enemy.end(); ++itr) {
-		enemy_point = itr->get_point();
-		if (check_hit(enemy_point)) {
-			itr->damage(power);
-		}
-	}
-	for (auto itr = ct->gts->throwing_enemy.begin(); itr != ct->gts->throwing_enemy.end(); ++itr) {
-		enemy_point = itr->get_point();
-		if (check_hit(enemy_point)) {
-			itr->damage(power);
-		}
-	}
-	for (auto itr = ct->gts->boss.begin(); itr != ct->gts->boss.end(); ++itr) {
-		enemy_point = itr->get_point();
-		if (check_hit(enemy_point)) {
-			itr->damage(power);
+			(*itr)->damage(power);
 		}
 	}
 	return false;

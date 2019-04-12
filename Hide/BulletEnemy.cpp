@@ -19,10 +19,3 @@ void BulletEnemy::move()
 	velocityX = (float)angle;
 	point.x += (int)velocityX;
 }
-
-void BulletEnemy::update()
-{
-	move();
-	exercise();
-	draw(true);
-}

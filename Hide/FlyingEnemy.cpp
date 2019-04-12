@@ -15,6 +15,7 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 
 void FlyingEnemy::move()
 {
+	change_state();
 	switch (flyingstate)
 	{
 		//飛行
@@ -54,11 +55,3 @@ void FlyingEnemy::change_state()
 	}
 }
 
-void FlyingEnemy::update()
-{
-	//exercise();
-	change_state();
-	move();
-	attack();
-	draw(true);
-}
