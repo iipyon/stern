@@ -30,7 +30,7 @@ bool Goal::hit(Point player_)
 	{
 		to_cleartask();
 	}
-	draw(true);
+	draw();
 	return false;
 }
 

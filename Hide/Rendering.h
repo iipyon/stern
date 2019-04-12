@@ -14,12 +14,11 @@ private:
 	void switch_anime();
 
 protected:
-	int graph;	//これは*handle_graphに移行する廃止予定のプロパティ
 
 	//アニメーションを切り替える
 	void init_render(std::string scope);
 
-	void draw(bool new_gen=false);
+	void draw();
 
 public:
 	Rendering(Point point);
