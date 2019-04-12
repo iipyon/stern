@@ -9,7 +9,7 @@ class Boss : public Enemy {
 public:
 	Boss(Point point_, PhysicState physic_state_, EnemyState enemy_state_);
 	//メソッド
-	void move();
+	void move() override;
 
 protected:
 private:
