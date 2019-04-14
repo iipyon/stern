@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include"Point.h"
+#include "Rendering.h"
+#include <memory>
 
 //----------------------------------
 //基本となるクラス
@@ -14,6 +16,7 @@ public:
 	Point get_point();
 
 protected:
+	std::unique_ptr<Rendering> shape;	//姿・形
 	Point point;
 	//移動量
 	float velocityX;

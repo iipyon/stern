@@ -11,22 +11,23 @@ void Rendering::switch_anime()
 	}
 }
 
-void Rendering::draw()
+void Rendering::draw(Point dist, int camera_x)
 {
-	DrawGraph(point.x - ct->gts->camera->get_range().x , point.y , *(handle_graph + cnt), 1);
+	DrawGraph(dist.x - camera_x , dist.y , *(handle_graph + cnt), 1);
 	current_rate++;	//毎フレーム増える
 	if (rate != 0 && rate % current_rate == 0) {
 		switch_anime();
 	}
 }
 
-Rendering::Rendering(Point point) : BasicObject(point)
+Rendering::Rendering(std::shared_ptr<GraphicResource> _resource)
 {
+	resource = _resource;
 }
 
-void Rendering::init_render(std::string scope)
+void Rendering::set(std::string scope)
 {
-	GraphicObject obj = ct->graph->get(scope);
+	GraphicObject obj = resource->get(scope);	//GraphicObjectを共有するように改善予定
 	if (obj.exist == false) throw std::runtime_error("The scope is not exist.");
 	cnt = 0;
 	max = obj.max;

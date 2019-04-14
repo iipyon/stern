@@ -1,9 +1,13 @@
 ﻿#pragma once
-#include"BasicObject.h"
+#include <memory>
 #include "GraphicResource.h"
 
-class Rendering : public BasicObject {
+class Rendering {
 private:
+	static std::shared_ptr<GraphicResource> resource;
+	std::shared_ptr<GraphicObject> object;
+
+	//下記objectに置き換え予定
 	int max;	//最大枚数
 	int rate; //切替速度
 	int current_rate;
@@ -13,13 +17,9 @@ private:
 
 	void switch_anime();
 
-protected:
-
-	//アニメーションを切り替える
-	void init_render(std::string scope);
-
-	void draw();
-
 public:
-	Rendering(Point point);
+	Rendering() {};
+	Rendering(std::shared_ptr<GraphicResource>);
+	void draw(Point, int camera_x);
+	void set(std::string);
 };

@@ -1,8 +1,8 @@
-#pragma once
-#include"Rendering.h"
+ï»¿#pragma once
+#include"BasicObject.h"
 
 //---------------------------------
-//•¨—‰^“®
+//ç‰©ç†é‹å‹•
 //---------------------------------
 
 struct PhysicState {
@@ -11,18 +11,18 @@ struct PhysicState {
 	int weight;
 };
 
-class Physic : public Rendering {
+class Physic : public BasicObject {
 public:
 	Physic(Point point,PhysicState physic_state);
-	//ƒƒ\ƒbƒh
-	virtual void exercise();//•¨—‰^“®‚ğs‚¤‚à‚Ì‚¾‚¯ˆ—‚ğs‚¤
+	//ãƒ¡ã‚½ãƒƒãƒ‰
+	virtual void exercise();//ç‰©ç†é‹å‹•ã‚’è¡Œã†ã‚‚ã®ã ã‘å‡¦ç†ã‚’è¡Œã†
 	/*virtual void rebound_X();
 	virtual void rebound_Y();*/
 protected:
-	//•Ï”
-	float gravity;//d—Í
-	float repulsion;//”½”­ŒW”
-	int weight;//d‚³(•¨‘Ì)
+	//å¤‰æ•°
+	float gravity;//é‡åŠ›
+	float repulsion;//åç™ºä¿‚æ•°
+	int weight;//é‡ã•(ç‰©ä½“)
 
 
 };

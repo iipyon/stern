@@ -24,14 +24,14 @@ public:
 
 	CoreTask();
 	void update();
-	std::unique_ptr<GameTaskSystem> gts;
-	std::unique_ptr<TitleTaskSystem> tts;
-	std::unique_ptr<StageSelectTaskSystem> ssts;
-	std::unique_ptr<Keyboard> keyboard;
-	std::unique_ptr<ClearTaskSystem> cts;
-	std::unique_ptr<GraphicResource> graph;
-	std::unique_ptr<GameOverTaskSystem> gots;
-	std::unique_ptr<Audio> audio;
+	std::shared_ptr<GameTaskSystem> gts;
+	std::shared_ptr<TitleTaskSystem> tts;
+	std::shared_ptr<StageSelectTaskSystem> ssts;
+	std::shared_ptr<Keyboard> keyboard;
+	std::shared_ptr<ClearTaskSystem> cts;
+	std::shared_ptr<GraphicResource> graph;
+	std::shared_ptr<GameOverTaskSystem> gots;
+	std::shared_ptr<Audio> audio;
 };
 
 extern CoreTask *ct;

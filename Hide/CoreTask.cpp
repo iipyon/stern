@@ -4,15 +4,15 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	graph = std::make_unique<GraphicResource>();
+	graph = std::shared_ptr<GraphicResource>();
 	scene = Scene::title;//–{“–‚Í^Cg‹
-	tts = std::make_unique<TitleTaskSystem>();
-	gts = std::make_unique<GameTaskSystem>();
-	ssts = std::make_unique<StageSelectTaskSystem>();
-	keyboard = std::make_unique<Keyboard>();
-	cts = std::make_unique<ClearTaskSystem>();
-	gots = std::make_unique<GameOverTaskSystem>();
-	audio = std::make_unique<Audio>();
+	tts = std::shared_ptr<TitleTaskSystem>();
+	gts = std::shared_ptr<GameTaskSystem>();
+	ssts = std::shared_ptr<StageSelectTaskSystem>();
+	keyboard = std::shared_ptr<Keyboard>();
+	cts = std::shared_ptr<ClearTaskSystem>();
+	gots = std::shared_ptr<GameOverTaskSystem>();
+	audio = std::shared_ptr<Audio>();
 }
 
 void CoreTask::update()

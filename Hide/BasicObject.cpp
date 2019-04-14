@@ -5,6 +5,7 @@
 //-----------------------------------
 
 BasicObject::BasicObject(Point point_) {
+	//shape = std::make_unique<Rendering>();
 	velocityX = 0;
 	velocityY = 0;
 	point.x = point_.x;
