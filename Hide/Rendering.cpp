@@ -2,6 +2,9 @@
 #include"DxLib.h"
 #include "CoreTask.h"
 
+std::shared_ptr<GraphicResource> Rendering::resource;
+std::shared_ptr<Camera> Rendering::camera;
+
 void Rendering::switch_anime()
 {
 	cnt++;
@@ -11,22 +14,18 @@ void Rendering::switch_anime()
 	}
 }
 
-void Rendering::draw()
+void Rendering::draw(Point dist)
 {
-	DrawGraph(point.x - ct->gts->camera->get_range().x , point.y , *(handle_graph + cnt), 1);
+	DrawGraph(dist.x - camera->get_range().x , dist.y , *(handle_graph + cnt), 1);
 	current_rate++;	//毎フレーム増える
 	if (rate != 0 && rate % current_rate == 0) {
 		switch_anime();
 	}
 }
 
-Rendering::Rendering(Point point) : BasicObject(point)
+void Rendering::set(std::string scope)
 {
-}
-
-void Rendering::init_render(std::string scope)
-{
-	GraphicObject obj = ct->graph->get(scope);
+	GraphicObject obj = resource->get(scope);	//GraphicObjectを共有するように改善予定
 	if (obj.exist == false) throw std::runtime_error("The scope is not exist.");
 	cnt = 0;
 	max = obj.max;

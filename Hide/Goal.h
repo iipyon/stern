@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include"Rendering.h"
+#include"BasicObject.h"
 
-class Goal : public Rendering{
+class Goal : public BasicObject{
 public:
 	Goal(Point point_);
 	void init();//Init_Renderを呼ぶ

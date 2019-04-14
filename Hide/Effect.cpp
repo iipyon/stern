@@ -1,6 +1,6 @@
 #include "Effect.h"
 
-Effect::Effect(Point point_) : Rendering(point_)
+Effect::Effect(Point point_) : BasicObject(point_)
 {
 }
 

@@ -27,7 +27,7 @@ void Enemy::update()
 	move();
 	exercise();
 	attack();
-	draw();
+	shape->draw(point);
 }
 
 bool Enemy::damage(int d_)

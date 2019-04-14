@@ -1,7 +1,7 @@
 #pragma once
-#include"Rendering.h"
+#include"BasicObject.h"
 
-class Effect : public Rendering {
+class Effect : public BasicObject {
 public:
 	Effect(Point);
 	//追加メソッドがあれば記述

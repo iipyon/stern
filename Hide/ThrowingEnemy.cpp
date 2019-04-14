@@ -7,7 +7,7 @@ ThrowingEnemy::ThrowingEnemy(Point point_, PhysicState physic_state_, EnemyState
 	anglestate = AngleState::right;
 	x = -1;
 	cnt = 0;
-	init_render("throwing");
+	shape->set("throwing");
 }
 
 void ThrowingEnemy::move()

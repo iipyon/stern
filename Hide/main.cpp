@@ -22,8 +22,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	
 	SetMainWindowText("Stern");
 
-
 	ct = new CoreTask;
+	ct->init();
 	//音
 	ct->audio->load("action");
 	//画像

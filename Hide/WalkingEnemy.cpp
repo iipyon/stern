@@ -6,7 +6,7 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 	//必要か判断ができない初期化処理
 	anglestate = AngleState::right;
 	walkingstate = WalkingState::walk;
-	init_render("walking");
+	shape->set("walking");
 }
 
 void WalkingEnemy::move()

@@ -1,17 +1,16 @@
 ﻿#include"Goal.h"
 #include"CoreTask.h"
+#include "BasicObject.h"
 
-
-Goal::Goal(Point point_): Rendering(point_)
+Goal::Goal(Point point_):  BasicObject(point)
 {
-
 }
 
 void Goal::init()
 {
 	class Point g_point = { 30,510,30,30 };
 	point = g_point;
-	init_render("goal");
+	shape->set("goal");
 }
 
 void Goal::update()
@@ -30,7 +29,7 @@ bool Goal::hit(Point player_)
 	{
 		to_cleartask();
 	}
-	draw();
+	shape->draw(point);
 	return false;
 }
 
