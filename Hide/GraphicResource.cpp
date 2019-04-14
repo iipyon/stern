@@ -31,6 +31,7 @@ GraphicResource::GraphicResource()
 	std::string json_str(it, last);		//string形式のjson
 	std::string err;
 	json = json11::Json::parse(json_str,err);	//json11で利用できる形式に変換
+	count_of_graph = 0;
 	for (auto &item : json["graph"].array_items()) {
 		//画像の枚数を数える
 		count_of_graph++;

@@ -12,6 +12,7 @@ Audio::Audio()
 	std::string str_json(it, last);	//string形式のjson
 	std::string err;
 	json = json11::Json::parse(str_json, err);//Jsonで使えるようにする
+	count_size = 0;
 	for (auto &item : json["audio"].array_items()) {
 		count_size++;//最大数を数える
 	}
