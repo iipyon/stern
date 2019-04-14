@@ -9,7 +9,7 @@ RecoveryItem::RecoveryItem(Point point_) : Item(point_)
 void RecoveryItem::efficacy()
 {
 	//回復
-	DrawString(300, 300, "呼ばれてるよ", GetColor(0, 255, 255));
+	//DrawString(300, 300, "呼ばれてるよ", GetColor(0, 255, 255));
 	if (checkhit(ct->gts->player->get_point())) {
 	}
 }

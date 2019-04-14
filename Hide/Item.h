@@ -7,11 +7,12 @@ enum class Kind {
 };
 
 class Item : public BasicObject {
-protected:
+private:
 	Kind kind;
 	virtual void efficacy() = 0;//抽象となる
+protected:
 	bool checkhit(Point);
 public:
-	void update() final;
+	void update() final;//これ以上の継承をさせない
 	Item(Point);
 };
