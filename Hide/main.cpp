@@ -27,6 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//音
 	ct->audio->load("action");
 	//画像
+	ct->graph->load("item");
 	ct->graph->load("goal");
 	ct->graph->load("player");	//resource.jsonのscopeにplayerが含まれている画像を全てロード
 	ct->graph->load("enemy");   //scope:enemyの画像をすべて読み込む

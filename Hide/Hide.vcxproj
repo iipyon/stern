@@ -138,7 +138,9 @@
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="json11.cpp" />
+    <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
     <ClCompile Include="BasicObject.cpp" />
@@ -156,6 +158,7 @@
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="SpawnEnemy.cpp" />
+    <ClCompile Include="SpawnItem.cpp" />
     <ClCompile Include="StageselectChara.cpp" />
     <ClCompile Include="StageSelectTaskMass.cpp" />
     <ClCompile Include="StageSelectTaskSystem.cpp" />
@@ -175,8 +178,11 @@
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="SpawnEnemy.h" />
+    <ClInclude Include="SpawnItem.h" />
     <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
     <ClInclude Include="CoreTask.h" />

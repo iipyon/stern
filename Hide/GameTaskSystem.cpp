@@ -16,6 +16,7 @@ GameTaskSystem::GameTaskSystem()
 	player = std::make_unique<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
+	item = std::make_shared<std::vector<std::unique_ptr<Item>>>();
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -45,6 +46,10 @@ void GameTaskSystem::update()
 		(*itr)->update();
 	}
 	//--------------------------------
+	//アイテム-----------------------------
+	for (auto itr = item->begin(); itr != item->end(); ++itr) {
+		(*itr)->update();
+	}
 	player->update();
 	camera->update();
 
@@ -59,4 +64,5 @@ void GameTaskSystem::finalize()
 {
 	normalstar.clear();
 	enemys->clear();
+	item->clear();
 }

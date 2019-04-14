@@ -72,6 +72,18 @@
       ]
     },
 	{
+      "name": "recovery",
+      "path": "img/reco_item.png",
+      "width": 30,
+      "height": 60,
+      "line": 1,
+      "column": 1,
+      "scope": [
+		"item",
+		"recovery"
+      ]
+    },
+	{
       "name": "goal",
       "path": "img/goal.png",
       "width": 30,
