@@ -24,6 +24,7 @@ public:
 
 	CoreTask();
 	void update();
+	void init();
 	std::shared_ptr<GameTaskSystem> gts;
 	std::shared_ptr<TitleTaskSystem> tts;
 	std::shared_ptr<StageSelectTaskSystem> ssts;

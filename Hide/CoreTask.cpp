@@ -1,18 +1,19 @@
 ﻿#include "CoreTask.h"
+#include "Rendering.h"
 
 GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	graph = std::shared_ptr<GraphicResource>();
+	graph = std::make_shared<GraphicResource>();
 	scene = Scene::title;//–{“–‚Í^Cg‹
-	tts = std::shared_ptr<TitleTaskSystem>();
-	gts = std::shared_ptr<GameTaskSystem>();
-	ssts = std::shared_ptr<StageSelectTaskSystem>();
-	keyboard = std::shared_ptr<Keyboard>();
-	cts = std::shared_ptr<ClearTaskSystem>();
-	gots = std::shared_ptr<GameOverTaskSystem>();
-	audio = std::shared_ptr<Audio>();
+	tts = std::make_shared<TitleTaskSystem>();
+	gts = std::make_shared<GameTaskSystem>();
+	ssts = std::make_shared<StageSelectTaskSystem>();
+	keyboard = std::make_shared<Keyboard>();
+	cts = std::make_shared<ClearTaskSystem>();
+	gots = std::make_shared<GameOverTaskSystem>();
+	audio = std::make_shared<Audio>();
 }
 
 void CoreTask::update()
@@ -36,4 +37,11 @@ void CoreTask::update()
 		cts->update();
 		break;
 	}
+}
+
+void CoreTask::init()
+{
+	//静的メンバの初期化
+	Rendering::camera = gts->camera;
+	Rendering::resource = graph;
 }

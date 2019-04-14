@@ -21,9 +21,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	if (DxLib_Init() == -1) { return -1; };
 	
 	SetMainWindowText("Stern");
-	Rendering init(ct->graph, ct->gts->camera);	//オーバーロードされたコンストラクタによりクラス変数を初期化する
 
 	ct = new CoreTask;
+	ct->init();
 	//音
 	ct->audio->load("action");
 	//画像
