@@ -10,7 +10,7 @@
 class BasicObject {
 public:
 	//最低限の初期化
-	BasicObject(Point point);
+	BasicObject(Point);
 	//メソッド（関数）
 	virtual void update() = 0;
 	Point get_point();

@@ -10,7 +10,7 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 	//必要か判断ができない初期化処理
 	flyingstate = FlyingState::down;
 	movecnt = 0;
-	init_render("flying");
+	shape->set("flying");
 }
 
 void FlyingEnemy::move()

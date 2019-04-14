@@ -76,7 +76,7 @@ void Player::init()
 {
 	class Point p_point = { 500,30,30,30 };
 	point = p_point;
-	init_render("player");	//resource.jsonのnameが"player"のものをセットする
+	shape->set("player");//resource.jsonのnameが"player"のものをセットする
 }
 
 double Player::get_angle()
@@ -97,7 +97,7 @@ void Player::update()
 	//---------------------------------------
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
-	draw();
+	shape->draw(point);
 	exercise();
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
 	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T

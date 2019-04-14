@@ -12,7 +12,7 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 {
 	velocityX = 20;
 	velocityY = 20;
-	init_render("star");
+	shape->set("star");
 }
 
 void NormalStar::update()
@@ -46,8 +46,7 @@ void NormalStar::update()
 		exercise();
 	}
 	attack();
-
-	draw();
+	shape->draw(point);
 	/*if (damage(1)) {
 		//ct->gts->normalstar->destroy();
 	}*/

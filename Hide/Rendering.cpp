@@ -11,18 +11,19 @@ void Rendering::switch_anime()
 	}
 }
 
-void Rendering::draw(Point dist, int camera_x)
+void Rendering::draw(Point dist)
 {
-	DrawGraph(dist.x - camera_x , dist.y , *(handle_graph + cnt), 1);
+	DrawGraph(dist.x - camera->get_range().x , dist.y , *(handle_graph + cnt), 1);
 	current_rate++;	//毎フレーム増える
 	if (rate != 0 && rate % current_rate == 0) {
 		switch_anime();
 	}
 }
 
-Rendering::Rendering(std::shared_ptr<GraphicResource> _resource)
+Rendering::Rendering(std::shared_ptr<GraphicResource> _resource, std::shared_ptr<Camera> _camera)
 {
 	resource = _resource;
+	camera = _camera;
 }
 
 void Rendering::set(std::string scope)
