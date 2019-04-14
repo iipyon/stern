@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include"BasicObject.h"
 
 enum class Kind {
@@ -9,7 +9,7 @@ enum class Kind {
 class Item : public BasicObject {
 protected:
 	Kind kind;
-	virtual void efficacy() = 0;//���ۂƂȂ�
+	virtual void efficacy() = 0;//抽象となる
 	bool checkhit(Point);
 public:
 	void update() final;

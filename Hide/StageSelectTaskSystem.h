@@ -1,20 +1,20 @@
-#pragma once
+ï»¿#pragma once
 #include<memory>
 #include"StageselectChara.h"
 #include"StageSelectTaskMass.h"
 #include"StageselectTaskTextBox.h"
 #include"Point.h"
-#include"SpawnEnemy.h"//“G¶¬‚ğƒXƒe[ƒW‘I‘ğ’¼Œã‚És‚¤‚½‚ß
+#include"SpawnEnemy.h"//æ•µç”Ÿæˆã‚’ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠç›´å¾Œã«è¡Œã†ãŸã‚
 #include"SpawnItem.h"
 
 class StageSelectTaskSystem {
 protected:
-	int stage;//ƒXƒe[ƒW¯•Ê”Ô†
-	bool state[4];//ƒNƒŠƒAƒtƒ‰ƒOiƒXƒe[ƒW‘”‚É‚æ‚Á‚Ä•Ï‚¦‚éj
-	int backgraph;//”wŒi‰æ‘œ
+	int stage;//ã‚¹ãƒ†ãƒ¼ã‚¸è­˜åˆ¥ç•ªå·
+	bool state[4];//ã‚¯ãƒªã‚¢ãƒ•ãƒ©ã‚°ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸ç·æ•°ã«ã‚ˆã£ã¦å¤‰ãˆã‚‹ï¼‰
+	int backgraph;//èƒŒæ™¯ç”»åƒ
 public:
 	StageSelectTaskSystem();
-	void update();//Map_Init‚ğƒXƒe[ƒW”Ô†‚ÉŠî‚Ã‚«’†g‚ğ•Ï‚¦‚ÄŒÄ‚Ô
+	void update();//Map_Initã‚’ã‚¹ãƒ†ãƒ¼ã‚¸ç•ªå·ã«åŸºã¥ãä¸­èº«ã‚’å¤‰ãˆã¦å‘¼ã¶
 	void draw();
 	int get_stage();
 	void clear(int);
@@ -23,6 +23,6 @@ public:
 	std::unique_ptr<StageSelectChara> chara;
 	std::unique_ptr<StageSelectTextBox> txtbox;
 
-	std::unique_ptr<SpawnEnemy> spawnenemy;//“G‚Ì¶¬
+	std::unique_ptr<SpawnEnemy> spawnenemy;//æ•µã®ç”Ÿæˆ
 	std::unique_ptr<SpawnItem> spawnitem;
 };
