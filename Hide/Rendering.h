@@ -3,9 +3,11 @@
 #include "GraphicResource.h"
 #include "Camera.h"
 
+
 class Rendering {
 private:
-	static std::shared_ptr<GraphicResource> resource;
+	friend class CoreTask;
+	static  std::shared_ptr<GraphicResource> resource;
 	static std::shared_ptr<Camera> camera;
 	std::shared_ptr<GraphicObject> object;
 
@@ -20,8 +22,9 @@ private:
 	void switch_anime();
 
 public:
+
 	Rendering() {};
-	Rendering(std::shared_ptr<GraphicResource>, std::shared_ptr<Camera>);
 	void draw(Point);
 	void set(std::string);
 };
+

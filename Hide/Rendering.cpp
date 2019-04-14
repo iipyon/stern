@@ -2,6 +2,9 @@
 #include"DxLib.h"
 #include "CoreTask.h"
 
+std::shared_ptr<GraphicResource> Rendering::resource;
+std::shared_ptr<Camera> Rendering::camera;
+
 void Rendering::switch_anime()
 {
 	cnt++;
@@ -18,12 +21,6 @@ void Rendering::draw(Point dist)
 	if (rate != 0 && rate % current_rate == 0) {
 		switch_anime();
 	}
-}
-
-Rendering::Rendering(std::shared_ptr<GraphicResource> _resource, std::shared_ptr<Camera> _camera)
-{
-	resource = _resource;
-	camera = _camera;
 }
 
 void Rendering::set(std::string scope)
