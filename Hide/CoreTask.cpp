@@ -44,4 +44,14 @@ void CoreTask::init()
 	//静的メンバの初期化
 	Rendering::camera = gts->camera;
 	Rendering::resource = graph;
+
+	//音
+	audio->load("action");
+	//画像
+	graph->load("item");
+	graph->load("goal");
+	graph->load("player");	//resource.jsonのscopeにplayerが含まれている画像を全てロード
+	graph->load("enemy");   //scope:enemyの画像をすべて読み込む
+	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
+	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
 }

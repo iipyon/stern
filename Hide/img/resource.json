@@ -61,14 +61,26 @@
     },
 	{
       "name": "bullet",
-      "path": "img/bullet.png",
+      "path": "img/bulletsmp.png",
       "width": 30,
       "height": 30,
-      "line": 1,
-      "column": 1,
+      "line": 3,
+      "column": 3,
       "scope": [
 		"bullet",
 		"enemy"
+      ]
+    },
+	{
+      "name": "recovery",
+      "path": "img/reco_item.png",
+      "width": 30,
+      "height": 60,
+      "line": 1,
+      "column": 1,
+      "scope": [
+		"item",
+		"recovery"
       ]
     },
 	{

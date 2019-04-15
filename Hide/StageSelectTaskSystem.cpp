@@ -9,6 +9,7 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	txtbox = std::make_unique<StageSelectTextBox>();
 
 	spawnenemy = std::make_unique<SpawnEnemy>();
+	spawnitem = std::make_unique<SpawnItem>();
 
 	stage = 1;
 	for (int i = 0; i < sizeof(state); ++i) {
@@ -25,6 +26,7 @@ void StageSelectTaskSystem::update()
 		case 1:
 			ct->gts->map->init((char*)"img/data.txt", (char*)"img/chip.png");
 			spawnenemy->create("1");
+			spawnitem->create("1");
 			break;
 		case 2:
 			ct->gts->map->init((char*)"", (char*)"");
