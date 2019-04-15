@@ -7,7 +7,9 @@ Item::Item(Point point_) : BasicObject(point_)
 
 void Item::update()
 {
-	efficacy();
+	if (checkhit(ct->gts->player->get_point())) {
+		work();
+	}
 	shape->draw(point);
 }
 

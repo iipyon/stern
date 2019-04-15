@@ -5,5 +5,5 @@ class RecoveryItem : public Item {
 public:
 	RecoveryItem(Point);
 private:
-	void efficacy() override;//virtualのoverride
+	void work() override;//virtualのoverride
 };
