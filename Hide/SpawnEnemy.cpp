@@ -7,15 +7,9 @@
 #include"CoreTask.h"
 #include "json11.hpp"
 
-SpawnEnemy::SpawnEnemy()
+SpawnEnemy::SpawnEnemy(std::string path_, std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> _enemys) : Spawn(path_)
 {
-	std::ifstream epath("img/epath.json");
-	if (epath.fail()) throw "resource.json is not found.";//例外処理
-	std::istreambuf_iterator<char> it(epath);
-	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);		//string形式のjson
-	std::string err;
-	data = json11::Json::parse(str_json, err);//Jsonで使えるようにする
+	enemys = _enemys;
 }
 
 void SpawnEnemy::create(std::string stg)
@@ -32,17 +26,17 @@ void SpawnEnemy::create(std::string stg)
 		//歩行
 		if(enemy["kind"].string_value() == "walk") {
 			//生成して現在の最後尾に登録
-			ct->gts->enemys->push_back(std::make_unique<WalkingEnemy>(point, physic_state, enemy_state));
+			enemys->push_back(std::make_unique<WalkingEnemy>(point, physic_state, enemy_state));
 		}	
 		//飛行
 		if (enemy["kind"].string_value() == "fly") {
 			//生成して現在の最後尾に登録
-			ct->gts->enemys->push_back(std::make_unique<FlyingEnemy>(point,physic_state,enemy_state ));
+			enemys->push_back(std::make_unique<FlyingEnemy>(point,physic_state,enemy_state ));
 		}
 		//投げつける奴
 		if (enemy["kind"].string_value() == "throw") {
 			//生成して現在の最後尾に登録
-			ct->gts->enemys->push_back(std::make_unique<ThrowingEnemy>( point,physic_state,enemy_state ));
+			enemys->push_back(std::make_unique<ThrowingEnemy>( point,physic_state,enemy_state ));
 		}
 	}
 }

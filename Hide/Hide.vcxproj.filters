@@ -234,6 +234,9 @@
     <ClCompile Include="Item.cpp">
       <Filter>ソース ファイル\Chara\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Spawn.cpp">
+      <Filter>ソース ファイル\Spawn</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicObject.h">
@@ -361,6 +364,9 @@
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>ヘッダー ファイル\Chara\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawn.h">
+      <Filter>ヘッダー ファイル\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

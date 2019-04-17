@@ -157,6 +157,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="SpawnItem.cpp" />
     <ClCompile Include="StageselectChara.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="RecoveryItem.h" />
+    <ClInclude Include="Spawn.h" />
     <ClInclude Include="SpawnEnemy.h" />
     <ClInclude Include="SpawnItem.h" />
     <ClInclude Include="StageselectChara.h" />
