@@ -6,7 +6,8 @@ RecoveryItem::RecoveryItem(Point point_) : Item(point_)
 	shape->set("recovery");//画像
 }
 
-void RecoveryItem::work()
+void RecoveryItem::affect()
 {
+	player->hp++;
 	//回復
 }

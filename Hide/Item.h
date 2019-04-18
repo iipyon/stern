@@ -1,12 +1,16 @@
 ﻿#pragma once
 #include"BasicObject.h"
+#include "Player.h"
 
 class Item : public BasicObject {
 private:
-	virtual void work() = 0;//抽象となる
+	virtual void affect() = 0;//抽象となる
 protected:
-	bool checkhit(Point);
+	friend class CoreTask;	//CoreTask::init が利用するため
+	static std::shared_ptr<Player> player;
+	virtual bool check_hit(Point) final;
 public:
 	void update() final;//これ以上の継承をさせない
 	Item(Point);
 };
+

@@ -2,6 +2,8 @@
 #include"Physic.h"
 #include"DxLib.h"
 #include<memory>
+//#include "Item.h"
+//#include "RecoveryItem.h"
 
 
 //---------------------------------
@@ -14,6 +16,7 @@ struct PlayerState {
 };
 
 class Player :public Physic {
+	friend class RecoveryItem;
 public:
 	Player(Point point_, PhysicState physic_state_,PlayerState player_state);
 	void init();

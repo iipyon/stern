@@ -43,6 +43,7 @@ void CoreTask::init()
 	//静的メンバの初期化
 	Rendering::camera = gts->camera;
 	Rendering::resource = graph;
+	Item::player = gts->player;
 
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();
