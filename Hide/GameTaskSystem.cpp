@@ -14,8 +14,8 @@ GameTaskSystem::GameTaskSystem()
 	map = std::make_unique<Map>();
 	camera = std::make_shared<Camera>();
 	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
-	enemys = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
-	enemy_transaction = std::make_shared<std::vector<std::unique_ptr<Enemy>>>();
+	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
+	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
 }
 
@@ -54,6 +54,11 @@ void GameTaskSystem::update()
 	camera->update();
 
 	//トランザクションの実行
+	//for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
+	//	enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
+	//}
+	//トランザクションの実行
+	//auto itr = enemy_transaction->begin();
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
 	}
