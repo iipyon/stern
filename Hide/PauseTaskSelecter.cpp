@@ -1,4 +1,4 @@
-#include "PauseTaskSelecter.h"
+﻿#include "PauseTaskSelecter.h"
 #include "CoreTask.h"
 #include"Keyboard.h"
 
@@ -34,7 +34,7 @@ void PauseSelecter::switch_button()
 		else button = PauseButton::exit;
 	}
 	if (Keyboard::key_down(KEY_INPUT_UP)) {
-<
+
 		Audio::play("cursol");
 
 		if (button == PauseButton::returngame) button = PauseButton::exit;
