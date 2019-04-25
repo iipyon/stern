@@ -8,13 +8,15 @@
 #include "GraphicResource.h"
 #include "GameOverTaskSystem.h"
 #include"Audio.h"
+#include"PauseTaskSystem.h"
 
 enum class Scene {
 	title,
 	stageselect,
 	game,
 	gameover,
-	clear
+	clear,
+	pause
 };
 
 class CoreTask {
@@ -32,6 +34,7 @@ public:
 	std::shared_ptr<ClearTaskSystem> cts;
 	std::shared_ptr<GraphicResource> graph;
 	std::shared_ptr<GameOverTaskSystem> gots;
+	std::shared_ptr<PauseTask> pts;
 	std::shared_ptr<Audio> audio;
 };
 

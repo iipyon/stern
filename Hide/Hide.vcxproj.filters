@@ -109,6 +109,12 @@
     <Filter Include="ヘッダー ファイル\Chara\Item">
       <UniqueIdentifier>{20993b8b-e178-487f-8ab3-8a0d6dee49fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\TaskSystem\PauseTask">
+      <UniqueIdentifier>{7804cc7b-9c61-4432-99ee-0af9416c7cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\TaskSystem\PauseTask">
+      <UniqueIdentifier>{0fad85da-3731-4a44-8827-df7fb6b303a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -198,16 +204,7 @@
     <ClCompile Include="TitleTaskSystem.cpp">
       <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
     </ClCompile>
-    <ClCompile Include="TitleExitButton.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
     <ClCompile Include="TitleSelecter.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleStartButton.cpp">
-      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleTaskBasicUI.cpp">
       <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
     </ClCompile>
     <ClCompile Include="json11.cpp">
@@ -236,6 +233,21 @@
     </ClCompile>
     <ClCompile Include="Spawn.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicUI.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskSystem.cpp">
+      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskSelecter.cpp">
+      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTaskUI.cpp">
+      <Filter>ソース ファイル\TaskSystem\PauseTask</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleUI.cpp">
+      <Filter>ソース ファイル\TaskSystem\TitleTask</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,16 +341,7 @@
     <ClInclude Include="TitleTaskSystem.h">
       <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>
-    <ClInclude Include="TitleExitButton.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
     <ClInclude Include="TitleSelecter.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleStartButton.h">
-      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleTaskBasicUI.h">
       <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>
     <ClInclude Include="json11.hpp">
@@ -367,6 +370,21 @@
     </ClInclude>
     <ClInclude Include="Spawn.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicUI.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskSystem.h">
+      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskUI.h">
+      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTaskSelecter.h">
+      <Filter>ヘッダー ファイル\TaskSystem\PauseTask</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleUI.h">
+      <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

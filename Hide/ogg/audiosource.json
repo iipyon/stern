@@ -1,0 +1,49 @@
+{
+  "audio":[
+  {
+  	  "name" : "jump",
+	  "loop" : false,
+	  "path" : "ogg/jump.ogg",
+	  "scope": [
+        "jump",
+		"action"
+      ]
+  },
+  {
+  	  "name" : "cursol",
+	  "loop" : false,
+	  "path" : "ogg/cursol.ogg",
+	  "scope": [
+        "cursol",
+		"system"
+      ]
+  },
+  {
+  	  "name" : "decision",
+	  "loop" : false,
+	  "path" : "ogg/decision.ogg",
+	  "scope": [
+        "decision",
+		"system"
+      ]
+  },
+  {
+  	  "name" : "cancel",
+	  "loop" : false,
+	  "path" : "ogg/cancel.ogg",
+	  "scope": [
+        "cancel",
+		"system"
+      ]
+  },
+  {
+  	  "name" : "stage1",
+	  "loop" : true,
+	  "path" : "ogg/stage/stage1.ogg",
+	  "scope": [
+        "stage1",
+		"stage"
+      ]
+  }
+  ]
+}

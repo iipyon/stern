@@ -5,7 +5,7 @@
 
 Audio::Audio()
 {
-	std::ifstream audiopath("img/audiosource.json");
+	std::ifstream audiopath("ogg/audiosource.json");
 	if (audiopath.fail()) throw "audiosource.json is not found.";//例外処理
 	std::istreambuf_iterator<char> it(audiopath);
 	std::istreambuf_iterator<char> last;

@@ -12,7 +12,8 @@ CoreTask::CoreTask()
 	cts = std::make_shared<ClearTaskSystem>();
 	gots = std::make_shared<GameOverTaskSystem>();
 	audio = std::make_shared<Audio>();
-	scene = Scene::title;//–{“–‚Í^Cg‹
+	pts = std::make_shared<PauseTask>();
+	scene = Scene::title;
 }
 
 void CoreTask::update()
@@ -35,6 +36,9 @@ void CoreTask::update()
 	case Scene::clear:
 		cts->update();
 		break;
+	case Scene::pause:
+		pts->update();
+		break;
 	}
 }
 
@@ -50,6 +54,8 @@ void CoreTask::init()
 
 	//音
 	audio->load("action");
+	audio->load("system");
+	audio->load("stage");
 	//画像
 	graph->load("item");
 	graph->load("goal");

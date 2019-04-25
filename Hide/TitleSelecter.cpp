@@ -25,10 +25,12 @@ void TitleSelecter::switch_button()
 {
 	//集成必要な気がする-----------------------------------
 	if (ct->keyboard->key_down(KEY_INPUT_DOWN)) {
+		ct->audio->play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}
 	if (ct->keyboard->key_down(KEY_INPUT_UP)) {
+		ct->audio->play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}
@@ -40,11 +42,11 @@ void TitleSelecter::move(int start_x, int exit_x)
 	switch (button) {
 	case Button::start:
 		x = start_x;
-		y = 390;
+		y = 340 - 10;
 		break;
 	case Button::exit:
 		x = exit_x;
-		y = 440;
+		y = 390 - 10;
 		break;
 	}
 }

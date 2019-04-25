@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="BasicUI.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
@@ -140,6 +141,9 @@
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="json11.cpp" />
+    <ClCompile Include="PauseTaskSelecter.cpp" />
+    <ClCompile Include="PauseTaskSystem.cpp" />
+    <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BaseSwitch.cpp" />
@@ -166,21 +170,23 @@
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
-    <ClCompile Include="TitleExitButton.cpp" />
     <ClCompile Include="TitleSelecter.cpp" />
-    <ClCompile Include="TitleStartButton.cpp" />
-    <ClCompile Include="TitleTaskBasicUI.cpp" />
+    <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="PauseTaskSelecter.h" />
+    <ClInclude Include="PauseTaskSystem.h" />
+    <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="SpawnEnemy.h" />
@@ -211,10 +217,8 @@
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
-    <ClInclude Include="TitleExitButton.h" />
     <ClInclude Include="TitleSelecter.h" />
-    <ClInclude Include="TitleStartButton.h" />
-    <ClInclude Include="TitleTaskBasicUI.h" />
+    <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>

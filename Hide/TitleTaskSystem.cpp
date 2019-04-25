@@ -4,8 +4,7 @@
 
 TitleTaskSystem::TitleTaskSystem()
 {
-	startbutton = std::make_unique<TitleStartButton>();
-	exitbutton = std::make_unique<TitleExitButton>();
+	title_ui = std::make_unique<TitleUI>();
 	selecter = std::make_unique<TitleSelecter>();
 	backgraph = LoadGraph("img/title/title.png");
 }
@@ -13,6 +12,7 @@ TitleTaskSystem::TitleTaskSystem()
 void TitleTaskSystem::update()
 {
 	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
+		ct->audio->play("decision");
 		switch (selecter->button) {
 		case Button::start:
 			ct->scene = Scene::stageselect;
@@ -24,10 +24,9 @@ void TitleTaskSystem::update()
 	}
 
 	draw();
-	startbutton->update();
-	exitbutton->update();
+	title_ui->update();
 	//カーソルの大きさが40のため余裕をもってあけておく
-	selecter->update(startbutton->get_lextx() - 50, exitbutton->get_lextx() - 50);
+	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50, title_ui->get_lextx(title_ui->text[1]) - 50);
 	DrawString(0, 0, "現在タイトルタスクです", GetColor(255, 0, 0));
 }
 

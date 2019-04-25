@@ -138,6 +138,7 @@ void Player::move()
 	//ジャンプ
 	if (ct->keyboard->key_down(KEY_INPUT_X)) {
 		if (velocityY == 0 && velocityY == preY) {
+			ct->audio->play("jump");
 			velocityY -= 18.0f;
 		}
 	}
