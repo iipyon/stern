@@ -1,6 +1,8 @@
 ﻿#include"Map.h"
 #include"DxLib.h"
+#include"CoreTask.h"
 #include<fstream>
+#include<algorithm>
 #include "json11.hpp"
 //1津のチップの大きさを30と考える(勝手)//チップサイズは32が妥当
 #define chipsize 30
@@ -45,9 +47,32 @@ void Map::init(char* mapfp, char* chipfp)
 
 void Map::draw()
 {
-	for (int y = 0; y < mapsizey / (mapsizey/chipsize); ++y) {
-		for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
-			DrawRectGraph(x * chipsize, y *chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
+	/*for (int y = 0; y < mapsizey / (mapsizey / chipsize); ++y) {
+	for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
+		if (ct->gts->camera->get_range().x > x * chipsize ||
+			ct->gts->camera->get_range().x + ct->gts->camera->get_range().w < x * chipsize + chipsize ||
+			ct->gts->camera->get_range().y > y * chipsize ||
+			ct->gts->camera->get_range().y + ct->gts->camera->get_range().h < y * chipsize + chipsize) {
+			return;
+		}
+	}
+}*/
+	
+
+
+	isr.x = max(ct->gts->camera->get_range().x, 0);
+	isr.y = max(ct->gts->camera->get_range().y, 0);
+	isr.w = min(ct->gts->camera->get_range().x + ct->gts->camera->get_range().w, mapsizex);
+	isr.h = min(ct->gts->camera->get_range().y + ct->gts->camera->get_range().h, mapsizey);
+
+	sx = isr.x / chipsize;
+	sy = isr.y / chipsize;
+	ex = (isr.w - 1) / chipsize;
+	ey = (isr.h - 1) / chipsize;
+
+	for (int y = sy; y <= ey; ++y) {
+		for (int x = sx; x <= ex; ++x) {
+			DrawRectGraph((x * chipsize) - ct->gts->camera->get_range().x, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
 		}
 	}
 }

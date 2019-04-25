@@ -22,5 +22,7 @@ private:
 	int graph;//絵
 	int mapsizex;
 	int mapsizey;
+	Point isr;  //重なっている範囲
+	int sx, sy, ex, ey;  //ループ範囲
 	json11::Json mapdata;
 };
