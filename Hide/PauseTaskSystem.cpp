@@ -54,6 +54,7 @@ void PauseTask::change_scene()
 		//アプリケーション終了
 		break;
 	case PauseButton::backssts:
+		ct->gts->finalize();
 		ct->scene = Scene::stageselect;
 		break;
 	}

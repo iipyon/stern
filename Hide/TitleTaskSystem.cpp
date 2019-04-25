@@ -7,12 +7,24 @@ TitleTaskSystem::TitleTaskSystem()
 	title_ui = std::make_unique<TitleUI>();
 	selecter = std::make_unique<TitleSelecter>();
 	backgraph = LoadGraph("img/title/title.png");
+	deg_flag = false;
+	feedcnt = 255;
 }
 
 void TitleTaskSystem::update()
 {
+	if (deg_flag) {
+		feedcnt -= 12;
+		SetDrawBright(feedcnt, feedcnt, feedcnt);
+	}
 	if (Keyboard::key_down(KEY_INPUT_Z)) {
+		deg_flag = true;
 		Audio::play("decision");
+	}
+	if (feedcnt <= 0) {
+		feedcnt = 255;
+		deg_flag = false;
+		SetDrawBright(feedcnt, feedcnt, feedcnt);
 		switch (selecter->button) {
 		case Button::start:
 			ct->scene = Scene::stageselect;

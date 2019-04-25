@@ -11,6 +11,7 @@ class StageSelectTaskSystem {
 protected:
 	int stage;//ステージ識別番号
 	bool state[4];//クリアフラグ（ステージ総数によって変える）
+private:
 	int backgraph;//背景画像
 public:
 	StageSelectTaskSystem();
