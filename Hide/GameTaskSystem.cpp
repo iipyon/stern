@@ -1,4 +1,4 @@
-#include "GameTaskSystem.h"
+﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include"CoreTask.h"
@@ -41,7 +41,11 @@ void GameTaskSystem::init()
 
 void GameTaskSystem::update()
 {
-	
+	//ポーズへの遷移
+	if (Keyboard::key_down(KEY_INPUT_BACK)) {
+		Audio::play("decision");
+		ct->scene = Scene::pause;
+	}
 	map->update();
 	goal->update();
 	//☆------------------------------
@@ -71,7 +75,12 @@ void GameTaskSystem::update()
 
 void GameTaskSystem::finalize()
 {
-	Audio::stop("stage1");
+	//ステージごとに音楽を入れ替える
+	switch (ct->ssts->get_stage()) {
+	case 1:
+		Audio::stop("stage1");
+		break;
+	}
 	normalstar.clear();
 	enemys->clear();
 	item->clear();
