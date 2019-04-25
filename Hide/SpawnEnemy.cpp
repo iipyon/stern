@@ -38,5 +38,10 @@ void SpawnEnemy::create(std::string stg)
 			//生成して現在の最後尾に登録
 			enemys->push_back(std::make_unique<ThrowingEnemy>( point,physic_state,enemy_state ));
 		}
+		//ボス 
+		if (enemy["kind"].string_value() == "boss") {
+			//生成して現在の最後尾に登録 
+			ct->gts->enemys->push_back(std::make_unique<Boss>(point, physic_state, enemy_state));
+		}
 	}
 }
