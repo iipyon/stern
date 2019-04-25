@@ -1,5 +1,7 @@
 ﻿#include "TitleSelecter.h"
-#include "CoreTask.h"
+#include"Audio.h"
+#include"DxLib.h"
+#include"Keyboard.h"
 
 TitleSelecter::TitleSelecter()
 {
@@ -25,11 +27,12 @@ void TitleSelecter::switch_button()
 {
 	//集成必要な気がする-----------------------------------
 	if (Keyboard::key_down(KEY_INPUT_DOWN)) {
+		Audio::play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}
 	if (Keyboard::key_down(KEY_INPUT_UP)) {
-		ct->audio->play("cursol");
+		Audio::play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}

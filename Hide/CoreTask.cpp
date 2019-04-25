@@ -9,7 +9,6 @@ CoreTask::CoreTask()
 	gts = std::make_shared<GameTaskSystem>();
 	cts = std::make_shared<ClearTaskSystem>();
 	gots = std::make_shared<GameOverTaskSystem>();
-	audio = std::make_shared<Audio>();
 	pts = std::make_shared<PauseTask>();
 	scene = Scene::title;
 }
@@ -46,15 +45,16 @@ void CoreTask::init()
 	Rendering::camera = gts->camera;
 	GraphicResource::init();
 	Keyboard::initialize();
+	Audio::init();
 	Item::player = gts->player;
 
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();
 
 	//音
-	audio->load("action");
-	audio->load("system");
-	audio->load("stage");
+	Audio::load("action");
+	Audio::load("system");
+	Audio::load("stage");
 	//画像
 	GraphicResource::load("item");
 	GraphicResource::load("goal");

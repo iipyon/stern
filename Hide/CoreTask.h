@@ -34,7 +34,6 @@ public:
 	std::shared_ptr<ClearTaskSystem> cts;
 	std::shared_ptr<GameOverTaskSystem> gots;
 	std::shared_ptr<PauseTask> pts;
-	std::shared_ptr<Audio> audio;
 };
 
 extern CoreTask *ct;

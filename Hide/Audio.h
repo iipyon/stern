@@ -2,9 +2,15 @@
 #include<iostream>
 #include"json11.hpp"
 
-struct AudioObject {
-	bool loop;
+class AudioObject {
+	friend class Audio;
 	bool exist;
+	std::vector<std::string> scopes;
+
+	bool exist_scope(std::string);
+	void set_default();
+public:
+	bool loop;
 	std::string  name;
 	std::string  path;
 	int handle;
@@ -12,16 +18,11 @@ struct AudioObject {
 
 class Audio {
 private:
-	int count_size;
-	bool loop;
-	std::unique_ptr<AudioObject[]> audio;
-	json11::Json json;
-	bool exist(std::string);
-	void set_default(AudioObject ao);
+	static std::vector<std::shared_ptr<AudioObject>> audioobj;
+	static void register_audio(AudioObject&);
 public:
-	Audio();
-	~Audio();
-	void play(std::string name);
-	void load(std::string name);
-	void stop(std::string name);
+	static void init();
+	static void play(std::string name);
+	static int load(std::string name);
+	static void stop(std::string name);
 };
