@@ -24,12 +24,11 @@ void TitleSelecter::draw()
 void TitleSelecter::switch_button()
 {
 	//集成必要な気がする-----------------------------------
-	if (ct->keyboard->key_down(KEY_INPUT_DOWN)) {
-		ct->audio->play("cursol");
+	if (Keyboard::key_down(KEY_INPUT_DOWN)) {
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;
 	}
-	if (ct->keyboard->key_down(KEY_INPUT_UP)) {
+	if (Keyboard::key_down(KEY_INPUT_UP)) {
 		ct->audio->play("cursol");
 		if (button == Button::start) button = Button::exit;
 		else button = Button::start;

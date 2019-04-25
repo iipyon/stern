@@ -2,35 +2,37 @@
 #include"DxLib.h"
 #include "CoreTask.h"
 
-std::shared_ptr<GraphicResource> Rendering::resource;
 std::shared_ptr<Camera> Rendering::camera;
+
+Rendering::Rendering()
+{
+	current_anime = 0;
+	current_rate = 0;
+}
 
 void Rendering::switch_anime()
 {
-	cnt++;
-	if (cnt >= max) {
-		if (loop == false)cnt--;
-		else cnt = 0;
+	current_anime++;
+	if (current_anime >= object->sheets) {
+		if (object->loop == false)current_anime = object->sheets;
+		else current_anime = 0;
 	}
 }
 
 void Rendering::draw(Point dist)
 {
-	DrawGraph(dist.x - camera->get_range().x , dist.y , *(handle_graph + cnt), 1);
-	current_rate++;	//毎フレーム増える
-	if (rate != 0 && rate % current_rate == 0) {
-		switch_anime();
+	if (object != nullptr) {
+		DrawGraph(dist.x - camera->get_range().x, dist.y, *(object->handle + current_anime), 1);
+		current_rate++;
+		if (object->interval != 0 && object->interval % current_rate == 0) {
+			switch_anime();
+		}
 	}
 }
 
-void Rendering::set(std::string scope)
+void Rendering::set(std::string name)
 {
-	GraphicObject obj = resource->get(scope);	//GraphicObjectを共有するように改善予定
-	if (obj.exist == false) throw std::runtime_error("The scope is not exist.");
-	cnt = 0;
-	max = obj.max;
-	rate = obj.rate;
-	loop = obj.loop;
-	handle_graph = obj.handle;
+	object = GraphicResource::get(name);
+	//if (object == nullptr) throw std::runtime_error("The scope is not exist.");
 	current_rate = 0;
 }

@@ -1,12 +1,16 @@
 #include "Keyboard.h"
 
-Keyboard::Keyboard()
+char* Keyboard::current;
+char* Keyboard::previous;
+char* Keyboard::work;
+
+void Keyboard::initialize()
 {
 	current = new char[KEY_BOARD_BUF_SIZE];
 	previous = new char[KEY_BOARD_BUF_SIZE];
 }
 
-Keyboard::~Keyboard()
+void Keyboard::finalize()
 {
 	delete[] current;
 	delete[] previous;

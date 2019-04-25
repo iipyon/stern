@@ -5,10 +5,8 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	graph = std::make_shared<GraphicResource>();
 	tts = std::make_shared<TitleTaskSystem>();
 	gts = std::make_shared<GameTaskSystem>();
-	keyboard = std::make_shared<Keyboard>();
 	cts = std::make_shared<ClearTaskSystem>();
 	gots = std::make_shared<GameOverTaskSystem>();
 	audio = std::make_shared<Audio>();
@@ -18,7 +16,7 @@ CoreTask::CoreTask()
 
 void CoreTask::update()
 {
-	keyboard->update();
+	Keyboard::update();
 	switch (scene) {
 	case Scene::title:
 		tts->update();
@@ -46,7 +44,8 @@ void CoreTask::init()
 {
 	//静的メンバの初期化
 	Rendering::camera = gts->camera;
-	Rendering::resource = graph;
+	GraphicResource::init();
+	Keyboard::initialize();
 	Item::player = gts->player;
 
 	//メンバ生成
@@ -57,10 +56,16 @@ void CoreTask::init()
 	audio->load("system");
 	audio->load("stage");
 	//画像
-	graph->load("item");
-	graph->load("goal");
-	graph->load("player");	//resource.jsonのscopeにplayerが含まれている画像を全てロード
-	graph->load("enemy");   //scope:enemyの画像をすべて読み込む
+	GraphicResource::load("item");
+	GraphicResource::load("goal");
+	GraphicResource::load("player");
+	GraphicResource::load("enemy");
+
 	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
 	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
+}
+
+void CoreTask::finalize()
+{
+	Keyboard::finalize();
 }

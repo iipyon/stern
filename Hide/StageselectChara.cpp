@@ -24,11 +24,11 @@ void StageSelectChara::draw()
 
 void StageSelectChara::select_stage(int& stage_)
 {
-	if (ct->keyboard->key_down(KEY_INPUT_RIGHT)&& stage_ < 4 && velocityX == 0) {
+	if (Keyboard::key_down(KEY_INPUT_RIGHT)&& stage_ < 4 && velocityX == 0) {
 		velocityX = 18;
 		stage_++;//ステージセレクトタスクの方のステージ番号は加算されていない
 	}
-	if (ct->keyboard->key_down(KEY_INPUT_LEFT)&& stage_ > 1 && velocityX == 0) {
+	if (Keyboard::key_down(KEY_INPUT_LEFT)&& stage_ > 1 && velocityX == 0) {
 		velocityX = -18;
 		stage_--;
 	}

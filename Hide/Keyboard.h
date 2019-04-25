@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include"DxLib.h"
 #include <memory>
 #define KEY_BOARD_BUF_SIZE 256
@@ -6,16 +6,16 @@
 
 class Keyboard {
 public:
-	Keyboard();
-	~Keyboard();
-	void update();
-	bool key_down(int);
-	bool key_up(int);
-	bool key_press(int);
+	static void initialize();
+	static void finalize();
+	static void update();
+	static bool key_down(int);
+	static bool key_up(int);
+	static bool key_press(int);
 	//bool Get(KEY_INPUT *key);
 private:
-	//DXƒ‰ƒCƒuƒ‰ƒŠ‚Ìd—lãƒXƒ}[ƒgƒ|ƒCƒ“ƒ^‚É‚Å‚«‚È‚¢
-	char* current;	//ƒL[ƒ{[ƒh‘Î‰‚³‚¹‚é
-	char* previous;	//‚PƒtƒŒ[ƒ€‘O‚Ì”z—ñ‚ğ‹L‰¯
-	char* work;	//ì‹Æ—Ìˆæ
+	Keyboard();
+	static char* current;	//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å¯¾å¿œã•ã›ã‚‹
+	static char* previous;	//ï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã®é…åˆ—ã‚’è¨˜æ†¶
+	static char* work;	//ä½œæ¥­é ˜åŸŸ
 };

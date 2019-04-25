@@ -20,7 +20,7 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-	if (ct->keyboard->key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
+	if (Keyboard::key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
 		switch (stage)
 		{
 		case 1:

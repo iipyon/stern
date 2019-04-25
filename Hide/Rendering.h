@@ -7,23 +7,15 @@
 class Rendering {
 private:
 	friend class CoreTask;
-	static  std::shared_ptr<GraphicResource> resource;
 	static std::shared_ptr<Camera> camera;
 	std::shared_ptr<GraphicObject> object;
 
-	//下記objectに置き換え予定
-	int max;	//最大枚数
-	int rate; //切替速度
-	int current_rate;
-	int cnt;//何枚目にいるか
-	bool loop;//ループするか
-	int *handle_graph;
+	int current_rate;	//現在のレート
+	int current_anime;//何枚目にいるか
 
 	void switch_anime();
-
 public:
-
-	Rendering() {};
+	Rendering();
 	void draw(Point);
 	void set(std::string);
 };

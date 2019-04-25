@@ -11,23 +11,23 @@ TitleTaskSystem::TitleTaskSystem()
 
 void TitleTaskSystem::update()
 {
-	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
+	if (Keyboard::key_down(KEY_INPUT_Z)) {
 		ct->audio->play("decision");
 		switch (selecter->button) {
 		case Button::start:
 			ct->scene = Scene::stageselect;
 			break;
 		case Button::exit:
-			//exe‚ğ•Â‚¶‚é
+			//exeã‚’é–‰ã˜ã‚‹
 			break;
 		}
 	}
 
 	draw();
 	title_ui->update();
-	//ƒJ[ƒ\ƒ‹‚Ì‘å‚«‚³‚ª40‚Ì‚½‚ß—]—T‚ğ‚à‚Á‚Ä‚ ‚¯‚Ä‚¨‚­
+	//ã‚«ãƒ¼ã‚½ãƒ«ã®å¤§ãã•ãŒ40ã®ãŸã‚ä½™è£•ã‚’ã‚‚ã£ã¦ã‚ã‘ã¦ãŠã
 	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50, title_ui->get_lextx(title_ui->text[1]) - 50);
-	DrawString(0, 0, "Œ»İƒ^ƒCƒgƒ‹ƒ^ƒXƒN‚Å‚·", GetColor(255, 0, 0));
+	DrawString(0, 0, "ç¾åœ¨ã‚¿ã‚¤ãƒˆãƒ«ã‚¿ã‚¹ã‚¯ã§ã™", GetColor(255, 0, 0));
 }
 
 void TitleTaskSystem::draw()

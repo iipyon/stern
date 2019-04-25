@@ -48,7 +48,7 @@ void Player::StarManager::draw(double st, int x)
 void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
-	if (ct->keyboard->key_down(KEY_INPUT_Z)) {
+	if (Keyboard::key_down(KEY_INPUT_Z)) {
 		class Point point = { x_,0,0,0 };
 		struct PhysicState physic_state = { 0,30,0 };//	float gravity; float repulsion;int weight;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
@@ -88,10 +88,10 @@ void Player::update()
 {
 	//仮の移動とカーソル角度調整-------------
 	move();
-	if (ct->keyboard->key_press(KEY_INPUT_Q)) {
+	if (Keyboard::key_press(KEY_INPUT_Q)) {
 		angle += 0.05;
 	}
-	if (ct->keyboard->key_press(KEY_INPUT_E)) {
+	if (Keyboard::key_press(KEY_INPUT_E)) {
 		angle -= 0.05;
 	}
 	//---------------------------------------
@@ -115,8 +115,8 @@ void Player::draw_interface(int)
 void Player::move()
 {
 	//左右移動
-	if (ct->keyboard->key_press(KEY_INPUT_LEFT)) {
-		if (ct->keyboard->key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
+	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
+		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
 			velocityX = -4.0f;
 		}
@@ -124,8 +124,8 @@ void Player::move()
 			velocityX = -2.0f;
 		}
 	}
-	if (ct->keyboard->key_press(KEY_INPUT_RIGHT)) {
-		if (ct->keyboard->key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
+	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
+		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
 			/*if (velocityX <= +6) {
 				velocityX++;
 			}*/
@@ -136,7 +136,7 @@ void Player::move()
 		}
 	}
 	//ジャンプ
-	if (ct->keyboard->key_down(KEY_INPUT_X)) {
+	if (Keyboard::key_down(KEY_INPUT_X)) {
 		if (velocityY == 0 && velocityY == preY) {
 			ct->audio->play("jump");
 			velocityY -= 18.0f;

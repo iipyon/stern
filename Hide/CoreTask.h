@@ -27,12 +27,11 @@ public:
 	CoreTask();
 	void update();
 	void init();
+	void finalize();
 	std::shared_ptr<GameTaskSystem> gts;
 	std::shared_ptr<TitleTaskSystem> tts;
 	std::shared_ptr<StageSelectTaskSystem> ssts;
-	std::shared_ptr<Keyboard> keyboard;
 	std::shared_ptr<ClearTaskSystem> cts;
-	std::shared_ptr<GraphicResource> graph;
 	std::shared_ptr<GameOverTaskSystem> gots;
 	std::shared_ptr<PauseTask> pts;
 	std::shared_ptr<Audio> audio;
