@@ -17,6 +17,8 @@
 class GameTaskSystem
 {
 private:
+	bool deg_flag;
+	int feedcnt;
 protected:
 public:
 	GameTaskSystem();

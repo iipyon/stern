@@ -9,9 +9,9 @@ private:
 	int graph;
 public:
 	StageSelectChara(Point);
-	void update(int&);
+	void update(int&,bool);
 	void draw();
-	void select_stage(int&);
+	void select_stage(int&,bool);
 	void move();
 	int get_velocity();
 };

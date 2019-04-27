@@ -13,8 +13,8 @@ private:
 public:
 	Button button;
 	TitleSelecter();
-	void update(int,int);
+	void update(int,int,bool);
 	void draw();
-	void switch_button();
+	void switch_button(bool);
 	void move(int ,int);
 };

@@ -1,4 +1,4 @@
-#include "StageSelectTaskSystem.h"
+ï»¿#include "StageSelectTaskSystem.h"
 #include"CoreTask.h"
 
 StageSelectTaskSystem::StageSelectTaskSystem()
@@ -9,8 +9,10 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	txtbox = std::make_unique<StageSelectTextBox>();
 
 	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", ct->gts->enemys);
-	spawnitem = std::make_unique<SpawnItem>("img/item.json",ct->gts->item);
+	spawnitem = std::make_unique<SpawnItem>("img/item.json", ct->gts->item);
 
+	feedcnt = 0;
+	deg_flag = false;
 	stage = 1;
 	for (int i = 0; i < sizeof(state); ++i) {
 		state[i] = false;
@@ -20,36 +22,41 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 
 void StageSelectTaskSystem::update()
 {
-	if (Keyboard::key_down(KEY_INPUT_Z)&& chara->get_velocity() == 0) {
-		switch (stage)
-		{
-		case 1:
-			ct->gts->map->init((char*)"img/data.txt", (char*)"img/chip.png");
-			spawnenemy->create("1");
-			spawnitem->create("1");
-			break;
-		case 2:
-			ct->gts->map->init((char*)"", (char*)"");
-			break;
-		case 3:
-			ct->gts->map->init((char*)"", (char*)"");
-			break;
-		case 4:
-			ct->gts->map->init((char*)"", (char*)"");
-			break;
+	ScreenFunc::FeedIn(deg_flag, feedcnt);
+	if (deg_flag) {
+		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+			switch (stage)
+			{
+			case 1:
+				ct->gts->map->init((char*)"img/data.txt", (char*)"img/chip.png");
+				spawnenemy->create("1");
+				spawnitem->create("1");
+				break;
+			case 2:
+				ct->gts->map->init((char*)"", (char*)"");
+				break;
+			case 3:
+				ct->gts->map->init((char*)"", (char*)"");
+				break;
+			case 4:
+				ct->gts->map->init((char*)"", (char*)"");
+				break;
+			}
+			ct->gts->init();
+			ct->cts->init();
+			ct->scene = Scene::game;//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã«é·ç§»
 		}
-		ct->gts->init();
-		ct->cts->init();
-		ct->gts->goal->init();
-		ct->scene = Scene::game;//ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ
+	}
+	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0) {
+		deg_flag = true;
+
 	}
 	draw();
 	for (int i = 0; i < sizeof(mass); ++i) {
 		mass->update();
 	}
-	chara->update(stage);
+	chara->update(stage,deg_flag);
 	txtbox->update(stage);
-	DrawFormatString(0, 0, GetColor(0, 255, 0), "Œ»İƒXƒe[ƒW %d ‚ğ‘I‘ğ’†", stage);
 }
 
 void StageSelectTaskSystem::draw()

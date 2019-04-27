@@ -392,5 +392,8 @@
     <ClInclude Include="TitleUI.h">
       <Filter>ヘッダー ファイル\TaskSystem\TitleTask</Filter>
     </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

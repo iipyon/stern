@@ -10,9 +10,9 @@ PauseSelecter::PauseSelecter()
 	graph = LoadGraph("img/pause/selecter.png");
 }
 
-void PauseSelecter::update(int return_x, int exit_x, int backssts_x)
+void PauseSelecter::update(int return_x, int exit_x, int backssts_x,bool deg)
 {
-	switch_button();
+	switch_button(deg);
 	move(return_x, exit_x,backssts_x);
 	draw();
 }
@@ -22,24 +22,26 @@ void PauseSelecter::draw()
 	DrawGraph(x, y, graph, TRUE);
 }
 
-void PauseSelecter::switch_button()
+void PauseSelecter::switch_button(bool deg)
 {
-	//集成必要な気がする-----------------------------------
-	if (Keyboard::key_down(KEY_INPUT_DOWN)) {
+	if (!deg) {
+		//集成必要な気がする-----------------------------------
+		if (Keyboard::key_down(KEY_INPUT_DOWN)) {
 
-		Audio::play("cursol");
+			Audio::play("cursol");
 
-		if (button == PauseButton::returngame) button = PauseButton::backssts;
-		else if (button == PauseButton::exit) button = PauseButton::returngame;
-		else button = PauseButton::exit;
-	}
-	if (Keyboard::key_down(KEY_INPUT_UP)) {
+			if (button == PauseButton::returngame) button = PauseButton::backssts;
+			else if (button == PauseButton::exit) button = PauseButton::returngame;
+			else button = PauseButton::exit;
+		}
+		if (Keyboard::key_down(KEY_INPUT_UP)) {
 
-		Audio::play("cursol");
+			Audio::play("cursol");
 
-		if (button == PauseButton::returngame) button = PauseButton::exit;
-		else if (button == PauseButton::exit) button = PauseButton::backssts;
-		else button = PauseButton::returngame;
+			if (button == PauseButton::returngame) button = PauseButton::exit;
+			else if (button == PauseButton::exit) button = PauseButton::backssts;
+			else button = PauseButton::returngame;
+		}
 	}
 	//-----------------------------------------------------
 }

@@ -1,5 +1,5 @@
+
 #include "TitleTaskSystem.h"
-#include"DxLib.h"
 #include"CoreTask.h"
 
 TitleTaskSystem::TitleTaskSystem()
@@ -13,32 +13,32 @@ TitleTaskSystem::TitleTaskSystem()
 
 void TitleTaskSystem::update()
 {
+	ScreenFunc::FeedIn(deg_flag, feedcnt);
 	if (deg_flag) {
-		feedcnt -= 12;
-		SetDrawBright(feedcnt, feedcnt, feedcnt);
+		if(ScreenFunc::FeedOut(deg_flag, feedcnt)){
+			switch (selecter->button) {
+			case Button::start:
+				ct->scene = Scene::stageselect;
+				break;
+			case Button::exit:
+				//exeを閉じる
+				break;
+			}
+		}
 	}
 	if (Keyboard::key_down(KEY_INPUT_Z)) {
 		deg_flag = true;
 		Audio::play("decision");
 	}
-	if (feedcnt <= 0) {
-		feedcnt = 255;
-		deg_flag = false;
-		SetDrawBright(feedcnt, feedcnt, feedcnt);
-		switch (selecter->button) {
-		case Button::start:
-			ct->scene = Scene::stageselect;
-			break;
-		case Button::exit:
-			//exeを閉じる
-			break;
-		}
-	}
 
 	draw();
 	title_ui->update();
 	//カーソルの大きさが40のため余裕をもってあけておく
-	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50, title_ui->get_lextx(title_ui->text[1]) - 50);
+
+	selecter->update(title_ui->get_lextx(title_ui->text[0]) - 50,
+		title_ui->get_lextx(title_ui->text[1]) - 50,
+		deg_flag);
+
 }
 
 void TitleTaskSystem::draw()

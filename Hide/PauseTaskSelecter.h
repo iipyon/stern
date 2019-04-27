@@ -12,10 +12,10 @@ private:
 	int y;
 	int graph;
 	void draw();
-	void switch_button();
+	void switch_button(bool deg);
 	void move(int, int, int);
 public:
 	PauseButton button;
 	PauseSelecter();
-	void update(int, int, int);
+	void update(int, int, int,bool);
 };

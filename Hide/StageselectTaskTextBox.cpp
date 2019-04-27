@@ -1,4 +1,4 @@
-#include "StageselectTaskTextBox.h"
+﻿#include "StageselectTaskTextBox.h"
 #include"DxLib.h"
 
 StageSelectTextBox::StageSelectTextBox()

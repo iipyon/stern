@@ -2,6 +2,8 @@
 #include"TitleUI.h"
 #include"TitleSelecter.h"
 #include<memory>
+#include"Screen.h"
+#include"DxLib.h"
 
 class TitleTaskSystem {
 private:

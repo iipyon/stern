@@ -190,6 +190,7 @@
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="RecoveryItem.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="SpawnEnemy.h" />
     <ClInclude Include="SpawnItem.h" />
