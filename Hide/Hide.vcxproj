@@ -135,6 +135,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
+    <ClCompile Include="Function.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Function.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />

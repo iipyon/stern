@@ -1,6 +1,7 @@
 ﻿#pragma once
+#include"Player.h"
 #include"Physic.h"
-
+#include"Function.h"
 //----------------------------------
 //敵全般
 //----------------------------------
@@ -37,6 +38,8 @@ protected:
 	int power;
 	int knock_back;
 	AngleState anglestate;
+	friend class CoreTask;
+	static std::shared_ptr<Player> player;
 	//メソッド
 	virtual void move() = 0;	//抽象クラス
 	virtual bool attack() final;

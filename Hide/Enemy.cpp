@@ -1,7 +1,9 @@
-#include "Enemy.h"
+﻿#include "Enemy.h"
 #include "CoreTask.h"
+std::shared_ptr<Player> Enemy::player;	//静的メンバの実体化
+
 //----------------------------------
-//�G�S��
+//敵全般
 //----------------------------------
 Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state) : Physic(point,physic_state)
 {
@@ -12,12 +14,10 @@ Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state) : Ph
 
 bool Enemy::attack()
 {
-	Point player_point = ct->gts->player->get_point();
 
-	if(player_point.x <= point.x + point.w && point.x <= player_point.x + player_point.w ){
-		if (player_point.y <= point.y + point.h && point.y <= player_point.y + player_point.h) {
+	Point player_point = ct->gts->player->get_point();
+	if(CheckHit(point,player_point)){
 			return true;
-		}
 	}
 	return false;
 }
@@ -26,7 +26,11 @@ void Enemy::update()
 {
 	move();
 	exercise();
-	attack();
+	if (attack()) {
+		if (player->damage()) {
+			//ここに死んだときの処理かきたい
+		}
+	}
 	shape->draw(point);
 }
 

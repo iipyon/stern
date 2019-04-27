@@ -234,6 +234,9 @@
     <ClCompile Include="Spawn.cpp">
       <Filter>ソース ファイル\Spawn</Filter>
     </ClCompile>
+    <ClCompile Include="Function.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
     <ClCompile Include="BasicUI.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
@@ -370,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="Spawn.h">
       <Filter>ヘッダー ファイル\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="BasicUI.h">
       <Filter>ヘッダー ファイル\Base</Filter>
