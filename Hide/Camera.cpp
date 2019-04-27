@@ -1,6 +1,11 @@
 ﻿#include "Camera.h"
 #include "CoreTask.h"
 
+Point Camera::range;
+bool Camera::mode;//enumで用意する可能性あり
+int Camera::preX;//移動前の座標
+int Camera::preY;
+
 void Camera::init()
 {
 	//初期値を設定

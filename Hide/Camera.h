@@ -5,15 +5,16 @@
 class Camera {
 public:
 	//Camera();
-	void init();
-	void update();
-	void move(int, int);
-	Point get_range(); //rangeの情報を送る
+	static void init();
+	static void update();
+	static void move(int, int);
+	static Point get_range(); //rangeの情報を送る
 	//void change();
-	bool get();
+	static bool get();
 private:
-	Point range;
-	bool mode;//enumで用意する可能性あり
-	int preX;//移動前の座標
-	int preY;
+	Camera();
+	static Point range;
+	static bool mode;//enumで用意する可能性あり
+	static int preX;//移動前の座標
+	static int preY;
 };

@@ -42,7 +42,6 @@ void CoreTask::update()
 void CoreTask::init()
 {
 	//静的メンバの初期化
-	Rendering::camera = gts->camera;
 	GraphicResource::init();
 	Keyboard::initialize();
 	Audio::init();

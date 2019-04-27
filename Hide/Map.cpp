@@ -60,10 +60,10 @@ void Map::draw()
 	
 
 
-	isr.x = max(ct->gts->camera->get_range().x, 0);
-	isr.y = max(ct->gts->camera->get_range().y, 0);
-	isr.w = min(ct->gts->camera->get_range().x + ct->gts->camera->get_range().w, mapsizex);
-	isr.h = min(ct->gts->camera->get_range().y + ct->gts->camera->get_range().h, mapsizey);
+	isr.x = max(Camera::get_range().x, 0);
+	isr.y = max(Camera::get_range().y, 0);
+	isr.w = min(Camera::get_range().x + Camera::get_range().w, mapsizex);
+	isr.h = min(Camera::get_range().y + Camera::get_range().h, mapsizey);
 
 	sx = isr.x / chipsize;
 	sy = isr.y / chipsize;
@@ -72,7 +72,7 @@ void Map::draw()
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
-			DrawRectGraph((x * chipsize) - ct->gts->camera->get_range().x, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
+			DrawRectGraph((x * chipsize) - Camera::get_range().x, y * chipsize, data[y][x] * chipsize, 0, chipsize, chipsize, graph, FALSE);
 		}
 	}
 }

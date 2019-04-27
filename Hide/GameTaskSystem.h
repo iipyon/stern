@@ -28,7 +28,6 @@ public:
 	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
-	std::shared_ptr<Camera> camera;
 	//☆
 	std::vector<NormalStar> normalstar;
 	//敵
