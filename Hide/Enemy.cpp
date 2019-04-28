@@ -25,7 +25,6 @@ bool Enemy::attack()
 void Enemy::update()
 {
 	move();
-	exercise();
 	if (attack()) {
 		if (player->damage()) {
 			//ここに死んだときの処理かきたい
