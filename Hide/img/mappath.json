@@ -1,25 +1,8 @@
 {
-  "map": [
-    {
-      "name": "background",
-      "number": 0,
-      "path": "img/",
-      "width": 32,
-      "height": 32,
-      "scope": [
-        "background"
-      ]
-    },
-    {
-      "name": "brock",
-      "number": 1,
-      "path": "img/",
-      "width": 32,
-      "height": 32,
-      "scope": [
-        "brock"
-      ]
-    }
-  ]
-} 
+  "1": {
+    "txtpath": "img/stage1.txt",
+    "chippath": "img/mapchip1.png",
+    "background": "img/background"
+  }
+}
 
