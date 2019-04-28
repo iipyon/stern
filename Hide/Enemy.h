@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include"BasicObject.h"
 #include"Player.h"
 #include"Physic.h"
 #include"Function.h"
@@ -18,7 +19,7 @@ struct EnemyState {
 	AngleState anglestate;
 };
 
-class Enemy :public Physic {
+class Enemy :public BasicObject {
 private:
 	//プロパティ
 	int life;

@@ -2,6 +2,7 @@
 #include"Point.h"
 #include "Rendering.h"
 #include <memory>
+#include"Physic.h"
 
 //----------------------------------
 //基本となるクラス
@@ -17,8 +18,9 @@ public:
 
 protected:
 	std::unique_ptr<Rendering> shape;	//姿・形
+	std::shared_ptr<Physic> physicshape;
 	Point point;
 	//移動量
-	float velocityX;
-	float velocityY;
+	/*float velocityX;//多分いらない
+	float velocityY*/
 };

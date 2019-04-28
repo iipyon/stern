@@ -4,7 +4,7 @@
 
 //---------------------------------
 
-Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Physic(point_, physic_state_)
+Star::Star(Point point_, PhysicState physic_state_, StarState star_state) :BasicObject(point)
 {
 	bright = star_state.bright;
 	radius = star_state.radius;
@@ -14,7 +14,7 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) : Phys
 	contact = false;
 }
 
-void Star::exercise() {
+/*void Star::exercise() {
 	Point starpoint = { point.x - radius, point.y - point.y - radius, radius * 2, radius * 2 };
 	velocityY += gravity;
 
@@ -57,7 +57,7 @@ void Star::rebound_X()
 void Star::rebound_Y()
 {
 	velocityY *= -repulsion;
-}
+}*/
 bool Star::attack()
 {
 	Point enemy_point;

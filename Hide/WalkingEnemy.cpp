@@ -11,6 +11,7 @@ WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState e
 
 void WalkingEnemy::move()
 {
+	point.y += physicshape->fall(point);
 	check_left();
 	check_right();
 
@@ -21,17 +22,17 @@ void WalkingEnemy::move()
 		switch (anglestate) {
 		case AngleState::right:
 			//init_renderで右向きにする
-			velocityX = 1;
+			point.x += physicshape->Movement_X(point, 1);
 			break;
 		case AngleState::left:
 			//init_renderで左向きにする
-			velocityX = -1;
+			point.x += physicshape->Movement_X(point, -1);
 			break;
 		}
 		break;
 	//待機
 	case WalkingState::stay:
-		velocityX = 0;
+		point.x += physicshape->Movement_X(point, 0);//
 		break;
 	//走行
 	/*case WalkingState::run:
@@ -47,13 +48,12 @@ void WalkingEnemy::move()
 		}
 		break;*/
 	}
-	point.x += (int)velocityX;
 }
 
 void WalkingEnemy::check_left()
 {
 	//今の画像の大きさが30*30のため
-	Point left{ point.x,point.y,-1,30 };
+	Point left{ point.x-1,point.y,-1,30 };//不明な変更点
 	DrawBox(left.x, left.y, left.x + left.w, left.y + left.h, GetColor(0, 255, 0), TRUE);
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?

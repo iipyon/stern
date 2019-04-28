@@ -14,6 +14,7 @@ void ThrowingEnemy::move()
 {
 	cnt++;
 	change_angle();
+	point.y+= physicshape->fall(point);
 	appear_shot();
 }
 
@@ -21,7 +22,7 @@ void ThrowingEnemy::appear_shot()
 {
 	if (cnt > 180) {
 		class Point b_point = { point.x,point.y,0,0 };
-		struct PhysicState physic_state = { 0,0,0 };//	float gravity; float repulsion;int weight;
+		struct PhysicState physic_state = { 0};//	float gravity; float repulsion;int weight;
 		struct EnemyState Enemy_state = { 1,1,anglestate };//	int life, int damage, int power, int life, double angle;
 
 		ct->gts->enemy_transaction->push_back(std::make_unique<BulletEnemy>(b_point,physic_state,Enemy_state ));	//新規インスタンスを生成して最後尾へ登録する

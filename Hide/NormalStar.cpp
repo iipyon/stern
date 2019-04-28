@@ -10,16 +10,17 @@
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
-	velocityX = 20;
-	velocityY = 20;
+	point = point_;
 	shape->set("star");
 }
 
 void NormalStar::update()
 {
-	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", angle);
+	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
-		int prevelX = int(-sin(angle) * velocityX);
+		point.x += physicshape->Movement_X(point, -sin(angle) * 20);
+		point.y += physicshape->Movement_Y(point, cos(angle) * 20);
+		/*int prevelX = int(-sin(angle) * velocityX);
 		int prevelY = int(cos(angle) * velocityY);
 		while (prevelX != 0) {
 			int preX = point.x;
@@ -40,10 +41,10 @@ void NormalStar::update()
 				contact = true;
 				break;
 			}
-		}
+		}*/
 	}
 	else {
-		exercise();
+		//exercise();
 	}
 	attack();
 	shape->draw(point);

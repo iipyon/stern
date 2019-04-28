@@ -1,4 +1,5 @@
 #pragma once
+#include"BasicObject.h"
 #include"Physic.h"
 
 //---------------------------------
@@ -13,7 +14,7 @@ struct StarState {
 	double angle;
 };
 
-class Star : public Physic {
+class Star : public BasicObject {
 public:
 	Star(Point point_, PhysicState physic_state_, StarState star_state);
 	//Star();//これを抜くとNormalStarコンストラクタでエラーが起こる
@@ -31,9 +32,9 @@ protected:
 	int power;
 	int life;
 
-	void exercise();
+	//void exercise();
 	bool check_hit(Point);
 private:
-	void rebound_X();
-	void rebound_Y();
+	/*void rebound_X();
+	void rebound_Y();*/
 };
