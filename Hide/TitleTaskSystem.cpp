@@ -1,4 +1,4 @@
-
+﻿
 #include "TitleTaskSystem.h"
 #include"CoreTask.h"
 
@@ -26,7 +26,7 @@ void TitleTaskSystem::update()
 			}
 		}
 	}
-	if (Keyboard::key_down(KEY_INPUT_Z)) {
+	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
 		deg_flag = true;
 		Audio::play("decision");
 	}

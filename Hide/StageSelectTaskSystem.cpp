@@ -47,7 +47,7 @@ void StageSelectTaskSystem::update()
 			ct->scene = Scene::game;//ゲームシーンに遷移
 		}
 	}
-	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0) {
+	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0 && !deg_flag) {
 		deg_flag = true;
 
 	}

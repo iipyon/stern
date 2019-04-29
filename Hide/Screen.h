@@ -18,11 +18,10 @@ namespace ScreenFunc {
 	static void FeedIn(bool deg_flag_, int& feedcnt) {
 		if (!deg_flag_) {
 			feedcnt += 10;
-			SetDrawBright(feedcnt, feedcnt, feedcnt);
 			if (feedcnt >= 255) {
 				feedcnt = 255;
-				SetDrawBright(feedcnt, feedcnt, feedcnt);
 			}
+			SetDrawBright(feedcnt, feedcnt, feedcnt);
 		}
 	}
 }
