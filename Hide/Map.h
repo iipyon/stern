@@ -17,6 +17,7 @@ public:
 	int get_top(Point);
 	int get_bottom(Point);
 	int get_circle(Point, int);
+	static Point get_camera(); //加工済みのget_rangeを送る
 private:
 	std::string chipmap;
 	int data[20][20];//仮の数値
@@ -26,6 +27,7 @@ private:
 	int mapsizex;
 	int mapsizey;
 	int sx, sy, ex, ey;  //ループ範囲
+	static Point camera;
 	json11::Json mapdata;
 	json11::Json map;
 	json11::Json chipdata;

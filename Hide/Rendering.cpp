@@ -21,7 +21,7 @@ void Rendering::switch_anime()
 void Rendering::draw(Point dist)
 {
 	if (object != nullptr) {
-		DrawGraph(dist.x - Camera::get_range().x, dist.y, *(object->handle + current_anime), 1);
+		DrawGraph(dist.x - Map::get_camera().x, dist.y - Map::get_camera().y, *(object->handle + current_anime), 1);
 		current_rate++;
 		if (object->interval != 0 && object->interval % current_rate == 0) {
 			switch_anime();
