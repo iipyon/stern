@@ -13,10 +13,8 @@ PauseTask::PauseTask()
 void PauseTask::update()
 {
 	ScreenFunc::FeedIn(deg_flag,feedcnt);
-	if (Keyboard::key_down(KEY_INPUT_X)) {
-
+	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
 		Audio::play("decision");
-
 		deg_flag = true;
 	}
 	if (deg_flag) {

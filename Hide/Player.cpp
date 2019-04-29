@@ -42,14 +42,15 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x+15, 0, 15, 0, 1, st, graph, FALSE);
+	DrawFormatString(200, 100, GetColor(255, 255, 0), "Map::get_camera().y : %d", Map::get_camera().y);
+	DrawRotaGraph2(x - Map::get_camera().x, 0, 15, 0, 1, st, graph, FALSE);
 }
 
 void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
 	if (Keyboard::key_down(KEY_INPUT_Z)) {
-		class Point point = { x_,0,0,0 };
+		class Point point = { x_ - 15,Map::get_camera().y,0,0 };
 		struct PhysicState physic_state = { 1};//	float gravity;
 		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
