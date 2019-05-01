@@ -49,14 +49,20 @@ void Player::StarManager::draw(double st, int x)
 void Player::StarManager::update(double ang, int x_)
 {
 	draw(ang, x_);
-	if (Keyboard::key_down(KEY_INPUT_Z)) {
-		class Point point = { x_ - 15,Map::get_camera().y,0,0 };
-		struct PhysicState physic_state = { 1};//	float gravity;
-		struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
+	if (starmanagercoolCnt <= 0) {
+		if (Keyboard::key_down(KEY_INPUT_Z)) {
+			starmanagercoolCnt = 180;   //クールタイム180フレーム
+			class Point point = { x_ - 15,Map::get_camera().y,0,0 };
+			struct PhysicState physic_state = { 1 };//	float gravity;
+			struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
-		ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-		//ノーマルスター
-		//Point point_, PhysicState physic_state_, StarState star_state
+			ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
+			//ノーマルスター
+			//Point point_, PhysicState physic_state_, StarState star_state
+		}
+	}
+	if (starmanagercoolCnt > 0) {
+		starmanagercoolCnt--;
 	}
 }
 

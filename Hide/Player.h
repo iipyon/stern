@@ -61,6 +61,8 @@ public:
 	private:
 		int life;
 		int graph;
+		int starmanagercoolCnt;
+
 	};
 	int hp;//HP
 protected:
@@ -76,5 +78,6 @@ protected:
 	std::unique_ptr<PlayerInterface> playerinterface;
 
 private:
+
 	int jumpCnt;
 };
