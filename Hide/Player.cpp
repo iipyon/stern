@@ -164,8 +164,11 @@ void Player::move()
 				jumpCnt = 10;
 			}
 			if (jumpCnt > 0) {
+				
 				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
-
+				if (ct->gts->map->get_top(point)) {
+					jumpCnt = 0;
+				}
 
 			}
 		}
