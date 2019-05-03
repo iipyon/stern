@@ -2,7 +2,6 @@
 #include "Player.h"
 #include"Map.h"
 #include<memory>
-#include"BasicList.h"
 #include"NormalStar.h"
 #include"WalkingEnemy.h"
 #include"ThrowingEnemy.h"

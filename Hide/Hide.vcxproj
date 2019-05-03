@@ -135,7 +135,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
-    <ClCompile Include="Function.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
@@ -147,7 +146,6 @@
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
-    <ClCompile Include="BaseSwitch.cpp" />
     <ClCompile Include="BasicObject.cpp" />
     <ClCompile Include="BossEnemy.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
@@ -161,7 +159,6 @@
     <ClCompile Include="Physic.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
-    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="SpawnItem.cpp" />
@@ -177,10 +174,14 @@
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="application_helper.cpp" />
+    <ClInclude Include="application_init.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Function.h" />
+    <ClInclude Include="development.h" />
+    <ClInclude Include="environments.h" />
+    <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="PauseTaskSelecter.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
+    <ClInclude Include="production.h" />
     <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Spawn.h" />
@@ -199,8 +201,6 @@
     <ClInclude Include="CoreTask.h" />
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />
-    <ClInclude Include="BaseSwitch.h" />
-    <ClInclude Include="BasicList.h" />
     <ClInclude Include="BasicObject.h" />
     <ClInclude Include="BossEnemy.h" />
     <ClInclude Include="BulletEnemy.h" />
@@ -214,7 +214,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="NormalStar.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="StageSelectTaskMass.h" />
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />

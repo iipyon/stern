@@ -2,7 +2,7 @@
 #include"BasicObject.h"
 #include"Player.h"
 #include"Physic.h"
-#include"Function.h"
+#include "application_helper.h"
 //----------------------------------
 //敵全般
 //----------------------------------
