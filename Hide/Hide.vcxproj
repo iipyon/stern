@@ -135,6 +135,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="CoreTask.cpp" />
+    <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="PauseTaskSelecter.cpp" />
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
+    <ClCompile Include="production.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BasicObject.cpp" />
@@ -167,6 +169,7 @@
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleSelecter.cpp" />
     <ClCompile Include="TitleUI.cpp" />
@@ -179,7 +182,6 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="development.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
@@ -190,9 +192,8 @@
     <ClInclude Include="PauseTaskSelecter.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
-    <ClInclude Include="production.h" />
     <ClInclude Include="RecoveryItem.h" />
-    <ClInclude Include="Screen.h" />
+    <ClInclude Include="screen_helper.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="SpawnEnemy.h" />
     <ClInclude Include="SpawnItem.h" />

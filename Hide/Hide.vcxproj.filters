@@ -94,9 +94,6 @@
     <Filter Include="models\items\recovery">
       <UniqueIdentifier>{cca389b4-7db5-47e8-8a33-3ee4a69540c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="helper\application">
-      <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
-    </Filter>
     <Filter Include="models\player">
       <UniqueIdentifier>{01af0f77-33eb-483e-a314-5b5d9aabda92}</UniqueIdentifier>
     </Filter>
@@ -145,9 +142,6 @@
     <Filter Include="views\title">
       <UniqueIdentifier>{4bc695e6-6df0-4b3a-b616-1106520efd93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="views\game">
-      <UniqueIdentifier>{ec186bdf-cbdc-4561-b645-65e893fdc08b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -155,9 +149,8 @@
     <Filter Include="Resources\json11">
       <UniqueIdentifier>{5a2fa18e-f626-44ef-aab0-24cd07dfb2c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="不明">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="helper\application_helper">
+      <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,7 +194,7 @@
       <Filter>models\items\recovery</Filter>
     </ClCompile>
     <ClCompile Include="application_helper.cpp">
-      <Filter>helper\application</Filter>
+      <Filter>helper\application_helper</Filter>
     </ClCompile>
     <ClCompile Include="BasicObject.cpp">
       <Filter>models\super</Filter>
@@ -281,14 +274,23 @@
     <ClCompile Include="GameOverTaskSystem.cpp">
       <Filter>views\game_over</Filter>
     </ClCompile>
-    <ClCompile Include="GameTaskSystem.cpp">
-      <Filter>views\game</Filter>
-    </ClCompile>
     <ClCompile Include="CoreTask.cpp">
       <Filter>controllers\core</Filter>
     </ClCompile>
     <ClCompile Include="json11.cpp">
       <Filter>Resources\json11</Filter>
+    </ClCompile>
+    <ClCompile Include="development.cpp">
+      <Filter>config\environments</Filter>
+    </ClCompile>
+    <ClCompile Include="production.cpp">
+      <Filter>config\environments</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>config\environments</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTaskSystem.cpp">
+      <Filter>controllers\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -297,12 +299,6 @@
     </ClInclude>
     <ClInclude Include="Audio.h">
       <Filter>assets\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="development.h">
-      <Filter>config\environments</Filter>
-    </ClInclude>
-    <ClInclude Include="production.h">
-      <Filter>config\environments</Filter>
     </ClInclude>
     <ClInclude Include="environments.h">
       <Filter>config\environments</Filter>
@@ -320,7 +316,7 @@
       <Filter>models\effect</Filter>
     </ClInclude>
     <ClInclude Include="application_helper.h">
-      <Filter>helper\application</Filter>
+      <Filter>helper\application_helper</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>models\enemys\super</Filter>
@@ -424,17 +420,17 @@
     <ClInclude Include="ClearTaskSystem.h">
       <Filter>views\clear</Filter>
     </ClInclude>
-    <ClInclude Include="GameTaskSystem.h">
-      <Filter>views\game</Filter>
-    </ClInclude>
     <ClInclude Include="CoreTask.h">
       <Filter>controllers\core</Filter>
     </ClInclude>
     <ClInclude Include="json11.hpp">
       <Filter>Resources\json11</Filter>
     </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>不明</Filter>
+    <ClInclude Include="GameTaskSystem.h">
+      <Filter>controllers\game</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_helper.h">
+      <Filter>helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

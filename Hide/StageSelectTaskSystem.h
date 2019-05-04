@@ -5,7 +5,7 @@
 #include"StageselectTaskTextBox.h"
 #include"SpawnEnemy.h"//敵生成をステージ選択直後に行うため
 #include"SpawnItem.h"
-#include"Screen.h"
+#include"Screen_helper.h"
 
 class StageSelectTaskSystem {
 protected:

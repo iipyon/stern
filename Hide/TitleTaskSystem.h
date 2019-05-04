@@ -2,7 +2,7 @@
 #include"TitleUI.h"
 #include"TitleSelecter.h"
 #include<memory>
-#include"Screen.h"
+#include"Screen_helper.h"
 #include"DxLib.h"
 
 class TitleTaskSystem {
