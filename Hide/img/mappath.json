@@ -1,8 +1,10 @@
 {
   "1": {
-    "txtpath": "img/stage1.txt",
-    "chippath": "img/mapchip1.png",
-    "background": "img/background"
+    "csvpath": "./img/stage1.csv",
+    "chippath": "./img/mapchip1.png",
+    "sizex": 1280,
+    "sizey": 1280,
+    "background": "./img/background"
   }
 }
 

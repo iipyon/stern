@@ -17,14 +17,18 @@ Map::Map()
 	//チップファイル一つの大きさと横のマス
 	chipsize = 64;
 	chipwidth = 6;
-	//マップのサイズ
-	mapsizex = 1280;
-	mapsizey = 1280;
 	//初期化
+	mapsizex = 0;
+	mapsizey = 0;
 	camera.x = 0;
 	camera.y = 0;
 	camera.w = 0;
 	camera.h = 0;
+	for (int y = 0; y < 100; ++y) {
+		for (int x = 0; x < 100; ++x) {
+			data[y][x] = 0;
+		}
+	}
 }
 
 void Map::init(char* map_)
@@ -42,35 +46,40 @@ void Map::init(char* map_)
 	mapdata = json11::Json::parse(json_str, err);	//json11で利用できる形式に変換
 	map = mapdata[map_];
 
+
+	//マップのサイズの読み込み
+	mapsizex = map["sizex"].int_value();
+	mapsizey = map["sizey"].int_value();
+
 	//画像の読み込み
 	graph = LoadGraph(map["chippath"].string_value().c_str());
 
 	//txtの読み込み
-	std::ifstream fin(map["txtpath"].string_value().c_str());
+	/*std::ifstream fin(map["txtpath"].string_value().c_str());
 	if (!fin) { return; }
 	for (int y = 0; y < mapsizey / chipsize; ++y) {
 		for (int x = 0; x < mapsizex / chipsize; ++x) {
 			fin >> data[y][x];
 		}
-	}
+	}*/
 
 	//csvの読み込む
-	//chipmap = map["csvpath"].string_value().c_str();
+	chipmap = map["csvpath"].string_value().c_str();
 
-	//std::ifstream fin(chipmap);
+	std::ifstream fin(chipmap);
 
-	//for (int y = 0; y < mapsizey / chipsize; ++y) {
-	//	std::string lineText;
-	//	getline(fin, lineText);
-	//	std::istringstream ss_lt(lineText);
-	//	for (int x = 0; x < mapsizex / chipsize; ++x) {
-	//		std::string  tc;
-	//		getline(ss_lt, tc, ',');
-	//		std::stringstream ss;
-	//		ss << tc;
-	//		ss >> data[y][x]; //データを入れる
-	//	}
-	//}
+	for (int y = 0; y < mapsizey / chipsize; ++y) {
+		std::string lineText;
+		getline(fin, lineText);
+		std::istringstream ss_lt(lineText);
+		for (int x = 0; x < mapsizex / chipsize; ++x) {
+			std::string  tc;
+			getline(ss_lt, tc, ',');
+			std::stringstream ss;
+			ss << tc;
+			ss >> data[y][x]; //データを入れる
+		}
+	}
 	//ファイルを閉じる
 	mappath.close();	
 	fin.close();

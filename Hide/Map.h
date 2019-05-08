@@ -20,8 +20,8 @@ public:
 	static Point get_camera(); //加工済みのget_rangeを送る
 private:
 	std::string chipmap;
-	int data[20][20];//仮の数値
 	int graph;//絵
+	int data[100][100];//最大100*100のマップを作成可能
 	int chipsize;
 	int chipwidth;
 	int mapsizex;
