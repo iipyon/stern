@@ -23,7 +23,8 @@ void Rendering::draw(Point dist)
 	if (object != nullptr) {
 		DrawGraph(dist.x - Map::get_camera().x, dist.y - Map::get_camera().y, *(object->handle + current_anime), 1);
 		current_rate++;
-		if (object->interval != 0 && object->interval % current_rate == 0) {
+		if (object->interval != 0 && object->interval / current_rate == 1) {
+			current_rate = 0;
 			switch_anime();
 		}
 	}

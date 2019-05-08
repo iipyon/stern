@@ -66,6 +66,9 @@
       "height": 30,
       "line": 3,
       "column": 3,
+	  "sheets": 9,
+	  "loop" : true,
+	  "interval" : 30,
       "scope": [
 		"bullet",
 		"enemy"

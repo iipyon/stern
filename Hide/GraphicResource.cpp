@@ -16,7 +16,10 @@ void GraphicObject::set_default_to_empty()
 	if (width == 0) width = 32;
 	if (height == 0) height = 32;
 	//if (speed == 0) speed = 0;
-	//if (loop == false) loop = false;
+	if (loop == false) loop = false;
+	if (column != 1) {
+		if (interval == 0) interval = 60;
+	}
 	if (sheets == 0) sheets = line * column;
 }
 
