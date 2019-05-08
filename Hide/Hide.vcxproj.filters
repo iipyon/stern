@@ -152,6 +152,15 @@
     <Filter Include="helper\application_helper">
       <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Door">
+      <UniqueIdentifier>{83aecfea-b611-4fc9-bc06-5643d7f208fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Switch">
+      <UniqueIdentifier>{4e44ab80-a584-4def-8f64-3ad53edd5ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Door">
+      <UniqueIdentifier>{72998f8b-aec0-4aed-9bab-7ee279840fd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -292,6 +301,12 @@
     <ClCompile Include="GameTaskSystem.cpp">
       <Filter>controllers\game</Filter>
     </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>ソース ファイル\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Switch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicResource.h">
@@ -431,6 +446,12 @@
     </ClInclude>
     <ClInclude Include="screen_helper.h">
       <Filter>helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>ヘッダー ファイル\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Switch.h">
+      <Filter>ヘッダー ファイル\Switch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

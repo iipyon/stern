@@ -1,7 +1,7 @@
 {
   "graph": [
     {
-      "name" :  "player",
+      "name": "player",
       "path": "img/player.png",
       "width": 30,
       "height": 30,
@@ -23,7 +23,7 @@
         "star"
       ]
     },
-	{
+    {
       "name": "walking",
       "path": "img/walking_enemy.png",
       "width": 30,
@@ -31,11 +31,11 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"walking",
-		"enemy"
+        "walking",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "flying",
       "path": "img/flying_enemy.png",
       "width": 30,
@@ -43,11 +43,11 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"flying",
-		"enemy"
+        "flying",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "throwing",
       "path": "img/flying_enemy.png",
       "width": 30,
@@ -55,11 +55,11 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"throwing",
-		"enemy"
+        "throwing",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "bullet",
       "path": "img/bulletsmp.png",
       "width": 30,
@@ -67,11 +67,11 @@
       "line": 3,
       "column": 3,
       "scope": [
-		"bullet",
-		"enemy"
+        "bullet",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "recovery",
       "path": "img/reco_item.png",
       "width": 30,
@@ -79,11 +79,11 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"item",
-		"recovery"
+        "item",
+        "recovery"
       ]
     },
-	{
+    {
       "name": "goal",
       "path": "img/goal.png",
       "width": 30,
@@ -91,7 +91,51 @@
       "line": 1,
       "column": 1,
       "scope": [
-		"goal"
+        "goal"
+      ]
+    },
+    {
+      "name": "door01",
+      "path": "img/door01.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "door"
+      ]
+    },
+    {
+      "name": "door02",
+      "path": "img/door02.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "door"
+      ]
+    },
+    {
+      "name": "switch01",
+      "path": "img/switch01.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "switch"
+      ]
+    },
+    {
+      "name": "switch02",
+      "path": "img/switch02.png",
+      "width": 30,
+      "height": 30,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "switch"
       ]
     }
   ]
