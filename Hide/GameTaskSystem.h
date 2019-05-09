@@ -12,6 +12,7 @@
 #include"Goal.h"
 #include"Camera.h"
 #include"RecoveryItem.h"
+#include"GravityStar.h"
 
 class GameTaskSystem
 {
@@ -31,6 +32,7 @@ public:
 	std::unique_ptr<Goal> goal;
 	//☆
 	std::vector<NormalStar> normalstar;
+	std::vector<GravityStar> gravityStar;
 	//敵
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;

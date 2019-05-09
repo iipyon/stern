@@ -7,6 +7,7 @@
 
 class GravityStar :public Star {
 public:
+	GravityStar(Point point_, PhysicState physic_state_, StarState star_state);
 	void update();
 private:
 protected:
