@@ -59,6 +59,9 @@ void GameTaskSystem::update()
 	for (auto itr = normalstar.begin(); itr != normalstar.end(); itr++) {
 		itr->update();
 	}
+	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
+		itr->update();
+	}
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
 	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
