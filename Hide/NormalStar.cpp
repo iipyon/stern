@@ -2,9 +2,8 @@
 #include"DxLib.h"
 #include"CoreTask.h"
 
-
 //--------------------------------
-//•’Ê‚Ì¯
+//
 //--------------------------------
 
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
@@ -35,7 +34,7 @@ void NormalStar::update()
 
 void NormalStar::inhale()
 {
-	/*gravity_point = ct->gts->gravitystar->get()->get_point();*/
-	point.x += (250 - point.x)/100;
-	point.y += (500 - point.y)/100;
+	
+	point.x += (Star::gravitypoint.x -point.x) / 100;///100は近づかせるのを減衰させるため
+	point.y += (Star::gravitypoint.y - point.y)/100;
 }

@@ -12,6 +12,7 @@ Star::Star(Point point_, PhysicState physic_state_, StarState star_state) :Basic
 	life = star_state.life;
 	angle = star_state.angle;
 	contact = false;
+	gravitypoint = { 0,0 };
 }
 
 /*void Star::exercise() {

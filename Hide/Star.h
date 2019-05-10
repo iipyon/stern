@@ -32,6 +32,8 @@ protected:
 	int power;
 	int life;
 
+	Point gravitypoint;
+
 	//void exercise();
 	bool check_hit(Point);
 private:
