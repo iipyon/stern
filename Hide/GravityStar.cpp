@@ -20,7 +20,6 @@ void GravityStar::update()
 			ct->gts->map->get_left(point) ||
 			ct->gts->map->get_right(point) ||
 			ct->gts->map->get_top(point)) {
-			GravityStar::gravitypoint = point;
 			contact = true;
 		}
 	}
