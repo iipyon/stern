@@ -169,7 +169,6 @@
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleSelecter.cpp" />
     <ClCompile Include="TitleUI.cpp" />
@@ -182,8 +181,6 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="environments.h" />
-    <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
@@ -219,6 +216,7 @@
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="Switch.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleSelecter.h" />
     <ClInclude Include="TitleUI.h" />
