@@ -53,6 +53,7 @@ void Map::init(char* map_)
 
 	//画像の読み込み
 	graph = LoadGraph(map["chippath"].string_value().c_str());
+	backgraph = LoadGraph(map["background"].string_value().c_str());
 
 	//txtの読み込み
 	/*std::ifstream fin(map["txtpath"].string_value().c_str());
@@ -97,7 +98,6 @@ void Map::draw()
 		}
 	}*/
 	
-
 	//カメラが完全にマップ外を指しているか調べる
 	Point maphitbase = { 0,0,mapsizex,mapsizey };
 	if (false == CheckHit(maphitbase, camera)){
@@ -146,13 +146,17 @@ void Map::draw()
 	//sy = isr.top / chipsize;
 	//ex = (isr.right - 1)+ camera.x / chipsize;
 	//ey = (isr.bottom - 1) / chipsize;
+	
+	//画面のサイズに合わせて調整可能
+	DrawExtendGraph(0, 0, 600, 600, backgraph, FALSE);
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			DrawRectGraph((x * chipsize) - camera.x , (y * chipsize) - camera.y,
 				(data[y][x] % chipwidth) * chipsize ,(data[y][x] / chipwidth) * chipsize ,
 				chipsize, chipsize,
-				graph,FALSE, FALSE);
+				graph,TRUE, FALSE);
+			
 		}
 	}
 }
