@@ -14,6 +14,7 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 
 void NormalStar::update()
 {
+	gravitypoint = GravityStar::point;
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
@@ -35,6 +36,6 @@ void NormalStar::update()
 void NormalStar::inhale()
 {
 	
-	point.x += (Star::gravitypoint.x -point.x) / 100;///100は近づかせるのを減衰させるため
+	point.x += (GravityStar::gravitypoint.x -point.x) / 100;///100は近づかせるのを減衰させるため
 	point.y += (Star::gravitypoint.y - point.y)/100;
 }
