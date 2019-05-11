@@ -23,11 +23,11 @@ void Camera::update()
 	//カメラの位置を再調整
 	{
 		//プレイヤを画面の何処に置くか(今回は画面中央)
-		int px = range.w / 2;
-		int py = range.h / 2;
+		int px = 600 / 2;
+		int py = 600 / 2;
 		//プレイヤを画面中央の置いた時のカメラの左上座標を求める
-		int cpx = int(ct->gts->player->get_point().x) - px;
-		int cpy = int(ct->gts->player->get_point().y) - py;
+		int cpx = ct->gts->player->get_point().x - px+ ct->gts->player->get_point().w/2;//player.wの半分だけたす
+		int cpy = ct->gts->player->get_point().y - py + ct->gts->player->get_point().h / 2;
 		//カメラの座標を更新
 		range.x = cpx;
 		range.y = cpy;

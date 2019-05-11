@@ -43,7 +43,7 @@ Player::StarManager::StarManager()
 void Player::StarManager::draw(double st, int x)
 {
 	DrawFormatString(200, 100, GetColor(255, 255, 0), "Map::get_camera().y : %d", Map::get_camera().y);
-	DrawRotaGraph2(x - Map::get_camera().x, 0, 15, 0, 1, st, graph, FALSE);
+	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
 void Player::StarManager::update(double ang, int x_)
