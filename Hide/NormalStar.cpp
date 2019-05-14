@@ -1,6 +1,7 @@
 ﻿#include"NormalStar.h"
 #include"DxLib.h"
 #include"CoreTask.h"
+#include"GameTaskSystem.h"
 
 //--------------------------------
 //
@@ -35,7 +36,7 @@ void NormalStar::update()
 
 void NormalStar::inhale()
 {
-	//問題の地点　pointに赤線がひかれる
-	point.x += (GravityStar::point.x -point.x) / 100;///100は近づかせるのを減衰させるため
-	point.y += (GravityStar::point.y - point.y)/100;
+	Point gravitypoint = ct->gts->gravitystar->get_point();
+	point.x += (gravitypoint.x- point.x) / 100;///100は近づかせるのを減衰させるため
+	point.y += (gravitypoint.y - point.y)/100;
 }

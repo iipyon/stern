@@ -32,7 +32,7 @@ public:
 	std::unique_ptr<Goal> goal;
 	//☆
 	std::vector<NormalStar> normalstar;
-	std::vector<GravityStar> gravityStar;
+	std::unique_ptr<GravityStar> gravitystar;
 	//敵
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;

@@ -6,6 +6,7 @@
 //#include "Item.h"
 //#include "RecoveryItem.h"
 #include"application_helper.h"
+#include"GravityStar.h"
 
 
 //---------------------------------
@@ -32,6 +33,8 @@ public:
 	void move();//移動処理
 	bool knockback(int);//ノックバック
 	void jump(int);
+
+
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {

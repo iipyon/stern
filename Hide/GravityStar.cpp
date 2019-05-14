@@ -10,6 +10,7 @@ GravityStar::GravityStar(Point point_, PhysicState physic_state_, StarState star
 	shape->set("star");
 }
 
+
 void GravityStar::update()
 {
 	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
@@ -27,4 +28,9 @@ void GravityStar::update()
 	}
 	attack();
 	shape->draw(point);
+}
+
+void GravityStar::setposition(Point p_) {
+	point = p_;
+	contact = false;
 }

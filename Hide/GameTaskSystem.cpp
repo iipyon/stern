@@ -9,11 +9,14 @@ GameTaskSystem::GameTaskSystem()
 	//Point point_, PhysicState physic_state_, PlayerState player_state
 	class Point p_point = { 100,300,30,30 };
 	class Point g_point = { 30,510,30,30 };
-	struct PhysicState p_physic_state = { 1};//gra,過去の遺物(rep,wei)
+	class Point gs_point = { -30,0,0,0 };
+ 	struct PhysicState p_physic_state = { 0.5f};//gra,過去の遺物(rep,wei)
 	struct PlayerState player_state = { 3,2 };//life,hp
+	struct StarState star_state = { 0 };
 
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
+	gravitystar = std::make_unique<GravityStar>(gs_point, p_physic_state, star_state);
 	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
@@ -59,9 +62,7 @@ void GameTaskSystem::update()
 	for (auto itr = normalstar.begin(); itr != normalstar.end(); itr++) {
 		itr->update();
 	}
-	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
-		itr->update();
-	}
+	gravitystar->update();
 	//--------------------------------
 	//敵------------------------------先頭から終端まで
 	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
