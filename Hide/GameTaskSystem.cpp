@@ -71,13 +71,10 @@ void GameTaskSystem::update()
 	}
 	player->update();
 	Camera::update();
-
+	attack_player_enemy();
+	attack_player_item();
+	attack_star_enemy();
 	//トランザクションの実行
-	//for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
-	//	enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
-	//}
-	//トランザクションの実行
-	//auto itr = enemy_transaction->begin();
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
 	}
@@ -97,5 +94,44 @@ void GameTaskSystem::finalize()
 	item->clear();
 }
 
+void GameTaskSystem::attack_player_enemy()
+{
+	for (auto itr = enemys->begin(); itr != enemys->end(); itr++) {
+		if (CheckHit(ct->gts->player->get_point(), (*itr)->get_point())) {
+			if (!(ct->gts->player->damage())) {
+				//PlayerのLifeが0になったら
+				//処理未定
+				enemys->erase(itr);
+				break;
+			}
+			
+		}
+	}
+}
 
+void GameTaskSystem::attack_player_item()
+{
+	for (auto itr = item->begin(); itr != item->end(); itr++) {
+		if (CheckHit(player->get_point(), (*itr)->get_point())) {
+			//アイテムの識別手段が未確定
+			break;
+		}
+	}
+}
 
+void GameTaskSystem::attack_star_enemy()
+{
+	bool deleted = false;
+	for (auto enemy_itr = enemys->begin(); enemy_itr != enemys->end(); enemy_itr++) {
+		for (auto star_itr = normalstar.begin(); star_itr != normalstar.end(); star_itr++) {
+			if (CheckHit((*enemy_itr)->get_point(), (*star_itr).get_point())) {
+				enemys->erase(enemy_itr);
+				normalstar.erase(star_itr);
+				deleted = true;
+				break;
+			}
+			
+		}
+		if (deleted == true)break;
+	}
+}

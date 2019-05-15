@@ -18,6 +18,12 @@ class GameTaskSystem
 private:
 	bool deg_flag;
 	int feedcnt;
+
+	void attack_star_enemy();
+	void attack_player_enemy();
+	void attack_player_item();
+
+
 protected:
 public:
 	GameTaskSystem();
