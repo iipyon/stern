@@ -32,6 +32,7 @@ public:
 	void move();//移動処理
 	bool knockback(int);//ノックバック
 	void jump(int);
+	void spawn(int, int, int, int);
 
 	//プレイヤーインターフェイス
 	class PlayerInterface {
@@ -80,4 +81,5 @@ protected:
 private:
 
 	int jumpCnt;
+	class Point p_point;
 };

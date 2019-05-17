@@ -7,8 +7,8 @@
 GameTaskSystem::GameTaskSystem()
 {
 	//Point point_, PhysicState physic_state_, PlayerState player_state
-	class Point p_point = { 100,300,30,30 };
-	class Point g_point = { 30,510,30,30 };
+	class Point p_point;
+	class Point g_point;
 	struct PhysicState p_physic_state = { 1};//gra,過去の遺物(rep,wei)
 	struct PlayerState player_state = { 3,2 };//life,hp
 

@@ -6,9 +6,12 @@ Goal::Goal(Point point_):  BasicObject(point)
 {
 }
 
+void Goal::spawn(int x_,int y_,int w_,int h_)
+{
+	g_point = { x_,y_,w_,h_ };
+}
 void Goal::init()
 {
-	class Point g_point = { 30,510,30,30 };
 	point = g_point;
 	shape->set("goal");
 }

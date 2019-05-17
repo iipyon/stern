@@ -8,4 +8,7 @@ public:
 	void update();
 	bool hit(Point);
 	void to_cleartask();
+	void spawn(int, int, int, int);
+private:
+	class Point g_point;
 };

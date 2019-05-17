@@ -79,10 +79,12 @@ Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state
 	playerinterface = std::make_unique<PlayerInterface>();
 
 }
-
+void Player::spawn(int x_, int y_, int w_, int h_)
+{
+	p_point = { x_,y_,w_,h_ };
+}
 void Player::init()
 {
-	class Point p_point = { 500,30,30,30 };
 	point = p_point;
 	shape->set("player");//resource.jsonのnameが"player"のものをセットする
 }
