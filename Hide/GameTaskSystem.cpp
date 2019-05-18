@@ -58,9 +58,14 @@ void GameTaskSystem::update()
 	goal->update();
 	//☆------------------------------
 	for (auto itr = normalstar.begin(); itr != normalstar.end(); itr++) {
+		if (itr->damage(1)) {
+			normalstar.erase(itr);
+			break;
+		}
 		itr->update();
 	}
 	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
+
 		itr->update();
 	}
 	//--------------------------------
@@ -105,7 +110,7 @@ void GameTaskSystem::attack_player_enemy()
 			if (!(ct->gts->player->damage())) {
 				//PlayerのLifeが0になったら
 				//処理未定
-				enemys->erase(itr);
+				//enemys->erase(itr);
 				break;
 			}
 			
