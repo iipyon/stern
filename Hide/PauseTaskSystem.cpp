@@ -3,7 +3,6 @@
 
 PauseTask::PauseTask()
 {
-	p_selecter = std::make_unique<PauseSelecter>();
 	p_ui = std::make_unique<PauseUI>();
 	backgraph = LoadGraph("img/pause/pause.png");
 	feedcnt = 0;
@@ -23,10 +22,7 @@ void PauseTask::update()
 		}
 	}
 	draw();
-	p_selecter->update(p_ui->get_lextx(p_ui->text[0]) - 50,
-					   p_ui->get_lextx(p_ui->text[1]) - 50,
-					   p_ui->get_lextx(p_ui->text[2]) - 50,
-					   deg_flag);
+	selecter_move();
 	p_ui->update();
 }
 
@@ -38,7 +34,7 @@ void PauseTask::draw()
 void PauseTask::change_scene()
 {
 	//ゲームに戻る
-	switch (p_selecter->button) {
+	switch (p_ui->getter()) {
 	case PauseButton::returngame:
 		ct->scene = Scene::game;//ゲームシーンに遷移
 		break;
@@ -51,4 +47,44 @@ void PauseTask::change_scene()
 		break;
 	}
 	
+}
+
+void PauseTask::selecter_undermove()
+{
+	switch (p_ui->getter()) {
+	case PauseButton::returngame:
+		p_ui->change_Select(PauseButton::backssts);
+		break;
+	case PauseButton::backssts:
+		p_ui->change_Select(PauseButton::exit);
+		break;
+	case PauseButton::exit:
+		p_ui->change_Select(PauseButton::returngame);
+		break;
+	}
+}
+
+void PauseTask::selecter_upmove()
+{
+	switch (p_ui->getter()) {
+	case PauseButton::returngame:
+		p_ui->change_Select(PauseButton::exit);
+		break;
+	case PauseButton::backssts:
+		p_ui->change_Select(PauseButton::returngame);
+		break;
+	case PauseButton::exit:
+		p_ui->change_Select(PauseButton::backssts);
+		break;
+	}
+}
+
+void PauseTask::selecter_move()
+{
+	if (Keyboard::key_down(KEY_INPUT_DOWN)) {
+		selecter_undermove();
+	}
+	if (Keyboard::key_down(KEY_INPUT_UP)) {
+		selecter_upmove();
+	}
 }

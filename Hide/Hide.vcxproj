@@ -137,12 +137,12 @@
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
+    <ClCompile Include="GameOverTaskUI.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="json11.cpp" />
-    <ClCompile Include="PauseTaskSelecter.cpp" />
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="production.cpp" />
@@ -171,7 +171,6 @@
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
-    <ClCompile Include="TitleSelecter.cpp" />
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
@@ -185,11 +184,11 @@
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
+    <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
-    <ClInclude Include="PauseTaskSelecter.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="RecoveryItem.h" />
@@ -220,7 +219,6 @@
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="ThrowingEnemy.h" />
-    <ClInclude Include="TitleSelecter.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />

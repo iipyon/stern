@@ -17,12 +17,12 @@ void BasicUI::update_txt(Text _txt)
 void BasicUI::draw_txt(Text _txt)
 {
 	//         300は画面サイズの半分
-	DrawString(_txt.x, _txt.y, _txt.str, GetColor(0, 0, 0));
+	DrawString(_txt.x, _txt.y, _txt.str, _txt.color);
 }
-int BasicUI::get_lextx(Text _txt)
+int BasicUI::get_left(Text _txt, int sc_)
 {
 	//文字の始点を返す(画面半分から文字列の半分を引いた値)
-	return 300 - _txt.text_width / 2;
+	return sc_ - _txt.text_width / 2;
 }
 int BasicUI::get_y(Text _txt)
 {

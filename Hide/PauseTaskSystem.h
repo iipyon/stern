@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include<iostream>
 #include"PauseTaskUI.h"
-#include"PauseTaskSelecter.h"
 #include<memory>
 #include"Screen_helper.h"
 #include"DxLib.h"
 
 class PauseTask{
 private:
-	//セレクタークラス
-	std::unique_ptr<PauseSelecter> p_selecter;
 	//UIクラス
 	std::unique_ptr<PauseUI> p_ui;
 
@@ -18,6 +15,10 @@ private:
 	void draw();//背景、UIの描画
 	void change_scene();//シーンを切り替えるメソッド
 	bool deg_flag;
+
+	void selecter_undermove();
+	void selecter_upmove();
+	void selecter_move();
 public:
 	PauseTask();
 	void update();

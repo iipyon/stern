@@ -1,6 +1,5 @@
 #pragma once
 #include"TitleUI.h"
-#include"TitleSelecter.h"
 #include<memory>
 #include"Screen_helper.h"
 #include"DxLib.h"
@@ -10,10 +9,13 @@ private:
 	int backgraph;
 	bool deg_flag;
 	int feedcnt;
+
+	void selecter_move();
+	void change_scene();
 public:
 	std::unique_ptr<TitleUI> title_ui;
-	std::unique_ptr<TitleSelecter> selecter;
 	TitleTaskSystem();
+	void init();
 	void update();
 	void draw();
 };
