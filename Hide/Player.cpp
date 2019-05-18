@@ -107,7 +107,9 @@ void Player::update()
 	//---------------------------------------
 	starmanager->update(angle, point.x);
 	playerinterface->update(hp,life);
-	shape->draw(point);
+	if (invincible % 4 <= 2) {
+		shape->draw(point);
+	}
 	if (jumpCnt <= 0) {
 		point.y += physicshape->fall(point);
 	}
