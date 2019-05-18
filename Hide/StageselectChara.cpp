@@ -1,6 +1,8 @@
 ﻿#include"StageselectChara.h"
 #include"CoreTask.h"
 #include"Dxlib.h"
+//
+#include "Keyboard.h"
 #include"System.h"
 
 StageSelectChara::StageSelectChara(Point point_)

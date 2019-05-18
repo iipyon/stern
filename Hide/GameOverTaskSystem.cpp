@@ -3,6 +3,7 @@
 #include"screen_helper.h"
 #include"Keyboard.h"
 #include"System.h"
+#include "Audio.h"
 
 int GameOverTaskSystem::backGraph;//背景
 

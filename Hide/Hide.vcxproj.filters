@@ -155,6 +155,21 @@
     <Filter Include="config\System">
       <UniqueIdentifier>{e59b9463-24ed-4a23-8a5a-1450124e3a42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="helper\star">
+      <UniqueIdentifier>{bb8470d5-c68a-45da-bc93-5b5ad8f1c0c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controllers\attack">
+      <UniqueIdentifier>{c63a50fa-410c-4221-b6ab-ec0db0119594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\model">
+      <UniqueIdentifier>{79e08590-f0b6-4242-b580-d871ed23029e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\controller">
+      <UniqueIdentifier>{85e5d1e7-1bb8-4c17-889b-982bffefc262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\view">
+      <UniqueIdentifier>{ca84daaf-884e-4ac9-bf9c-e45fae378cf0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -195,9 +210,6 @@
     </ClCompile>
     <ClCompile Include="RecoveryItem.cpp">
       <Filter>models\items\recovery</Filter>
-    </ClCompile>
-    <ClCompile Include="application_helper.cpp">
-      <Filter>helper\application_helper</Filter>
     </ClCompile>
     <ClCompile Include="BasicObject.cpp">
       <Filter>models\super</Filter>
@@ -295,6 +307,24 @@
     <ClCompile Include="System.cpp">
       <Filter>config\System</Filter>
     </ClCompile>
+    <ClCompile Include="StarHelper.cpp">
+      <Filter>helper\star</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationHelper.cpp">
+      <Filter>helper\application_helper</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackController.cpp">
+      <Filter>controllers\attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Resources\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Resources\view</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Resources\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicResource.h">
@@ -317,9 +347,6 @@
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>models\effect</Filter>
-    </ClInclude>
-    <ClInclude Include="application_helper.h">
-      <Filter>helper\application_helper</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>models\enemys\super</Filter>
@@ -437,6 +464,24 @@
     </ClInclude>
     <ClInclude Include="PlayerConfig.h">
       <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="StarHelper.h">
+      <Filter>helper\star</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationHelper.h">
+      <Filter>helper\application_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackController.h">
+      <Filter>controllers\attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Resources\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Resources\view</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Resources\model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

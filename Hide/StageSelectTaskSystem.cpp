@@ -1,7 +1,10 @@
-﻿#include "StageSelectTaskSystem.h"
-#include"Screen_helper.h"
-#include"CoreTask.h"
+﻿#include "CoreTask.h" //更新により削除予定
+//
+#include "Keyboard.h"
+#include "StageSelectTaskSystem.h"
+#include "model.h"
 #include"System.h"
+#include"Screen_helper.h"
 
 //静的定義----------------------------------------------------------------
 int StageSelectTaskSystem::stage;//ステージ識別番号
@@ -26,8 +29,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
 
-	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", ct->gts->enemys);
-	spawnitem = std::make_unique<SpawnItem>("img/item.json", ct->gts->item);
+	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", mdl::enemys);
+	spawnitem = std::make_unique<SpawnItem>("img/item.json", mdl::item);
 
 	feedcnt = 0;
 	deg_flag = false;
@@ -69,10 +72,10 @@ void StageSelectTaskSystem::update()
 				spawnitem->create("2");
 				break;
 			case 3:
-				ct->gts->map->init((char*)"");
+				ctl::map->init((char*)"");
 				break;
 			case 4:
-				ct->gts->map->init((char*)"");
+				ctl::map->init((char*)"");
 				break;
 			}
 			ct->gts->init();

@@ -1,28 +1,32 @@
-#include "Physic.h"
-#include "CoreTask.h"
+ï»¿#include "Physic.h"
+//#include "CoreTask.h"
+//
+#include "Controller.h"
+
+
 //----------------------------------
-//•¨—‰^“®
+//ç‰©ç†é‹å‹•
 //----------------------------------
 
 Physic::Physic() 
 {
-	gravity = 1;//gravity‚ªƒLƒƒƒ‰‚É‚æ‚Á‚Ä‚¢‚¶‚é•K—v‚È‚¢‚Æ”»’f‚µ‚½
+	gravity = 1;//gravityãŒã‚­ãƒ£ãƒ©ã«ã‚ˆã£ã¦ã„ã˜ã‚‹å¿…è¦ãªã„ã¨åˆ¤æ–­ã—ãŸ
 	velocity = 0;
 }
 
 
 int Physic::fall(Point p_)
 {
-	//d—Í‚É‚æ‚é—‰º
-	velocity += int(gravity);  //gravity‚Ì•ª‚¾‚¯‰Á‘¬‚³‚¹‚Ä‚¢‚­
+	//é‡åŠ›ã«ã‚ˆã‚‹è½ä¸‹
+	velocity += int(gravity);  //gravityã®åˆ†ã ã‘åŠ é€Ÿã•ã›ã¦ã„ã
 
-	int prevel = velocity;//ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {//‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
-		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }//prevel‚ğˆø‚¢‚Ä‚¢‚­‚±‚Æ‚Åwhile‚ğ”²‚¯‚ç‚ê‚é‚æ‚¤‚É
+	int prevel = velocity;//ï¿½vï¿½Zï¿½pï¿½ï¿½ï¿½ÂAvelocityï¿½ï¿½sï¿½Ï‚Ì‚ï¿½Ì‚Å‚ï¿½ï¿½é‚½ï¿½ß‚É‰ï¿½ï¿½Ì’lï¿½ï¿½pï¿½ï¿½
+	while (prevel != 0) {//ï¿½ß‚èï¿½Ü‚È‚ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÈ—ï¿½ï¿½ï¿½ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
+		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }//prevelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½whileï¿½ğ”²‚ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½ï¿½
 		else { p_.y += prevel; prevel = 0; }
-		Point hit = p_;//“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
-		if (ct->gts->map->get_bottom(hit) == 1) {//1‚Ì•”•ª‚Íƒ}ƒbƒv•ÏX‚É—v•ÏX
-			velocity = velocity-prevel-1;//’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+		Point hit = p_;//ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½pï¿½Ì‹ï¿½`ï¿½ï¿½pï¿½ï¿½
+		if (ctl::map->get_bottom(hit) == 1) {//ï¿½ï¿½ï¿½ï¿½1ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Íƒ}ï¿½bï¿½vï¿½ÏXï¿½ï¿½ï¿½É—vï¿½ÏX
+			velocity = velocity-prevel-1;//ï¿½ï¿½ï¿½Oï¿½ï¿½prevelï¿½ÌŒvï¿½Zï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚É‚ï¿½ï¿½Aï¿½}ï¿½bï¿½vï¿½Æ‚Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ß’ï¿½ï¿½ï¿½velocityï¿½É‘ï¿½ï¿½
 			break;
 		}
 	
@@ -33,15 +37,15 @@ int Physic::fall(Point p_)
 int Physic::Movement_X(Point p_,int velocity_)
 {
 
-	int prevel = velocity_;//ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {//‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
+	int prevel = velocity_;//è¨ˆç®—ç”¨ã‹ã¤ã€velocityã‚’ä¸å¤‰ã®ã‚‚ã®ã§ã‚ã‚‹ãŸã‚ã«ä»®ã®å€¤ã‚’ç”¨æ„
+	while (prevel != 0) {//ã‚ã‚Šè¾¼ã¾ãªã„ç§»å‹•å‡¦ç†ã®ç°¡ç•¥åŒ–ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 		if (prevel >= 1) { p_.x += 1;  prevel -= 1; }
 		else if (prevel <= -1) { p_.x -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }
-		Point hit = p_;//“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
-		if (ct->gts->map->get_left(hit) == 1|| ct->gts->map->get_right(hit) == 1) {//1‚Ì•”•ª‚Íƒ}ƒbƒv•ÏX‚É—v•ÏX
+		Point hit = p_;//ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½pï¿½Ì‹ï¿½`ï¿½ï¿½pï¿½ï¿½
+		if (ctl::map->get_left(hit) == 1|| ctl:: map->get_right(hit) == 1) {//ï¿½ï¿½ï¿½ï¿½1ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Íƒ}ï¿½bï¿½vï¿½ÏXï¿½ï¿½ï¿½É—vï¿½ÏX
 			if (velocity_ > 0) {
-				velocity_ = velocity_ - prevel -1;//’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+				velocity_ = velocity_ - prevel -1;//ï¿½ï¿½ï¿½Oï¿½ï¿½prevelï¿½ÌŒvï¿½Zï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚É‚ï¿½ï¿½Aï¿½}ï¿½bï¿½vï¿½Æ‚Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ß’ï¿½ï¿½ï¿½velocityï¿½É‘ï¿½ï¿½
 			}
 			else if (velocity_<0) {
 				velocity_ = velocity_ - prevel +1;
@@ -57,15 +61,15 @@ int Physic::Movement_X(Point p_,int velocity_)
 int Physic::Movement_Y(Point p_, int velocity_)
 {
 
-	int prevel = velocity_;//ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {//‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
+	int prevel = velocity_;//è¨ˆç®—ç”¨ã‹ã¤ã€velocityã‚’ä¸å¤‰ã®ã‚‚ã®ã§ã‚ã‚‹ãŸã‚ã«ä»®ã®å€¤ã‚’ç”¨æ„
+	while (prevel != 0) {//ã‚ã‚Šè¾¼ã¾ãªã„ç§»å‹•å‡¦ç†ã®ç°¡ç•¥åŒ–ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }
 		else if (prevel <= -1) { p_.y -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }
-		Point hit = p_;//“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
-		if (ct->gts->map->get_top(hit) == 1 || ct->gts->map->get_bottom(hit) == 1) {//1‚Ì•”•ª‚Íƒ}ƒbƒv•ÏX‚É—v•ÏX
+		Point hit = p_;//ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½pï¿½Ì‹ï¿½`ï¿½ï¿½pï¿½ï¿½
+		if (ctl::map->get_top(hit) == 1 || ctl::map->get_bottom(hit) == 1) {//ï¿½ï¿½ï¿½ï¿½1ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Íƒ}ï¿½bï¿½vï¿½ÏXï¿½ï¿½ï¿½É—vï¿½ÏX
 			if (velocity_ > 0) {
-				velocity_ = velocity_ - prevel-1;//’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+				velocity_ = velocity_ - prevel-1;//ï¿½ï¿½ï¿½Oï¿½ï¿½prevelï¿½ÌŒvï¿½Zï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚É‚ï¿½ï¿½Aï¿½}ï¿½bï¿½vï¿½Æ‚Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ß’ï¿½ï¿½ï¿½velocityï¿½É‘ï¿½ï¿½
 			}
 			else if(velocity_ < 0){
 				velocity_ = velocity_ - prevel+1;
@@ -78,7 +82,7 @@ int Physic::Movement_Y(Point p_, int velocity_)
 
 }
 
-/*void Physic::rebound_X()//ƒoƒEƒ“ƒh‚Ìˆ—‚ª•K—v‚É‚È‚Á‚½‚ç‘‚­‚æ
+/*void Physic::rebound_X()//ãƒã‚¦ãƒ³ãƒ‰ã®å‡¦ç†ãŒå¿…è¦ã«ãªã£ãŸã‚‰æ›¸ãã‚ˆ
 {
 	velocityX *= -repulsion;
 }

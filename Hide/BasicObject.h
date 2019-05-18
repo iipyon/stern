@@ -14,7 +14,19 @@ public:
 	BasicObject(Point);
 	//メソッド（関数）
 	virtual void update() = 0;
-	Point get_point();
+
+	//accessor
+	Point get_point();	//非推奨 廃止予定
+	int get_x();
+	void set_x(int);
+	int get_y();
+	void set_y(int);
+	int get_width();
+	void set_width(int);
+	int get_height();
+	void set_height(int);
+
+
 
 protected:
 	std::unique_ptr<Rendering> shape;	//姿・形

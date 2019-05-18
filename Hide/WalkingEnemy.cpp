@@ -1,5 +1,7 @@
 ﻿#include "WalkingEnemy.h"
-#include"CoreTask.h"
+//#include"CoreTask.h"
+//
+#include "Controller.h"
 
 WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_) : Enemy(point_, physic_state_, enemy_state_)
 {
@@ -43,7 +45,7 @@ void WalkingEnemy::check_left()
 	Point left{ point.x-1,point.y,-1,30 };//不明な変更点
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
-	if (ct->gts->map->get_left(left) != 0) {
+	if (ctl::map->get_left(left) != 0) {
 		anglestate = AngleState::right;
 	}
 }
@@ -54,7 +56,7 @@ void WalkingEnemy::check_right()
 	Point right{ point.x + 30,point.y,1,30 };
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
-	if (ct->gts->map->get_right(right) != 0) {
+	if (ctl::map->get_right(right) != 0) {
 		anglestate = AngleState::left;
 	}
 }

@@ -1,8 +1,11 @@
 ﻿#include "PauseTaskSystem.h"
 #include"CoreTask.h"
+//
+#include "Audio.h"
+#include "Keyboard.h"
 #include"System.h"
-#include"Screen_helper.h"
 #include"DxLib.h"
+#include"Screen_helper.h"
 
 //UIクラス
 std::unique_ptr<PauseUI> PauseTask::p_ui;

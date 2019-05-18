@@ -79,6 +79,9 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Hide\dxlib;C:\Users\game\Desktop\Hide\Hide\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Hide\dxlib</AdditionalLibraryDirectories>
@@ -91,6 +94,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Hide\dxlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Hide\dxlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,10 +134,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AttackController.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="BasicUI.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
@@ -143,6 +149,7 @@
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="json11.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="production.cpp" />
@@ -170,26 +177,31 @@
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="StarHelper.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
+    <ClCompile Include="View.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application_helper.cpp" />
+    <ClCompile Include="ApplicationHelper.cpp" />
     <ClInclude Include="application_init.h" />
+    <ClInclude Include="AttackController.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="environments.h" />
-    <ClInclude Include="application_helper.h" />
+    <ClInclude Include="ApplicationHelper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="PlayerConfig.h" />
@@ -221,9 +233,11 @@
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="System.h" />
+    <ClInclude Include="StarHelper.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
+    <ClInclude Include="View.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

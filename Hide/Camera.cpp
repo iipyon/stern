@@ -1,6 +1,7 @@
 ﻿#include "Camera.h"
 #include "CoreTask.h"
 #include "System.h"
+#include "Model.h"
 
 Point Camera::range;
 bool Camera::mode;//enumで用意する可能性あり
@@ -23,8 +24,8 @@ void Camera::update()
 		int px = 600 / 2;
 		int py = 600 / 2;
 		//プレイヤを画面中央の置いた時のカメラの左上座標を求める
-		int cpx = ct->gts->player->get_point().x - px+ ct->gts->player->get_point().w/2;//player.wの半分だけたす
-		int cpy = ct->gts->player->get_point().y - py + ct->gts->player->get_point().h / 2;
+		int cpx = mdl::player->get_point().x - px+ mdl::player->get_point().w/2;//player.wの半分だけたす
+		int cpy = mdl::player->get_point().y - py + mdl::player->get_point().h / 2;
 		//カメラの座標を更新
 		range.x = cpx;
 		range.y = cpy;

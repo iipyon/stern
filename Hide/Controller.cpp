@@ -1,13 +1,3 @@
 #include "Controller.h"
 
-//------------------------------
-//ì¬
-//------------------------------
-
-void Controller::Create(Enemy *enemy)
-{
-}
-
-void Controller::Create(Star *star)
-{
-}
+std::unique_ptr<Map> ctl::map;

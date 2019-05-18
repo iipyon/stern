@@ -6,6 +6,11 @@
 #include <iterator>
 #include"CoreTask.h"
 #include "json11.hpp"
+//
+#include "ThrowingEnemy.h"
+#include "WalkingEnemy.h"
+#include "FlyingEnemy.h"
+#include "BulletEnemy.h"
 
 SpawnEnemy::SpawnEnemy(std::string path_, std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> _enemys) : Spawn(path_)
 {

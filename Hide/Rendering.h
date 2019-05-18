@@ -1,7 +1,8 @@
 ﻿#pragma once
+//
 #include <memory>
 #include "GraphicResource.h"
-#include "Camera.h"
+#include "Point.h"
 
 
 class Rendering {

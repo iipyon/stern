@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string>
 #include <iterator>
+//
+#include "RecoveryItem.h"
 
 SpawnItem::SpawnItem(std::string path_, std::shared_ptr<std::vector<std::shared_ptr<Item>>> _item) : Spawn(path_)
 {

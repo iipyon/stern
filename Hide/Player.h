@@ -1,11 +1,8 @@
 ﻿#pragma once
+//
 #include"BasicObject.h"
-#include"Physic.h"
 #include"DxLib.h"
 #include<memory>
-//#include "Item.h"
-//#include "RecoveryItem.h"
-#include"application_helper.h"
 
 
 //---------------------------------

@@ -4,6 +4,10 @@
 #include"DxLib.h"
 #include"Screen_helper.h"
 
+//
+#include "Audio.h"
+#include "Keyboard.h"
+
 int TitleTaskSystem::backgraph;
 bool TitleTaskSystem::deg_flag;
 int TitleTaskSystem::feedcnt;

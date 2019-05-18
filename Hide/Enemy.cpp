@@ -1,7 +1,11 @@
 ﻿#include "Enemy.h"
-#include "CoreTask.h"
-std::shared_ptr<Player> Enemy::player;	//静的メンバの実体化
+//#include "CoreTask.h"
 
+//
+#include "Model.h"
+
+
+std::shared_ptr<Player> Enemy::player;	//静的メンバの実体化
 //----------------------------------
 //敵全般
 //----------------------------------
@@ -15,7 +19,7 @@ Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state):Basi
 bool Enemy::attack()
 {
 
-	Point player_point = ct->gts->player->get_point();
+	Point player_point = mdl::player->get_point();
 	if(CheckHit(point,player_point)){
 			return true;
 	}

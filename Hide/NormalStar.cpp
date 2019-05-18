@@ -1,6 +1,8 @@
 ﻿#include"NormalStar.h"
 #include"DxLib.h"
-#include"CoreTask.h"
+//
+#include "Controller.h"
+#include "Model.h"
 
 //--------------------------------
 //
@@ -20,16 +22,16 @@ void NormalStar::update()
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
 		point.y += physicshape->Movement_Y(point, (int)(cos(angle) * 20));
-		if (ct->gts->map->get_bottom(sizeup) ||
-			ct->gts->map->get_left(sizeup) ||
-			ct->gts->map->get_right(sizeup) ||
-			ct->gts->map->get_top(sizeup)) {
+		if (ctl::map->get_bottom(sizeup) ||
+			ctl::map->get_left(sizeup) ||
+			ctl::map->get_right(sizeup) ||
+			ctl::map->get_top(sizeup)) {
 			contact = true;
 		}
 	}
 	else {
 
-		for (auto itr = ct->gts->gravityStar.begin(); itr != ct->gts->gravityStar.end(); ++itr) {
+		for (auto itr = mdl::gravityStar.begin(); itr != mdl::gravityStar.end(); ++itr) {
 			gravitypoint = itr->gravitypoint;
 		}
 		if (((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) * ((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) +//gravitystarとの距離を測って90000以内なら引き寄せられる

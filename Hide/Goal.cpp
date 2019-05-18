@@ -1,6 +1,8 @@
 ﻿#include"Goal.h"
 #include"CoreTask.h"
 #include "BasicObject.h"
+//
+#include "model.h"
 
 Goal::Goal(Point point_):  BasicObject(point)
 {
@@ -18,7 +20,7 @@ void Goal::init()
 
 void Goal::update()
 {
-	if (hit(ct->gts->player->get_point())) {
+	if (hit(mdl::player->get_point())) {
 		to_cleartask();
 	}
 }
