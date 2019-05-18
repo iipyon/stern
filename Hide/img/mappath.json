@@ -5,6 +5,14 @@
     "sizex": 1280,
     "sizey": 1280,
     "background": "./img/sky2.png"
+  },
+
+  "2": {
+    "csvpath": "./img/stage2.csv",
+    "chippath": "./img/mapchip2.png",
+    "sizex": 4480,
+    "sizey": 1920,
+    "background": "./img/sky2.png"
   }
 }
 

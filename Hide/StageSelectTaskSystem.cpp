@@ -29,13 +29,17 @@ void StageSelectTaskSystem::update()
 			{
 			case 1:
 				ct->gts->map->init((char*)"1");
-				ct->gts->player->spawn(500, 30, 30, 30);
+				ct->gts->player->spawn(600, 30, 30, 30);
 				ct->gts->goal->spawn(30, 510, 30, 30);
 				spawnenemy->create("1");
 				spawnitem->create("1");
 				break;
 			case 2:
-				ct->gts->map->init((char*)"");
+				ct->gts->map->init((char*)"2");
+				ct->gts->player->spawn(30, 1826, 30, 30);
+				ct->gts->goal->spawn( 4416, 1796, 30, 60);
+				spawnenemy->create("2");
+				spawnitem->create("1");
 				break;
 			case 3:
 				ct->gts->map->init((char*)"");

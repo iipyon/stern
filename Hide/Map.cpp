@@ -24,8 +24,8 @@ Map::Map()
 	camera.y = 0;
 	camera.w = 0;
 	camera.h = 0;
-	for (int y = 0; y < 100; ++y) {
-		for (int x = 0; x < 100; ++x) {
+	for (int y = 0; y < 30; ++y) {
+		for (int x = 0; x < 70; ++x) {
 			data[y][x] = 0;
 		}
 	}
