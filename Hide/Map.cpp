@@ -300,26 +300,6 @@ int Map::get_bottom(Point chara_)
 	}
 	return 0;
 }
-int Map::get_circle(Point star_,int r_)
-{
-	/*int sx = (star_.x-r_) / chipsize;//本来はこのはずだが描画と当たり判定がずれている
-	int sy = (star_.y-r_) / chipsize;
-	int ex = (star_.x + r_ ) / chipsize;
-	int ey = (star_.y + r_ ) / chipsize;*/
-	int sx = (star_.x-1 ) / chipsize;
-	int sy = (star_.y-1 ) / chipsize;
-	int ex = (star_.x + r_*3) / chipsize;
-	int ey = (star_.y + r_*3) / chipsize;
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
-				return 1;
-			}
-
-		}
-	}
-	return 0;
-}
 
 Point Map::get_camera()
 {

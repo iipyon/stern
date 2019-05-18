@@ -16,7 +16,6 @@ public:
 	int get_right(Point);
 	int get_top(Point);
 	int get_bottom(Point);
-	int get_circle(Point, int);
 	static Point get_camera(); //加工済みのget_rangeを送る
 private:
 	std::string chipmap;
