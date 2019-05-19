@@ -1,4 +1,6 @@
 ﻿#include "FlyingEnemy.h"
+#include "CoreTask.h"//map
+//
 #include "Controller.h"
 //
 //#include "CoreTask.h"
@@ -41,13 +43,13 @@ void FlyingEnemy::change_state()
 	movecnt++;// 
 	if (movecnt <= FlyingDown) {
 		flyingstate = FlyingState::down;
-		if (ctl::map->get_bottom(point)) {
+		if (ct->gts->map->get_bottom(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
 	else if (movecnt <= FlyingUp) {
 		flyingstate = FlyingState::up;
-		if (ctl::map->get_top(point)) {
+		if (ct->gts->map->get_top(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}

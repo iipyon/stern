@@ -27,6 +27,7 @@ public:
 	void init();
 	void update();
 	void finalize();
+	std::unique_ptr<Map> map;
 	//~GameTaskSystem();
 
 };

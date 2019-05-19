@@ -1,6 +1,7 @@
-﻿#include"NormalStar.h"
-#include"DxLib.h"
+﻿#include "CoreTask.h" //map
 //
+#include"NormalStar.h"
+#include"DxLib.h"
 #include "Controller.h"
 #include "Model.h"
 
@@ -22,10 +23,10 @@ void NormalStar::update()
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
 		point.y += physicshape->Movement_Y(point, (int)(cos(angle) * 20));
-		if (ctl::map->get_bottom(sizeup) ||
-			ctl::map->get_left(sizeup) ||
-			ctl::map->get_right(sizeup) ||
-			ctl::map->get_top(sizeup)) {
+		if (ct->gts->map->get_bottom(sizeup) ||
+			ct->gts->map->get_left(sizeup) ||
+			ct->gts->map->get_right(sizeup) ||
+			ct->gts->map->get_top(sizeup)) {
 			contact = true;
 		}
 	}

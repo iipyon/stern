@@ -72,10 +72,10 @@ void StageSelectTaskSystem::update()
 				spawnitem->create("2");
 				break;
 			case 3:
-				ctl::map->init((char*)"");
+				ct->gts->map->init((char*)"");
 				break;
 			case 4:
-				ctl::map->init((char*)"");
+				ct->gts->map->init((char*)"");
 				break;
 			}
 			ct->gts->init();
