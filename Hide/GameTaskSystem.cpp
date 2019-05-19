@@ -67,14 +67,14 @@ void GameTaskSystem::update()
 	ctl::map->update();
 	mdl::goal->update();
 	//☆------------------------------
-	for (auto itr = normalstar.begin(); itr != normalstar.end(); itr++) {
+	for (auto itr = mdl::normalstar.begin(); itr != mdl::normalstar.end(); itr++) {
 		if (itr->damage(1)) {
-			normalstar.erase(itr);
+			mdl::normalstar.erase(itr);
 			break;
 		}
 		itr->update();
 	}
-	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
+	for (auto itr = mdl::gravityStar.begin(); itr != mdl::gravityStar.end(); itr++) {
 
 		itr->update();
 	}
