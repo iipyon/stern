@@ -1,5 +1,6 @@
-﻿#include "Camera.h"
 #include "CoreTask.h"
+﻿//
+#include "Camera.h"
 #include "System.h"
 #include "Model.h"
 

@@ -1,15 +1,10 @@
-﻿#include "GameTaskSystem.h"
+﻿#include "CoreTask.h"
+//
+#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
-#include"Audio.h"
-#include"screen_helper.h"
-#include "RecoveryItem.h"
-#include "WalkingEnemy.h"
-#include "BulletEnemy.h"
-#include "FlyingEnemy.h"
-#include "CoreTask.h"
-//
 #include "Keyboard.h"
+#include"Audio.h"
 #include "model.h"
 #include "Controller.h"
 

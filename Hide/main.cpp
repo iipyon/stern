@@ -1,6 +1,5 @@
 ﻿#include "DxLib.h"
 #include"CoreTask.h"
-#include"Player.h"
 //
 #include "Keyboard.h"
 #include "System.h"
