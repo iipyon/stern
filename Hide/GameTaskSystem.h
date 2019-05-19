@@ -4,11 +4,7 @@
 #include<memory>
 #include"NormalStar.h"
 #include "Enemy.h"
-#include "Item.h"
-#include"Goal.h"
-#include"Camera.h"
-#include"RecoveryItem.h"
-#include"GravityStar.h"
+
 
 class GameTaskSystem
 {

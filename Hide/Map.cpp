@@ -1,4 +1,6 @@
-﻿#include"Map.h"
+﻿////以下最適化済みヘッダー
+#include"Map.h"
+#include "Camera.h"
 #include"DxLib.h"
 #include"CoreTask.h"
 #include"System.h"

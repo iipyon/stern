@@ -2,7 +2,6 @@
 #include "CoreTask.h" //map
 //
 #include "DxLib.h"
-#include "Controller.h"
 //---------------------------------
 //‘æ‚R‚Ì¯iˆø—Í‚Ì‚ ‚é¯j
 //---------------------------------

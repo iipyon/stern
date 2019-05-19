@@ -1,5 +1,5 @@
-﻿//
-#pragma once
+﻿#pragma once
+//以下最適化済みヘッダー
 #include"DxLib.h"
 #include"Point.h"
 

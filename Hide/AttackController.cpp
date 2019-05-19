@@ -1,7 +1,8 @@
-#include "AttackController.h" 
-//
+﻿#include "AttackController.h" 
+//以下最適化済みヘッダー
 #include "Model.h"
 
+//以下GameTaskSystemクラスから切り離し予定
 void AttackController::attack_player_enemy()
 {
 	for (auto itr = mdl::enemys->begin(); itr != mdl::enemys->end(); itr++) {

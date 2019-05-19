@@ -1,7 +1,6 @@
 ﻿#include "Physic.h"
 #include "CoreTask.h"	//map
 //
-#include "Controller.h"
 
 
 //----------------------------------

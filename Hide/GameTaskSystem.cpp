@@ -1,12 +1,12 @@
 ﻿#include "CoreTask.h"
-//
+//以下最適化済みヘッダー
+#include "Camera.h"
 #include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include "Keyboard.h"
 #include"Audio.h"
 #include "model.h"
-#include "Controller.h"
 
 
 GameTaskSystem::GameTaskSystem()

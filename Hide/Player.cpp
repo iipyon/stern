@@ -4,7 +4,6 @@
 #include"Keyboard.h"
 //
 #include "model.h"
-#include "Controller.h"
 #include "PlayerConfig.h"
 
 

@@ -1,10 +1,6 @@
-﻿#include "FlyingEnemy.h"
-#include "CoreTask.h"//map
-//
-#include "Controller.h"
-//
-//#include "CoreTask.h"
-
+﻿#include "CoreTask.h"//map
+//以下最適化済みヘッダー
+#include "FlyingEnemy.h"
 
 //----------------------------------
 //雑魚敵(飛行)

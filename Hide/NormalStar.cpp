@@ -2,7 +2,6 @@
 //
 #include"NormalStar.h"
 #include"DxLib.h"
-#include "Controller.h"
 #include "Model.h"
 
 //--------------------------------

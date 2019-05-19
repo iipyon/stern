@@ -139,7 +139,6 @@
     <ClCompile Include="BasicUI.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
-    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
@@ -182,7 +181,6 @@
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
-    <ClCompile Include="View.cpp" />
     <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -192,7 +190,6 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Controller.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="ApplicationHelper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
@@ -237,7 +234,6 @@
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
-    <ClInclude Include="View.h" />
     <ClInclude Include="WalkingEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

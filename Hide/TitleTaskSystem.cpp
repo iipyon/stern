@@ -1,9 +1,9 @@
-﻿#include "TitleTaskSystem.h"
+#include"Screen_helper.h"
 #include"CoreTask.h"
+﻿#include "TitleTaskSystem.h"
+//以下最適化済みヘッダー
 #include"System.h"
 #include"DxLib.h"
-#include"Screen_helper.h"
-//
 #include "TitleTaskSystem.h"
 #include "Audio.h"
 #include "Keyboard.h"
