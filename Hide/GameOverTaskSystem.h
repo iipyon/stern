@@ -4,20 +4,23 @@
 
 class GameOverTaskSystem {
 private:
-	int backGraph;//背景
-	void draw();
+	static int backGraph;//背景
+	static void draw();
 	
-	bool deg_flag;
-	int feedcnt;
+	static bool deg_flag;
+	static int feedcnt;
 
-	std::unique_ptr<GameOverUI> gameover_ui;
+	static std::unique_ptr<GameOverUI> gameover_ui;
 
-	void selecter_move();
-	void selecter_undermove();
-	void selecter_upmove();
-	void change_scene();
-public:
+	static void selecter_move();
+	static void selecter_undermove();
+	static void selecter_upmove();
+	static void change_scene();
+
 	GameOverTaskSystem();
-	void init();
-	void update();
+public:
+	
+	static void initialize();
+	static void update();
+	static void finalize();
 };

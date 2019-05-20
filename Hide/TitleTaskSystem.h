@@ -1,21 +1,21 @@
 #pragma once
 #include"TitleUI.h"
 #include<memory>
-#include"Screen_helper.h"
-#include"DxLib.h"
+
 
 class TitleTaskSystem {
 private:
-	int backgraph;
-	bool deg_flag;
-	int feedcnt;
+	static int backgraph;
+	static bool deg_flag;
+	static int feedcnt;
 
-	void selecter_move();
-	void change_scene();
-public:
-	std::unique_ptr<TitleUI> title_ui;
 	TitleTaskSystem();
-	void init();
-	void update();
-	void draw();
+	static void selecter_move();
+	static void change_scene();
+	static std::unique_ptr<TitleUI> title_ui;
+public:
+	static void init();
+	static void update();
+	static void finalize();
+	static void draw();
 };

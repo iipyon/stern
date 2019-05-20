@@ -5,11 +5,8 @@ GameTaskSystem *gts;
 
 CoreTask::CoreTask()
 {
-	tts = std::make_shared<TitleTaskSystem>();
 	gts = std::make_shared<GameTaskSystem>();
 	cts = std::make_shared<ClearTaskSystem>();
-	gots = std::make_shared<GameOverTaskSystem>();
-	pts = std::make_shared<PauseTask>();
 	scene = Scene::title;
 }
 
@@ -18,7 +15,7 @@ void CoreTask::update()
 	Keyboard::update();
 	switch (scene) {
 	case Scene::title:
-		tts->update();
+		TitleTaskSystem::update();
 		break;
 	case Scene::stageselect:
 		ssts->update();
@@ -28,13 +25,13 @@ void CoreTask::update()
 		gts->update();
 		break;
 	case Scene::gameover:
-		gots->update();
+		GameOverTaskSystem::update();
 		break;
 	case Scene::clear:
 		cts->update();
 		break;
 	case Scene::pause:
-		pts->update();
+		PauseTask::update();
 		break;
 	}
 }
@@ -59,7 +56,12 @@ void CoreTask::init()
 	GraphicResource::load("goal");
 	GraphicResource::load("player");
 	GraphicResource::load("enemy");
-
+	//タイトル
+	TitleTaskSystem::init();
+	//ポーズ
+	PauseTask::initialize();
+	//ゲームオーバー
+	GameOverTaskSystem::initialize();
 	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
 	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
 }

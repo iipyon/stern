@@ -1,7 +1,17 @@
 ﻿#include "PauseTaskSystem.h"
 #include"CoreTask.h"
+#include"System.h"
+#include"Screen_helper.h"
+#include"DxLib.h"
 
-PauseTask::PauseTask()
+//UIクラス
+std::unique_ptr<PauseUI> PauseTask::p_ui;
+
+int PauseTask::backgraph;//背景
+int PauseTask::feedcnt;
+bool PauseTask::deg_flag;
+
+void PauseTask::initialize()
 {
 	p_ui = std::make_unique<PauseUI>();
 	backgraph = LoadGraph("img/pause/pause.png");
@@ -26,9 +36,15 @@ void PauseTask::update()
 	p_ui->update();
 }
 
+void PauseTask::finalize()
+{
+	DeleteGraph(backgraph);
+}
+
 void PauseTask::draw()
 {
-	DrawGraph(0, 0, backgraph, FALSE);//背景
+	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
+	//DrawGraph(0, 0, backgraph, FALSE);//背景
 }
 
 void PauseTask::change_scene()

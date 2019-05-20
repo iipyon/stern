@@ -1,17 +1,20 @@
-﻿
-#include "TitleTaskSystem.h"
+﻿#include "TitleTaskSystem.h"
 #include"CoreTask.h"
+#include"System.h"
+#include"DxLib.h"
+#include"Screen_helper.h"
 
-TitleTaskSystem::TitleTaskSystem()
+int TitleTaskSystem::backgraph;
+bool TitleTaskSystem::deg_flag;
+int TitleTaskSystem::feedcnt;
+std::unique_ptr<TitleUI> TitleTaskSystem::title_ui;
+
+void TitleTaskSystem::init()
 {
 	title_ui = std::make_unique<TitleUI>();
 	backgraph = LoadGraph("img/title/title.png");
 	deg_flag = false;
 	feedcnt = 255;
-}
-
-void TitleTaskSystem::init()
-{
 	title_ui->init();
 }
 
@@ -34,9 +37,15 @@ void TitleTaskSystem::update()
 	//カーソルの大きさが40のため余裕をもってあけておく
 }
 
+void TitleTaskSystem::finalize()
+{
+	DeleteGraph(backgraph);
+}
+
 void TitleTaskSystem::draw()
 {
-	DrawGraph(0, 0, backgraph, FALSE);
+	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
+	//DrawGraph(0, 0, backgraph, FALSE);
 }
 
 

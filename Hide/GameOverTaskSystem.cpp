@@ -1,19 +1,21 @@
 ﻿#include "CoreTask.h"
 #include "GameOverTaskSystem.h"
 #include"Keyboard.h"
+#include"System.h"
 
-GameOverTaskSystem::GameOverTaskSystem()
+int GameOverTaskSystem::backGraph;//背景
+
+bool GameOverTaskSystem::deg_flag;
+int GameOverTaskSystem::feedcnt;
+
+std::unique_ptr<GameOverUI> GameOverTaskSystem::gameover_ui;
+
+void GameOverTaskSystem::initialize()
 {
 	gameover_ui = std::make_unique<GameOverUI>();
 	backGraph = LoadGraph("./img/gameover/gameover.png");
 	deg_flag = false;
 	feedcnt = 255;
-}
-
-void GameOverTaskSystem::init()
-{
-	feedcnt = 255;
-	deg_flag = false;
 }
 
 void GameOverTaskSystem::update()
@@ -35,9 +37,15 @@ void GameOverTaskSystem::update()
 	gameover_ui->update();
 }
 
+void GameOverTaskSystem::finalize()
+{
+	DeleteGraph(backGraph);
+}
+
 void GameOverTaskSystem::draw()
 {
-	DrawGraph(0, 0, backGraph, FALSE);
+	DrawExtendGraph(0, 0, System::width, System::height, backGraph, FALSE);
+	//DrawGraph(0, 0, backGraph, FALSE);
 }
 
 void GameOverTaskSystem::selecter_move()
