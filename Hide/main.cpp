@@ -14,7 +14,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	// 画面モードの設定
-	SetGraphMode(600, 600, 32);//ウィンドウのサイズを決める
+	int w, h;
+	GetDefaultState(&w, &h, NULL);
+	SetGraphMode(w, h, 32);//ウィンドウのサイズを決める
 	ChangeWindowMode(TRUE);// ウィンドウモード変更
 
 	// ＤＸライブラリ初期化処理
