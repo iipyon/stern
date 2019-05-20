@@ -16,10 +16,6 @@ void Camera::init()
 }
 void Camera::update()
 {
-	//矩形の座標を文字で表示
-	DrawFormatString(0, 300, GetColor(255, 255, 255), "range.x : %d", range.x);
-	DrawFormatString(0, 320, GetColor(255, 255, 255), "range.y : %d", range.y);
-
 	//カメラの位置を再調整
 	{
 		//プレイヤを画面の何処に置くか(今回は画面中央)
@@ -32,20 +28,6 @@ void Camera::update()
 		range.x = cpx;
 		range.y = cpy;
 	}
-	////プレイヤ中心としてX,Y座標を取り続ける
-	//range.x = ct->gts->player->get_point().x;
-	//range.y = ct->gts->player->get_point().y;
-
-
-	////プレイヤを画面の中央に置く
-	//int px = range.w / 2;
-	//int py = range.h / 2;
-	////プレイヤを画面中央に置いた時カメラの左上座標を求める
-	//int cpx = range.x - px;
-	//int cpy = range.y - py;
-	////カメラ座標を更新
-	//range.x = cpx;
-	//range.y = cpy;
 }
 void Camera::move(int, int)
 {

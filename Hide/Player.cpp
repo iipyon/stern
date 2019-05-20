@@ -43,7 +43,6 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawFormatString(200, 100, GetColor(255, 255, 0), "Map::get_camera().y : %d", Map::get_camera().y);
 	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
@@ -133,8 +132,6 @@ void Player::update()
 	if (jumpCnt <= 0) {
 		point.y += physicshape->fall(point);
 	}
-	DrawFormatString(0, 0, GetColor(255, 0, 0), "%d", point.x);//L
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "%d", point.y);//T
 	if (invincible > 0) {
 		invincible--;
 	}

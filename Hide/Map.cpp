@@ -87,17 +87,6 @@ void Map::init(char* map_)
 }
 void Map::draw()
 {
-	/*for (int y = 0; y < mapsizey / (mapsizey / chipsize); ++y) {
-		for (int x = 0; x < mapsizex / (mapsizex / chipsize); ++x) {
-		if (ct->gts->camera->get_range().x > x * chipsize ||
-			ct->gts->camera->get_range().x + ct->gts->camera->get_range().w < x * chipsize + chipsize ||
-			ct->gts->camera->get_range().y > y * chipsize ||
-			ct->gts->camera->get_range().y + ct->gts->camera->get_range().h < y * chipsize + chipsize) {
-			return;
-			}
-		}
-	}*/
-	
 	//カメラが完全にマップ外を指しているか調べる
 	Point maphitbase = { 0,0,mapsizex,mapsizey };
 	if (false == CheckHit(maphitbase, camera)){
@@ -118,14 +107,6 @@ void Map::draw()
 			0 + mapsizey 
 	};
 
-	////2つの矩形の重なっている範囲だけの矩形を求める
-	//RECT isr;
-	//isr.left = max(c.left, m.left);
-	//isr.top = max(c.top, m.top);
-	//isr.right = min(c.right, m.right);
-	//isr.bottom = min(c.bottom, m.bottom);
-
-
 	//カメラの位置を調整
 	if (c.right > m.right) { camera.x = m.right - camera.w; }
 	if (c.bottom > m.bottom) { camera.y = m.bottom - camera.h; }
@@ -142,11 +123,6 @@ void Map::draw()
 	ex = mapsizex / chipsize;	
 	ey = mapsizex / chipsize;	
 
-	//sx = isr.left / chipsize ;
-	//sy = isr.top / chipsize;
-	//ex = (isr.right - 1)+ camera.x / chipsize;
-	//ey = (isr.bottom - 1) / chipsize;
-	
 	//画面のサイズに合わせて調整可能
 	DrawExtendGraph(0, 0, 600, 600, backgraph, FALSE);
 

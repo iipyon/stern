@@ -14,7 +14,7 @@ void StageSelectChara::update(int& stage_,bool deg)
 	select_stage(stage_,deg);
 	move();
 	draw();
-	DrawFormatString(0, 50, GetColor(255, 0, 0), "x座標 : %d", point.x);
+	//DrawFormatString(0, 50, GetColor(255, 0, 0), "x座標 : %d", point.x);
 }
 
 void StageSelectChara::draw()

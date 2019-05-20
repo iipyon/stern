@@ -14,7 +14,6 @@ GravityStar::GravityStar(Point point_, PhysicState physic_state_, StarState star
 void GravityStar::update()
 {
 	Point sizeup{ point.x - 1,point.y - 1,point.w + 2,point.h + 2 };
-	DrawFormatString(300, 0, GetColor(255, 0, 0), "%d", point);
 	if (!contact) {
 		point.x += physicshape->Movement_X(point, (int)(-sin(angle) * 20));
 		point.y += physicshape->Movement_Y(point, (int)(cos(angle) * 20));

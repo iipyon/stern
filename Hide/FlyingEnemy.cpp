@@ -34,8 +34,6 @@ void FlyingEnemy::move()
 
 void FlyingEnemy::change_state()
 {
-	DrawFormatString(0, 450, GetColor(255, 255, 0), "tophitcnt : %d", movecnt);
-	DrawFormatString(0, 500, GetColor(255, 255, 0), "point.y : %d", point.y);
 	//   
 	movecnt++;// 
 	if (movecnt <= 120) {
