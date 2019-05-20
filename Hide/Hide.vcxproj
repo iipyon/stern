@@ -169,6 +169,7 @@
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="System.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleUI.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="System.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />

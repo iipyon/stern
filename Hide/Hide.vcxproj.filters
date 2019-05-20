@@ -152,6 +152,9 @@
     <Filter Include="helper\application_helper">
       <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\System">
+      <UniqueIdentifier>{e59b9463-24ed-4a23-8a5a-1450124e3a42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -289,6 +292,9 @@
     <ClCompile Include="CoreTask.cpp">
       <Filter>controllers\core</Filter>
     </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>config\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicResource.h">
@@ -425,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="GameOverTaskUI.h">
       <Filter>views\game_over</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>config\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

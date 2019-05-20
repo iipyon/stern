@@ -1,6 +1,7 @@
 ﻿#include "DxLib.h"
 #include"CoreTask.h"
 #include"Player.h"
+#include "System.h"
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic
@@ -14,9 +15,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	// 画面モードの設定
-	int w, h;
-	GetDefaultState(&w, &h, NULL);
-	SetGraphMode(w, h, 32);//ウィンドウのサイズを決める
+	GetDefaultState(&System::width, &System::height, NULL);
+	SetGraphMode(System::width, System::height, 32);//ウィンドウのサイズを決める
 	ChangeWindowMode(TRUE);// ウィンドウモード変更
 
 	// ＤＸライブラリ初期化処理
