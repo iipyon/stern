@@ -125,10 +125,10 @@ void GameTaskSystem::attack_player_enemy()
 
 void GameTaskSystem::attack_player_item()
 {
-	for (auto itr = item->begin(); itr != item->end(); itr++) {
-		if (CheckHit(player->get_point(), (*itr)->get_point())) {
-			ct->gts->player->recover();
-			item->erase(itr);
+	for (auto itr = mdl::item->begin(); itr != mdl::item->end(); itr++) {
+		if (CheckHit(mdl::player->get_point(), (*itr)->get_point())) {
+			mdl::player->recover();
+			mdl::item->erase(itr);
 			break;
 		}
 	}

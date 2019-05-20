@@ -1,6 +1,6 @@
-#include"Screen_helper.h"
+﻿#include"Screen_helper.h"
 #include"CoreTask.h"
-﻿#include "TitleTaskSystem.h"
+#include "TitleTaskSystem.h"
 //以下最適化済みヘッダー
 #include"System.h"
 #include"DxLib.h"

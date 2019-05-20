@@ -1,4 +1,3 @@
-#include "CoreTask.h"
 ﻿//最適化済みヘッダー
 #include "Camera.h"
 #include "System.h"

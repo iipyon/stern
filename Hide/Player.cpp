@@ -46,7 +46,7 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
+	DrawRotaGraph2(x - Map::get_camera().x+ mdl::player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
 void Player::StarManager::update(double ang, int x_)
