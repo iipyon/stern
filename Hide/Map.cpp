@@ -1,6 +1,7 @@
 ﻿#include"Map.h"
 #include"DxLib.h"
 #include"CoreTask.h"
+#include"System.h"
 #include<fstream>
 #include <string>
 #include <sstream>
@@ -124,7 +125,7 @@ void Map::draw()
 	ey = mapsizex / chipsize;	
 
 	//画面のサイズに合わせて調整可能
-	DrawExtendGraph(0, 0, 600, 600, backgraph, FALSE);
+	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
 
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {

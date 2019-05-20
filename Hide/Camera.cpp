@@ -1,5 +1,6 @@
 ﻿#include "Camera.h"
 #include "CoreTask.h"
+#include "System.h"
 
 Point Camera::range;
 bool Camera::mode;//enumで用意する可能性あり
@@ -11,8 +12,8 @@ void Camera::init()
 	//初期値を設定
 	range.x = 0;
 	range.y = 300;
-	range.w = 600;
-	range.h = 600;
+	range.w = System::width;
+	range.h = System::height;
 }
 void Camera::update()
 {
