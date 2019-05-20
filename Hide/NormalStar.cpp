@@ -39,7 +39,13 @@ void NormalStar::update()
 		}
 	}
 	attack();
-	shape->draw(point);
+	if (life > 60) {
+		shape->draw(point);
+	}
+	else if (life % 4 >= 2) {
+		shape->draw(point);
+	}
+
 }
 
 void NormalStar::inhale()

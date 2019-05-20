@@ -151,10 +151,10 @@ void Player::move()
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
-			point.x+= physicshape->Movement_X(point, -4);
+			point.x+= physicshape->Movement_X(point, -6);
 		}
 		else {
-			point.x += physicshape->Movement_X(point, -2);
+			point.x += physicshape->Movement_X(point, -3);
 		}
 	}
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
@@ -162,10 +162,10 @@ void Player::move()
 			/*if (velocityX <= +6) {
 				velocityX++;
 			}*/
-			point.x += physicshape->Movement_X(point, 4);
+			point.x += physicshape->Movement_X(point, 6);
 		}
 		else {
-			point.x += physicshape->Movement_X(point, 2);
+			point.x += physicshape->Movement_X(point, 3);
 		}
 	}
 	//ジャンプ
@@ -174,12 +174,14 @@ void Player::move()
 
 
 			if (Keyboard::key_down(KEY_INPUT_X)) {
-				jumpCnt = 10;
+				jumpCnt = 11;
 			}
 			if (jumpCnt > 0) {
 				
 				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
-				if (ct->gts->map->get_top(point)) {
+				Point extendpoint = point;
+				extendpoint.y--;
+				if (ct->gts->map->get_top(extendpoint)) {
 					jumpCnt = 0;
 				}
 
