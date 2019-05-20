@@ -16,6 +16,6 @@ protected:
 	void draw_txt(Text);
 public:
 	BasicUI();
-	int get_left(Text, int);
+	int get_left(Text);
 	int get_y(Text);
 };

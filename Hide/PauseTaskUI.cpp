@@ -1,5 +1,6 @@
 ﻿#include "PauseTaskUI.h"
 #include"DxLib.h"
+#include"System.h"
 
 PauseUI::PauseUI()
 {
@@ -9,7 +10,7 @@ PauseUI::PauseUI()
 	for (int i = 0; i < 3; ++i) {
 		text[i].color = GetColor(255, 255, 0);
 		text[i].text_width = get_width(text[i]);
-		text[i].x = 300 - (text[i].text_width / 2);
+		text[i].x = get_left(text[i]) / 2;
 		text[i].y = 340 + 50 * i;
 	}
 	pausebutton = PauseButton::returngame;
