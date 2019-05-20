@@ -28,6 +28,8 @@ public:
 	double get_angle();//星の移動のために角度情報が必要
 	void update();//更新処理
 	bool damage();//ダメージを受ける処理
+	bool recover();
+
 	void draw_interface(int);//UI描画
 	void move();//移動処理
 	bool knockback(int);//ノックバック

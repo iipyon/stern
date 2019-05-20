@@ -2,6 +2,7 @@
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
+#include "PlayerConfig.h"
 
 //----------------------------------
 //プレイヤー
@@ -96,6 +97,16 @@ void Player::init()
 {
 	point = p_point;
 	shape->set("player");//resource.jsonのnameが"player"のものをセットする
+}
+
+bool Player::recover()
+{
+	bool ret = false;
+	if (hp < PLAYER_MAX_LIFE) {
+		hp++;
+		ret = true;
+	}
+	return ret;
 }
 
 double Player::get_angle()

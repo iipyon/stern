@@ -122,7 +122,8 @@ void GameTaskSystem::attack_player_item()
 {
 	for (auto itr = item->begin(); itr != item->end(); itr++) {
 		if (CheckHit(player->get_point(), (*itr)->get_point())) {
-			//アイテムの識別手段が未確定
+			ct->gts->player->recover();
+			item->erase(itr);
 			break;
 		}
 	}

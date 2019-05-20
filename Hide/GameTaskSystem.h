@@ -24,7 +24,6 @@ private:
 	void attack_player_enemy();
 	void attack_player_item();
 
-
 protected:
 public:
 	GameTaskSystem();

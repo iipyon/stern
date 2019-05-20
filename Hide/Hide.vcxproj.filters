@@ -435,5 +435,8 @@
     <ClInclude Include="System.h">
       <Filter>config\System</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -192,6 +192,7 @@
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
+    <ClInclude Include="PlayerConfig.h" />
     <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="screen_helper.h" />
     <ClInclude Include="Spawn.h" />
