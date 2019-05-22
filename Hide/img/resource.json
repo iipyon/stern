@@ -2,9 +2,9 @@
   "graph": [
     {
       "name" :  "player",
-      "path": "img/player.png",
-      "width": 30,
-      "height": 30,
+      "path": "./img/graphics/player.png",
+      "width": 64,
+      "height": 128,
       "line": 1,
       "column": 1,
       "scope": [
@@ -13,9 +13,9 @@
     },
     {
       "name": "star",
-      "path": "img/star.png",
-      "width": 30,
-      "height": 30,
+      "path": "./img/graphics/star.png",
+      "width": 32,
+      "height": 32,
       "line": 1,
       "column": 1,
       "scope": [
@@ -23,74 +23,74 @@
         "star"
       ]
     },
-	{
+    {
       "name": "walking",
-      "path": "img/walking_enemy.png",
-      "width": 30,
-      "height": 30,
+      "path": "./img/graphics/walking.png",
+      "width": 64,
+      "height": 64,
       "line": 1,
       "column": 1,
       "scope": [
-		"walking",
-		"enemy"
+        "walking",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "flying",
-      "path": "img/flying_enemy.png",
-      "width": 30,
-      "height": 30,
+      "path": "./img/graphics/flying.png",
+      "width": 64,
+      "height": 64,
       "line": 1,
       "column": 1,
       "scope": [
-		"flying",
-		"enemy"
+        "flying",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "throwing",
-      "path": "img/flying_enemy.png",
-      "width": 30,
-      "height": 30,
+      "path": "./img/graphics/throwing.png",
+      "width": 64,
+      "height": 96,
       "line": 1,
       "column": 1,
       "scope": [
-		"throwing",
-		"enemy"
+        "throwing",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "bullet",
-      "path": "img/bulletsmp.png",
-      "width": 30,
-      "height": 30,
-      "line": 3,
-      "column": 3,
-	  "sheets": 9,
-	  "loop" : true,
-	  "interval" : 30,
+      "path": "./img/graphics/bullet.png",
+      "width": 32,
+      "height": 32,
+      "line": 1,
+      "column": 1,
+      "sheets": 0,
+      "loop": false,
+      "interval": 0,
       "scope": [
-		"bullet",
-		"enemy"
+        "bullet",
+        "enemy"
       ]
     },
-	{
+    {
       "name": "recovery",
-      "path": "img/reco_item.png",
-      "width": 30,
-      "height": 60,
+      "path": "./img/graphics/item.png",
+      "width": 32,
+      "height": 32,
       "line": 1,
       "column": 1,
       "scope": [
-		"item",
-		"recovery"
+        "item",
+        "recovery"
       ]
     },
 	{
       "name": "goal",
-      "path": "img/goal.png",
-      "width": 30,
-      "height": 60,
+      "path": "./img/graphics/goal.png",
+      "width": 128,
+      "height": 128,
       "line": 1,
       "column": 1,
       "scope": [

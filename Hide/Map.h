@@ -21,7 +21,7 @@ private:
 	std::string chipmap;
 	int graph;//絵
 	int backgraph;
-	int data[30][70];//最大30*70のマップを作成可能
+	int data[30][120];//最大30*70のマップを作成可能
 	int chipsize;
 	int chipwidth;
 	int mapsizex;

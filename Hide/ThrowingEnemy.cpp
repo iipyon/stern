@@ -21,7 +21,7 @@ void ThrowingEnemy::move()
 void ThrowingEnemy::appear_shot()
 {
 	if (cnt > 180) {
-		class Point b_point = { point.x,point.y,0,0 };
+		class Point b_point = { point.x,point.y + 32,32,32 };
 		struct PhysicState physic_state = { 0};//	float gravity; float repulsion;int weight;
 		struct EnemyState Enemy_state = { 1,1,anglestate };//	int life, int damage, int power, int life, double angle;
 
