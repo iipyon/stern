@@ -52,14 +52,14 @@ void PauseTask::change_scene()
 	//ゲームに戻る
 	switch (p_ui->getter()) {
 	case PauseButton::returngame:
-		ct->scene = Scene::game;//ゲームシーンに遷移
+		ct->change_scene(Scene::game);//ゲームシーンに遷移
 		break;
 	case PauseButton::exit:
 		//アプリケーション終了
 		break;
 	case PauseButton::backssts:
 		ct->gts->finalize();
-		ct->scene = Scene::stageselect;
+		ct->change_scene(Scene::stageselect);
 		break;
 	}
 	

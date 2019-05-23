@@ -13,7 +13,7 @@ void ClearTaskSystem::init()
 
 void ClearTaskSystem::update()
 {
-	if (timer-- < 0) ct->scene = Scene::title;	//タイトル(？)に戻る
+	if (timer-- < 0) ct->change_scene(Scene::title);
 	draw();
 }
 

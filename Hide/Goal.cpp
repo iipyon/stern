@@ -41,5 +41,5 @@ void Goal::to_cleartask()
 	//クリアシーンに遷移
 	ct->gts->finalize();
 	ct->cts->init();
-	ct->scene = Scene::clear;
+	ct->change_scene(Scene::clear);
 }

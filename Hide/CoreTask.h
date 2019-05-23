@@ -21,8 +21,9 @@ enum class Scene {
 
 class CoreTask {
 private:
-public:
 	Scene scene;//どのシーンからでも変えられるように
+public:
+	void change_scene(Scene);
 
 	CoreTask();
 	void update();

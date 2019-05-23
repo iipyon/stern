@@ -1,6 +1,7 @@
 ﻿#include"StageselectChara.h"
 #include"CoreTask.h"
 #include"Dxlib.h"
+#include"System.h"
 
 StageSelectChara::StageSelectChara(Point point_)
 {
@@ -9,9 +10,15 @@ StageSelectChara::StageSelectChara(Point point_)
 	point = point_;
 }
 
-void StageSelectChara::update(int& stage_,bool deg)
+void StageSelectChara::initialize(Point point_)
 {
-	select_stage(stage_,deg);
+	velocityX = 0;
+	point = point_;
+}
+
+void StageSelectChara::update(int& stage_, bool deg, int massline)
+{
+	select_stage(stage_, deg, massline);
 	move();
 	draw();
 	//DrawFormatString(0, 50, GetColor(255, 0, 0), "x座標 : %d", point.x);
@@ -22,25 +29,31 @@ void StageSelectChara::draw()
 	DrawGraph(point.x, point.y, graph, TRUE);
 }
 
-void StageSelectChara::select_stage(int& stage_,bool deg)
+void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 {
 	if (!deg) {
 		if (Keyboard::key_down(KEY_INPUT_RIGHT) && stage_ < 4 && velocityX == 0) {
-			velocityX = 18;
-			stage_++;//ステージセレクトタスクの方のステージ番号は加算されていない
+			velocityX = massline;
+			stage_++;
 		}
 		if (Keyboard::key_down(KEY_INPUT_LEFT) && stage_ > 1 && velocityX == 0) {
-			velocityX = -18;
+			velocityX = -massline;
 			stage_--;
 		}
+		move();//次のマスに移ったら移動を停止したい
 	}
-	if(velocityX > 0) velocityX--;
-	if(velocityX < 0) velocityX++;
 }
 
 void StageSelectChara::move()
 {
-	point.x += (int)velocityX;
+	if (velocityX > 0) {
+		point.x += 2;
+		velocityX -= 2;
+	}
+	if (velocityX < 0) {
+		point.x -= 2;
+		velocityX += 2;
+	}
 }
 
 int StageSelectChara::get_velocity()

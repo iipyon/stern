@@ -3,6 +3,7 @@
 #include <memory>
 #include"CoreTask.h"
 #include"Audio.h"
+#include"screen_helper.h"
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -51,7 +52,7 @@ void GameTaskSystem::update()
 	}
 	if (deg_flag) {
 		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			ct->scene = Scene::pause;
+			ct->change_scene(Scene::pause);
 		}
 	}
 	map->update();

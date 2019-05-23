@@ -1,5 +1,6 @@
 ﻿#include "CoreTask.h"
 #include "GameOverTaskSystem.h"
+#include"screen_helper.h"
 #include"Keyboard.h"
 #include"System.h"
 
@@ -93,13 +94,13 @@ void GameOverTaskSystem::change_scene()
 {
 	switch (gameover_ui->getter()) {
 	case SelectMode::Continue:
-		ct->scene = Scene::game;
+		ct->change_scene(Scene::game);
 		break;
 	case SelectMode::StageSelect:
-		ct->scene = Scene::stageselect;
+		ct->change_scene(Scene::stageselect);
 		break;
 	case SelectMode::Title:
-		ct->scene = Scene::title;
+		ct->change_scene(Scene::title);
 		break;
 	}
 }

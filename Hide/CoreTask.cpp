@@ -3,6 +3,30 @@
 
 GameTaskSystem *gts;
 
+void CoreTask::change_scene(Scene nextscene_)
+{
+	switch (scene)
+	{
+	case Scene::title:
+		TitleTaskSystem::init();
+		break;
+	case Scene::stageselect:
+		break;
+	case Scene::game:
+		break;
+	case Scene::gameover:
+		GameOverTaskSystem::initialize();
+		break;
+	case Scene::clear:
+		ct->cts->init();
+		break;
+	case Scene::pause:
+		PauseTask::initialize();
+		break;
+	}
+	scene = nextscene_;
+}
+
 CoreTask::CoreTask()
 {
 	gts = std::make_shared<GameTaskSystem>();

@@ -1,18 +1,22 @@
 ﻿#include "StageselectTaskTextBox.h"
 #include"DxLib.h"
+#include"System.h"
 
 StageSelectTextBox::StageSelectTextBox()
 {
 	boxgraph = LoadGraph("img/stageselect/textbox.png");
+	start_x = 0;
+	start_y = System::height - 300;//任意の描画スタート位置
+	end_x = System::width;
+	end_y = System::height;
 }
 
-void StageSelectTextBox::update(int stage_)
+void StageSelectTextBox::update()
 {
-	draw(stage_);
+	draw();
 }
 
-void StageSelectTextBox::draw(int stage_)
+void StageSelectTextBox::draw()
 {
-	DrawGraph(0, 300, boxgraph, TRUE);
-	DrawFormatString(250, 350, GetColor(0, 0, 0), " Stage %d", stage_);
+	DrawExtendGraph(start_x, start_y, end_x, end_y,boxgraph,FALSE);
 }

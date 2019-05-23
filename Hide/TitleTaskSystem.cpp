@@ -78,7 +78,7 @@ void TitleTaskSystem::change_scene()
 {
 	switch (title_ui->getter()) {
 	case Button::start:
-		ct->scene = Scene::stageselect;
+		ct->change_scene(Scene::stageselect);
 		break;
 	case Button::exit:
 		//exe終了
