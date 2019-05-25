@@ -10,9 +10,6 @@
     <Filter Include="controllers">
       <UniqueIdentifier>{d22ece5f-f712-44bd-bbc0-c3a21cb51743}</UniqueIdentifier>
     </Filter>
-    <Filter Include="helper">
-      <UniqueIdentifier>{4079cfb7-c581-4aea-aa5c-c6dd8c609d8f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="interfaces">
       <UniqueIdentifier>{5a003a86-df25-4fb6-8404-dde5c9ad3085}</UniqueIdentifier>
     </Filter>
@@ -149,11 +146,20 @@
     <Filter Include="Resources\json11">
       <UniqueIdentifier>{5a2fa18e-f626-44ef-aab0-24cd07dfb2c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\System">
+      <UniqueIdentifier>{e59b9463-24ed-4a23-8a5a-1450124e3a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\ScreenConfig">
+      <UniqueIdentifier>{30a4a805-6c44-4070-bd17-2048c5f2e334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="helper">
+      <UniqueIdentifier>{4079cfb7-c581-4aea-aa5c-c6dd8c609d8f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="helper\application_helper">
       <UniqueIdentifier>{5954ba32-6e5b-460c-90e6-e7037bd2ac45}</UniqueIdentifier>
     </Filter>
-    <Filter Include="config\System">
-      <UniqueIdentifier>{e59b9463-24ed-4a23-8a5a-1450124e3a42}</UniqueIdentifier>
+    <Filter Include="helper\screen_helper">
+      <UniqueIdentifier>{20bc24a6-8cbc-4ec9-8368-c2390f0c2a06}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +301,12 @@
     <ClCompile Include="System.cpp">
       <Filter>config\System</Filter>
     </ClCompile>
+    <ClCompile Include="screenhelper_config.cpp">
+      <Filter>config\ScreenConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="screen_helper.cpp">
+      <Filter>helper\screen_helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicResource.h">
@@ -426,9 +438,6 @@
     <ClInclude Include="GameTaskSystem.h">
       <Filter>controllers\game</Filter>
     </ClInclude>
-    <ClInclude Include="screen_helper.h">
-      <Filter>helper</Filter>
-    </ClInclude>
     <ClInclude Include="GameOverTaskUI.h">
       <Filter>views\game_over</Filter>
     </ClInclude>
@@ -437,6 +446,12 @@
     </ClInclude>
     <ClInclude Include="PlayerConfig.h">
       <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="screenhelper_config.h">
+      <Filter>config\ScreenConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="screen_helper.h">
+      <Filter>helper\screen_helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

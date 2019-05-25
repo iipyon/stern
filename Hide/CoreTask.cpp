@@ -1,27 +1,30 @@
 ﻿#include "CoreTask.h"
 #include "Rendering.h"
+#include"screen_helper.h"
 
 GameTaskSystem *gts;
 
 void CoreTask::change_scene(Scene nextscene_)
 {
-	switch (scene)
+	switch (nextscene_)
 	{
 	case Scene::title:
-		TitleTaskSystem::init();
+		TitleTaskSystem::init_member();
 		break;
 	case Scene::stageselect:
+		StageSelectTaskSystem::init_member();
 		break;
 	case Scene::game:
+		ct->gts->init_member();
 		break;
 	case Scene::gameover:
-		GameOverTaskSystem::initialize();
+		GameOverTaskSystem::init_member();
 		break;
 	case Scene::clear:
 		ct->cts->init();
 		break;
 	case Scene::pause:
-		PauseTask::initialize();
+		PauseTask::init_member();
 		break;
 	}
 	scene = nextscene_;
@@ -66,6 +69,8 @@ void CoreTask::init()
 	GraphicResource::init();
 	Keyboard::initialize();
 	Audio::init();
+	ScreenFunc::initialize();
+
 	Item::player = gts->player;
 	Enemy::player = gts->player;
 	//メンバ生成

@@ -161,6 +161,8 @@
     <ClCompile Include="Physic.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="NormalStar.cpp" />
+    <ClCompile Include="screenhelper_config.cpp" />
+    <ClCompile Include="screen_helper.cpp" />
     <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="SpawnItem.cpp" />
@@ -194,6 +196,7 @@
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="PlayerConfig.h" />
     <ClInclude Include="RecoveryItem.h" />
+    <ClInclude Include="screenhelper_config.h" />
     <ClInclude Include="screen_helper.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="SpawnEnemy.h" />

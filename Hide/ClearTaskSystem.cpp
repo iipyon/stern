@@ -1,5 +1,7 @@
 ﻿#include "ClearTaskSystem.h"
 #include "CoreTask.h"
+#include"screen_helper.h"
+#include"screenhelper_config.h"
 
 ClearTaskSystem::ClearTaskSystem()
 {
@@ -8,17 +10,31 @@ ClearTaskSystem::ClearTaskSystem()
 
 void ClearTaskSystem::init()
 {
-	timer = 120;	//標準値(仮に2秒
+	feed_flag = false;
+}
+
+void ClearTaskSystem::init_member()
+{
+	feed_flag = false;
 }
 
 void ClearTaskSystem::update()
 {
-	if (timer-- < 0) ct->change_scene(Scene::title);
+	if (Keyboard::key_down(KEY_INPUT_Z) && !feed_flag) {
+		feed_flag = true;
+		Audio::play("decision");
+	}
 	draw();
+	if (feed_flag) {
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
+			ct->change_scene(Scene::stageselect);
+		}
+	}
+	else {
+		ScreenFunc::FeedIn(ScreenHelperGraph::white_graph);
+	}
 }
 
 void ClearTaskSystem::draw() {
-	//ここでクリア画面を描画する
-	//要件が不明なので仕様に基づく記述不可
-	DrawFormatString(100, 100, GetColor(0, 255, 0), "ClearTaskSystem::draw()");
+	DrawFormatString(100, 100, GetColor(0, 255, 0), "Push Z key");
 }

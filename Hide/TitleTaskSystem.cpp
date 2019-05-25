@@ -3,38 +3,50 @@
 #include"System.h"
 #include"DxLib.h"
 #include"Screen_helper.h"
+#include"screenhelper_config.h"
 
 int TitleTaskSystem::backgraph;
-bool TitleTaskSystem::deg_flag;
-int TitleTaskSystem::feedcnt;
+bool TitleTaskSystem::feed_flag;
 std::unique_ptr<TitleUI> TitleTaskSystem::title_ui;
 
 void TitleTaskSystem::init()
 {
 	title_ui = std::make_unique<TitleUI>();
 	backgraph = LoadGraph("img/title/title.png");
-	deg_flag = false;
-	feedcnt = 255;
+	feed_flag = false;
+	title_ui->init();
+}
+
+void TitleTaskSystem::init_member()
+{
+	feed_flag = false;
 	title_ui->init();
 }
 
 void TitleTaskSystem::update()
 {
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
-	if (deg_flag) {
-		if(ScreenFunc::FeedOut(deg_flag, feedcnt)){
+	draw();
+	//フェードアウト開始していないなら動かせる
+	if (feed_flag == false) {
+		selecter_move();
+	}
+	title_ui->update();
+
+	if (feed_flag) {//フェードアウトの指示が来たら
+		//暗くしていく(黒)
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
+			feed_flag = false;
 			change_scene();
 		}
 	}
-	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
-		deg_flag = true;
+	else {//指示が来ていないなら
+		//黒を透明にする
+		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
+	}
+	if (Keyboard::key_down(KEY_INPUT_Z) && !feed_flag) {
+		feed_flag = true;
 		Audio::play("decision");
 	}
-
-	draw();
-	selecter_move();
-	title_ui->update();
-	//カーソルの大きさが40のため余裕をもってあけておく
 }
 
 void TitleTaskSystem::finalize()

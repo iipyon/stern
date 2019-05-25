@@ -17,8 +17,7 @@
 class GameTaskSystem
 {
 private:
-	bool deg_flag;
-	int feedcnt;
+	bool feed_flag;
 
 	void attack_star_enemy();
 	void attack_player_enemy();
@@ -29,6 +28,7 @@ public:
 	GameTaskSystem();
 	~GameTaskSystem();
 	void init();
+	void init_member();
 	void update();
 	void finalize();
 	//~GameTaskSystem();

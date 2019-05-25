@@ -2,13 +2,14 @@
 #include"Screen_helper.h"
 #include"CoreTask.h"
 #include"System.h"
+#include"screenhelper_config.h"
 
 //静的定義----------------------------------------------------------------
 int StageSelectTaskSystem::stage;//ステージ識別番号
 bool StageSelectTaskSystem::state[4];//クリアフラグ（ステージ総数によって変える）
 
-bool StageSelectTaskSystem::deg_flag;
-int StageSelectTaskSystem::feedcnt;
+bool StageSelectTaskSystem::feed_flag;
+
 int StageSelectTaskSystem::backgraph;//背景画像
 std::unique_ptr<StageSelectTaskMass> StageSelectTaskSystem::mass;
 std::unique_ptr<StageSelectChara> StageSelectTaskSystem::chara;
@@ -29,8 +30,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", ct->gts->enemys);
 	spawnitem = std::make_unique<SpawnItem>("img/item.json", ct->gts->item);
 
-	feedcnt = 0;
-	deg_flag = false;
+	feed_flag = false;
+
 	stage = 1;
 	for (int i = 0; i < sizeof(state); ++i) {
 		state[i] = false;
@@ -38,20 +39,30 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	backgraph = LoadGraph("img/stageselect/back.png");
 }
 
+void StageSelectTaskSystem::init_member()
+{
+	feed_flag = false;
+}
+
 void StageSelectTaskSystem::initialize()
 {
 	class Point point = { mass->get_massX(0),200,30,30 };
 	chara->initialize(point);
-	feedcnt = 0;
-	deg_flag = false;
+	feed_flag = false;
 	//stage = 1;
 }
 
 void StageSelectTaskSystem::update()
 {
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
-	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
+	draw();
+
+	mass->update();
+	chara->update(stage, feed_flag, mass->get_massline());
+	txtbox->update();
+	//フェードアウトしていきながらゲームシーンに切り替える
+	if (feed_flag) {
+		//黒くなっていく
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
 			switch (stage)
 			{
 			case 1:
@@ -80,15 +91,14 @@ void StageSelectTaskSystem::update()
 			ct->change_scene(Scene::game);
 		}
 	}
-	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0 && !deg_flag) {
-		deg_flag = true;
-
+	else {
+		//黒から明るくなる
+		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
-	draw();
-	
-	mass->update();
-	chara->update(stage,deg_flag,mass->get_massline());
-	txtbox->update();
+	//ステージ決定時
+	if (Keyboard::key_down(KEY_INPUT_Z) && chara->get_velocity() == 0 && !feed_flag) {
+		feed_flag = true;
+	}
 }
 
 void StageSelectTaskSystem::draw()

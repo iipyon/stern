@@ -1,41 +1,47 @@
 ﻿#include "CoreTask.h"
 #include "GameOverTaskSystem.h"
 #include"screen_helper.h"
+#include"screenhelper_config.h"
 #include"Keyboard.h"
 #include"System.h"
 
 int GameOverTaskSystem::backGraph;//背景
 
-bool GameOverTaskSystem::deg_flag;
-int GameOverTaskSystem::feedcnt;
+bool GameOverTaskSystem::feed_flag;
 
 std::unique_ptr<GameOverUI> GameOverTaskSystem::gameover_ui;
+
+void GameOverTaskSystem::init_member()
+{
+	feed_flag = false;
+}
 
 void GameOverTaskSystem::initialize()
 {
 	gameover_ui = std::make_unique<GameOverUI>();
 	backGraph = LoadGraph("./img/gameover/gameover.png");
-	deg_flag = false;
-	feedcnt = 255;
+	feed_flag = false;
 }
 
 void GameOverTaskSystem::update()
 {
 	//コンテニュー時敵の生成、アイテムの生成、ステージセレクトのupdateで行っている処理のほとんどを行うため
 	//spawnをCoreに移す必要がある？
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
-	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			change_scene();
-		}
-	}
-	if (Keyboard::key_down(KEY_INPUT_Z) && !deg_flag) {
-		deg_flag = true;
+	if (Keyboard::key_down(KEY_INPUT_Z) && !feed_flag) {
+		feed_flag = true;
 		Audio::play("decision");
 	}
 	draw();
 	selecter_move();
 	gameover_ui->update();
+	if (feed_flag) {
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
+			change_scene();
+		}
+	}
+	else {
+		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
+	}
 }
 
 void GameOverTaskSystem::finalize()

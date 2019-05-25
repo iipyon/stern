@@ -6,8 +6,7 @@
 class TitleTaskSystem {
 private:
 	static int backgraph;
-	static bool deg_flag;
-	static int feedcnt;
+	static bool feed_flag;
 
 	TitleTaskSystem();
 	static void selecter_move();
@@ -15,6 +14,7 @@ private:
 	static std::unique_ptr<TitleUI> title_ui;
 public:
 	static void init();
+	static void init_member();
 	static void update();
 	static void finalize();
 	static void draw();

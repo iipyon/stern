@@ -4,15 +4,16 @@
 #include"CoreTask.h"
 #include"Audio.h"
 #include"screen_helper.h"
+#include"screenhelper_config.h"
 
 GameTaskSystem::GameTaskSystem()
 {
 	//Point point_, PhysicState physic_state_, PlayerState player_state
 	class Point p_point;
 	class Point g_point;
-	struct PhysicState p_physic_state = { 1};//gra,過去の遺物(rep,wei)
+	struct PhysicState p_physic_state = { 1 };//gra,過去の遺物(rep,wei)
 	struct PlayerState player_state = { 3,2 };//life,hp
-
+	//メモリ確保
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	gravityStar = std::vector<GravityStar>();
@@ -20,8 +21,8 @@ GameTaskSystem::GameTaskSystem()
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
-	feedcnt = 0;
-	deg_flag = false;
+	//スクリーン関係
+	feed_flag = false;
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -31,7 +32,7 @@ GameTaskSystem::~GameTaskSystem()
 void GameTaskSystem::init()
 {
 	//ステージごとに音楽を入れ替える
-	switch (ct->ssts->get_stage()) {
+	switch (StageSelectTaskSystem::get_stage()) {
 	case 1:
 		Audio::play("stage1");
 		break;
@@ -39,22 +40,17 @@ void GameTaskSystem::init()
 	Camera::init();
 	player->init();
 	goal->init();
+	feed_flag = false;
+}
+
+void GameTaskSystem::init_member()
+{
+	feed_flag = false;
 }
 
 
 void GameTaskSystem::update()
 {
-	ScreenFunc::FeedIn(deg_flag, feedcnt);
-	//ポーズへの遷移
-	if (Keyboard::key_down(KEY_INPUT_BACK)) {
-		Audio::play("decision");
-		deg_flag = true;
-	}
-	if (deg_flag) {
-		if (ScreenFunc::FeedOut(deg_flag, feedcnt)) {
-			ct->change_scene(Scene::pause);
-		}
-	}
 	map->update();
 	goal->update();
 	//☆------------------------------
@@ -89,6 +85,36 @@ void GameTaskSystem::update()
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
 	}
 	enemy_transaction->clear();	//enemy_transactionを空にする
+
+	//ポーズへの遷移---------------------------------------------
+	if (Keyboard::key_down(KEY_INPUT_BACK)) {
+		Audio::play("decision");
+		feed_flag = true;
+	}
+	if (goal->get_clear_flag()) {//ゴール時
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
+			ct->change_scene(Scene::clear);
+		}
+	}
+	else if (feed_flag) {//ゴールしてなくてフェードフラグが起動したら
+		//ポーズ遷移
+		//プレイヤーの死亡フラグ分が追加になるかもしれない
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
+			ct->change_scene(Scene::pause);
+		}
+	}
+	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
+		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
+	}
+	//------------------------------------------------------------
+	//ゲームオーバーへの遷移
+	//プレイヤーが死んだらの中に記述予定
+	//feed_flag = true;//死んだらフェード開始
+	/*if (feed_flag) {//ホワイトアウト
+		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
+			ct->change_scene(Scene::gameover);
+		}
+	}*/
 }
 
 void GameTaskSystem::finalize()
@@ -114,7 +140,7 @@ void GameTaskSystem::attack_player_enemy()
 				//enemys->erase(itr);
 				break;
 			}
-			
+
 		}
 	}
 }
@@ -141,7 +167,7 @@ void GameTaskSystem::attack_star_enemy()
 				deleted = true;
 				break;
 			}
-			
+
 		}
 		if (deleted == true)break;
 	}

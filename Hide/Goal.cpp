@@ -2,6 +2,11 @@
 #include"CoreTask.h"
 #include "BasicObject.h"
 
+bool Goal::get_clear_flag()
+{
+	return clear_flag;
+}
+
 Goal::Goal(Point point_):  BasicObject(point)
 {
 }
@@ -18,9 +23,12 @@ void Goal::init()
 
 void Goal::update()
 {
+	DrawString(0, 0, "ゴールは現在仮処理です,これが消えたらゴールの完成です", GetColor(255, 0, 0));
 	if (hit(ct->gts->player->get_point())) {
-		to_cleartask();
+		clear_flag = true;//プレイヤーと触れたらクリア（仮処理）
 	}
+
+	shape->draw(point);
 }
 
 bool Goal::hit(Point player_)
@@ -30,16 +38,8 @@ bool Goal::hit(Point player_)
 		player_.y < point.y + point.h &&
 		player_.y + player_.h > point.y)
 	{
-		to_cleartask();
+		return true;
 	}
-	shape->draw(point);
+	
 	return false;
-}
-
-void Goal::to_cleartask()
-{
-	//クリアシーンに遷移
-	ct->gts->finalize();
-	ct->cts->init();
-	ct->change_scene(Scene::clear);
 }
