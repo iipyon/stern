@@ -159,10 +159,10 @@ void Player::move()
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
-			point.x+= physicshape->Movement_X(point, -6);
+			point.x+= physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
 		}
 		else {
-			point.x += physicshape->Movement_X(point, -3);
+			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
 		}
 	}
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
@@ -170,10 +170,10 @@ void Player::move()
 			/*if (velocityX <= +6) {
 				velocityX++;
 			}*/
-			point.x += physicshape->Movement_X(point, 6);
+			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
 		}
 		else {
-			point.x += physicshape->Movement_X(point, 3);
+			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
 		}
 	}
 	//ジャンプ

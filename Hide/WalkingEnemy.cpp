@@ -1,5 +1,6 @@
 ﻿#include "WalkingEnemy.h"
 #include"CoreTask.h"
+#include"WalkingEnemyConfig.h"
 
 WalkingEnemy::WalkingEnemy(Point point_, PhysicState physic_state_, EnemyState enemy_state_) : Enemy(point_, physic_state_, enemy_state_)
 {
@@ -22,11 +23,11 @@ void WalkingEnemy::move()
 		switch (anglestate) {
 		case AngleState::right:
 			//init_renderで右向きにする
-			point.x += physicshape->Movement_X(point, 1);
+			point.x += physicshape->Movement_X(point, WalkingSpeed);
 			break;
 		case AngleState::left:
 			//init_renderで左向きにする
-			point.x += physicshape->Movement_X(point, -1);
+			point.x += physicshape->Movement_X(point, -WalkingSpeed);
 			break;
 		}
 		break;
@@ -39,8 +40,8 @@ void WalkingEnemy::move()
 
 void WalkingEnemy::check_left()
 {
-	//今の画像の大きさが30*30のため
-	Point left{ point.x-1,point.y,-1,30 };//不明な変更点
+	//今の画像の大きさが64*64のため
+	Point left{ point.x-1,point.y,-1,64 };//不明な変更点
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_left(left) != 0) {
@@ -50,8 +51,8 @@ void WalkingEnemy::check_left()
 
 void WalkingEnemy::check_right()
 {
-	//今の画像の大きさが30*30のため
-	Point right{ point.x + 30,point.y,1,30 };
+	//今の画像の大きさが64*64のため
+	Point right{ point.x + 64,point.y,1,64 };
 	//仮の当たり判定
 	//MapのGet_leftを呼ぶ?
 	if (ct->gts->map->get_right(right) != 0) {

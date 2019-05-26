@@ -21,10 +21,10 @@ void FlyingEnemy::move()
 	{
 		//飛行
 	case FlyingState::down:
-		point.y += physicshape->Movement_Y(point,1);
+		point.y += physicshape->Movement_Y(point,FlyingSpeed);
 		break;
 	case FlyingState::up:
-		point.y += physicshape->Movement_Y(point, -1);
+		point.y += physicshape->Movement_Y(point, -FlyingSpeed);
 		break;
 	case FlyingState::stay:
 		point.y += physicshape->Movement_Y(point, 0);
@@ -36,20 +36,20 @@ void FlyingEnemy::move()
 void FlyingEnemy::change_state()
 {
 	//   
-	movecnt++;// 
-	if (movecnt <= FlyingDown) {
+	movecnt += FlyingSpeed;
+	if (movecnt <= FlyingUpDown) {
 		flyingstate = FlyingState::down;
 		if (ct->gts->map->get_bottom(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
-	else if (movecnt <= FlyingUp) {
+	else if (movecnt <= FlyingUpDown * 2) {
 		flyingstate = FlyingState::up;
 		if (ct->gts->map->get_top(point)) {
 			flyingstate = FlyingState::stay;
 		}
 	}
-	if (movecnt >= 384) {
+	if (movecnt >= FlyingUpDown * 2) {
 		movecnt = 0;
 	}
 }
