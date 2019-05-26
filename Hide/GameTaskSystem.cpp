@@ -3,8 +3,10 @@
 #include <memory>
 #include"CoreTask.h"
 #include"Audio.h"
+#include "Keyboard.h"
 #include"screen_helper.h"
 #include"screenhelper_config.h"
+#include "Scene.h"
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -93,14 +95,14 @@ void GameTaskSystem::update()
 	}
 	if (goal->get_clear_flag()) {//ゴール時
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
-			ct->change_scene(Scene::clear);
+			Scene::set_scene(SceneType::clear);
 		}
 	}
 	else if (feed_flag) {//ゴールしてなくてフェードフラグが起動したら
 		//ポーズ遷移
 		//プレイヤーの死亡フラグ分が追加になるかもしれない
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
-			ct->change_scene(Scene::pause);
+			Scene::set_scene(SceneType::pause);
 		}
 	}
 	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu

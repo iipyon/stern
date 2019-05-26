@@ -2,6 +2,9 @@
 #include "CoreTask.h"
 #include"screen_helper.h"
 #include"screenhelper_config.h"
+#include "Scene.h"
+#include "Keyboard.h"
+#include "Audio.h"
 
 ClearTaskSystem::ClearTaskSystem()
 {
@@ -27,7 +30,7 @@ void ClearTaskSystem::update()
 	draw();
 	if (feed_flag) {
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
-			ct->change_scene(Scene::stageselect);
+			Scene::set_scene(SceneType::stageselect);
 		}
 	}
 	else {

@@ -1,6 +1,7 @@
 ﻿#include"Goal.h"
 #include"CoreTask.h"
 #include "BasicObject.h"
+#include "Scene.h"
 
 bool Goal::get_clear_flag()
 {

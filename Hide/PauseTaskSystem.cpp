@@ -4,6 +4,9 @@
 #include"screen_helper.h"
 #include"screenhelper_config.h"
 #include"DxLib.h"
+#include "Scene.h"
+#include "Keyboard.h"
+#include "Audio.h"
 
 //UIクラス
 std::unique_ptr<PauseUI> PauseTask::p_ui;
@@ -57,7 +60,7 @@ void PauseTask::change_scene()
 	//ゲームに戻る
 	switch (p_ui->getter()) {
 	case PauseButton::returngame:
-		ct->change_scene(Scene::game);
+		Scene::set_scene(SceneType::game); // ゲームシーンに遷移
 		break;
 	case PauseButton::exit:
 		PauseTask::finalize();
@@ -66,7 +69,7 @@ void PauseTask::change_scene()
 		break;
 	case PauseButton::backssts:
 		ct->gts->finalize();
-		ct->change_scene(Scene::stageselect);
+		Scene::set_scene(SceneType::stageselect);
 		break;
 	}
 

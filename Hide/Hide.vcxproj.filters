@@ -161,6 +161,9 @@
     <Filter Include="helper\screen_helper">
       <UniqueIdentifier>{20bc24a6-8cbc-4ec9-8368-c2390f0c2a06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="interfaces\Scene">
+      <UniqueIdentifier>{565f1bcf-0b34-4cfd-8bb8-a3455f33deac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -306,6 +309,9 @@
     </ClCompile>
     <ClCompile Include="screen_helper.cpp">
       <Filter>helper\screen_helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>interfaces\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -458,6 +464,9 @@
     </ClInclude>
     <ClInclude Include="WalkingEnemyConfig.h">
       <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>interfaces\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

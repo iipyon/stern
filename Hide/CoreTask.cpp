@@ -1,63 +1,44 @@
 ﻿#include "CoreTask.h"
 #include "Rendering.h"
+#include "GameOverTaskSystem.h"
+#include "TitleTaskSystem.h"
+#include "PauseTaskSystem.h"
+#include "Keyboard.h"
+#include "Audio.h"
+#include "Scene.h"
 #include"screen_helper.h"
 
 GameTaskSystem *gts;
 
-void CoreTask::change_scene(Scene nextscene_)
-{
-	switch (nextscene_)
-	{
-	case Scene::title:
-		TitleTaskSystem::init_member();
-		break;
-	case Scene::stageselect:
-		StageSelectTaskSystem::init_member();
-		break;
-	case Scene::game:
-		ct->gts->init_member();
-		break;
-	case Scene::gameover:
-		GameOverTaskSystem::init_member();
-		break;
-	case Scene::clear:
-		ct->cts->init();
-		break;
-	case Scene::pause:
-		PauseTask::init_member();
-		break;
-	}
-	scene = nextscene_;
-}
 
 CoreTask::CoreTask()
 {
 	gts = std::make_shared<GameTaskSystem>();
 	cts = std::make_shared<ClearTaskSystem>();
-	scene = Scene::title;
+	Scene::set_scene(SceneType::title);
 }
 
 void CoreTask::update()
 {
 	Keyboard::update();
-	switch (scene) {
-	case Scene::title:
+	switch (Scene::get_scene()) {
+	case SceneType::title:
 		TitleTaskSystem::update();
 		break;
-	case Scene::stageselect:
+	case SceneType::stageselect:
 		ssts->update();
 		break;
-	case Scene::game:
+	case SceneType::game:
 		//graph->load("player");
 		gts->update();
 		break;
-	case Scene::gameover:
+	case SceneType::gameover:
 		GameOverTaskSystem::update();
 		break;
-	case Scene::clear:
+	case SceneType::clear:
 		cts->update();
 		break;
-	case Scene::pause:
+	case SceneType::pause:
 		PauseTask::update();
 		break;
 	}

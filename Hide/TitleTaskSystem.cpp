@@ -4,6 +4,9 @@
 #include"DxLib.h"
 #include"Screen_helper.h"
 #include"screenhelper_config.h"
+#include "Keyboard.h"
+#include "Audio.h"
+#include "Scene.h"
 
 int TitleTaskSystem::backgraph;
 bool TitleTaskSystem::feed_flag;
@@ -90,7 +93,7 @@ void TitleTaskSystem::change_scene()
 {
 	switch (title_ui->getter()) {
 	case Button::start:
-		ct->change_scene(Scene::stageselect);
+		Scene::set_scene(SceneType::stageselect);
 		break;
 	case Button::exit:
 		//exe終了

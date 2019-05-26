@@ -3,7 +3,9 @@
 #include"screen_helper.h"
 #include"screenhelper_config.h"
 #include"Keyboard.h"
+#include "Audio.h"
 #include"System.h"
+#include "Scene.h"
 
 int GameOverTaskSystem::backGraph;//背景
 
@@ -100,13 +102,13 @@ void GameOverTaskSystem::change_scene()
 {
 	switch (gameover_ui->getter()) {
 	case SelectMode::Continue:
-		ct->change_scene(Scene::game);
+		Scene::set_scene(SceneType::game);
 		break;
 	case SelectMode::StageSelect:
-		ct->change_scene(Scene::stageselect);
+		Scene::set_scene(SceneType::stageselect);
 		break;
 	case SelectMode::Title:
-		ct->change_scene(Scene::title);
+		Scene::set_scene(SceneType::title);
 		break;
 	}
 }

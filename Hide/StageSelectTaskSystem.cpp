@@ -3,6 +3,8 @@
 #include"CoreTask.h"
 #include"System.h"
 #include"screenhelper_config.h"
+#include "Keyboard.h"
+#include "Scene.h"
 
 //静的定義----------------------------------------------------------------
 int StageSelectTaskSystem::stage;//ステージ識別番号
@@ -96,7 +98,7 @@ void StageSelectTaskSystem::update()
 			}
 			ct->gts->init();
 			ct->cts->init();
-			ct->change_scene(Scene::game);
+			Scene::set_scene(SceneType::game);
 		}
 	}
 	else {

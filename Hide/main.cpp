@@ -2,6 +2,7 @@
 #include"CoreTask.h"
 #include"Player.h"
 #include "System.h"
+#include "Keyboard.h"
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic
