@@ -48,6 +48,7 @@ void GameTaskSystem::init()
 void GameTaskSystem::init_member()
 {
 	feed_flag = false;
+	goal->set_clearflag(false);
 }
 
 

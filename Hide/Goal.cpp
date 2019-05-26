@@ -8,6 +8,11 @@ bool Goal::get_clear_flag()
 	return clear_flag;
 }
 
+void Goal::set_clearflag(bool clear_)
+{
+	clear_flag = clear_;
+}
+
 Goal::Goal(Point point_):  BasicObject(point)
 {
 }
