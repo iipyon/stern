@@ -126,7 +126,10 @@ void Map::draw()
 
 	//画面のサイズに合わせて調整可能
 	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
-
+	if (ex < 0)ex = 0;
+	else if (ex > 120)ex = 120;
+	if (ey < 0) ey = 0;
+	else if (ey > 30)ey = 30;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			DrawRectGraph((x * chipsize) - camera.x , (y * chipsize) - camera.y,
