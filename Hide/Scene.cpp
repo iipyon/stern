@@ -12,20 +12,24 @@ void Scene::set_scene(SceneType type)
 	switch (scene)
 	{
 	case SceneType::title:
-		TitleTaskSystem::init();
+		TitleTaskSystem::init_member();
 		break;
 	case SceneType::stageselect:
+		StageSelectTaskSystem::init_member();
 		break;
 	case SceneType::game:
+		//GameTaskSystem::init_member();
+		ct->gts->init_member();
 		break;
 	case SceneType::gameover:
-		GameOverTaskSystem::initialize();
+		GameOverTaskSystem::init_member();
 		break;
 	case SceneType::clear:
-		ct->cts->init();
+		//ClearTaskSystem::init_member();
+		ct->cts->init_member();
 		break;
 	case SceneType::pause:
-		PauseTask::initialize();
+		PauseTask::init_member();
 		break;
 	}
 }

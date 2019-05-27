@@ -23,7 +23,7 @@ void TitleTaskSystem::init()
 void TitleTaskSystem::init_member()
 {
 	feed_flag = false;
-	title_ui->init();
+	//title_ui->init();
 }
 
 void TitleTaskSystem::update()
