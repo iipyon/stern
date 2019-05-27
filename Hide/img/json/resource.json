@@ -2,8 +2,8 @@
   "graph": [
     {
       "name" :  "player",
-      "path": "./img/graphics/player.png",
-      "width": 64,
+      "path": "./img/graphics/player/player_idol_Right.png",
+      "width": 96,
       "height": 128,
       "line": 1,
       "column": 1,
