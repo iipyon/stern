@@ -5,6 +5,7 @@
 #include"screenhelper_config.h"
 #include "Keyboard.h"
 #include "Scene.h"
+#include "PlayerController.h"
 
 //静的定義----------------------------------------------------------------
 int StageSelectTaskSystem::stage;//ステージ識別番号
@@ -73,6 +74,7 @@ void StageSelectTaskSystem::update()
 				ct->gts->goal->spawn(7488, 1728, 128, 128);
 				spawnenemy->create("1");
 				spawnitem->create("1");
+
 				break;
 			case 2:
 				ct->gts->map->init((char*)"2");
@@ -96,6 +98,7 @@ void StageSelectTaskSystem::update()
 				spawnitem->create("4");
 				break;
 			}
+			PlayerController::initialize();
 			ct->gts->init();
 			ct->cts->init();
 			Scene::set_scene(SceneType::game);

@@ -14,12 +14,11 @@ GameTaskSystem::GameTaskSystem()
 	class Point p_point;
 	class Point g_point;
 	struct PhysicState p_physic_state = { 1 };//gra,過去の遺物(rep,wei)
-	struct PlayerState player_state = { 3,2 };//life,hp
 	//メモリ確保
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	gravityStar = std::vector<GravityStar>();
-	player = std::make_shared<Player>(p_point, p_physic_state, player_state);
+	player = std::make_shared<Player>(p_point, p_physic_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();

@@ -75,10 +75,10 @@ void Player::StarManager::update(double ang, int x_)
 	}
 }
 
-Player::Player(Point point_, PhysicState physic_state_, PlayerState player_state):BasicObject(point)
+Player::Player(Point point_, PhysicState physic_state_):BasicObject(point)
 {
-	life = player_state.life;
-	hp = player_state.life;
+	life = PLAYER_MAX_LIFE;
+	hp = PLAYER_MAX_HP;
 	angle = 0;
 	invincible = 0;
 	jumpCnt = 0;
@@ -108,10 +108,7 @@ bool Player::recover()
 	return ret;
 }
 
-double Player::get_angle()
-{
-	return angle;
-}
+
 
 void Player::update()
 {
@@ -216,3 +213,31 @@ void Player::jump(int pow) {
 }
 
 
+//アクセサメソッド
+
+void Player::set_hp(int hp) {
+	if (hp < 0) hp = 0;
+	this->hp = hp;
+}
+int Player::get_hp() {
+	return this->hp;
+}
+void Player::set_angle(double angle) {
+	this->angle = angle;
+}
+double Player::get_angle()
+{
+	return this->angle;
+}
+void Player::set_invincible(int invincible) {
+	this->invincible = invincible;
+}
+int Player::get_invincible() {
+	return this->invincible;
+}
+void Player::set_life(int life) {
+	this->life = life;
+}
+int Player::get_life() {
+	return this->life;
+}
