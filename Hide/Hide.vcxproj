@@ -185,6 +185,7 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="EnemyConfig.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />

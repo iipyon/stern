@@ -34,11 +34,11 @@ void ThrowingEnemy::change_angle()
 {
 	//プレイヤーの座標が敵より小さかったら左に向く
 	if (ct->gts->player->get_point().x < point.x) {
-		anglestate = AngleState::right;
+		anglestate = AngleState::left;
 		//右向きアニメに変える
 	}
 	else {
-		anglestate = AngleState::left;
+		anglestate = AngleState::right;
 	}
 }
 

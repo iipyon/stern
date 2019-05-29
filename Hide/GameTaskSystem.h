@@ -22,6 +22,7 @@ private:
 	void attack_star_enemy();
 	void attack_player_enemy();
 	void attack_player_item();
+	void deleted_bullet_enemy();
 
 protected:
 public:

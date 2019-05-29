@@ -7,5 +7,6 @@ public:
 	void move() override;
 private:
 	int angle;
+	bool map_checkhit(Point);
 protected:
 };

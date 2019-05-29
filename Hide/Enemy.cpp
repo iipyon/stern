@@ -10,6 +10,7 @@ Enemy::Enemy(Point point, PhysicState physic_state, EnemyState enemy_state):Basi
 	life = enemy_state.life;
 	damaged = enemy_state.damage;
 	anglestate = enemy_state.anglestate;
+	active = true;
 }
 
 bool Enemy::attack()
@@ -40,4 +41,9 @@ bool Enemy::damage(int d_)
 		return true;
 	}
 	return false;
+}
+
+bool Enemy::get_active()
+{
+	return active;
 }

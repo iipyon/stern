@@ -83,6 +83,7 @@ void GameTaskSystem::update()
 	attack_player_enemy();
 	attack_player_item();
 	attack_star_enemy();
+	deleted_bullet_enemy();//存在フラグを用意してhp0またはマップヒットで死亡する（bulletのみ）
 	//トランザクションの実行
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
 		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
@@ -155,6 +156,16 @@ void GameTaskSystem::attack_player_item()
 			ct->gts->player->recover();
 			item->erase(itr);
 			break;
+		}
+	}
+}
+
+void GameTaskSystem::deleted_bullet_enemy()
+{
+	for (auto bullet_itr = enemys->begin(); bullet_itr != enemys->end(); bullet_itr++) {
+		if (!(*bullet_itr)->get_active()){
+			enemys->erase(bullet_itr);
+			break;//消したらブレイク
 		}
 	}
 }

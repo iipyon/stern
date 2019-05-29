@@ -33,11 +33,13 @@ public :
 	virtual void update() final;
 	virtual bool damage(int) final;
 
+	bool get_active();
 protected:
 	//プロパティ
 	int hp;//残り体力
 	int power;
 	int knock_back;
+	bool active;
 	AngleState anglestate;
 	friend class CoreTask;
 	static std::shared_ptr<Player> player;
