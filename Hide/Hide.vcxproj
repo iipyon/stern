@@ -193,6 +193,7 @@
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="MapConfig.h" />
     <ClInclude Include="PauseTaskSystem.h" />
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="PlayerConfig.h" />

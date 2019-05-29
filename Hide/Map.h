@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include"Point.h"
 #include "json11.hpp"
+#include "MapConfig.h"
 
 //---------------------------------
 //マップデータ
@@ -21,7 +22,7 @@ private:
 	std::string chipmap;
 	int graph;//絵
 	int backgraph;
-	int data[30][120];//最大30*70のマップを作成可能
+	int data[MAP_DATA_Y_SIZE][MAP_DATA_X_SIZE];
 	int chipsize;
 	int chipwidth;
 	int mapsizex;
