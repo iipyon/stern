@@ -3,7 +3,10 @@
 #include"CoreTask.h"
 #include"Keyboard.h"
 #include "PlayerConfig.h"
-
+#include"Scene.h"
+#include"screenhelper_config.h"
+#include"screen_helper.h"
+#include"Audio.h"
 //----------------------------------
 //プレイヤー
 //----------------------------------
@@ -17,9 +20,9 @@ Player::PlayerInterface::PlayerInterface()
 
 void Player::PlayerInterface::draw()
 {
-	//残機
+	/*///残機
 	DrawGraph(500, 0, lifegraph, FALSE);
-	DrawFormatString(540, 0, GetColor(255, 255, 255), " × %d",life);
+	DrawFormatString(540, 0, GetColor(255, 255, 255), " × %d",life);*/
 	//HP
 	for (int i = 0; i < 3; ++i) {
 		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
@@ -94,6 +97,7 @@ void Player::spawn(int x_, int y_, int w_, int h_)
 }
 void Player::init()
 {
+	feed_flag = false;
 	point = p_point;
 	shape->set("player");//resource.jsonのnameが"player"のものをセットする
 }
@@ -140,7 +144,19 @@ bool Player::damage()
 		invincible = 180;
 		hp -= 1;
 		if (hp <= 0) {
-			return true;
+			/*while (!ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {//フェードがかかってない？
+				feed_flag = true;
+				if (feed_flag) {
+					if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {*/
+						Scene::set_scene(SceneType::gameover);
+					/*}
+				}
+				else {
+					ScreenFunc::FeedIn(ScreenHelperGraph::white_graph);
+				}
+			}*/
+				return true;
+
 		}
 	}
 	return false;

@@ -86,7 +86,7 @@ protected:
 	std::unique_ptr<PlayerInterface> playerinterface;
 
 private:
-
+	bool feed_flag;
 	int jumpCnt;
 	class Point p_point;
 };
