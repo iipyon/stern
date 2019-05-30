@@ -167,6 +167,9 @@
     <Filter Include="controllers\player">
       <UniqueIdentifier>{cb704434-c103-4213-8c24-58fab3836872}</UniqueIdentifier>
     </Filter>
+    <Filter Include="helper\player">
+      <UniqueIdentifier>{0d0fb085-b3b2-4bca-bec9-9bd36bae7ff5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -318,6 +321,9 @@
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>controllers\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHelper.cpp">
+      <Filter>helper\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -476,7 +482,7 @@
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="ThrowingEnemyConfig.h">
-
+    </ClInclude>
     <ClInclude Include="MapConfig.h">
       <Filter>config</Filter>
     </ClInclude>
@@ -489,9 +495,8 @@
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyConfig.h">
-
-      <Filter>config</Filter>
+    <ClInclude Include="PlayerHelper.h">
+      <Filter>helper\player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
