@@ -32,7 +32,7 @@ void Player::PlayerInterface::draw()
 	}
 }
 
-void Player::PlayerInterface::update(int hp_,int life_)
+void Player::PlayerInterface::update(int hp_, int life_)
 {
 	hp = hp_;
 	life = life_;
@@ -46,7 +46,7 @@ Player::StarManager::StarManager()
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
+	DrawRotaGraph2(x - Map::get_camera().x + ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
 void Player::StarManager::update(double ang, int x_)
@@ -78,7 +78,7 @@ void Player::StarManager::update(double ang, int x_)
 	}
 }
 
-Player::Player(Point point_, PhysicState physic_state_):BasicObject(point)
+Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 {
 	life = PLAYER_MAX_LIFE;
 	hp = PLAYER_MAX_HP;
@@ -126,7 +126,7 @@ void Player::update()
 	}
 	//---------------------------------------
 	starmanager->update(angle, point.x);
-	playerinterface->update(hp,life);
+	playerinterface->update(hp, life);
 	if (invincible % 4 <= 2) {
 		shape->draw(point);
 	}
@@ -144,19 +144,11 @@ bool Player::damage()
 		invincible = 180;
 		hp -= 1;
 		if (hp <= 0) {
-			/*while (!ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {//フェードがかかってない？
-				feed_flag = true;
-				if (feed_flag) {
-					if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {*/
-						Scene::set_scene(SceneType::gameover);
-					/*}
-				}
-				else {
-					ScreenFunc::FeedIn(ScreenHelperGraph::white_graph);
-				}
-			}*/
-				return true;
-
+			if (!ct->gts->get_gameover_flag()) {
+				ct->gts->set_gameover_flag(true);
+				ct->gts->set_feed_flag(true);
+			}
+			return true;
 		}
 	}
 	return false;
@@ -172,7 +164,7 @@ void Player::move()
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
 			/*velocityX--;*/
-			point.x+= physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
+			point.x += physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
 		}
 		else {
 			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
@@ -190,7 +182,7 @@ void Player::move()
 		}
 	}
 	//ジャンプ
-	if (point.y==preY) {
+	if (point.y == preY) {
 		if (Keyboard::key_press(KEY_INPUT_X)) {
 
 
@@ -198,7 +190,7 @@ void Player::move()
 				jumpCnt = PLAYER_MAX_JUMP;
 			}
 			if (jumpCnt > 0) {
-				
+
 				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
 				Point extendpoint = point;
 				extendpoint.y--;

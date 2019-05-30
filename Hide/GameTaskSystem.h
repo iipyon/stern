@@ -18,6 +18,7 @@ class GameTaskSystem
 {
 private:
 	bool feed_flag;
+	bool gameover;
 
 	void attack_star_enemy();
 	void attack_player_enemy();
@@ -44,5 +45,11 @@ public:
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
+	//setter
+	void set_gameover_flag(bool);
+	void set_feed_flag(bool);
+	//getter
+	bool get_gameover_flag();
+	
 };
 
