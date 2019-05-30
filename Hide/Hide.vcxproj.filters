@@ -408,9 +408,6 @@
     <ClInclude Include="SpawnEnemy.h">
       <Filter>controllers\spawn\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="SpawnItem.h">
-      <Filter>controllers\spawn\item</Filter>
-    </ClInclude>
     <ClInclude Include="PauseTaskSystem.h">
       <Filter>views\pause</Filter>
     </ClInclude>
@@ -468,6 +465,18 @@
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
     </ClInclude>
+
+    <ClInclude Include="SpawnItem.h">
+      <Filter>controllers\spawn\super</Filter>
+    </ClInclude>
+    <ClInclude Include="StarConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTaskConfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowingEnemyConfig.h">
+
     <ClInclude Include="MapConfig.h">
       <Filter>config</Filter>
     </ClInclude>
@@ -481,6 +490,7 @@
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="EnemyConfig.h">
+
       <Filter>config</Filter>
     </ClInclude>
   </ItemGroup>

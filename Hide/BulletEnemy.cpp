@@ -12,10 +12,12 @@ BulletEnemy::BulletEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 
 	switch (enemy_state_.anglestate) {
 	case AngleState::left:
+
 		angle = -BulletMoveSpeed;
 		break;
 	case AngleState::right:
 		angle = BulletMoveSpeed;
+
 		break;
 	}
 }
@@ -23,8 +25,8 @@ BulletEnemy::BulletEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 void BulletEnemy::move()
 {
 	hp--;
-	if (map_checkhit(point) || hp < 0) {//hp‚ª0‚Ü‚½‚Í¶‘¶ŽžŠÔ‚ª‰ß‚¬‚½‚ç
-		active = false;//Ž€ƒ]
+	if (map_checkhit(point) || hp < 0) {//hpãŒ0ã¾ãŸã¯ç”Ÿå­˜æ™‚é–“ãŒéŽãŽãŸã‚‰
+		active = false;//æ­»ã‚¾
 	}
 	point.x += physicshape->Movement_X(point, angle);
 }

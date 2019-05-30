@@ -1,11 +1,11 @@
 ﻿#pragma once
-
+#include "SelectTaskConfig.h"
 class StageSelectTaskMass {
 private:
 	int x;
 	int y;//表示する高さ
 	int mass;
-	int mass_x[4];
+	int mass_x[MAX_STAGE];
 	//画像
 	int graph;
 public:
