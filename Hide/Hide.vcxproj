@@ -146,6 +146,7 @@
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="PlayerHelper.cpp" />
     <ClCompile Include="production.cpp" />
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="PauseTaskUI.h" />
     <ClInclude Include="PlayerConfig.h" />
     <ClInclude Include="PlayerController.h" />
+    <ClInclude Include="PlayerHelper.h" />
     <ClInclude Include="RecoveryItem.h" />
     <ClInclude Include="screenhelper_config.h" />
     <ClInclude Include="Scene.h" />

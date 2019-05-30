@@ -11,3 +11,9 @@
 
 #define PLAYER_MAX_HP 3
 
+
+
+enum class Angle {
+	right,
+	left
+};

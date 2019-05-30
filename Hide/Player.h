@@ -14,7 +14,6 @@
 
 class Player :public BasicObject {
 
-	friend class RecoveryItem;
 	friend class Enemy;
 public:
 	Player(Point point_, PhysicState physic_state_);
