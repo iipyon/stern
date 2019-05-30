@@ -111,6 +111,7 @@ Player::Player(Point point_, PhysicState physic_state_):BasicObject(point)
 	invincible = 0;
 	jumpCnt = 0;
 	interval = 0;
+	angle_LR = Right;
 	//graph = LoadGraph("img/player.png");
 	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
@@ -181,56 +182,22 @@ void Player::draw_interface(int)
 
 void Player::move()
 {
-	//左右移動
-	if (!(Keyboard::key_press(KEY_INPUT_RIGHT)) && !(Keyboard::key_press(KEY_INPUT_LEFT))) {		//仮の処理
-		if (angle == 0) {
-			shape->set("player_idol_Right");
-		}
-		else{
-			shape->set("player_idol_Left");
-
-		}
-	}
-	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
-		angle = 1;
-		if (Keyboard::key_down(KEY_INPUT_LEFT)) {
-			shape->set("player_walk_Left");
-		}
-		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
-
-			point.x+= physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
-		}
-		else {
-			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
-		}
-	}
-	/*if () {		//仮の処理
-		shape->set("player_idol_Left");
-	}*/
-
-	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
-		angle = 0;
-		if (Keyboard::key_down(KEY_INPUT_RIGHT)) {
-			shape->set("player_walk_Right");
-		}
-		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
-
-			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
-		}
-		else {
-			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
-		}
-	}
-
+	bool anim_called=true;
 	//ジャンプ
-	if (point.y==preY) {
+	if (point.y == preY) {
 
 		if (Keyboard::key_down(KEY_INPUT_X)) {		//仮の処理
-			if (angle == 0) {
-				shape->set("player_jump_Right");
+			if (angle_LR == Right) {
+				if (anim_called) {
+					anim_called = false;
+					shape->set("player_jump_Right");
+				}
 			}
 			else {
-				shape->set("player_jump_Left");
+				if (anim_called) {
+					anim_called = false;
+					shape->set("player_jump_Left");
+				}
 			}
 
 		}
@@ -241,7 +208,7 @@ void Player::move()
 				jumpCnt = PLAYER_MAX_JUMP;
 			}
 			if (jumpCnt > 0) {
-				
+
 				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
 				Point extendpoint = point;
 				extendpoint.y--;
@@ -256,6 +223,59 @@ void Player::move()
 		jumpCnt = 0;
 	}
 	jumpCnt--;
+	//左右移動
+	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
+		angle_LR = Left;
+		if (Keyboard::key_down(KEY_INPUT_LEFT)) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_walk_Left");
+			}
+		}
+		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
+
+			point.x += physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
+		}
+		else {
+			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
+		}
+	}
+
+	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
+		angle_LR = Right;
+		if (Keyboard::key_down(KEY_INPUT_RIGHT)) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_walk_Right");
+			}
+		}
+		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
+
+			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
+		}
+		else {
+			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
+		}
+	}
+	if ((!(Keyboard::key_press(KEY_INPUT_RIGHT)) && Keyboard::key_up(KEY_INPUT_LEFT))||
+		((Keyboard::key_up(KEY_INPUT_RIGHT)) &&!( Keyboard::key_press(KEY_INPUT_LEFT)))) {		//仮の処理
+		if (angle_LR == Right) {
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_idol_Right");
+			}
+		}
+		else{
+			if (anim_called) {
+				anim_called = false;
+				shape->set("player_idol_Left");
+			}
+
+		}
+	}
+
+
+
 	preY = point.y;
 }
 

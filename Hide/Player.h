@@ -78,6 +78,9 @@ protected:
 	int life;//残機
 	double angle;//カーソルの傾き
 	int invincible;//無敵時間
+	enum Angle_LR{Left,Right};
+	Angle_LR angle_LR;
+	
 
 	int preY; //前のフレームのvelocityYを保持
 	int interval;//星の発射間隔

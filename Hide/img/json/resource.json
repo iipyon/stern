@@ -64,7 +64,7 @@
       "line": 1,
       "column": 2,
       "sheets": 2,
-      "interval": 10,
+      "interval": 60,
       "loop": false,
       "scope": [
         "player"
@@ -78,7 +78,7 @@
       "line": 1,
       "column": 2,
       "sheets": 2,
-      "interval": 10,
+      "interval": 60,
       "loop": false,
       "scope": [
         "player"
