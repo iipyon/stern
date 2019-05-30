@@ -37,7 +37,7 @@ bool GraphicObject::exits_scope(std::string _scope)
 
 void GraphicResource::init()
 {
-	std::ifstream ifs("img/resource.json");
+	std::ifstream ifs("./img/json/resource.json");
 	if (ifs.fail())
 	{
 		throw std::runtime_error("resource.json is not found.");	//ファイルが読み込めないと例外を返す
