@@ -182,43 +182,58 @@ void Player::draw_interface(int)
 void Player::move()
 {
 	//左右移動
-	if (Keyboard::key_down(KEY_INPUT_LEFT) && Keyboard::key_down(KEY_INPUT_X) == false) {	//仮の処理
-		shape->set("player_walk_Left");
+	if (!(Keyboard::key_press(KEY_INPUT_RIGHT)) && !(Keyboard::key_press(KEY_INPUT_LEFT))) {		//仮の処理
+		if (angle == 0) {
+			shape->set("player_idol_Right");
+		}
+		else{
+			shape->set("player_idol_Left");
+
+		}
 	}
 	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
+		angle = 1;
+		if (Keyboard::key_down(KEY_INPUT_LEFT)) {
+			shape->set("player_walk_Left");
+		}
 		if (Keyboard::key_press(KEY_INPUT_C)/* && velocityX <= -6*/) { //仮のダッシュ処理
-			/*velocityX--;*/
+
 			point.x+= physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
 		}
 		else {
 			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
 		}
 	}
-	if (Keyboard::key_up(KEY_INPUT_LEFT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
+	/*if () {		//仮の処理
 		shape->set("player_idol_Left");
-	}
-	if (Keyboard::key_down(KEY_INPUT_RIGHT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
-		shape->set("player_walk_Right");
-	}
+	}*/
+
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
+		angle = 0;
+		if (Keyboard::key_down(KEY_INPUT_RIGHT)) {
+			shape->set("player_walk_Right");
+		}
 		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
-			/*if (velocityX <= +6) {
-				velocityX++;
-			}*/
+
 			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
 		}
 		else {
 			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
 		}
 	}
-	if (Keyboard::key_up(KEY_INPUT_RIGHT) && Keyboard::key_down(KEY_INPUT_X) == false) {		//仮の処理
-		shape->set("player_idol_Right");
-	}
+
 	//ジャンプ
 	if (point.y==preY) {
-		//if (Keyboard::key_down(KEY_INPUT_X)) {		//仮の処理
-		//	shape->set("player_jump_Right");
-		//}
+
+		if (Keyboard::key_down(KEY_INPUT_X)) {		//仮の処理
+			if (angle == 0) {
+				shape->set("player_jump_Right");
+			}
+			else {
+				shape->set("player_jump_Left");
+			}
+
+		}
 		if (Keyboard::key_press(KEY_INPUT_X)) {
 
 
