@@ -60,47 +60,46 @@ void Player::StarManager::update(double ang, int x_)
 				ct->gts->map->get_left(prestarpoint) ||
 				ct->gts->map->get_right(prestarpoint) ||
 				ct->gts->map->get_top(prestarpoint))) {
-				if (starmanagercoolCnt <= 0) {
-					starmanagercoolCnt = 180;   //クールタイム180フレーム
-					class Point point = { x_,Map::get_camera().y,32,32 };
-					struct PhysicState physic_state = { 1 };//	float gravity;
-					struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
+				class Point point = { x_,Map::get_camera().y,32,32 };
+				struct PhysicState physic_state = { 1 };//	float gravity;
+				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
-					ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-					//ノーマルスター
-					//Point point_, PhysicState physic_state_, StarState star_state
-				}
+				ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
+				//ノーマルスター
+				//Point point_, PhysicState physic_state_, StarState star_state
+
 			}
 		}
 		else {
 			//キャンセル音をだす　
 		}
+	}
+	if (starmanagercoolCnt <= 0) {
+		if (Keyboard::key_down(KEY_INPUT_V)) {
+			starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
+			Point prestarpoint{ x_, Map::get_camera().y, 32, 32 };
+			if (!(ct->gts->map->get_bottom(prestarpoint) ||
+				ct->gts->map->get_left(prestarpoint) ||
+				ct->gts->map->get_right(prestarpoint) ||
+				ct->gts->map->get_top(prestarpoint))) {
+				ct->gts->gravityStar.clear();
+				class Point point = { x_ ,Map::get_camera().y,32,32 };
+				struct PhysicState physic_state = { 1 };//	float gravity;
+				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
-		if (starmanagercoolCnt <= 0) {
-			if (Keyboard::key_down(KEY_INPUT_V)) {
-				starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
-				Point prestarpoint{ x_, Map::get_camera().y, 32, 32 };
-				if (!(ct->gts->map->get_bottom(prestarpoint) ||
-					ct->gts->map->get_left(prestarpoint) ||
-					ct->gts->map->get_right(prestarpoint) ||
-					ct->gts->map->get_top(prestarpoint))) {
+				ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
 
-					ct->gts->gravityStar.clear();
-					class Point point = { x_ ,Map::get_camera().y,32,32 };
-					struct PhysicState physic_state = { 1 };//	float gravity;
-					struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
-
-					ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-
-
-				}
-			}
-			if (starmanagercoolCnt > 0) {
-				starmanagercoolCnt--;
 
 			}
-
 		}
+
+
+	}
+
+	
+	if (starmanagercoolCnt > 0) {
+		starmanagercoolCnt--;
+
 	}
 }
 
