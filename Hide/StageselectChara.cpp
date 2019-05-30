@@ -48,13 +48,19 @@ void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 
 void StageSelectChara::move()
 {
-	if (velocityX > 0) {
+	if (velocityX == 0) {
+		return;
+	}
+	if (velocityX > CHARA_VELOCITY) {
 		point.x += CHARA_VELOCITY;
 		velocityX -= CHARA_VELOCITY;
 	}
-	if (velocityX < 0) {
+	else if (velocityX < CHARA_VELOCITY) {
 		point.x -= CHARA_VELOCITY;
 		velocityX += CHARA_VELOCITY;
+	}
+	else {
+		point.x += velocityX; velocityX = 0;
 	}
 }
 
