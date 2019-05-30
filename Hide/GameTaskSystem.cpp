@@ -37,6 +37,15 @@ void GameTaskSystem::init()
 	case 1:
 		Audio::play("stage1");
 		break;
+	case 2:
+		Audio::play("stage2");
+		break;
+	case 3:
+		Audio::play("stage3");
+		break;
+	case 4:
+		Audio::play("stage4");
+		break;
 	}
 	Camera::init();
 	player->init();
@@ -128,6 +137,16 @@ void GameTaskSystem::finalize()
 	case 1:
 		Audio::stop("stage1");
 		break;
+	case 2:
+		Audio::stop("stage2");
+		break;
+	case 3:
+		Audio::stop("stage3");
+		break;
+	case 4:
+		Audio::stop("stage4");
+		break;
+
 	}
 	normalstar.clear();
 	enemys->clear();

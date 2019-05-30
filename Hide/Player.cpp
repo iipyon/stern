@@ -5,7 +5,7 @@
 #include "PlayerConfig.h"
 #include"System.h"
 #include"environments.h"
-
+#include"Audio.h"
 //----------------------------------
 //プレイヤー
 //----------------------------------
@@ -61,6 +61,7 @@ void Player::StarManager::update(double ang, int x_)
 				ct->gts->map->get_right(prestarpoint) ||
 				ct->gts->map->get_top(prestarpoint))) {
 				class Point point = { x_,Map::get_camera().y,32,32 };
+				Audio::play("fallen_star");
 				struct PhysicState physic_state = { 1 };//	float gravity;
 				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
@@ -69,10 +70,12 @@ void Player::StarManager::update(double ang, int x_)
 																							//Point point_, PhysicState physic_state_, StarState star_state
 
 			}
+			else {
+				Audio::play("cancel");
+				//キャンセル音をだす　
+			}
 		}
-		else {
-			//キャンセル音をだす　
-		}
+
 	}
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_V)) {
@@ -83,6 +86,7 @@ void Player::StarManager::update(double ang, int x_)
 				ct->gts->map->get_right(prestarpoint) ||
 				ct->gts->map->get_top(prestarpoint))) {
 				ct->gts->gravityStar.clear();
+				Audio::play("fallen_star");
 				class Point point = { x_ ,Map::get_camera().y,32,32 };
 				struct PhysicState physic_state = { 1 };//	float gravity;
 				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
@@ -91,7 +95,12 @@ void Player::StarManager::update(double ang, int x_)
 
 
 			}
+			else {
+				Audio::play("cancel");
+				//キャンセル音をだす　
+			}
 		}
+
 
 
 	}
