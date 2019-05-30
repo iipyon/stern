@@ -96,6 +96,9 @@ void GameTaskSystem::update()
 		feed_flag = true;
 	}
 	if (goal->get_clear_flag()) {//ゴール時
+			enemys->clear();
+			item->clear();
+		Audio::stop("stage1");
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
 			Scene::set_scene(SceneType::clear);
 		}
