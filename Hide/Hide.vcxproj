@@ -239,6 +239,7 @@
     <ClInclude Include="System.h" />
     <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="ThrowingEnemyConfig.h" />
+    <ClInclude Include="TitleTaskConfig.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
     <ClInclude Include="WalkingEnemy.h" />

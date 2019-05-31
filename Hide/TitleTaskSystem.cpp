@@ -7,15 +7,18 @@
 #include "Keyboard.h"
 #include "Audio.h"
 #include "Scene.h"
+#include"TitleTaskConfig.h"
 
 int TitleTaskSystem::backgraph;
+int TitleTaskSystem::logograph;
 bool TitleTaskSystem::feed_flag;
 std::unique_ptr<TitleUI> TitleTaskSystem::title_ui;
 
 void TitleTaskSystem::init()
 {
 	title_ui = std::make_unique<TitleUI>();
-	backgraph = LoadGraph("img/title/title.png");
+	backgraph = LoadGraph("./img/title/title.png");
+	logograph = LoadGraph("./img/title/titlelogo.png");
 	feed_flag = false;
 	title_ui->init();
 }
@@ -60,6 +63,10 @@ void TitleTaskSystem::finalize()
 void TitleTaskSystem::draw()
 {
 	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
+	DrawExtendGraph(System::width / 2 - LogoWidth / 2,
+		0,
+		System::width / 2 + LogoWidth / 2,
+		LogoHeight, logograph, TRUE);
 	//DrawGraph(0, 0, backgraph, FALSE);
 }
 

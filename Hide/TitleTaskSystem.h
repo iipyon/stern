@@ -6,6 +6,7 @@
 class TitleTaskSystem {
 private:
 	static int backgraph;
+	static int logograph;
 	static bool feed_flag;
 
 	TitleTaskSystem();
