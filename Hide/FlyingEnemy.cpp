@@ -11,6 +11,12 @@ FlyingEnemy::FlyingEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 	//必要か判断ができない初期化処理
 	flyingstate = FlyingState::down;
 	movecnt = 0;
+	if (anglestate == AngleState::right) {
+		shape->set("bird_Right");
+	}
+	else {
+		shape->set("bird_Left");
+	}
 }
 
 void FlyingEnemy::move()
@@ -38,42 +44,23 @@ void FlyingEnemy::change_state()
 	movecnt += FlyingSpeed;
 	if (movecnt <= FlyingUpDown) {
 		flyingstate = FlyingState::down;
-		if (anglestate == AngleState::right) {
-			shape->set("bird_Right");
-		}
-		else {
-			shape->set("bird_Left");
-		}
+
 		
 		if (ct->gts->map->get_bottom(point)) {
 			flyingstate = FlyingState::stay;
-			if (anglestate == AngleState::right) {
-				shape->set("bird_Right");
-			}
-			else {
-				shape->set("bird_Left");
-			}
+
 		}
 	}
 	else if (movecnt <= FlyingUpDown * 2) {
 		flyingstate = FlyingState::up;
-		if (anglestate == AngleState::right) {
-			shape->set("bird_Right");
-		}
-		else {
-			shape->set("bird_Left");
-		}
+
 		if (ct->gts->map->get_top(point)) {
 			flyingstate = FlyingState::stay;
-			if (anglestate == AngleState::right) {
-				shape->set("bird_Right");
-			}
-			else {
-				shape->set("bird_Left");
-			}
+
 		}
 	}
 	if (movecnt >= FlyingUpDown * 2) {
+
 		movecnt = 0;
 	}
 }

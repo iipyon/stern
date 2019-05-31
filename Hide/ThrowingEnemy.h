@@ -12,5 +12,6 @@ public:
 private:
 	int x;
 	int cnt;
+	AngleState beforeangle;
 protected:
 };
