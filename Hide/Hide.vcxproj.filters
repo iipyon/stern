@@ -496,6 +496,8 @@
     </ClInclude>
     <ClInclude Include="GameTaskController.h">
       <Filter>controllers\game</Filter>
+    <ClInclude Include="FlyingEnemyConfig.h">
+      <Filter>config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

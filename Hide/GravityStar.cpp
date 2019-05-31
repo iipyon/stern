@@ -7,7 +7,7 @@
 GravityStar::GravityStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
 	point = point_;
-	shape->set("star");
+	shape->set("Gravitystar");
 }
 
 
