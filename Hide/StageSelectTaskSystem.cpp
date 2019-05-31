@@ -34,8 +34,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
 
-	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", ct->gts->enemys);
-	spawnitem = std::make_unique<SpawnItem>("img/item.json", ct->gts->item);
+	spawnenemy = std::make_unique<SpawnEnemy>("img/json/epath.json", ct->gts->enemys);
+	spawnitem = std::make_unique<SpawnItem>("img/json/item.json", ct->gts->item);
 
 	feed_flag = false;
 
@@ -90,13 +90,13 @@ void StageSelectTaskSystem::update()
 			case 3:
 				ct->gts->map->init((char*)"3");
 				ct->gts->player->spawn(64, 1728, 64, 128);
-				ct->gts->goal->spawn(7488, 1728, 128, 128);
+				ct->gts->goal->spawn(7104, 1280, 128, 128);
 				spawnenemy->create("3");
 				spawnitem->create("3");
 				break;
 			case 4:
 				ct->gts->map->init((char*)"4");
-				ct->gts->player->spawn(64, 768, 64, 128);
+				ct->gts->player->spawn(128, 1728, 64, 128);
 				ct->gts->goal->spawn(7488, 1728, 128, 128);
 				spawnenemy->create("4");
 				spawnitem->create("4");
