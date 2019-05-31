@@ -1,4 +1,4 @@
-﻿#include "GameTaskSystem.h"
+#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include"CoreTask.h"
