@@ -104,7 +104,6 @@ void StageSelectTaskSystem::update()
 			}
 			PlayerController::initialize();
 			ct->gts->init();
-			ct->cts->init();
 			Scene::set_scene(SceneType::game);
 		}
 	}

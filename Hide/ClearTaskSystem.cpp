@@ -5,19 +5,24 @@
 #include "Scene.h"
 #include "Keyboard.h"
 #include "Audio.h"
+#include"System.h"
 
-ClearTaskSystem::ClearTaskSystem()
-{
-	init();
-}
+bool ClearTaskSystem::feed_flag;
+int ClearTaskSystem::backgraph;
+std::unique_ptr<ClearUI> ClearTaskSystem::c_ui;
+
 
 void ClearTaskSystem::init()
 {
+	backgraph = LoadGraph("./img/clear/clear.png", FALSE);
+	c_ui = std::make_unique<ClearUI>();
+	c_ui->init();
 	feed_flag = false;
 }
 
 void ClearTaskSystem::init_member()
 {
+	c_ui->init();
 	feed_flag = false;
 }
 
@@ -27,6 +32,7 @@ void ClearTaskSystem::update()
 		feed_flag = true;
 		Audio::play("decision");
 	}
+	c_ui->update();
 	draw();
 	if (feed_flag) {
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
@@ -39,5 +45,6 @@ void ClearTaskSystem::update()
 }
 
 void ClearTaskSystem::draw() {
-	DrawFormatString(100, 100, GetColor(0, 255, 0), "Push Z key");
+	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
+	c_ui->draw();
 }

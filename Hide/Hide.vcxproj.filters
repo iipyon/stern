@@ -170,6 +170,9 @@
     <Filter Include="helper\player">
       <UniqueIdentifier>{0d0fb085-b3b2-4bca-bec9-9bd36bae7ff5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\ClearConfig">
+      <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -322,8 +325,8 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>controllers\player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerHelper.cpp">
-      <Filter>helper\player</Filter>
+    <ClCompile Include="ClearUI.cpp">
+      <Filter>views\clear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -471,7 +474,6 @@
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
     </ClInclude>
-
     <ClInclude Include="SpawnItem.h">
       <Filter>controllers\spawn\super</Filter>
     </ClInclude>
@@ -495,8 +497,11 @@
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerHelper.h">
-      <Filter>helper\player</Filter>
+    <ClInclude Include="ClearUI.h">
+      <Filter>views\clear</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearConfig.h">
+      <Filter>config\ClearConfig</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

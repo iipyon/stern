@@ -1,4 +1,4 @@
-#include "BulletEnemy.h"
+﻿#include "BulletEnemy.h"
 #include"DxLib.h"
 #include"CoreTask.h"
 #include"EnemyConfig.h"
