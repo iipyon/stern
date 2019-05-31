@@ -55,7 +55,7 @@ void StageSelectChara::move()
 		point.x += CHARA_VELOCITY;
 		velocityX -= CHARA_VELOCITY;
 	}
-	else if (velocityX < CHARA_VELOCITY) {
+	else if (velocityX < -CHARA_VELOCITY) {
 		point.x -= CHARA_VELOCITY;
 		velocityX += CHARA_VELOCITY;
 	}
