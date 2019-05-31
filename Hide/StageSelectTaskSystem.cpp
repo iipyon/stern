@@ -29,8 +29,8 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
 
-	spawnenemy = std::make_unique<SpawnEnemy>("img/epath.json", ct->gts->enemys);
-	spawnitem = std::make_unique<SpawnItem>("img/item.json", ct->gts->item);
+	spawnenemy = std::make_unique<SpawnEnemy>("img/json/epath.json", ct->gts->enemys);
+	spawnitem = std::make_unique<SpawnItem>("img/json/item.json", ct->gts->item);
 
 	feed_flag = false;
 

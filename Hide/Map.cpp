@@ -35,7 +35,7 @@ Map::Map()
 void Map::init(char* map_)
 {
 	//jsonの読み込み
-	std::ifstream mappath("img/mappath.json");
+	std::ifstream mappath("img/json/mappath.json");
 	if (mappath.fail())
 	{
 		throw std::runtime_error("mappath.json is not found.");	//ファイルが読み込めないと例外を返す

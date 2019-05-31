@@ -32,6 +32,7 @@ public:
 
 	void draw_interface(int);//UI描画
 	void move();//移動処理
+
 	bool knockback(int);//ノックバック
 	void jump(int);
 	void spawn(int, int, int, int);
@@ -45,6 +46,7 @@ public:
 		void draw();
 		void update(int ,int);
 	private:
+
 		int hp;
 		int life;
 		int hpgraph;
@@ -73,6 +75,9 @@ protected:
 	int life;//残機
 	double angle;//カーソルの傾き
 	int invincible;//無敵時間
+	enum Angle_LR{Left,Right};
+	Angle_LR angle_LR;
+	
 
 	int preY; //前のフレームのvelocityYを保持
 	int interval;//星の発射間隔
@@ -81,7 +86,9 @@ protected:
 	std::unique_ptr<PlayerInterface> playerinterface;
 
 private:
+	void anim(); 
 
+	bool damageanim;
 	int jumpCnt;
 	class Point p_point;
 };
