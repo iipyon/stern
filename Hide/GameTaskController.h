@@ -5,9 +5,9 @@ namespace GameOverController {
 		bool gameover;
 	}
 	void set_gameover(bool flag) {
-		GameOverController::gameover = flag;
+		gameover = flag;
 	}
 	bool get_gameover_flag() {
-		return GameOverController::gameover;
+		return gameover;
 	}
 }
