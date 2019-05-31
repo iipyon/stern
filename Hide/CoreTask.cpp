@@ -14,7 +14,6 @@ GameTaskSystem *gts;
 CoreTask::CoreTask()
 {
 	gts = std::make_shared<GameTaskSystem>();
-	cts = std::make_shared<ClearTaskSystem>();
 	Scene::set_scene(SceneType::title);
 }
 
@@ -36,7 +35,7 @@ void CoreTask::update()
 		GameOverTaskSystem::update();
 		break;
 	case SceneType::clear:
-		cts->update();
+		ClearTaskSystem::update();
 		break;
 	case SceneType::pause:
 		PauseTask::update();
@@ -72,6 +71,8 @@ void CoreTask::init()
 	PauseTask::initialize();
 	//ゲームオーバー
 	GameOverTaskSystem::initialize();
+	//クリア
+	ClearTaskSystem::init();
 	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
 	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
 }

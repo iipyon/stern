@@ -134,10 +134,12 @@
     <ClCompile Include="BasicUI.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearTaskSystem.cpp" />
+    <ClCompile Include="ClearUI.cpp" />
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameOverTaskUI.cpp" />
+    <ClCompile Include="GameTaskController.cpp" />
     <ClCompile Include="GameTaskSystem.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
@@ -186,11 +188,14 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ClearConfig.h" />
+    <ClInclude Include="ClearUI.h" />
     <ClInclude Include="EnemyConfig.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GameOverTaskUI.h" />
+    <ClInclude Include="GameTaskController.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="SelectTaskConfig.h" />
