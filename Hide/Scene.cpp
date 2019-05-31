@@ -26,7 +26,7 @@ void Scene::set_scene(SceneType type)
 		break;
 	case SceneType::clear:
 		//ClearTaskSystem::init_member();
-		ct->cts->init_member();
+		ClearTaskSystem::init_member();
 		break;
 	case SceneType::pause:
 		PauseTask::init_member();
