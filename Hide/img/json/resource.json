@@ -1,0 +1,351 @@
+{
+  "graph": [
+    {
+      "name": "player_idol_Right",
+      "path": "./img/graphics/player/player_idol_Right.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 6,
+      "sheets": 6,
+      "interval": 30,
+      "loop": true,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_idol_Left",
+      "path": "./img/graphics/player/player_idol_Left.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 6,
+      "sheets": 6,
+      "interval": 30,
+      "loop": true,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_walk_Right",
+      "path": "./img/graphics/player/player_walk_Right.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 4,
+      "sheets": 4,
+      "interval": 10,
+      "loop": true,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_walk_Left",
+      "path": "./img/graphics/player/player_walk_Left.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 4,
+      "sheets": 4,
+      "interval": 10,
+      "loop": true,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_jump_Right",
+      "path": "./img/graphics/player/player_jump_Right.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 2,
+      "sheets": 2,
+      "interval": 60,
+      "loop": false,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_jump_Left",
+      "path": "./img/graphics/player/player_jump_Left.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 2,
+      "sheets": 2,
+      "interval": 60,
+      "loop": false,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_attack_Right",
+      "path": "./img/graphics/player/player_attack_Right.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 2,
+      "sheets": 2,
+      "interval": 2,
+      "loop": false,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_attack_Left",
+      "path": "./img/graphics/player/player_attack_Left.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 2,
+      "sheets": 2,
+      "interval": 2,
+      "loop": false,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_damage_Right",
+      "path": "./img/graphics/player/player_damage_Right.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 1,
+      "sheets": 1,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "player_damage_Left",
+      "path": "./img/graphics/player/player_damage_Left.png",
+      "width": 96,
+      "height": 128,
+      "line": 1,
+      "column": 1,
+      "sheets": 1,
+      "scope": [
+        "player"
+      ]
+    },
+    {
+      "name": "NormalStar",
+      "path": "./img/graphics/star/NormalStar.png",
+      "width": 96,
+      "height": 96,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "player",
+        "star"
+      ]
+    },
+    {
+      "name": "Gravitystar",
+      "path": "./img/graphics/star/GravityStar.png",
+      "width": 96,
+      "height": 96,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "player",
+        "star"
+      ]
+    },
+    {
+      "name": "slime_idol_Right",
+      "path": "./img/graphics/enemy/slime/slime_idol_Right.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "walking",
+        "enemy"
+      ]
+    },
+    {
+      "name": "slime_idol_Left",
+      "path": "./img/graphics/enemy/slime/slime_idol_Left.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "walking",
+        "enemy"
+      ]
+    },
+    {
+      "name": "slime_walk_Right",
+      "path": "./img/graphics/enemy/slime/slime_walk_Right.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 4,
+      "loop": true,
+      "scope": [
+        "walking",
+        "enemy"
+      ]
+    },
+    {
+      "name": "slime_walk_Left",
+      "path": "./img/graphics/enemy/slime/slime_walk_Left.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 4,
+      "loop": true,
+      "scope": [
+        "walking",
+        "enemy"
+      ]
+    },
+    {
+      "name": "seed_Right",
+      "path": "./img/graphics/enemy/flower/seed_Right.png",
+      "width": 32,
+      "height": 32,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "seed_Left",
+      "path": "./img/graphics/enemy/flower/seed_Left.png",
+      "width": 32,
+      "height": 32,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "flower_idol_Right",
+      "path": "./img/graphics/enemy/flower/flower_idol_Right.png",
+      "width": 64,
+      "height": 96,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "flower_idol_Left",
+      "path": "./img/graphics/enemy/flower/flower_idol_Left.png",
+      "width": 64,
+      "height": 96,
+      "line": 1,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "flower_throw_Right",
+      "path": "./img/graphics/enemy/flower/flower_throw_Right.png",
+      "width": 64,
+      "height": 96,
+      "line": 1,
+      "column": 2,
+      "interbal": 10,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "flower_throw_Left",
+      "path": "./img/graphics/enemy/flower/flower_throw_Left.png",
+      "width": 64,
+      "height": 96,
+      "line": 1,
+      "column": 2,
+      "interbal": 10,
+      "scope": [
+        "throwing",
+        "bullet",
+        "enemy"
+      ]
+    },
+    {
+      "name": "bird_Right",
+      "path": "./img/graphics/enemy/bird/bird_Right.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "column": 2,
+      "interbal": 10,
+      "loop": true,
+      "scope": [
+        "flying",
+        "enemy"
+      ]
+    },
+    {
+      "name": "bird_Left",
+      "path": "./img/graphics/enemy/bird/bird_Left.png",
+      "width": 64,
+      "height": 64,
+      "line": 1,
+      "interbal": 10,
+      "column": 2,
+      "loop": true,
+      "scope": [
+        "flying",
+        "enemy"
+      ]
+    },
+    {
+      "name": "recovery",
+      "path": "./img/graphics/item/item.png",
+      "width": 32,
+      "height": 32,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "item",
+        "recovery"
+      ]
+    },
+    {
+      "name": "goal",
+      "path": "./img/graphics/apparatus/goal.png",
+      "width": 128,
+      "height": 128,
+      "line": 1,
+      "column": 1,
+      "scope": [
+        "goal"
+      ]
+    }
+  ]
+}

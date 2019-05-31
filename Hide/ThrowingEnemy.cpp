@@ -28,7 +28,22 @@ void ThrowingEnemy::appear_shot()
 
 		ct->gts->enemy_transaction->push_back(std::make_unique<BulletEnemy>(b_point,physic_state,Enemy_state ));	//新規インスタンスを生成して最後尾へ登録する
 		cnt = 0;
+		if (anglestate==AngleState::right) {
+			shape->set("flower_throw_Right");
+		}
+		else {
+			shape->set("flower_throw_Left");
+		}
 	}
+	if (beforeangle != anglestate) {
+		if (anglestate == AngleState::left) {
+			shape->set("flower_idol_Left");
+		}
+		else {
+			shape->set("flower_idol_Right");
+		}
+	}
+	beforeangle = anglestate;
 }
 
 void ThrowingEnemy::change_angle()
@@ -39,7 +54,7 @@ void ThrowingEnemy::change_angle()
 		//右向きアニメに変える
 	}
 	else {
-		anglestate = AngleState::right;
+		anglestate = AngleState::left;
 	}
 }
 
