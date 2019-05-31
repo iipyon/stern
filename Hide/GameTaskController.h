@@ -1,9 +1,11 @@
-#pragma once
+﻿#pragma once
+namespace {
+	//ファイル内でのみ有効
+	bool gameover;
+}
 
 namespace GameOverController {
-	namespace {
-		bool gameover;
-	}
+
 	void set_gameover(bool flag) {
 		gameover = flag;
 	}
