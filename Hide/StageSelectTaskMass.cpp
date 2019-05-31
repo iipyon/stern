@@ -1,10 +1,11 @@
 ﻿#include "StageSelectTaskMass.h"
 #include"DxLib.h"
+#include"SelectTaskConfig.h"
 #include"System.h"
 
 StageSelectTaskMass::StageSelectTaskMass()
 {
-	mass = 4;
+	mass = MAX_STAGE;
 	//x = System::width / 4;//画像を描画する始点(4マスの中の一番左のマスの左座標)
 	y = 200;
 	graph = LoadGraph("img/stageselect/mass.png");
@@ -43,7 +44,7 @@ int StageSelectTaskMass::get_massY()
 
 int StageSelectTaskMass::get_massline()
 {
-	return System::width / 4;
+	return System::width / MAX_STAGE;
 }
 
 

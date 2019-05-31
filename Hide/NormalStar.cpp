@@ -1,6 +1,7 @@
 ﻿#include"NormalStar.h"
 #include"DxLib.h"
 #include"CoreTask.h"
+#include"StarConfig.h"
 
 //--------------------------------
 //
@@ -10,7 +11,7 @@ NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_s
 {
 	point = point_;
 	shape->set("star");
-	life = 180;
+	life = STAR_LIFE;
 	gravitypoint = { 0,0,0,0 };
 }
 
@@ -32,13 +33,13 @@ void NormalStar::update()
 		for (auto itr = ct->gts->gravityStar.begin(); itr != ct->gts->gravityStar.end(); ++itr) {
 			gravitypoint = itr->gravitypoint;
 		}
-		if (((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) * ((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) +//gravitystarとの距離を測って90000以内なら引き寄せられる
-			((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) * ((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) <=90000) {//90000は大体今の画面内の範囲
+		if (((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) * ((gravitypoint.x + gravitypoint.w / 2) - (point.x + point.w/2)) +
+			((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) * ((gravitypoint.y + gravitypoint.h / 2) - (point.y + point.h/2)) <=STAR_INHALE_ABLE) {
 			inhale();
 		}
 	}
 	attack();
-	if (life > 60) {
+	if (life > STAR_LIFE/3) {
 		shape->draw(point);
 	}
 	else if (life % 4 >= 2) {

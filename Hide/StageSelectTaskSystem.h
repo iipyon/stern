@@ -5,11 +5,12 @@
 #include"StageselectTaskTextBox.h"
 #include"SpawnEnemy.h"//敵生成をステージ選択直後に行うため
 #include"SpawnItem.h"
+#include"SelectTaskConfig.h"
 
 class StageSelectTaskSystem {
 protected:
 	static int stage;//ステージ識別番号
-	static bool state[4];//クリアフラグ（ステージ総数によって変える）
+	static bool state[MAX_STAGE];//クリアフラグ（ステージ総数によって変える）
 private:
 	static bool feed_flag;
 

@@ -75,6 +75,7 @@ void GameTaskSystem::update()
 	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
 		(*itr)->update();
 	}
+
 	//--------------------------------
 	//アイテム-----------------------------
 	for (auto itr = item->begin(); itr != item->end(); ++itr) {
