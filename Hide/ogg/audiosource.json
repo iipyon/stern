@@ -46,6 +46,15 @@
       ]
     },
     {
+      "name": "damage",
+      "loop": false,
+      "path": "ogg/damage.ogg",
+      "scope": [
+        "damage",
+        "stage"
+      ]
+    },
+    {
       "name": "stage1",
       "loop": true,
       "path": "ogg/stage/stage1.ogg",

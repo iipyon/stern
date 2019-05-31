@@ -176,6 +176,7 @@ bool Player::damage()
 	if (invincible <= 0) {
 		invincible = PLAYER_INVINCIBLE;
 		hp -= 1;
+		Audio::play("damage");
 		if (hp <= 0) {
 			return true;
 		}
