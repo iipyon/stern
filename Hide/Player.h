@@ -26,6 +26,7 @@ public:
 
 	void draw_interface(int);//UI描画
 	void move();//移動処理
+
 	bool knockback(int);//ノックバック
 	void jump(int);
 	void spawn(int, int, int, int);
@@ -50,6 +51,7 @@ public:	//アクセサメソッド
 		void draw();
 		void update(int ,int);
 	private:
+
 		int hp;
 		int life;
 		int hpgraph;
@@ -89,7 +91,9 @@ protected:
 	std::unique_ptr<PlayerInterface> playerinterface;
 
 private:
+	void anim(); 
 
+	bool damageanim;
 	int jumpCnt;
 	class Point p_point;
 };
