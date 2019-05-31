@@ -10,7 +10,7 @@
 NormalStar::NormalStar(Point point_, PhysicState physic_state_, StarState star_state) : Star(point_, physic_state_, star_state)
 {
 	point = point_;
-	shape->set("star");
+	shape->set("NormalStar");
 	life = STAR_LIFE;
 	gravitypoint = { 0,0,0,0 };
 }
