@@ -1,49 +1,94 @@
 {
-  "audio":[
-  {
-  	  "name" : "jump",
-	  "loop" : false,
-	  "path" : "ogg/jump.ogg",
-	  "scope": [
+  "audio": [
+    {
+      "name": "jump",
+      "loop": false,
+      "path": "ogg/jump.ogg",
+      "scope": [
         "jump",
-		"action"
+        "action"
       ]
-  },
-  {
-  	  "name" : "cursol",
-	  "loop" : false,
-	  "path" : "ogg/cursol.ogg",
-	  "scope": [
+    },
+    {
+      "name": "cursol",
+      "loop": false,
+      "path": "ogg/cursol.ogg",
+      "scope": [
         "cursol",
-		"system"
+        "system"
       ]
-  },
-  {
-  	  "name" : "decision",
-	  "loop" : false,
-	  "path" : "ogg/decision.ogg",
-	  "scope": [
+    },
+    {
+      "name": "decision",
+      "loop": false,
+      "path": "ogg/decision.ogg",
+      "scope": [
         "decision",
-		"system"
+        "system"
       ]
-  },
-  {
-  	  "name" : "cancel",
-	  "loop" : false,
-	  "path" : "ogg/cancel.ogg",
-	  "scope": [
+    },
+    {
+      "name": "cancel",
+      "loop": false,
+      "path": "ogg/cancel.ogg",
+      "scope": [
         "cancel",
-		"system"
+        "system"
       ]
-  },
-  {
-  	  "name" : "stage1",
-	  "loop" : true,
-	  "path" : "ogg/stage/stage1.ogg",
-	  "scope": [
+    },
+    {
+      "name": "fallen_star",
+      "loop": false,
+      "path": "ogg/fallen_star.ogg",
+      "scope": [
+        "fallen_star",
+        "stage"
+      ]
+    },
+    {
+      "name": "damage",
+      "loop": false,
+      "path": "ogg/damage.ogg",
+      "scope": [
+        "damage",
+        "stage"
+      ]
+    },
+    {
+      "name": "stage1",
+      "loop": true,
+      "path": "ogg/stage/stage1.ogg",
+      "scope": [
         "stage1",
-		"stage"
+        "stage"
       ]
-  }
+    },
+    {
+      "name": "stage2",
+      "loop": true,
+      "path": "ogg/stage/stage2.ogg",
+      "scope": [
+        "stage2",
+        "stage"
+      ]
+    },
+    {
+      "name": "stage3",
+      "loop": true,
+      "path": "ogg/stage/stage3.ogg",
+      "scope": [
+        "stage3",
+        "stage"
+      ]
+    },
+    {
+      "name": "stage3",
+      "loop": true,
+      "path": "ogg/stage/stage3.ogg",
+      "scope": [
+        "stage3",
+        "stage"
+      ]
+    }
   ]
 }

@@ -1,4 +1,5 @@
-#include "GameTaskSystem.h"
+
+﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
 #include"CoreTask.h"
@@ -38,6 +39,15 @@ void GameTaskSystem::init()
 	switch (StageSelectTaskSystem::get_stage()) {
 	case 1:
 		Audio::play("stage1");
+		break;
+	case 2:
+		Audio::play("stage2");
+		break;
+	case 3:
+		Audio::play("stage3");
+		break;
+	case 4:
+		Audio::play("stage4");
 		break;
 	}
 	Camera::init();
@@ -138,6 +148,16 @@ void GameTaskSystem::finalize()
 	case 1:
 		Audio::stop("stage1");
 		break;
+	case 2:
+		Audio::stop("stage2");
+		break;
+	case 3:
+		Audio::stop("stage3");
+		break;
+	case 4:
+		Audio::stop("stage4");
+		break;
+
 	}
 	normalstar.clear();
 	enemys->clear();
@@ -200,4 +220,5 @@ void GameTaskSystem::attack_star_enemy()
 		}
 		if (deleted == true)break;
 	}
+
 }
