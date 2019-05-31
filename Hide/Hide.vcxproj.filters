@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="assets">
@@ -170,6 +170,9 @@
     <Filter Include="helper\player">
       <UniqueIdentifier>{0d0fb085-b3b2-4bca-bec9-9bd36bae7ff5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\ClearConfig">
+      <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -321,6 +324,9 @@
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>controllers\player</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearUI.cpp">
+      <Filter>views\clear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +497,11 @@
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
+    <ClInclude Include="ClearUI.h">
+      <Filter>views\clear</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearConfig.h">
+      <Filter>config\ClearConfig</Filter>
     <ClInclude Include="FlyingEnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>

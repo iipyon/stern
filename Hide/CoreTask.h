@@ -15,7 +15,6 @@ public:
 	void finalize();
 	std::shared_ptr<GameTaskSystem> gts;
 	std::shared_ptr<StageSelectTaskSystem> ssts;
-	std::shared_ptr<ClearTaskSystem> cts;
 };
 
 extern CoreTask *ct;
