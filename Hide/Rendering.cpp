@@ -35,4 +35,5 @@ void Rendering::set(std::string name)
 	object = GraphicResource::get(name);
 	//if (object == nullptr) throw std::runtime_error("The scope is not exist.");
 	current_rate = 0;
+	current_anime = 0;
 }

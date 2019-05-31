@@ -167,6 +167,7 @@
       "height": 64,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "walking",
         "enemy"
@@ -179,6 +180,7 @@
       "height": 64,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "walking",
         "enemy"
@@ -191,6 +193,7 @@
       "height": 64,
       "line": 1,
       "column": 4,
+      "loop": true,
       "scope": [
         "walking",
         "enemy"
@@ -203,6 +206,7 @@
       "height": 64,
       "line": 1,
       "column": 4,
+      "loop": true,
       "scope": [
         "walking",
         "enemy"
@@ -215,6 +219,7 @@
       "height": 32,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "throwing",
         "bullet",
@@ -228,6 +233,7 @@
       "height": 32,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "throwing",
         "bullet",
@@ -241,6 +247,7 @@
       "height": 96,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "throwing",
         "bullet",
@@ -254,6 +261,7 @@
       "height": 96,
       "line": 1,
       "column": 2,
+      "loop": true,
       "scope": [
         "throwing",
         "bullet",
@@ -267,6 +275,7 @@
       "height": 96,
       "line": 1,
       "column": 2,
+      "interbal": 10,
       "scope": [
         "throwing",
         "bullet",
@@ -293,6 +302,8 @@
       "height": 64,
       "line": 1,
       "column": 2,
+      "interbal": 10,
+      "loop": true,
       "scope": [
         "flying",
         "enemy"
@@ -304,7 +315,9 @@
       "width": 64,
       "height": 64,
       "line": 1,
+      "interbal": 10,
       "column": 2,
+      "loop": true,
       "scope": [
         "flying",
         "enemy"
