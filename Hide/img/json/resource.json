@@ -93,7 +93,7 @@
       "column": 2,
       "sheets": 2,
       "interval": 2,
-      "loop": true,
+      "loop": false,
       "scope": [
         "player"
       ]
@@ -107,7 +107,7 @@
       "column": 2,
       "sheets": 2,
       "interval": 2,
-      "loop": true,
+      "loop": false,
       "scope": [
         "player"
       ]
