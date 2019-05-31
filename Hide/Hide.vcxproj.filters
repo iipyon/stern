@@ -325,6 +325,8 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>controllers\player</Filter>
     </ClCompile>
+    <ClCompile Include="GameTaskController.cpp">
+      <Filter>controllers\game</Filter>
     <ClCompile Include="ClearUI.cpp">
       <Filter>views\clear</Filter>
     </ClCompile>
@@ -497,6 +499,8 @@
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
+    <ClInclude Include="GameTaskController.h">
+      <Filter>controllers\game</Filter>
     <ClInclude Include="ClearUI.h">
       <Filter>views\clear</Filter>
     </ClInclude>

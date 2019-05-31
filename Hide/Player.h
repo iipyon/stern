@@ -92,7 +92,6 @@ protected:
 
 private:
 	void anim(); 
-
 	bool damageanim;
 	int jumpCnt;
 	class Point p_point;

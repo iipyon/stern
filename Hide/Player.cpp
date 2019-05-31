@@ -1,4 +1,5 @@
-﻿#include "Player.h"
+#include"GameTaskController.h"
+#include "Player.h"
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
@@ -173,7 +174,10 @@ bool Player::damage()
 		hp -= 1;
 		damageanim = true;
 		if (hp <= 0) {
-			return true;
+			if (!GameOverController::get_gameover_flag()) {
+				GameOverController::set_gameover(true);
+				ct->gts->set_feed_flag(true);
+			}
 		}
 	}
 	return false;

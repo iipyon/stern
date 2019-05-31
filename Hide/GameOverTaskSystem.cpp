@@ -7,6 +7,7 @@
 #include"System.h"
 #include "Scene.h"
 
+
 int GameOverTaskSystem::backGraph;//背景
 
 bool GameOverTaskSystem::feed_flag;

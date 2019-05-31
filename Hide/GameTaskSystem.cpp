@@ -7,6 +7,8 @@
 #include"screen_helper.h"
 #include"screenhelper_config.h"
 #include "Scene.h"
+#include"PlayerController.h"
+#include"GameTaskController.h"
 
 GameTaskSystem::GameTaskSystem()
 {
@@ -47,6 +49,7 @@ void GameTaskSystem::init()
 void GameTaskSystem::init_member()
 {
 	feed_flag = false;
+	GameOverController::set_gameover(false);
 	goal->set_clearflag(false);
 }
 
@@ -106,7 +109,12 @@ void GameTaskSystem::update()
 		//ポーズ遷移
 		//プレイヤーの死亡フラグ分が追加になるかもしれない
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
-			Scene::set_scene(SceneType::pause);
+			if (GameOverController::get_gameover_flag()) {//trueなら
+				Scene::set_scene(SceneType::gameover);
+			}
+			else{
+				Scene::set_scene(SceneType::pause);
+			}
 		}
 	}
 	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
@@ -134,6 +142,11 @@ void GameTaskSystem::finalize()
 	normalstar.clear();
 	enemys->clear();
 	item->clear();
+}
+
+void GameTaskSystem::set_feed_flag(bool set)
+{
+	feed_flag = set;
 }
 
 void GameTaskSystem::attack_player_enemy()
