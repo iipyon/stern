@@ -1,4 +1,4 @@
-#include "BulletEnemy.h"
+﻿#include "BulletEnemy.h"
 #include"DxLib.h"
 #include"CoreTask.h"
 #include"EnemyConfig.h"
@@ -12,10 +12,12 @@ BulletEnemy::BulletEnemy(Point point_, PhysicState physic_state_, EnemyState ene
 
 	switch (enemy_state_.anglestate) {
 	case AngleState::left:
+		shape->set("seed_Left");
 
 		angle = -BulletMoveSpeed;
 		break;
 	case AngleState::right:
+		shape->set("seed_Right");
 		angle = BulletMoveSpeed;
 
 		break;

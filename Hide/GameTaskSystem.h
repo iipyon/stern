@@ -44,5 +44,8 @@ public:
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
+	//setter
+	void set_feed_flag(bool);
+	
 };
 

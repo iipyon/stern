@@ -1,4 +1,5 @@
-﻿#include "Player.h"
+#include"GameTaskController.h"
+#include "Player.h"
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
@@ -278,4 +279,5 @@ void Player::set_life(int life) {
 }
 int Player::get_life() {
 	return this->life;
+
 }

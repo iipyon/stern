@@ -1,0 +1,31 @@
+{
+  "1": {
+    "csvpath": "./img/csv/stage1.csv",
+    "chippath": "./img/mapchip/mapchip2.png",
+    "sizex": 7680,
+    "sizey": 1920,
+    "background": "./img/back/sky2.png"
+  },
+  "2": {
+    "csvpath": "./img/csv/stage2.csv",
+    "chippath": "./img/mapchip/mapchip2.png",
+    "sizex": 7680,
+    "sizey": 1920,
+    "background": "./img/back/sky2.png"
+  },
+  "3": {
+    "csvpath": "./img/csv/stage3.csv",
+    "chippath": "./img/mapchip/mapchip2.png",
+    "sizex": 7680,
+    "sizey": 1920,
+    "background": "./img/back/forest2.jpg"
+  },
+  "4": {
+    "csvpath": "./img/csv/stage4.csv",
+    "chippath": "./img/mapchip/mapchip2.png",
+    "sizex": 7680,
+    "sizey": 1920,
+    "background": "./img/back/sky2.png"
+  }
+}
+

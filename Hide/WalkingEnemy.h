@@ -19,5 +19,6 @@ public:
 	void check_right();
 		
 private:
+	AngleState beforeangle;
 protected:
 };
