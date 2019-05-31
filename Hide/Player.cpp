@@ -55,12 +55,12 @@ void Player::StarManager::update(double ang, int x_)
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_Z)) {
 			starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
-			Point prestarpoint{ x_, Map::get_camera().y, 32, 32 };
+			Point prestarpoint{ x_-16, Map::get_camera().y, 96, 96 };
 			if (!(ct->gts->map->get_bottom(prestarpoint) ||
 				ct->gts->map->get_left(prestarpoint) ||
 				ct->gts->map->get_right(prestarpoint) ||
 				ct->gts->map->get_top(prestarpoint))) {
-				class Point point = { x_,Map::get_camera().y,32,32 };
+				class Point point = { x_-16,Map::get_camera().y-96,96,96 };
 				struct PhysicState physic_state = { 1 };//	float gravity;
 				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
@@ -77,13 +77,13 @@ void Player::StarManager::update(double ang, int x_)
 	if (starmanagercoolCnt <= 0) {
 		if (Keyboard::key_down(KEY_INPUT_V)) {
 			starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
-			Point prestarpoint{ x_, Map::get_camera().y, 32, 32 };
+			Point prestarpoint{ x_-16, Map::get_camera().y, 96, 96 };
 			if (!(ct->gts->map->get_bottom(prestarpoint) ||
 				ct->gts->map->get_left(prestarpoint) ||
 				ct->gts->map->get_right(prestarpoint) ||
 				ct->gts->map->get_top(prestarpoint))) {
 				ct->gts->gravityStar.clear();
-				class Point point = { x_ ,Map::get_camera().y,32,32 };
+				class Point point = { x_ -16,Map::get_camera().y - 96,96,96 };
 				struct PhysicState physic_state = { 1 };//	float gravity;
 				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
 
