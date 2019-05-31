@@ -322,8 +322,8 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>controllers\player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerHelper.cpp">
-      <Filter>helper\player</Filter>
+    <ClCompile Include="GameTaskController.cpp">
+      <Filter>controllers\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -471,7 +471,6 @@
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
     </ClInclude>
-
     <ClInclude Include="SpawnItem.h">
       <Filter>controllers\spawn\super</Filter>
     </ClInclude>
@@ -495,8 +494,8 @@
     <ClInclude Include="EnemyConfig.h">
       <Filter>config</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerHelper.h">
-      <Filter>helper\player</Filter>
+    <ClInclude Include="GameTaskController.h">
+      <Filter>controllers\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

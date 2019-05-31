@@ -5,6 +5,7 @@
 #include "PlayerConfig.h"
 #include"System.h"
 #include"environments.h"
+#include"GameTaskController.h"
 
 //----------------------------------
 //プレイヤー
@@ -168,8 +169,8 @@ bool Player::damage()
 		invincible = PLAYER_INVINCIBLE;
 		hp -= 1;
 		if (hp <= 0) {
-			if (!ct->gts->get_gameover_flag()) {
-				ct->gts->set_gameover_flag(true);
+			if (!GameOver::get_gameover_flag()) {
+				GameOver::set_gameover(true);
 				ct->gts->set_feed_flag(true);
 			}
 			return true;
