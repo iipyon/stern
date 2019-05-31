@@ -1,3 +1,4 @@
+
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
@@ -219,4 +220,5 @@ void GameTaskSystem::attack_star_enemy()
 		}
 		if (deleted == true)break;
 	}
+
 }
