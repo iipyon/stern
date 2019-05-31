@@ -270,7 +270,7 @@
     },
     {
       "name": "flower_throw_Right",
-      "path": "./img/graphics/enemy/flower/flower_throew_Right.png",
+      "path": "./img/graphics/enemy/flower/flower_throw_Right.png",
       "width": 64,
       "height": 96,
       "line": 1,
@@ -284,11 +284,12 @@
     },
     {
       "name": "flower_throw_Left",
-      "path": "./img/graphics/enemy/flower/flower_throew_Left.png",
+      "path": "./img/graphics/enemy/flower/flower_throw_Left.png",
       "width": 64,
       "height": 96,
       "line": 1,
       "column": 2,
+      "interbal": 10,
       "scope": [
         "throwing",
         "bullet",
