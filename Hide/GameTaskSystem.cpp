@@ -49,7 +49,7 @@ void GameTaskSystem::init()
 void GameTaskSystem::init_member()
 {
 	feed_flag = false;
-	set_gameover(false);
+	GameOverController::set_gameover(false);
 	goal->set_clearflag(false);
 }
 
@@ -107,7 +107,7 @@ void GameTaskSystem::update()
 		//ポーズ遷移
 		//プレイヤーの死亡フラグ分が追加になるかもしれない
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
-			if (get_gameover_flag()) {//trueなら
+			if (GameOverController::get_gameover_flag()) {//trueなら
 				Scene::set_scene(SceneType::gameover);
 			}
 			else{

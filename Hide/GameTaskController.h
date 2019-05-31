@@ -1,15 +1,11 @@
-#pragma once
-
-namespace GameOverController {
-	static bool gameover;
+﻿#pragma once
+namespace {
+	//ファイル内でのみ有効
+	bool gameover;
 }
 
-namespace{
-	void set_gameover(bool flag) {
-		GameOverController::gameover = flag;
-	}
-	//getter
-	bool get_gameover_flag() {
-		return GameOverController::gameover;
-	}
+namespace GameOverController {
+
+	void set_gameover(bool flag);
+	bool get_gameover_flag();
 }

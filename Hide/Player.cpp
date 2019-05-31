@@ -169,8 +169,8 @@ bool Player::damage()
 		invincible = PLAYER_INVINCIBLE;
 		hp -= 1;
 		if (hp <= 0) {
-			if (!get_gameover_flag()) {
-				set_gameover(true);
+			if (!GameOverController::get_gameover_flag()) {
+				GameOverController::set_gameover(true);
 				ct->gts->set_feed_flag(true);
 			}
 			return true;
