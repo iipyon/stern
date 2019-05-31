@@ -1,5 +1,5 @@
 #pragma once
-namespace GameOver {
+namespace GameOverController {
 	static bool gameover;
 	void set_gameover(bool);
 	//getter
