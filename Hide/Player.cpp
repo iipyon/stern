@@ -40,12 +40,12 @@ void Player::PlayerInterface::update(int hp_,int life_)
 
 Player::StarManager::StarManager()
 {
-	graph = LoadGraph("img/graphics/UI/cursor.png");
+	graph = LoadGraph("img/graphics/UI/arrow.png");
 }
 
 void Player::StarManager::draw(double st, int x)
 {
-	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 15, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
+	DrawRotaGraph2(x - Map::get_camera().x+ ct->gts->player->get_point().w / 2, 0, 8, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
 }
 
 void Player::StarManager::update(double ang, int x_)
@@ -308,7 +308,7 @@ void Player::anim() {
 		}
 
 	}
-	if (Keyboard::key_down(KEY_INPUT_Z)|| Keyboard::key_down(KEY_INPUT_V)) {		//Z、Vキーを押した処理
+	if (Keyboard::key_down(KEY_INPUT_Z) || Keyboard::key_down(KEY_INPUT_V)) {		//Z、Vキーを押した処理
 		if (angle_LR == Right) {
 			if (anim_called) {
 				anim_called = false;
@@ -321,8 +321,9 @@ void Player::anim() {
 				shape->set("player_attack_Left");
 			}
 		}
-
 	}
+
+
 	if (Keyboard::key_down(KEY_INPUT_LEFT)) {//左キーを押した処理
 		if (anim_called) {
 			anim_called = false;
