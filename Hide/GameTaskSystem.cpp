@@ -1,13 +1,12 @@
-
 ﻿#include "GameTaskSystem.h"
 #include <vector> 
 #include <memory>
-#include"CoreTask.h"
-#include"Audio.h"
+#include "CoreTask.h"
+#include "Audio.h"
 #include "Keyboard.h"
-#include"screen_helper.h"
-#include"screenhelper_config.h"
-#include "Scene.h"
+#include "screen_helper.h"
+#include "screenhelper_config.h"
+#include"Scene.h"
 #include"PlayerController.h"
 #include"GameTaskController.h"
 
@@ -119,10 +118,11 @@ void GameTaskSystem::update()
 		//ポーズ遷移
 		//プレイヤーの死亡フラグ分が追加になるかもしれない
 		if (ScreenFunc::FeedOut(ScreenHelperGraph::black_graph)) {
-			if (GameOverController::get_gameover_flag()) {//trueなら
+			if (GameOverController::get_gameover_flag()) 
+			{//trueなら
 				Scene::set_scene(SceneType::gameover);
 			}
-			else{
+			else {
 				Scene::set_scene(SceneType::pause);
 			}
 		}
@@ -130,15 +130,6 @@ void GameTaskSystem::update()
 	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
-	//------------------------------------------------------------
-	//ゲームオーバーへの遷移
-	//プレイヤーが死んだらの中に記述予定
-	//feed_flag = true;//死んだらフェード開始
-	/*if (feed_flag) {//ホワイトアウト
-		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
-			ct->change_scene(Scene::gameover);
-		}
-	}*/
 }
 
 void GameTaskSystem::finalize()
@@ -198,7 +189,7 @@ void GameTaskSystem::attack_player_item()
 void GameTaskSystem::deleted_bullet_enemy()
 {
 	for (auto bullet_itr = enemys->begin(); bullet_itr != enemys->end(); bullet_itr++) {
-		if (!(*bullet_itr)->get_active()){
+		if (!(*bullet_itr)->get_active()) {
 			enemys->erase(bullet_itr);
 			break;//消したらブレイク
 		}
