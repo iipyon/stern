@@ -74,30 +74,30 @@ void StageSelectTaskSystem::update()
 			{
 			case 1:
 				ct->gts->map->init((char*)"1");
-				ct->gts->player->spawn(64, 1728, 64, 128);
-				ct->gts->goal->spawn(7488, 1728, 128, 128);
+				ct->gts->player->spawn(64, 1728);
+				ct->gts->goal->spawn(7488, 1728);
 				spawnenemy->create("1");
 				spawnitem->create("1");
 
 				break;
 			case 2:
 				ct->gts->map->init((char*)"2");
-				ct->gts->player->spawn(256, 1728, 64, 128);
-				ct->gts->goal->spawn( 7488, 1728, 128, 128);
+				ct->gts->player->spawn(256, 1728);
+				ct->gts->goal->spawn( 7488, 1728);
 				spawnenemy->create("2");
 				spawnitem->create("2");
 				break;
 			case 3:
 				ct->gts->map->init((char*)"3");
-				ct->gts->player->spawn(64, 1728, 64, 128);
-				ct->gts->goal->spawn(7104, 1280, 128, 128);
+				ct->gts->player->spawn(64, 1728);
+				ct->gts->goal->spawn(7104, 1280);
 				spawnenemy->create("3");
 				spawnitem->create("3");
 				break;
 			case 4:
 				ct->gts->map->init((char*)"4");
-				ct->gts->player->spawn(128, 1728, 64, 128);
-				ct->gts->goal->spawn(7488, 1728, 128, 128);
+				ct->gts->player->spawn(128, 1728);
+				ct->gts->goal->spawn(7488, 1728);
 				spawnenemy->create("4");
 				spawnitem->create("4");
 				break;

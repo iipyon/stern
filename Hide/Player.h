@@ -29,7 +29,7 @@ public:
 
 	bool knockback(int);//ノックバック
 	void jump(int);
-	void spawn(int, int, int, int);
+	void spawn(int, int);
 
 public:	//アクセサメソッド
 	void set_hp(int);

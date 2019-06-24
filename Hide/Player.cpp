@@ -124,9 +124,15 @@ Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
 }
-void Player::spawn(int x_, int y_, int w_, int h_)
+
+//生成場所
+void Player::spawn(int x_, int y_)
 {
-	p_point = { x_,y_,w_,h_ };
+	//StageSelectTaskの方で呼んで座標を決定
+	//ヒットベース設定
+	p_point = { x_,y_,96,128 };
+	
+
 }
 void Player::init()
 {

@@ -17,9 +17,12 @@ Goal::Goal(Point point_):  BasicObject(point)
 {
 }
 
-void Goal::spawn(int x_,int y_,int w_,int h_)
+//生成場所
+void Goal::spawn(int x_,int y_)
 {
-	g_point = { x_,y_,w_,h_ };
+	//StageSelectTaskの方で呼んで座標を決定
+	//ヒットベース設定
+	g_point = { x_,y_,128,128};
 }
 void Goal::init()
 {
