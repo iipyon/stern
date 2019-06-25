@@ -137,7 +137,7 @@ void Player::init()
 bool Player::recover()
 {
 	bool ret = false;
-	if (hp < PLAYER_MAX_LIFE) {
+	if (hp < PLAYER_MAX_HP) {
 		hp++;
 		ret = true;
 	}
