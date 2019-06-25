@@ -151,6 +151,7 @@ void GameTaskSystem::finalize()
 
 	}
 	normalstar.clear();
+	gravityStar.clear();
 	enemys->clear();
 	item->clear();
 }
