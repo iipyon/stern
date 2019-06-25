@@ -1,8 +1,9 @@
-#include "Scene.h"
+ï»¿#include "Scene.h"
 #include "TitleTaskSystem.h"
 #include "GameOverTaskSystem.h"
 #include "PauseTaskSystem.h"
-#include "CoreTask.h"	//íœ—\’è
+#include "CoreTask.h"	//å‰Šé™¤äºˆå®š
+#include"Demo.h"
 
 SceneType Scene::scene;
 
@@ -30,6 +31,9 @@ void Scene::set_scene(SceneType type)
 		break;
 	case SceneType::pause:
 		PauseTask::init_member();
+		break;
+	case SceneType::demo:
+		ct->demo->initialize();
 		break;
 	}
 }

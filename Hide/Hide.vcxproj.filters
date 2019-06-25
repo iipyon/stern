@@ -37,9 +37,6 @@
     <Filter Include="controllers\map">
       <UniqueIdentifier>{414663c5-80db-442b-aa64-a0c548363ef9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="controllers\game">
-      <UniqueIdentifier>{45a9e29a-0d46-477b-b2d6-109a42caa8ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="controllers\spawn">
       <UniqueIdentifier>{af6ce5b8-b020-4768-a550-5f0967fad27b}</UniqueIdentifier>
     </Filter>
@@ -173,6 +170,12 @@
     <Filter Include="config\ClearConfig">
       <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="views\demo">
+      <UniqueIdentifier>{1ddc7e5d-184b-4bc4-afb2-49a9a5f44992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controllers\core\game">
+      <UniqueIdentifier>{45a9e29a-0d46-477b-b2d6-109a42caa8ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicResource.cpp">
@@ -302,7 +305,7 @@
       <Filter>config\environments</Filter>
     </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
-      <Filter>controllers\game</Filter>
+      <Filter>controllers\core\game</Filter>
     </ClCompile>
     <ClCompile Include="GameOverTaskUI.cpp">
       <Filter>views\game_over</Filter>
@@ -326,10 +329,13 @@
       <Filter>controllers\player</Filter>
     </ClCompile>
     <ClCompile Include="GameTaskController.cpp">
-      <Filter>controllers\game</Filter>
+      <Filter>controllers\core\game</Filter>
     </ClCompile>
     <ClCompile Include="ClearUI.cpp">
       <Filter>views\clear</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo.cpp">
+      <Filter>views\demo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,7 +463,7 @@
       <Filter>Resources\json11</Filter>
     </ClInclude>
     <ClInclude Include="GameTaskSystem.h">
-      <Filter>controllers\game</Filter>
+      <Filter>controllers\core\game</Filter>
     </ClInclude>
     <ClInclude Include="GameOverTaskUI.h">
       <Filter>views\game_over</Filter>
@@ -501,7 +507,7 @@
       <Filter>config</Filter>
     </ClInclude>
     <ClInclude Include="GameTaskController.h">
-      <Filter>controllers\game</Filter>
+      <Filter>controllers\core\game</Filter>
     </ClInclude>
     <ClInclude Include="ClearUI.h">
       <Filter>views\clear</Filter>
@@ -509,8 +515,8 @@
     <ClInclude Include="ClearConfig.h">
       <Filter>config\ClearConfig</Filter>
     </ClInclude>
-    <ClInclude Include="FlyingEnemyConfig.h">
-      <Filter>config</Filter>
+    <ClInclude Include="Demo.h">
+      <Filter>views\demo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

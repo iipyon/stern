@@ -6,7 +6,8 @@ enum class SceneType {
 	game,
 	gameover,
 	clear,
-	pause
+	pause,
+	demo
 };
 
 class Scene {

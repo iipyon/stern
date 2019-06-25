@@ -7,6 +7,7 @@
 #include "Audio.h"
 #include "Scene.h"
 #include"screen_helper.h"
+#include"Demo.h"
 
 GameTaskSystem *gts;
 
@@ -14,6 +15,7 @@ GameTaskSystem *gts;
 CoreTask::CoreTask()
 {
 	gts = std::make_shared<GameTaskSystem>();
+	demo = std::make_unique<Demo>();
 	Scene::set_scene(SceneType::title);
 }
 
@@ -39,6 +41,9 @@ void CoreTask::update()
 		break;
 	case SceneType::pause:
 		PauseTask::update();
+		break;
+	case SceneType::demo:
+		demo->update();
 		break;
 	}
 }

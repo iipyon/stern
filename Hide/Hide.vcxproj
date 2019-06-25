@@ -136,6 +136,7 @@
     <ClCompile Include="ClearTaskSystem.cpp" />
     <ClCompile Include="ClearUI.cpp" />
     <ClCompile Include="CoreTask.cpp" />
+    <ClCompile Include="Demo.cpp" />
     <ClCompile Include="development.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameOverTaskUI.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ClearConfig.h" />
     <ClInclude Include="ClearUI.h" />
+    <ClInclude Include="Demo.h" />
     <ClInclude Include="EnemyConfig.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
