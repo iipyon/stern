@@ -2,7 +2,6 @@
 #include "Player.h"
 #include"Map.h"
 #include<memory>
-#include"NormalStar.h"
 #include"WalkingEnemy.h"
 #include"ThrowingEnemy.h"
 #include"EnemyShot00.h"//どこにあるかわからない
@@ -18,8 +17,6 @@ class GameTaskSystem
 {
 private:
 	bool feed_flag;
-
-	void attack_star_enemy();
 	void attack_player_enemy();
 	void attack_player_item();
 	void deleted_bullet_enemy();
@@ -36,9 +33,6 @@ public:
 	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
-	//☆
-	std::vector<NormalStar> normalstar;
-	std::vector<GravityStar> gravityStar;
 	//敵
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemys;
 	std::shared_ptr<std::vector<std::shared_ptr<Enemy>>> enemy_transaction;

@@ -19,7 +19,6 @@ GameTaskSystem::GameTaskSystem()
 	//メモリ確保
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
-	gravityStar = std::vector<GravityStar>();
 	player = std::make_shared<Player>(p_point, p_physic_state);
 	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
@@ -67,19 +66,7 @@ void GameTaskSystem::update()
 {
 	map->update();
 	goal->update();
-	//☆------------------------------
-	for (auto itr = normalstar.begin(); itr != normalstar.end(); itr++) {
-		if (itr->damage(1)) {
-			normalstar.erase(itr);
-			break;
-		}
-		itr->update();
-	}
-	for (auto itr = gravityStar.begin(); itr != gravityStar.end(); itr++) {
 
-		itr->update();
-	}
-	//--------------------------------
 	//敵------------------------------先頭から終端まで
 	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
 		(*itr)->update();
@@ -94,7 +81,6 @@ void GameTaskSystem::update()
 	Camera::update();
 	attack_player_enemy();
 	attack_player_item();
-	attack_star_enemy();
 	deleted_bullet_enemy();//存在フラグを用意してhp0またはマップヒットで死亡する（bulletのみ）
 	//トランザクションの実行
 	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
@@ -150,8 +136,6 @@ void GameTaskSystem::finalize()
 		break;
 
 	}
-	normalstar.clear();
-	gravityStar.clear();
 	enemys->clear();
 	item->clear();
 }
@@ -195,22 +179,4 @@ void GameTaskSystem::deleted_bullet_enemy()
 			break;//消したらブレイク
 		}
 	}
-}
-
-void GameTaskSystem::attack_star_enemy()
-{
-	bool deleted = false;
-	for (auto enemy_itr = enemys->begin(); enemy_itr != enemys->end(); enemy_itr++) {
-		for (auto star_itr = normalstar.begin(); star_itr != normalstar.end(); star_itr++) {
-			if (CheckHit((*enemy_itr)->get_point(), (*star_itr).get_point())) {
-				enemys->erase(enemy_itr);
-				normalstar.erase(star_itr);
-				deleted = true;
-				break;
-			}
-
-		}
-		if (deleted == true)break;
-	}
-
 }

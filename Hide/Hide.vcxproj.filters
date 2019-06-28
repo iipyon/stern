@@ -91,18 +91,6 @@
     <Filter Include="models\player">
       <UniqueIdentifier>{01af0f77-33eb-483e-a314-5b5d9aabda92}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models\stars">
-      <UniqueIdentifier>{17e4c0f2-817d-4d45-b3df-a7b83cb8f795}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="models\stars\super">
-      <UniqueIdentifier>{a9d89151-5ef5-4a9d-8f02-b69ac75cf622}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="models\stars\normal_star">
-      <UniqueIdentifier>{fd0f28ff-9d33-4c57-9fc3-362fdabfb82c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="models\stars\gravity_star">
-      <UniqueIdentifier>{9ca670f5-61cc-4854-af0c-98216d49ee37}</UniqueIdentifier>
-    </Filter>
     <Filter Include="models\super">
       <UniqueIdentifier>{8eda5178-1de5-40a9-bb5c-0a6471e2a268}</UniqueIdentifier>
     </Filter>
@@ -243,15 +231,6 @@
     </ClCompile>
     <ClCompile Include="SpawnItem.cpp">
       <Filter>controllers\spawn\item</Filter>
-    </ClCompile>
-    <ClCompile Include="GravityStar.cpp">
-      <Filter>models\stars\gravity_star</Filter>
-    </ClCompile>
-    <ClCompile Include="NormalStar.cpp">
-      <Filter>models\stars\normal_star</Filter>
-    </ClCompile>
-    <ClCompile Include="Star.cpp">
-      <Filter>models\stars\super</Filter>
     </ClCompile>
     <ClCompile Include="Physic.cpp">
       <Filter>models\extend\physic</Filter>
@@ -407,15 +386,6 @@
     </ClInclude>
     <ClInclude Include="BasicUI.h">
       <Filter>views\super</Filter>
-    </ClInclude>
-    <ClInclude Include="GravityStar.h">
-      <Filter>models\stars\gravity_star</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalStar.h">
-      <Filter>models\stars\normal_star</Filter>
-    </ClInclude>
-    <ClInclude Include="Star.h">
-      <Filter>models\stars\super</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>models\player</Filter>

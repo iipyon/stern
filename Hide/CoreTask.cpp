@@ -78,7 +78,6 @@ void CoreTask::init()
 	GameOverTaskSystem::initialize();
 	//クリア
 	ClearTaskSystem::init();
-	//ct->graph->load("star");    //starの画像をロード(現在スコープにplayerがあるためコメントアウト)
 	gts->player->init();	//init_render("player"); を実行。resource.jsonのnameが"player"の画像をセットする
 }
 

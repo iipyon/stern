@@ -39,79 +39,6 @@ void Player::PlayerInterface::update(int hp_, int life_)
 	draw();
 }
 
-Player::StarManager::StarManager()
-{
-	graph = LoadGraph("img/graphics/UI/arrow.png");
-}
-
-void Player::StarManager::draw(double st, int x)
-{
-	DrawRotaGraph2(x+16 - Map::get_camera().x + ct->gts->player->get_point().w / 2, 0, 8, 0, 1, st, graph, FALSE);//Xにプレーヤー.wの半分だけついか
-}
-
-void Player::StarManager::update(double ang, int x_)
-{
-	draw(ang, x_);
-
-	if (starmanagercoolCnt <= 0) {
-		if (Keyboard::key_down(KEY_INPUT_Z)) {
-			starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
-			Point prestarpoint{ x_, Map::get_camera().y-96, 96, 96 };
-			if (!(ct->gts->map->get_bottom(prestarpoint) ||
-				ct->gts->map->get_left(prestarpoint) ||
-				ct->gts->map->get_right(prestarpoint) ||
-				ct->gts->map->get_top(prestarpoint))) {
-				class Point point = prestarpoint;
-				Audio::play("fallen_star");
-				struct PhysicState physic_state = { 1 };//	float gravity;
-				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
-
-				ct->gts->normalstar.push_back(NormalStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-																							//ノーマルスター
-																							//Point point_, PhysicState physic_state_, StarState star_state
-
-			}
-			else {
-				Audio::play("cancel");
-				//キャンセル音をだす　
-			}
-		}
-
-	}
-	if (starmanagercoolCnt <= 0) {
-		if (Keyboard::key_down(KEY_INPUT_V)) {
-			starmanagercoolCnt = STAR_COOLTIME;   //クールタイム60フレーム
-			Point prestarpoint{ x_, Map::get_camera().y-96, 96, 96 };
-			if (!(ct->gts->map->get_bottom(prestarpoint) ||
-				ct->gts->map->get_left(prestarpoint) ||
-				ct->gts->map->get_right(prestarpoint) ||
-				ct->gts->map->get_top(prestarpoint))) {
-				ct->gts->gravityStar.clear();
-				Audio::play("fallen_star");
-				class Point point = prestarpoint;
-				struct PhysicState physic_state = { 1 };//	float gravity;
-				struct StarState star_state = { 10,10,10,50,ang };//	int bright, int radius, int power, int life, double angle;
-
-				ct->gts->gravityStar.push_back(GravityStar{ point,physic_state,star_state });	//新規インスタンスを生成して最後尾へ登録する
-
-
-			}
-			else {
-				Audio::play("cancel");
-				//キャンセル音をだす　
-			}
-		}
-
-
-
-	}
-
-
-	if (starmanagercoolCnt > 0) {
-		starmanagercoolCnt--;
-
-	}
-}
 
 Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 {
@@ -121,7 +48,6 @@ Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 	invincible = 0;
 	jumpCnt = 0;
 	interval = 0;
-	starmanager = std::make_unique<StarManager>();
 	playerinterface = std::make_unique<PlayerInterface>();
 }
 void Player::spawn(int x_, int y_, int w_, int h_)
@@ -158,7 +84,6 @@ void Player::update()
 		angle -= CURSOL_TURN_SPEED;
 	}
 	//---------------------------------------
-	starmanager->update(angle, point.x);
 	playerinterface->update(hp, life);
 	if (invincible % 4 <= 2) {
 		shape->draw(point);

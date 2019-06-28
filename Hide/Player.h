@@ -61,19 +61,7 @@ public:	//アクセサメソッド
 	
 	};
 
-	//星を出すカーソル
-	class StarManager {
-	public:
-		StarManager();
-		//メソッド
-		void draw(double st, int x);
-		void update(double ang,int x);
-	private:
-		int life;
-		int graph;
-		int starmanagercoolCnt;
-
-	};
+	
 	int hp;//HP
 protected:
 	//変数
@@ -87,7 +75,6 @@ protected:
 	int preY; //前のフレームのvelocityYを保持
 	int interval;//星の発射間隔
 	bool knockback_status;//ノックバック中か
-	std::unique_ptr<StarManager> starmanager;
 	std::unique_ptr<PlayerInterface> playerinterface;
 
 private:
