@@ -1,6 +1,6 @@
 {
   "1": {
-    "csvpath": "./img/csv/stage1.csv",
+    "csvpath": "./img/csv/stage0.csv",
     "chippath": "./img/mapchip/mapchip2.png",
     "sizex": 7680,
     "sizey": 1920,
