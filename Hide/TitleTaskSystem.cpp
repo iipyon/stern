@@ -5,6 +5,7 @@
 #include"Screen_helper.h"
 #include"screenhelper_config.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 #include "Audio.h"
 #include "Scene.h"
 

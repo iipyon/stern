@@ -3,7 +3,6 @@
 #include"StageselectChara.h"
 #include"StageSelectTaskMass.h"
 #include"StageselectTaskTextBox.h"
-#include"SpawnEnemy.h"//敵生成をステージ選択直後に行うため
 #include"SpawnItem.h"
 #include"SelectTaskConfig.h"
 
@@ -29,6 +28,5 @@ public:
 	static std::unique_ptr<StageSelectChara> chara;
 	static std::unique_ptr<StageSelectTextBox> txtbox;
 
-	static std::unique_ptr<SpawnEnemy> spawnenemy;//敵の生成
 	static std::unique_ptr<SpawnItem> spawnitem;
 };

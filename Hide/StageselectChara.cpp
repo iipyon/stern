@@ -3,6 +3,7 @@
 #include"Dxlib.h"
 #include"System.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 #include"SelectTaskConfig.h"
 
 StageSelectChara::StageSelectChara(Point point_)

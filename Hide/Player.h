@@ -15,7 +15,6 @@
 class Player :public BasicObject {
 
 	friend class RecoveryItem;
-	friend class Enemy;
 public:
 	Player(Point point_, PhysicState physic_state_);
 	void init();
@@ -30,6 +29,8 @@ public:
 	bool knockback(int);//ノックバック
 	void jump(int);
 	void spawn(int, int, int, int);
+
+	void createfook(Point);
 
 public:	//アクセサメソッド
 	void set_hp(int);

@@ -4,6 +4,7 @@
 #include "TitleTaskSystem.h"
 #include "PauseTaskSystem.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 #include "Audio.h"
 #include "Scene.h"
 #include"screen_helper.h"
@@ -22,6 +23,7 @@ CoreTask::CoreTask()
 void CoreTask::update()
 {
 	Keyboard::update();
+	Mouse::update();
 	switch (Scene::get_scene()) {
 	case SceneType::title:
 		TitleTaskSystem::update();
@@ -57,7 +59,6 @@ void CoreTask::init()
 	ScreenFunc::initialize();
 
 	Item::player = gts->player;
-	Enemy::player = gts->player;
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();
 
@@ -69,7 +70,6 @@ void CoreTask::init()
 	GraphicResource::load("item");
 	GraphicResource::load("goal");
 	GraphicResource::load("player");
-	GraphicResource::load("enemy");
 	//タイトル
 	TitleTaskSystem::init();
 	//ポーズ

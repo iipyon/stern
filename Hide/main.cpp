@@ -3,6 +3,7 @@
 #include"Player.h"
 #include "System.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 
 //----------------------------------
 //クラス作成の際、関数（メソッド）はpublic

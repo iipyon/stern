@@ -5,6 +5,7 @@
 #include"screenhelper_config.h"
 #include"Scene.h"
 #include"Keyboard.h"
+#include "Mouse.h"
 #include"Audio.h"
 
 bool Demo::check_state()

@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{75277592-2A25-4857-AEB2-0EF11E5E9BF3}</ProjectGuid>
     <RootNamespace>Hide</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>stern</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,6 +138,7 @@
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="Demo.cpp" />
     <ClCompile Include="development.cpp" />
+    <ClCompile Include="fook.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameOverTaskUI.cpp" />
     <ClCompile Include="GameTaskController.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="json11.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="PauseTaskSystem.cpp" />
     <ClCompile Include="PauseTaskUI.cpp" />
     <ClCompile Include="PlayerController.cpp" />
@@ -153,21 +155,16 @@
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BasicObject.cpp" />
-    <ClCompile Include="BossEnemy.cpp" />
-    <ClCompile Include="BulletEnemy.cpp" />
     <ClCompile Include="Effect.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="FlyingEnemy.cpp" />
     <ClCompile Include="Physic.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="screenhelper_config.cpp" />
     <ClCompile Include="screen_helper.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Spawn.cpp" />
-    <ClCompile Include="SpawnEnemy.cpp" />
     <ClCompile Include="SpawnItem.cpp" />
     <ClCompile Include="StageselectChara.cpp" />
     <ClCompile Include="StageSelectTaskMass.cpp" />
@@ -175,10 +172,8 @@
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="ThrowingEnemy.cpp" />
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
-    <ClCompile Include="WalkingEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="application_helper.cpp" />
@@ -189,16 +184,16 @@
     <ClInclude Include="ClearConfig.h" />
     <ClInclude Include="ClearUI.h" />
     <ClInclude Include="Demo.h" />
-    <ClInclude Include="EnemyConfig.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
+    <ClInclude Include="fook.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="GameTaskController.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="SelectTaskConfig.h" />
-    <ClInclude Include="StarConfig.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="MapConfig.h" />
@@ -211,7 +206,6 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="screen_helper.h" />
     <ClInclude Include="Spawn.h" />
-    <ClInclude Include="SpawnEnemy.h" />
     <ClInclude Include="SpawnItem.h" />
     <ClInclude Include="StageselectChara.h" />
     <ClInclude Include="ClearTaskSystem.h" />
@@ -219,13 +213,9 @@
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="BasicObject.h" />
-    <ClInclude Include="BossEnemy.h" />
-    <ClInclude Include="BulletEnemy.h" />
     <ClInclude Include="Effect.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="FlyingEnemy.h" />
     <ClInclude Include="Physic.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
@@ -233,12 +223,9 @@
     <ClInclude Include="StageSelectTaskSystem.h" />
     <ClInclude Include="StageselectTaskTextBox.h" />
     <ClInclude Include="System.h" />
-    <ClInclude Include="ThrowingEnemy.h" />
     <ClInclude Include="ThrowingEnemyConfig.h" />
     <ClInclude Include="TitleUI.h" />
     <ClInclude Include="TitleTaskSystem.h" />
-    <ClInclude Include="WalkingEnemy.h" />
-    <ClInclude Include="WalkingEnemyConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

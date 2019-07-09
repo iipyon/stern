@@ -3,6 +3,7 @@
 #include"Point.h"
 #include"CoreTask.h"
 #include"Keyboard.h"
+#include "Mouse.h"
 #include "PlayerConfig.h"
 #include"System.h"
 #include"environments.h"
@@ -77,13 +78,14 @@ void Player::update()
 	//仮の移動とカーソル角度調整-------------
 	move();
 	anim();
-	if (Keyboard::key_press(KEY_INPUT_Q)) {
-		angle += CURSOL_TURN_SPEED;
-	}
-	if (Keyboard::key_press(KEY_INPUT_E)) {
-		angle -= CURSOL_TURN_SPEED;
-	}
 	//---------------------------------------
+	if (Mouse::Mouse_press()) {
+		int posX=0;
+		int posY=0;
+		GetMousePoint(&posX, &posY);
+		Point clickpos{posX,posY,0,0 };
+		createfook(clickpos);
+	}
 	playerinterface->update(hp, life);
 	if (invincible % 4 <= 2) {
 		shape->draw(point);
@@ -276,6 +278,10 @@ void Player::jump(int pow) {
 		point.y += physicshape->Movement_Y(point, -pow);
 		pow--;
 	}
+}
+
+void Player::createfook(Point pos) {
+	DrawFormatString(300, 0, GetColor(0, 0, 0), "%d", pos.x);
 }
 
 

@@ -6,6 +6,7 @@
 #include"DxLib.h"
 #include "Scene.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 #include "Audio.h"
 
 //UIクラス
