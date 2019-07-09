@@ -20,8 +20,6 @@ GameTaskSystem::GameTaskSystem()
 	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	player = std::make_shared<Player>(p_point, p_physic_state);
-	enemys = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
-	enemy_transaction = std::make_shared<std::vector<std::shared_ptr<Enemy>>>();
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
 	//スクリーン関係
 	feed_flag = false;
@@ -67,10 +65,6 @@ void GameTaskSystem::update()
 	map->update();
 	goal->update();
 
-	//敵------------------------------先頭から終端まで
-	for (auto itr = enemys->begin(); itr != enemys->end(); ++itr) {
-		(*itr)->update();
-	}
 
 	//--------------------------------
 	//アイテム-----------------------------
@@ -79,14 +73,7 @@ void GameTaskSystem::update()
 	}
 	player->update();
 	Camera::update();
-	attack_player_enemy();
 	attack_player_item();
-	deleted_bullet_enemy();//存在フラグを用意してhp0またはマップヒットで死亡する（bulletのみ）
-	//トランザクションの実行
-	for (auto itr = enemy_transaction->begin(); itr != enemy_transaction->end(); ++itr) {
-		enemys->push_back(std::move((*itr)));	//トランザクションから実体へ所有権を移動する
-	}
-	enemy_transaction->clear();	//enemy_transactionを空にする
 
 	//ポーズへの遷移---------------------------------------------
 	if (Keyboard::key_down(KEY_INPUT_BACK)) {
@@ -136,7 +123,7 @@ void GameTaskSystem::finalize()
 		break;
 
 	}
-	enemys->clear();
+
 	item->clear();
 }
 
@@ -145,20 +132,7 @@ void GameTaskSystem::set_feed_flag(bool set)
 	feed_flag = set;
 }
 
-void GameTaskSystem::attack_player_enemy()
-{
-	for (auto itr = enemys->begin(); itr != enemys->end(); itr++) {
-		if (CheckHit(ct->gts->player->get_point(), (*itr)->get_point())) {
-			if (!(ct->gts->player->damage())) {
-				//PlayerのLifeが0になったら
-				//処理未定
-				//enemys->erase(itr);
-				break;
-			}
 
-		}
-	}
-}
 
 void GameTaskSystem::attack_player_item()
 {
@@ -167,16 +141,6 @@ void GameTaskSystem::attack_player_item()
 			ct->gts->player->recover();
 			item->erase(itr);
 			break;
-		}
-	}
-}
-
-void GameTaskSystem::deleted_bullet_enemy()
-{
-	for (auto bullet_itr = enemys->begin(); bullet_itr != enemys->end(); bullet_itr++) {
-		if (!(*bullet_itr)->get_active()) {
-			enemys->erase(bullet_itr);
-			break;//消したらブレイク
 		}
 	}
 }
