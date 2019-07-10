@@ -8,7 +8,6 @@ private:
 protected:
 	friend class CoreTask;	//CoreTask::init が利用するため
 	static std::shared_ptr<Player> player;
-	virtual bool check_hit(Point) final;
 public:
 	void update() final;//これ以上の継承をさせない
 	Item(Point);

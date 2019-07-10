@@ -11,8 +11,8 @@ class GameTaskSystem
 {
 private:
 	bool feed_flag;
-	void attack_player_item();
-
+	/*void attack_player_item();
+	*/
 protected:
 public:
 	GameTaskSystem();

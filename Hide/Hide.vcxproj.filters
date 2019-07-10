@@ -128,23 +128,20 @@
     <Filter Include="controllers\player">
       <UniqueIdentifier>{cb704434-c103-4213-8c24-58fab3836872}</UniqueIdentifier>
     </Filter>
-    <Filter Include="helper\player">
-      <UniqueIdentifier>{0d0fb085-b3b2-4bca-bec9-9bd36bae7ff5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="config\ClearConfig">
       <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\demo">
       <UniqueIdentifier>{1ddc7e5d-184b-4bc4-afb2-49a9a5f44992}</UniqueIdentifier>
     </Filter>
-    <Filter Include="controllers\core\game">
-      <UniqueIdentifier>{45a9e29a-0d46-477b-b2d6-109a42caa8ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="models\fook">
       <UniqueIdentifier>{00fe8344-7ff8-4091-8084-807779bfedd9}</UniqueIdentifier>
     </Filter>
     <Filter Include="interfaces\Mouse">
       <UniqueIdentifier>{44b04c7f-02f9-4421-b593-0809235b0732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views\game">
+      <UniqueIdentifier>{45a9e29a-0d46-477b-b2d6-109a42caa8ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -245,7 +242,7 @@
       <Filter>config\environments</Filter>
     </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
-      <Filter>controllers\core\game</Filter>
+      <Filter>views\game</Filter>
     </ClCompile>
     <ClCompile Include="GameOverTaskUI.cpp">
       <Filter>views\game_over</Filter>
@@ -269,7 +266,7 @@
       <Filter>controllers\player</Filter>
     </ClCompile>
     <ClCompile Include="GameTaskController.cpp">
-      <Filter>controllers\core\game</Filter>
+      <Filter>views\game</Filter>
     </ClCompile>
     <ClCompile Include="ClearUI.cpp">
       <Filter>views\clear</Filter>
@@ -379,7 +376,7 @@
       <Filter>Resources\json11</Filter>
     </ClInclude>
     <ClInclude Include="GameTaskSystem.h">
-      <Filter>controllers\core\game</Filter>
+      <Filter>views\game</Filter>
     </ClInclude>
     <ClInclude Include="GameOverTaskUI.h">
       <Filter>views\game_over</Filter>
@@ -414,7 +411,7 @@
       <Filter>controllers\player</Filter>
     </ClInclude>
     <ClInclude Include="GameTaskController.h">
-      <Filter>controllers\core\game</Filter>
+      <Filter>views\game</Filter>
     </ClInclude>
     <ClInclude Include="ClearUI.h">
       <Filter>views\clear</Filter>

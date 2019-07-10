@@ -78,15 +78,6 @@ void Player::move()
 	//常にダッシュ
 	point.x += physicshape->Movement_X(point, speed);
 	
-	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
-		angle_LR = Right;
-		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
-			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
-		}
-		else {
-			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
-		}
-	}
 	//ジャンプ
 	if (point.y == preY) {
 		if (Keyboard::key_press(KEY_INPUT_X)) {
