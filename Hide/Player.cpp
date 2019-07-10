@@ -12,44 +12,15 @@
 //プレイヤー
 //----------------------------------
 
-Player::PlayerInterface::PlayerInterface()
-{
-	hpgraph = LoadGraph("img/graphics/UI/hp.png");
-	hpfreamgraph = LoadGraph("img/graphics/UI/hpfream.png");
-	lifegraph = LoadGraph("img/graphics/UI/life.png");
-}
 
-void Player::PlayerInterface::draw()
-{
-	//残機
-	DrawGraph(System::width - 100, 0, lifegraph, FALSE);
-	DrawFormatString(System::width - 60, 0, GetColor(255, 255, 255), " × %d", life);
-	//HP
-	for (int i = 0; i < 3; ++i) {
-		DrawGraph(40 * i, 0, hpfreamgraph, FALSE);
-		for (int j = 0; j < hp; ++j) {
-			DrawGraph(40 * j, 0, hpgraph, TRUE);
-		}
-	}
-}
-
-void Player::PlayerInterface::update(int hp_, int life_)
-{
-	hp = hp_;
-	life = life_;
-	draw();
-}
 
 
 Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 {
-	life = PLAYER_MAX_LIFE;
-	hp = PLAYER_MAX_HP;
+	speed = 10;
 	angle = 0;
 	invincible = 0;
 	jumpCnt = 0;
-	interval = 0;
-	playerinterface = std::make_unique<PlayerInterface>();
 }
 void Player::spawn(int x_, int y_, int w_, int h_)
 {
@@ -61,15 +32,6 @@ void Player::init()
 	shape->set("player_idol_Right");//resource.jsonのnameが"player"のものをセットする
 }
 
-bool Player::recover()
-{
-	bool ret = false;
-	if (hp < PLAYER_MAX_HP) {
-		hp++;
-		ret = true;
-	}
-	return ret;
-}
 
 
 
@@ -86,7 +48,7 @@ void Player::update()
 		Point clickpos{posX,posY,0,0 };
 		createfook(clickpos);
 	}
-	playerinterface->update(hp, life);
+
 	if (invincible % 4 <= 2) {
 		shape->draw(point);
 	}
@@ -102,33 +64,20 @@ bool Player::damage()
 {
 	if (invincible <= 0) {
 		invincible = PLAYER_INVINCIBLE;
-		hp -= 1;
 		damageanim = true;
 		Audio::play("damage");
-		if (hp <= 0) {
-			return true;
-		}
+
 	}
 	return false;
 }
 
-void Player::draw_interface(int)
-{
-}
+
 
 void Player::move()
 {
-
-	//左右移動
-	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
-		angle_LR = Left;
-		if (Keyboard::key_press(KEY_INPUT_C)) { //仮のダッシュ処理
-			point.x += physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
-		}
-		else {
-			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
-		}
-	}
+	//常にダッシュ
+	point.x += physicshape->Movement_X(point, speed);
+	
 	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
 		angle_LR = Right;
 		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
@@ -268,10 +217,7 @@ void Player::anim() {
 		}
 	}
 }
-bool Player::knockback(int)
-{
-	return false;
-}
+
 
 void Player::jump(int pow) {
 	while (pow > 0) {
@@ -287,13 +233,7 @@ void Player::createfook(Point pos) {
 
 //アクセサメソッド
 
-void Player::set_hp(int hp) {
-	if (hp < 0) hp = 0;
-	this->hp = hp;
-}
-int Player::get_hp() {
-	return this->hp;
-}
+
 void Player::set_angle(double angle) {
 	this->angle = angle;
 }
@@ -306,10 +246,4 @@ void Player::set_invincible(int invincible) {
 }
 int Player::get_invincible() {
 	return this->invincible;
-}
-void Player::set_life(int life) {
-	this->life = life;
-}
-int Player::get_life() {
-	return this->life;
 }

@@ -29,7 +29,6 @@ void Goal::init()
 
 void Goal::update()
 {
-	DrawString(0, 0, "ゴールは現在仮処理です,これが消えたらゴールの完成です", GetColor(255, 0, 0));
 	if (hit(ct->gts->player->get_point())) {
 		clear_flag = true;//プレイヤーと触れたらクリア（仮処理）
 	}

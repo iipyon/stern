@@ -138,7 +138,6 @@ void GameTaskSystem::attack_player_item()
 {
 	for (auto itr = item->begin(); itr != item->end(); itr++) {
 		if (CheckHit(player->get_point(), (*itr)->get_point())) {
-			ct->gts->player->recover();
 			item->erase(itr);
 			break;
 		}
