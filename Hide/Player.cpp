@@ -85,16 +85,11 @@ void Player::move()
 				jumpCnt = PLAYER_MAX_JUMP;
 			}
 			if (jumpCnt > 0) {
-				point.y += physicshape->Movement_Y(point, -jumpCnt - 8);//jumpCntを設けないと空中浮遊する
-				Point extendpoint = point;
-				extendpoint.y--;
-				if (ct->gts->map->get_top(extendpoint)) {
-					jumpCnt = 0;
-				}
+				point.y += physicshape->Movement_Y(point, -jumpCnt- PLAYER_MIN_JUMP);//jumpCntを設けないと空中浮遊する
 			}
 		}
 	}
-	if (Keyboard::key_up(KEY_INPUT_X)) {
+	if (Keyboard::key_up(KEY_INPUT_X)) {//Xキーを離したら
 		jumpCnt = 0;
 	}
 	jumpCnt--;
