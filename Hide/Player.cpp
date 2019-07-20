@@ -21,6 +21,8 @@ Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 	angle = 0;
 	invincible = 0;
 	jumpCnt = 0;
+	dobblejumpCnt = 0;
+	dobblejumpflag = false;
 }
 void Player::spawn(int x_, int y_, int w_, int h_)
 {
@@ -37,10 +39,9 @@ void Player::init()
 
 void Player::update()
 {
-	//仮の移動とカーソル角度調整-------------
 	move();
-	anim();
-	//---------------------------------------
+	//anim();
+	
 	if (Mouse::Mouse_press()) {
 		int posX=0;
 		int posY=0;
@@ -49,22 +50,25 @@ void Player::update()
 		createfook(clickpos);
 	}
 
-	if (invincible % 4 <= 2) {
-		shape->draw(point);
-	}
-	if (jumpCnt <= 0) {
+
+	if (jumpCnt <= 0 && dobblejumpCnt <= 0) {//落下中か否か
 		point.y += physicshape->fall(point);
+	}
+
+	shape->draw(point);
+	/*if (invincible % 4 <= 2) {//無敵状態の設定（現在必要なし）
+		shape->draw(point);
 	}
 	if (invincible > 0) {
 		invincible--;
-	}
+	}*/
 }
 
-bool Player::damage()
+bool Player::damage()//使うかも？
 {
 	if (invincible <= 0) {
 		invincible = PLAYER_INVINCIBLE;
-		damageanim = true;
+		//damageanim = true;
 		Audio::play("damage");
 
 	}
@@ -79,23 +83,41 @@ void Player::move()
 	point.x += physicshape->Movement_X(point, speed);
 	
 	//ジャンプ
-	if (point.y == preY) {
-		if (Keyboard::key_press(KEY_INPUT_X)) {
+	if (Keyboard::key_press(KEY_INPUT_X)) {
+		if (jumpCnt >= -10 && dobblejumpflag == false&&Keyboard::key_down(KEY_INPUT_X)) {
+			dobblejumpflag = true;
+			dobblejumpCnt = PLAYER_MAX_JUMP*3/4;
+
+			if (dobblejumpCnt > 0) {
+				point.y += physicshape->Movement_Y(point, -dobblejumpCnt - PLAYER_MIN_JUMP);
+			}
+		}
+		else {
+
+		if (preY == point.y) {
 			if (Keyboard::key_down(KEY_INPUT_X)) {
 				jumpCnt = PLAYER_MAX_JUMP;
+				dobblejumpflag = false;
 			}
 			if (jumpCnt > 0) {
-				point.y += physicshape->Movement_Y(point, -jumpCnt- PLAYER_MIN_JUMP);//jumpCntを設けないと空中浮遊する
+				point.y += physicshape->Movement_Y(point, -jumpCnt - PLAYER_MIN_JUMP);
 			}
+		}
+	
 		}
 	}
 	if (Keyboard::key_up(KEY_INPUT_X)) {//Xキーを離したら
 		jumpCnt = 0;
+		dobblejumpCnt=0;
 	}
-	jumpCnt--;
+
 	preY = point.y;
+	jumpCnt--;
+	dobblejumpCnt--;
 }
-void Player::anim() {
+
+
+/*void Player::anim() {//アニメーション処理（未実装）
 	bool anim_called = true;
 	if (damageanim == true) {//ダメージを受けた時
 		damageanim = false;
@@ -202,15 +224,9 @@ void Player::anim() {
 
 		}
 	}
-}
+}*/
 
 
-void Player::jump(int pow) {
-	while (pow > 0) {
-		point.y += physicshape->Movement_Y(point, -pow);
-		pow--;
-	}
-}
 
 void Player::createfook(Point pos) {
 	DrawFormatString(300, 0, GetColor(0, 0, 0), "%d", pos.x);

@@ -22,10 +22,10 @@ public:
 	void update();//更新処理
 	bool damage();//ダメージを受ける処理
 
+	//void anim();
 
 	void move();//移動処理
 
-	void jump(int);
 	void spawn(int, int, int, int);
 
 	void createfook(Point);
@@ -52,8 +52,10 @@ protected:
 	int interval;//星の発射間隔
 
 private:
-	void anim(); 
-	bool damageanim;
+	//void anim(); 
+	//bool damageanim;
 	int jumpCnt;
+	int dobblejumpCnt;
+	bool dobblejumpflag;
 	class Point p_point;
 };
