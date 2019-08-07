@@ -36,11 +36,11 @@ void StageSelectChara::select_stage(int& stage_, bool deg, int massline)
 {
 	if (!deg) {
 		if (Keyboard::key_down(KEY_INPUT_RIGHT) && stage_ < MAX_STAGE && velocityX == 0) {
-			velocityX = massline;
+			velocityX = float(massline);
 			stage_++;
 		}
 		if (Keyboard::key_down(KEY_INPUT_LEFT) && stage_ > 1 && velocityX == 0) {
-			velocityX = -massline;
+			velocityX = float(-massline);
 			stage_--;
 		}
 		move();//次のマスに移ったら移動を停止したい
@@ -61,7 +61,8 @@ void StageSelectChara::move()
 		velocityX += CHARA_VELOCITY;
 	}
 	else {
-		point.x += velocityX; velocityX = 0;
+		point.x += int(velocityX);
+		velocityX = 0;
 	}
 }
 

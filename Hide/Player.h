@@ -30,6 +30,20 @@ public:
 
 	void createfook(Point);
 
+	void think();
+
+	enum Motion {
+		Stop,
+		Dash,
+		Jump,
+		Fall,
+		Jump2,
+		Fall2,
+	};
+
+	Motion motion;
+
+
 public:	//アクセサメソッド
 
 	void set_angle(double);
@@ -54,8 +68,7 @@ protected:
 private:
 	//void anim(); 
 	//bool damageanim;
-	int jumpCnt;
-	int dobblejumpCnt;
-	bool dobblejumpflag;
+	int moveCnt;
+
 	class Point p_point;
 };

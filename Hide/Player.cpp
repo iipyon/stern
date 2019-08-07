@@ -20,9 +20,7 @@ Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 	speed = 10;
 	angle = 0;
 	invincible = 0;
-	jumpCnt = 0;
-	dobblejumpCnt = 0;
-	dobblejumpflag = false;
+	motion = Dash;
 }
 void Player::spawn(int x_, int y_, int w_, int h_)
 {
@@ -31,6 +29,7 @@ void Player::spawn(int x_, int y_, int w_, int h_)
 void Player::init()
 {
 	point = p_point;
+
 	shape->set("player_idol_Right");//resource.jsonのnameが"player"のものをセットする
 }
 
@@ -39,21 +38,19 @@ void Player::init()
 
 void Player::update()
 {
+	think();
 	move();
 	//anim();
 	
+	//フックを出す処理
 	if (Mouse::Mouse_press()) {
-		int posX=0;
+		int posX=0;//一時計算用
 		int posY=0;
 		GetMousePoint(&posX, &posY);
 		Point clickpos{posX,posY,0,0 };
 		createfook(clickpos);
 	}
 
-
-	if (jumpCnt <= 0 && dobblejumpCnt <= 0) {//落下中か否か
-		point.y += physicshape->fall(point);
-	}
 
 	shape->draw(point);
 	/*if (invincible % 4 <= 2) {//無敵状態の設定（現在必要なし）
@@ -75,45 +72,80 @@ bool Player::damage()//使うかも？
 	return false;
 }
 
+void Player::think() {//move関数のするべき動きを指定する関数
+    Motion now = this->motion;
+	switch (now)
+	{
+	case Stop:
 
+		break;
+	case Dash:
+		if (ct->gts->map->get_bottom(point)==0) {
+			now = Fall;
+		}
+		if (Keyboard::key_down(KEY_INPUT_X)) {
+			now = Jump;
+		}
+		break;
+	case Jump:
+		if (moveCnt == 0) {
+			now = Fall;
+		}
+		break;
+	case Fall:
+		if (ct->gts->map->get_bottom(point) == 1) {
+			now = Dash;
+		}
+		if (Keyboard::key_down(KEY_INPUT_X)) {
+			now = Jump2;
+		}
+		break;
+	case Jump2:
+		if (moveCnt == 0) {
+			now = Fall2;
+		}
+		break;
+	case Fall2:
+		if (ct->gts->map->get_bottom(point) == 1) {
+			now = Dash;
+		}
+		break;
+	}
+	this->motion = now;
+}
 
 void Player::move()
 {
-	//常にダッシュ
-	point.x += physicshape->Movement_X(point, speed);
 	
-	//ジャンプ
-	if (Keyboard::key_press(KEY_INPUT_X)) {
-		if (jumpCnt >= -10 && dobblejumpflag == false&&Keyboard::key_down(KEY_INPUT_X)) {
-			dobblejumpflag = true;
-			dobblejumpCnt = PLAYER_MAX_JUMP*3/4;
+	switch (this->motion)
+	{
+	case Stop:
 
-			if (dobblejumpCnt > 0) {
-				point.y += physicshape->Movement_Y(point, -dobblejumpCnt - PLAYER_MIN_JUMP);
-			}
+		break;
+	case Dash:
+		this->point.x += physicshape->Movement_X(point, this->speed);
+		break;
+	case Jump:
+		this->point.x += physicshape->Movement_X(point, this->speed);
+		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
+			moveCnt = PLAYER_MAX_JUMP;
 		}
-		else {
+		this->point.y -= physicshape->Movement_Y(point, moveCnt);
+		break;
+	case Fall:
+		this->point.x += physicshape->Movement_X(point, this->speed);
+		point.y += physicshape->fall(point);
+		break;
+	case Jump2:
 
-		if (preY == point.y) {
-			if (Keyboard::key_down(KEY_INPUT_X)) {
-				jumpCnt = PLAYER_MAX_JUMP;
-				dobblejumpflag = false;
-			}
-			if (jumpCnt > 0) {
-				point.y += physicshape->Movement_Y(point, -jumpCnt - PLAYER_MIN_JUMP);
-			}
-		}
-	
-		}
-	}
-	if (Keyboard::key_up(KEY_INPUT_X)) {//Xキーを離したら
-		jumpCnt = 0;
-		dobblejumpCnt=0;
+		break;
+	case Fall2:
+
+		break;
 	}
 
-	preY = point.y;
-	jumpCnt--;
-	dobblejumpCnt--;
+
+
 }
 
 

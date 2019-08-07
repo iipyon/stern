@@ -270,7 +270,7 @@ int Map::get_bottom(Point chara_)
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y + chara_.h-1) / chipsize;
 	int ex = (chara_.x + chara_.w-1) / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int ey = (chara_.y + chara_.h-1)  / chipsize;
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
