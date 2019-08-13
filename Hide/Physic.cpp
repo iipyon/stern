@@ -22,6 +22,7 @@ int Physic::fall(Point p_)//オブジェクトの座標を引数にして実際にどれだけ落下した
 		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }                    //1ドットずつ判定
 		else { p_.y += prevel; prevel = 0; }                             //1ドット未満の場合の移動用（本来不必要）
 		Point hit = p_;                                                  //当たり判定用の矩形を用意
+		hit.y--;
 		if (ct->gts->map->get_bottom(hit) == 1) {                        //マップとの当たり判定
 			velocity = velocity-prevel-1;                                //直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入
 			break;
@@ -44,7 +45,7 @@ int Physic::Movement_X(Point p_,int velocity_)
 		else if (prevel <= -1) { p_.x -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }                                         //1ドット未満の場合の移動用（本来不必要）
 		Point hit = p_;                                                              //当たり判定用の矩形を用意
-		//ここにextendpointとなるものを追加
+		hit = { hit.x - 1,hit.y,hit.w + 2,hit.h -1 };
 		if (ct->gts->map->get_left(hit) == 1|| ct->gts->map->get_right(hit) == 1) {  //マップとの当たり判定
 
 			if (velocity_ > 0) {
@@ -70,6 +71,13 @@ int Physic::Movement_Y(Point p_, int velocity_)
 		else if (prevel <= -1) { p_.y -= 1;  prevel += 1; }
 		else { p_.y += prevel; prevel = 0; }                                          //1ドット未満の場合の移動用（本来不必要）
 		Point hit = p_;                                                               //当たり判定用の矩形を用意
+		hit = { hit.x,hit.y,hit.w -1,hit.h };
+		if (velocity_ > 0) {
+			hit.y++;                             //直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入
+		}
+		else if (velocity_<0) {
+			hit.y--;
+		}
 		if (ct->gts->map->get_top(hit) == 1 || ct->gts->map->get_bottom(hit) == 1) {  //マップとの当たり判定
 
 			if (velocity_ > 0) {                                                      //直前のprevelの計算をなかったことにし、マップとの距離を求め直接velocityに代入

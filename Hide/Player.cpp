@@ -21,6 +21,7 @@ Player::Player(Point point_, PhysicState physic_state_) :BasicObject(point)
 	angle = 0;
 	invincible = 0;
 	motion = Dash;
+	moveCnt = 0;
 }
 void Player::spawn(int x_, int y_, int w_, int h_)
 {
@@ -80,7 +81,7 @@ void Player::think() {//move関数のするべき動きを指定する関数
 
 		break;
 	case Dash:
-		if (ct->gts->map->get_bottom(point)==0) {
+		if (ct->gts->map->get_bottom(point) == 0) {
 			now = Fall;
 		}
 		if (Keyboard::key_down(KEY_INPUT_X)) {
@@ -130,17 +131,24 @@ void Player::move()
 		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
 			moveCnt = PLAYER_MAX_JUMP;
 		}
-		this->point.y -= physicshape->Movement_Y(point, moveCnt);
+		this->point.y += physicshape->Movement_Y(point, -moveCnt);
+		moveCnt--;
 		break;
 	case Fall:
 		this->point.x += physicshape->Movement_X(point, this->speed);
 		point.y += physicshape->fall(point);
 		break;
 	case Jump2:
-
+		this->point.x += physicshape->Movement_X(point, this->speed);
+		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
+			moveCnt = PLAYER_MAX_JUMP;
+		}
+		this->point.y += physicshape->Movement_Y(point, -moveCnt);
+		moveCnt--;
 		break;
 	case Fall2:
-
+		this->point.x += physicshape->Movement_X(point, this->speed);
+		point.y += physicshape->fall(point);
 		break;
 	}
 
