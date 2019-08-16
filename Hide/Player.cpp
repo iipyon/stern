@@ -89,8 +89,12 @@ void Player::think() {//move関数のするべき動きを指定する関数
 		}
 		break;
 	case Jump:
+	
 		if (moveCnt == 0) {
 			now = Fall;
+		}
+		if (Keyboard::key_down(KEY_INPUT_X)) {
+			now = Jump2;
 		}
 		break;
 	case Fall:
@@ -112,7 +116,11 @@ void Player::think() {//move関数のするべき動きを指定する関数
 		}
 		break;
 	}
-	this->motion = now;
+	if (motion != now) {
+		moveCnt = 0;
+		this->motion = now;
+	}
+
 }
 
 void Player::move()
@@ -124,6 +132,7 @@ void Player::move()
 
 		break;
 	case Dash:
+		physicshape->init_velocity();//落下速度の初期化
 		this->point.x += physicshape->Movement_X(point, this->speed);
 		break;
 	case Jump:
@@ -136,9 +145,11 @@ void Player::move()
 		break;
 	case Fall:
 		this->point.x += physicshape->Movement_X(point, this->speed);
+		
 		point.y += physicshape->fall(point);
 		break;
 	case Jump2:
+		physicshape->init_velocity();//落下速度の初期化
 		this->point.x += physicshape->Movement_X(point, this->speed);
 		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
 			moveCnt = PLAYER_MAX_JUMP;

@@ -29,6 +29,7 @@ int Physic::fall(Point p_)//オブジェクトの座標を引数にして実際にどれだけ落下した
 		}
 	
 	}
+                                                    
 	return velocity;
 
 }
@@ -92,6 +93,10 @@ int Physic::Movement_Y(Point p_, int velocity_)
 	}
 	return velocity_;
 
+}
+
+void Physic::init_velocity(){
+	velocity = 0;
 }
 
 /*void Physic::rebound_X()//バウンドの処理が必要になったら書くよ
