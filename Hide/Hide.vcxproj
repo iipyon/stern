@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{75277592-2A25-4857-AEB2-0EF11E5E9BF3}</ProjectGuid>
     <RootNamespace>Hide</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>stern</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,7 +138,7 @@
     <ClCompile Include="CoreTask.cpp" />
     <ClCompile Include="Demo.cpp" />
     <ClCompile Include="development.cpp" />
-    <ClCompile Include="fook.cpp" />
+    <ClCompile Include="Fook.cpp" />
     <ClCompile Include="GameOverTaskSystem.cpp" />
     <ClCompile Include="GameOverTaskUI.cpp" />
     <ClCompile Include="GameTaskController.cpp" />
@@ -186,7 +186,7 @@
     <ClInclude Include="Demo.h" />
     <ClInclude Include="environments.h" />
     <ClInclude Include="application_helper.h" />
-    <ClInclude Include="fook.h" />
+    <ClInclude Include="Fook.h" />
     <ClInclude Include="GameOverTaskSystem.h" />
     <ClInclude Include="GameOverTaskUI.h" />
     <ClInclude Include="GameTaskController.h" />

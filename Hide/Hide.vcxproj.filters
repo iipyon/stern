@@ -277,11 +277,11 @@
     <ClCompile Include="Demo.cpp">
       <Filter>views\demo</Filter>
     </ClCompile>
-    <ClCompile Include="fook.cpp">
-      <Filter>models\fook</Filter>
-    </ClCompile>
     <ClCompile Include="Mouse.cpp">
       <Filter>interfaces\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Fook.cpp">
+      <Filter>models\fook</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -425,11 +425,11 @@
     <ClInclude Include="Demo.h">
       <Filter>views\demo</Filter>
     </ClInclude>
-    <ClInclude Include="fook.h">
-      <Filter>models\fook</Filter>
-    </ClInclude>
     <ClInclude Include="Mouse.h">
       <Filter>interfaces\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Fook.h">
+      <Filter>models\fook</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

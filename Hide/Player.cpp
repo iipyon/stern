@@ -39,7 +39,7 @@ void Player::update()
 {
 	//仮の移動とカーソル角度調整-------------
 	move();
-	anim();
+	//anim();
 	//---------------------------------------
 	if (Mouse::Mouse_press()) {
 		int posX=0;
@@ -109,7 +109,7 @@ void Player::move()
 	jumpCnt--;
 	preY = point.y;
 }
-void Player::anim() {
+/*void Player::anim() {
 	bool anim_called = true;
 	if (damageanim == true) {//ダメージを受けた時
 		damageanim = false;
@@ -217,7 +217,7 @@ void Player::anim() {
 		}
 	}
 }
-
+*/
 
 void Player::jump(int pow) {
 	while (pow > 0) {

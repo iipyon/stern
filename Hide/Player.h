@@ -52,7 +52,7 @@ protected:
 	int interval;//星の発射間隔
 
 private:
-	void anim(); 
+	//void anim(); 
 	bool damageanim;
 	int jumpCnt;
 	class Point p_point;

@@ -5,6 +5,7 @@
 #include"Goal.h"
 #include"Camera.h"
 #include"RecoveryItem.h"
+#include"Fook.h"
 #include"GravityStar.h"
 
 class GameTaskSystem
@@ -25,6 +26,8 @@ public:
 	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
+
+	std::vector<Fook> fook;
 
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
