@@ -10,14 +10,19 @@
 class Map {
 public:
 	Map();
-	void init(char*);
+	void Create(char*,int);
 	void draw();
 	void update();
 	int get_left(Point);
 	int get_right(Point);
 	int get_top(Point);
 	int get_bottom(Point);
+	void Set_createflag();
 	static Point get_camera(); //加工済みのget_rangeを送る
+	int mapsizex;
+	int mapsizey;
+
+	int total_mapsizex;
 private:
 	std::string chipmap;
 	int graph;//絵
@@ -25,8 +30,8 @@ private:
 	int data[MAP_DATA_Y_SIZE][MAP_DATA_X_SIZE];
 	int chipsize;
 	int chipwidth;
-	int mapsizex;
-	int mapsizey;
+	bool createflag;
+
 	int sx, sy, ex, ey;  //ループ範囲
 	static Point camera;
 	json11::Json mapdata;

@@ -51,7 +51,9 @@ void Player::update()
 		Point clickpos{posX,posY,0,0 };
 		createfook(clickpos);
 	}
-
+	if (ct->gts->map->total_mapsizex - System::width <= point.x) {
+		ct->gts->map->Set_createflag();
+	}
 
 	shape->draw(point);
 	/*if (invincible % 4 <= 2) {//無敵状態の設定（現在必要なし）
@@ -133,10 +135,10 @@ void Player::move()
 		break;
 	case Dash:
 		physicshape->init_velocity();//落下速度の初期化
-		this->point.x += physicshape->Movement_X(point, this->speed);
+		this->point.x += physicshape->Movement_X(point,int( this->speed));
 		break;
 	case Jump:
-		this->point.x += physicshape->Movement_X(point, this->speed);
+		this->point.x += physicshape->Movement_X(point, int(this->speed));
 		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
 			moveCnt = PLAYER_MAX_JUMP;
 		}
@@ -144,13 +146,13 @@ void Player::move()
 		moveCnt--;
 		break;
 	case Fall:
-		this->point.x += physicshape->Movement_X(point, this->speed);
+		this->point.x += physicshape->Movement_X(point, int(this->speed));
 		
 		point.y += physicshape->fall(point);
 		break;
 	case Jump2:
 		physicshape->init_velocity();//落下速度の初期化
-		this->point.x += physicshape->Movement_X(point, this->speed);
+		this->point.x += physicshape->Movement_X(point, int(this->speed));
 		if (moveCnt == 0) {//ジャンプをした瞬間ならばジャンプの大きさを設定
 			moveCnt = PLAYER_MAX_JUMP;
 		}
@@ -158,12 +160,31 @@ void Player::move()
 		moveCnt--;
 		break;
 	case Fall2:
-		this->point.x += physicshape->Movement_X(point, this->speed);
+		this->point.x += physicshape->Movement_X(point, int(this->speed));
 		point.y += physicshape->fall(point);
 		break;
 	}
 
-
+	/*//左右移動//緊急用手動操作コード
+	if (Keyboard::key_press(KEY_INPUT_LEFT)) {
+		angle_LR = Left;
+		if (Keyboard::key_press(KEY_INPUT_C)) { //仮のダッシュ処理
+			point.x += physicshape->Movement_X(point, -PLAYER_MAX_SPEED);
+		}
+		else {
+			point.x += physicshape->Movement_X(point, -PLAYER_SPEED);
+		}
+	}
+	if (Keyboard::key_press(KEY_INPUT_RIGHT)) {
+		angle_LR = Right;
+		if (Keyboard::key_press(KEY_INPUT_C)) {  //仮のダッシュの処理
+			point.x += physicshape->Movement_X(point, PLAYER_MAX_SPEED);
+		}
+		else {
+			point.x += physicshape->Movement_X(point, PLAYER_SPEED);
+		}
+	}*/
+	
 
 }
 

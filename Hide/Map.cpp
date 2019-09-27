@@ -21,18 +21,20 @@ Map::Map()
 	//初期化
 	mapsizex = 0;
 	mapsizey = 0;
+	total_mapsizex = 0;
 	camera.x = 0;
 	camera.y = 0;
 	camera.w = 0;
 	camera.h = 0;
+	createflag = false;
 	for (int y = 0; y < 30; ++y) {
-		for (int x = 0; x < 70; ++x) {
+		for (int x = 0; x < MAP_DATA_X_SIZE; ++x) {
 			data[y][x] = 0;
 		}
 	}
 }
 
-void Map::init(char* map_)
+void Map::Create(char* map_,int primaryx_)
 {
 	//jsonの読み込み
 	std::ifstream mappath("img/json/mappath.json");
@@ -51,6 +53,9 @@ void Map::init(char* map_)
 	//マップのサイズの読み込み
 	mapsizex = map["sizex"].int_value();
 	mapsizey = map["sizey"].int_value();
+
+	//マップサイズを足す
+	total_mapsizex += mapsizex;
 
 	//画像の読み込み
 	graph = LoadGraph(map["chippath"].string_value().c_str());
@@ -74,7 +79,7 @@ void Map::init(char* map_)
 		std::string lineText;
 		getline(fin, lineText);
 		std::istringstream ss_lt(lineText);
-		for (int x = 0; x < mapsizex / chipsize; ++x) {
+		for (int x = primaryx_ / chipsize; x < total_mapsizex / chipsize; ++x) {
 			std::string  tc;
 			getline(ss_lt, tc, ',');
 			std::stringstream ss;
@@ -89,7 +94,7 @@ void Map::init(char* map_)
 void Map::draw()
 {
 	//カメラが完全にマップ外を指しているか調べる
-	Point maphitbase = { 0,0,mapsizex,mapsizey };
+	Point maphitbase = { 0,0,total_mapsizex,mapsizey };
 	if (false == CheckHit(maphitbase, camera)){
 		return;//完全に外に出ていたらその時点で描画処理を取りやめる
 	}
@@ -104,7 +109,7 @@ void Map::draw()
 	RECT m = {
 			0,
 			0,
-			0 + mapsizex,
+			0 + total_mapsizex,
 			0 + mapsizey 
 	};
 
@@ -113,21 +118,21 @@ void Map::draw()
 	if (c.bottom > m.bottom) { camera.y = m.bottom - camera.h; }
 	if (c.left < m.left) { camera.x = m.left;}
 	if (c.top < m.top) { camera.y = m.top; }
-	//マップがカメラより小さい場合
+	/*//マップがカメラより小さい場合
 	if (mapsizex < camera.w) { camera.x = m.left; }
-	if (mapsizey < camera.h) { camera.y = m.top; }
+	if (mapsizey < camera.h) { camera.y = m.top; }*/
 
 	//ループの範囲を決定
 	//全体を描画することで処理は増えるが成功した
 	sx = 0;		
 	sy = 0;	
-	ex = mapsizex / chipsize;	
-	ey = mapsizex / chipsize;	
+	ex = total_mapsizex / chipsize;	
+	ey = mapsizey / chipsize;	
 
 	//画面のサイズに合わせて調整可能
 	DrawExtendGraph(0, 0, System::width, System::height, backgraph, FALSE);
 	if (ex < 0)ex = 0;
-	else if (ex >= MAP_DATA_X_SIZE)ex = MAP_DATA_X_SIZE -1 ;
+	else if (ex >= MAP_DATA_X_SIZE)ex = MAP_DATA_X_SIZE - 1;
 	if (ey < 0) ey = 0;
 	else if (ey >= MAP_DATA_Y_SIZE)ey = MAP_DATA_Y_SIZE - 1;
 
@@ -150,6 +155,10 @@ void Map::update()
 	camera.w = Camera::get_range().w;
 	camera.h = Camera::get_range().h;
 	draw();
+	if (createflag) {
+		Create((char*)"2", total_mapsizex);//動作確認済　バグあり
+		createflag = false;
+	}
 }
 //-----------------------------------------------------------------------------------------------------------
 //問題点　charaが二つのマップチップをまたいでいるとき左（または上)のチップのみリターンされ、ほかのチップが無視される
@@ -285,4 +294,8 @@ int Map::get_bottom(Point chara_)
 Point Map::get_camera()
 {
 	return camera;
+}
+
+void Map::Set_createflag() {
+	createflag = true;
 }
