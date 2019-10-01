@@ -10,7 +10,7 @@
 class Map {
 public:
 	Map();
-	void Create(char*,int);
+	void Create(const char*,int);
 	void draw();
 	void update();
 	int get_left(Point);
@@ -31,6 +31,7 @@ private:
 	int chipsize;
 	int chipwidth;
 	bool createflag;
+	const char*  mapnum;
 
 	int sx, sy, ex, ey;  //ループ範囲
 	static Point camera;

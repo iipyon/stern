@@ -34,7 +34,7 @@ Map::Map()
 	}
 }
 
-void Map::Create(char* map_,int primaryx_)
+void Map::Create(const char* map_,int primaryx_)
 {
 	//jsonの読み込み
 	std::ifstream mappath("img/json/mappath.json");
@@ -146,7 +146,6 @@ void Map::draw()
 		}
 	}
 }
-
 void Map::update()
 {
 	//カメラの座標更新
@@ -156,7 +155,22 @@ void Map::update()
 	camera.h = Camera::get_range().h;
 	draw();
 	if (createflag) {
-		Create((char*)"2", total_mapsizex);//動作確認済　バグあり
+		int rand_mapnum = rand() % 4;
+		switch (rand_mapnum) {
+		case 1: 
+			mapnum = "1";
+			break;
+		case 2: 
+			mapnum = "2";
+			break;
+		case 3: 
+			mapnum = "3";
+			break;
+		case 4: 
+			mapnum = "4";
+			break;
+		}
+		Create(mapnum, total_mapsizex);
 		createflag = false;
 	}
 }
