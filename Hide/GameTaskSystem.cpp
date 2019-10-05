@@ -10,6 +10,8 @@
 #include"PlayerController.h"
 #include"GameTaskController.h"
 
+std::unique_ptr<SpawnItem> GameTaskSystem::spawnitem;
+
 GameTaskSystem::GameTaskSystem()
 {
 	//Point point_, PhysicState physic_state_, PlayerState player_state
@@ -23,6 +25,8 @@ GameTaskSystem::GameTaskSystem()
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
 	//スクリーン関係
 	feed_flag = false;
+
+	spawnitem = std::make_unique<SpawnItem>("img/json/item.json", item);
 }
 
 GameTaskSystem::~GameTaskSystem()
@@ -50,6 +54,11 @@ void GameTaskSystem::init()
 	player->init();
 	goal->init();
 	feed_flag = false;
+
+	//map
+	map_createflag = false;
+	mapsize=map->Create((char*)"1", 0);
+	spawnitem->create("1", 0);
 }
 
 void GameTaskSystem::init_member()
@@ -103,6 +112,27 @@ void GameTaskSystem::update()
 	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
+
+	if (map_createflag) {
+		int rand_mapnum = rand() % 4;
+		switch (rand_mapnum) {
+		case 1:
+			mapnum = "1";
+			break;
+		case 2:
+			mapnum = "2";
+			break;
+		case 3:
+			mapnum = "3";
+			break;
+		case 4:
+			mapnum = "4";
+			break;
+		}
+		spawnitem->create("1", mapsize);//アイテムの生成
+		mapsize=map->Create(mapnum, mapsize);
+		map_createflag = false;
+	}
 }
 
 void GameTaskSystem::finalize()
@@ -130,6 +160,10 @@ void GameTaskSystem::finalize()
 void GameTaskSystem::set_feed_flag(bool set)
 {
 	feed_flag = set;
+}
+
+void GameTaskSystem::Set_createflag() {
+	map_createflag = true;
 }
 
 

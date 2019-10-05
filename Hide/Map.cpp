@@ -2,15 +2,19 @@
 #include"DxLib.h"
 #include"CoreTask.h"
 #include"System.h"
+
 #include<fstream>
 #include <string>
 #include <sstream>
 #include<algorithm>
+
 #include "json11.hpp"
 Point Map::camera;
 //----------------------------------
 //マップデータ
 //----------------------------------
+
+
 
 Map::Map()
 {
@@ -32,9 +36,10 @@ Map::Map()
 			data[y][x] = 0;
 		}
 	}
+	
 }
 
-void Map::Create(const char* map_,int primaryx_)
+int Map::Create(const char* map_,int primaryx_)
 {
 	//jsonの読み込み
 	std::ifstream mappath("img/json/mappath.json");
@@ -87,9 +92,11 @@ void Map::Create(const char* map_,int primaryx_)
 			ss >> data[y][x]; //データを入れる
 		}
 	}
+	
 	//ファイルを閉じる
 	mappath.close();	
 	fin.close();
+	return total_mapsizex;//マップサイズを返して次の生成時の引数にする
 }
 void Map::draw()
 {
@@ -154,25 +161,7 @@ void Map::update()
 	camera.w = Camera::get_range().w;
 	camera.h = Camera::get_range().h;
 	draw();
-	if (createflag) {
-		int rand_mapnum = rand() % 4;
-		switch (rand_mapnum) {
-		case 1: 
-			mapnum = "1";
-			break;
-		case 2: 
-			mapnum = "2";
-			break;
-		case 3: 
-			mapnum = "3";
-			break;
-		case 4: 
-			mapnum = "4";
-			break;
-		}
-		Create(mapnum, total_mapsizex);
-		createflag = false;
-	}
+
 }
 //-----------------------------------------------------------------------------------------------------------
 //問題点　charaが二つのマップチップをまたいでいるとき左（または上)のチップのみリターンされ、ほかのチップが無視される
@@ -242,7 +231,7 @@ int Map::get_left(Point chara_)
 	int sx = (chara_.x-1) / chipsize;
 	int sy = chara_.y / chipsize;
 	int ex = (chara_.x-1) / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int ey = (chara_.y + chara_.h) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			if (data[y][x] >= 6) {//今回の場合は１のチップのみに当たり判定を持たせる
@@ -259,7 +248,7 @@ int Map::get_right(Point chara_)
 	int sx = (chara_.x + chara_.w) / chipsize;
 	int sy = chara_.y / chipsize;
 	int ex = (chara_.x + chara_.w) / chipsize;
-	int ey = (chara_.y + chara_.h-1) / chipsize;
+	int ey = (chara_.y + chara_.h) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
 			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
@@ -275,7 +264,7 @@ int Map::get_top(Point chara_)
 {
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y-1) / chipsize;
-	int ex = (chara_.x + chara_.w-1) / chipsize;
+	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = (chara_.y-1) / chipsize;
 	for (int y = sy; y <= ey; ++y) {
 		for (int x = sx; x <= ex; ++x) {
@@ -292,7 +281,7 @@ int Map::get_bottom(Point chara_)
 {
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y + chara_.h) / chipsize;
-	int ex = (chara_.x + chara_.w-1) / chipsize;
+	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = (chara_.y + chara_.h)  / chipsize;
 	//範囲内の障害物を探す
 	for (int y = sy; y <= ey; ++y) {
@@ -302,6 +291,24 @@ int Map::get_bottom(Point chara_)
 			}
 		}
 	}
+	return 0;
+}
+int Map::get_floar_bottom(Point chara_)//足元の矩形をもらう(x,y+h-1,w,1)
+{
+	int sx = chara_.x / chipsize;//足
+	int ex = (chara_.x + chara_.w) / chipsize;
+	int y = (chara_.y) / chipsize;
+	//範囲内の障害物を探す
+	if (data[y][sx] <= 5 && data[y][ex] <= 5) {//足は空気か？		
+		y = (chara_.y + 1) / chipsize; // 足元
+		for (int x = sx; x <= ex; ++x) {
+			if (data[y][x] >= 6) {//足元はブロックか？
+				return 1;
+			}
+		}
+
+	}
+
 	return 0;
 }
 

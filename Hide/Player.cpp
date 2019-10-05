@@ -51,8 +51,8 @@ void Player::update()
 		Point clickpos{posX,posY,0,0 };
 		createfook(clickpos);
 	}
-	if (ct->gts->map->total_mapsizex - System::width <= point.x) {
-		ct->gts->map->Set_createflag();
+	if (ct->gts->map->total_mapsizex - System::width <= point.x) {//マップ生成のタイミングを伝える
+		ct->gts->Set_createflag();
 	}
 
 	shape->draw(point);
@@ -83,7 +83,7 @@ void Player::think() {//move関数のするべき動きを指定する関数
 
 		break;
 	case Dash:
-		if (ct->gts->map->get_bottom(point) == 0) {
+		if (ct->gts->map->get_floar_bottom(Point{ point.x,point.y + point.h-1 ,point.w,1 }) == 0) {
 			now = Fall;
 		}
 		if (Keyboard::key_down(KEY_INPUT_X)) {
@@ -100,7 +100,7 @@ void Player::think() {//move関数のするべき動きを指定する関数
 		}
 		break;
 	case Fall:
-		if (ct->gts->map->get_bottom(point) == 1) {
+		if (ct->gts->map->get_floar_bottom(Point{ point.x,point.y + point.h-1 ,point.w,1 }) == 1) {
 			now = Dash;
 		}
 		if (Keyboard::key_down(KEY_INPUT_X)) {
@@ -113,7 +113,7 @@ void Player::think() {//move関数のするべき動きを指定する関数
 		}
 		break;
 	case Fall2:
-		if (ct->gts->map->get_bottom(point) == 1) {
+		if (ct->gts->map->get_floar_bottom(Point{ point.x,point.y + point.h-1,point.w,1 }) == 1) {
 			now = Dash;
 		}
 		break;

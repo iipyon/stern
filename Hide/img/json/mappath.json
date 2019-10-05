@@ -18,7 +18,7 @@
     "chippath": "./img/mapchip/mapchip2.png",
     "sizex": 3200,
     "sizey": 1920,
-    "background": "./img/back/forest2.jpg"
+    "background": "./img/back/sky2.png"
   },
   "4": {
     "csvpath": "./img/csv/stage4.csv",

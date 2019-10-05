@@ -19,7 +19,7 @@ bool StageSelectTaskSystem::state[MAX_STAGE];//クリアフラグ（ステージ
 bool StageSelectTaskSystem::feed_flag;
 
 int StageSelectTaskSystem::backgraph;//背景画像
-std::unique_ptr<StageSelectTaskMass> StageSelectTaskSystem::mass;
+std::unique_ptr<StageSelectTaskMass> StageSelectTaskSystem::mass; 
 std::unique_ptr<StageSelectChara> StageSelectTaskSystem::chara;
 std::unique_ptr<StageSelectTextBox> StageSelectTaskSystem::txtbox;
 std::unique_ptr<SpawnItem> StageSelectTaskSystem::spawnitem;
@@ -32,7 +32,7 @@ StageSelectTaskSystem::StageSelectTaskSystem()
 	class Point point = { mass->get_massX(0),200,30,30 };
 	chara = std::make_unique<StageSelectChara>(point);
 	txtbox = std::make_unique<StageSelectTextBox>();
-	spawnitem = std::make_unique<SpawnItem>("img/json/item.json", ct->gts->item);
+	//spawnitem = std::make_unique<SpawnItem>("img/json/item.json", ct->gts->item);
 
 	feed_flag = false;
 
@@ -70,29 +70,29 @@ void StageSelectTaskSystem::update()
 			switch (stage)
 			{
 			case 1:
-				ct->gts->map->Create((char*)"1",0);
+				//ct->gts->map->Create((char*)"1",0);
 				ct->gts->player->spawn(64, 1728, 64, 128);
 				//ct->gts->goal->spawn(7488, 1728, 128, 128);
-				spawnitem->create("1");
+				//spawnitem->create("1", 0);
 
 				break;
 			case 2:
 				ct->gts->map->Create((char*)"2",0);
 				ct->gts->player->spawn(256, 1728, 64, 128);
 				ct->gts->goal->spawn( 7488, 1728, 128, 128);
-				spawnitem->create("2");
+				spawnitem->create("2",0);
 				break;
 			case 3:
 				ct->gts->map->Create((char*)"3",0);
 				ct->gts->player->spawn(64, 1728, 64, 128);
 				ct->gts->goal->spawn(7104, 1280, 128, 128);
-				spawnitem->create("3");
+				spawnitem->create("3",0);
 				break;
 			case 4:
 				ct->gts->map->Create((char*)"4",0);
 				ct->gts->player->spawn(128, 1728, 64, 128);
 				ct->gts->goal->spawn(7488, 1728, 128, 128);
-				spawnitem->create("4");
+				spawnitem->create("4",0);
 				break;
 			}
 			PlayerController::initialize();

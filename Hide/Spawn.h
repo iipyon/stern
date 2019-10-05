@@ -7,7 +7,7 @@
 class Spawn {
 public:
 	Spawn(std::string path_);
-	virtual void create(std::string stg) = 0;
+	virtual void create(std::string stg,int) = 0;
 protected:
 	json11::Json data;
 };

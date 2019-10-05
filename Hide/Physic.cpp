@@ -1,56 +1,53 @@
-#include "Physic.h"
+ï»¿#include "Physic.h"
 #include "CoreTask.h"
 //----------------------------------
-//•¨—‰^“®
+//ç‰©ç†é‹å‹•
 //----------------------------------
 
 Physic::Physic() 
 {
-	//fall—p
+	//fallç”¨
 	gravity = 1;
 	velocity = 0;
 }
 
 
-int Physic::fall(Point p_)//ƒIƒuƒWƒFƒNƒg‚ÌÀ•W‚ğˆø”‚É‚µ‚ÄÀÛ‚É‚Ç‚ê‚¾‚¯—‰º‚µ‚½‚©‚ğ•Ô‚·
+int Physic::fall(Point p_)//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åº§æ¨™ã‚’å¼•æ•°ã«ã—ã¦å®Ÿéš›ã«ã©ã‚Œã ã‘è½ä¸‹ã—ãŸã‹ã‚’è¿”ã™
 {
-	//d—Í‚É‚æ‚é—‰º
-	velocity += int(gravity);                                            //gravity‚Ì•ª‚¾‚¯‰Á‘¬‚³‚¹‚Ä‚¢‚­
+	//é‡åŠ›ã«ã‚ˆã‚‹è½ä¸‹
+	velocity += int(gravity);                                            //gravityã®åˆ†ã ã‘åŠ é€Ÿã•ã›ã¦ã„ã
+	int prevel = velocity;                                               //è¨ˆç®—ç”¨ã‹ã¤ã€velocityã‚’ä¸å¤‰ã®ã‚‚ã®ã§ã‚ã‚‹ãŸã‚ã«ä»®ã®å€¤ã‚’ç”¨æ„
 
-	int prevel = velocity;                                               //ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {                                                //‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
-		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }                    //1ƒhƒbƒg‚¸‚Â”»’è
-		else { p_.y += prevel; prevel = 0; }                             //1ƒhƒbƒg–¢–‚Ìê‡‚ÌˆÚ“®—pi–{—ˆ•s•K—vj
-		Point hit = p_;                                                  //“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
-		hit.y--;
-		if (ct->gts->map->get_bottom(hit) == 1) {                        //ƒ}ƒbƒv‚Æ‚Ì“–‚½‚è”»’è
-			velocity = velocity-prevel-1;                                //’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+	while (prevel != 0) {                                                //ã‚ã‚Šè¾¼ã¾ãªã„ç§»å‹•å‡¦ç†
+		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }                    //1ãƒ‰ãƒƒãƒˆãšã¤åˆ¤å®š
+		else { p_.y += prevel; prevel = 0; }                             //1ãƒ‰ãƒƒãƒˆæœªæº€ã®å ´åˆã®ç§»å‹•ç”¨ï¼ˆæœ¬æ¥ä¸å¿…è¦ï¼‰
+		Point hit = p_;                                                  //å½“ãŸã‚Šåˆ¤å®šç”¨ã®çŸ©å½¢ã‚’ç”¨æ„
+		hit = { hit.x,hit.y + hit.h-2 ,hit.w,1 };
+		if (ct->gts->map->get_floar_bottom(hit) == 1) {                        //ãƒãƒƒãƒ—ã¨ã®å½“ãŸã‚Šåˆ¤å®š
+			velocity = velocity - prevel -1;                                //ç›´å‰ã®prevelã®è¨ˆç®—ã‚’ãªã‹ã£ãŸã“ã¨ã«ã—ã€ãƒãƒƒãƒ—ã¨ã®è·é›¢ã‚’æ±‚ã‚velocityã«ä»£å…¥
 			break;
 		}
-	
-	}
-                                                    
+	}                               
 	return velocity;
-
 }
 
 //----------------------------------------------------------------
-//Movement_X,Y ƒIƒuƒWƒFƒNƒg‚ÌÀ•W‚ÆˆÚ“®‚µ‚½‚¢’l‚ğˆø”‚É‚µ‚ÄAÀÛ‚ÉˆÚ“®‚Å‚«‚é’l‚ğ•Ô‚·
+//Movement_X,Y ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åº§æ¨™ã¨ç§»å‹•ã—ãŸã„å€¤ã‚’å¼•æ•°ã«ã—ã¦ã€å®Ÿéš›ã«ç§»å‹•ã§ãã‚‹å€¤ã‚’è¿”ã™
 //----------------------------------------------------------------
 int Physic::Movement_X(Point p_,int velocity_)
 {
 
-	int prevel = velocity_;                                                          //ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {                                                            //‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
-		if (prevel >= 1) { p_.x += 1;  prevel -= 1; }                                //ˆÚ“®•ûŒü‚Í+•ûŒü‚©ƒ}ƒCƒiƒX•ûŒü‚©‚Ì”»’è‚µA‚Pƒhƒbƒg‚¸‚Â‚ß‚è‚Ü‚È‚¢‚©‚Ç‚¤‚©‚Ì”»’è‚ğs‚¤
+	int prevel = velocity_;                                                          //è¨ˆç®—ç”¨ã‹ã¤ã€velocityã‚’ä¸å¤‰ã®ã‚‚ã®ã§ã‚ã‚‹ãŸã‚ã«ä»®ã®å€¤ã‚’ç”¨æ„
+	/*while (prevel != 0) {                                                            //ã‚ã‚Šè¾¼ã¾ãªã„ç§»å‹•å‡¦ç†ã®ç°¡ç•¥åŒ–ãƒãƒ¼ã‚¸ãƒ§ãƒ³
+		if (prevel >= 1) { p_.x += 1;  prevel -= 1; }                                //ç§»å‹•æ–¹å‘ã¯+æ–¹å‘ã‹ãƒã‚¤ãƒŠã‚¹æ–¹å‘ã‹ã®åˆ¤å®šã—ã€ï¼‘ãƒ‰ãƒƒãƒˆãšã¤ã‚ã‚Šè¾¼ã¾ãªã„ã‹ã©ã†ã‹ã®åˆ¤å®šã‚’è¡Œã†
 		else if (prevel <= -1) { p_.x -= 1;  prevel += 1; }
-		else { p_.y += prevel; prevel = 0; }                                         //1ƒhƒbƒg–¢–‚Ìê‡‚ÌˆÚ“®—pi–{—ˆ•s•K—vj
-		Point hit = p_;                                                              //“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
+		else { p_.y += prevel; prevel = 0; }                                         //1ãƒ‰ãƒƒãƒˆæœªæº€ã®å ´åˆã®ç§»å‹•ç”¨ï¼ˆæœ¬æ¥ä¸å¿…è¦ï¼‰
+		Point hit = p_;                                                              //å½“ãŸã‚Šåˆ¤å®šç”¨ã®çŸ©å½¢ã‚’ç”¨æ„
 		hit = { hit.x - 1,hit.y,hit.w + 2,hit.h -1 };
-		if (ct->gts->map->get_left(hit) == 1|| ct->gts->map->get_right(hit) == 1) {  //ƒ}ƒbƒv‚Æ‚Ì“–‚½‚è”»’è
+		if (ct->gts->map->get_left(hit) == 1|| ct->gts->map->get_right(hit) == 1) {  //ãƒãƒƒãƒ—ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 
 			if (velocity_ > 0) {
-				velocity_ = velocity_ - prevel -1;                                   //’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+				velocity_ = velocity_ - prevel -1;                                   //ç›´å‰ã®prevelã®è¨ˆç®—ã‚’ãªã‹ã£ãŸã“ã¨ã«ã—ã€ãƒãƒƒãƒ—ã¨ã®è·é›¢ã‚’æ±‚ã‚ç›´æ¥velocityã«ä»£å…¥
 			}
 			else if (velocity_<0) {
 				velocity_ = velocity_ - prevel +1;
@@ -58,34 +55,25 @@ int Physic::Movement_X(Point p_,int velocity_)
 			break;
 		}
 
-	}
+	}*/
 	return velocity_;
 
 }
-
 int Physic::Movement_Y(Point p_, int velocity_)
 {
 
-	int prevel = velocity_;                                                           //ŒvZ—p‚©‚ÂAvelocity‚ğ•s•Ï‚Ì‚à‚Ì‚Å‚ ‚é‚½‚ß‚É‰¼‚Ì’l‚ğ—pˆÓ
-	while (prevel != 0) {                                                             //‚ß‚è‚Ü‚È‚¢ˆÚ“®ˆ—‚ÌŠÈ—ª‰»ƒo[ƒWƒ‡ƒ“
-		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }                                 //ˆÚ“®•ûŒü‚Í+•ûŒü‚©ƒ}ƒCƒiƒX•ûŒü‚©‚Ì”»’è‚µA‚Pƒhƒbƒg‚¸‚Â‚ß‚è‚Ü‚È‚¢‚©‚Ç‚¤‚©‚Ì”»’è‚ğs‚¤
-		else if (prevel <= -1) { p_.y -= 1;  prevel += 1; }
-		else { p_.y += prevel; prevel = 0; }                                          //1ƒhƒbƒg–¢–‚Ìê‡‚ÌˆÚ“®—pi–{—ˆ•s•K—vj
-		Point hit = p_;                                                               //“–‚½‚è”»’è—p‚Ì‹éŒ`‚ğ—pˆÓ
-		hit = { hit.x,hit.y,hit.w -1,hit.h };
+	int prevel = velocity_;                                                            //è¨ˆç®—ç”¨ã‹ã¤ã€velocityã‚’ä¸å¤‰ã®ã‚‚ã®ã§ã‚ã‚‹ãŸã‚ã«ä»®ã®å€¤ã‚’ç”¨æ„
+	while (prevel != 0) {                                                             //ç§»å‹•æ–¹å‘ã¯+æ–¹å‘ã‹ãƒã‚¤ãƒŠã‚¹æ–¹å‘ã‹ã®åˆ¤å®šã—ã€ï¼‘ãƒ‰ãƒƒãƒˆãšã¤ã‚ã‚Šè¾¼ã¾ãªã„ã‹ã©ã†ã‹ã®åˆ¤å®šã‚’è¡Œã†
+		if (prevel >= 1) { p_.y += 1;  prevel -= 1; }                                
+		else { p_.y += prevel; prevel = 0; }                                          //1ãƒ‰ãƒƒãƒˆæœªæº€ã®å ´åˆã®ç§»å‹•ç”¨ï¼ˆæœ¬æ¥ä¸å¿…è¦ï¼‰
+		Point hit = p_;                                                               //å½“ãŸã‚Šåˆ¤å®šç”¨ã®çŸ©å½¢ã‚’ç”¨æ„
+		hit = { hit.x,hit.y,hit.w - 1,hit.h };
 		if (velocity_ > 0) {
-			hit.y++;                             //’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
+			hit.y++;                              //ç›´å‰ã®prevelã®è¨ˆç®—ã‚’ãªã‹ã£ãŸã“ã¨ã«ã—ã€ãƒãƒƒãƒ—ã¨ã®è·é›¢ã‚’æ±‚ã‚ç›´æ¥velocityã«ä»£å…¥
 		}
-		else if (velocity_<0) {
-			hit.y--;
-		}
-		if (ct->gts->map->get_top(hit) == 1 || ct->gts->map->get_bottom(hit) == 1) {  //ƒ}ƒbƒv‚Æ‚Ì“–‚½‚è”»’è
-
-			if (velocity_ > 0) {                                                      //’¼‘O‚Ìprevel‚ÌŒvZ‚ğ‚È‚©‚Á‚½‚±‚Æ‚É‚µAƒ}ƒbƒv‚Æ‚Ì‹——£‚ğ‹‚ß’¼Úvelocity‚É‘ã“ü
-				velocity_ = velocity_ - prevel-1;                                     
-			}
-			else if(velocity_ < 0){
-				velocity_ = velocity_ - prevel+1;
+		if (ct->gts->map->get_top(hit) == 1 || ct->gts->map->get_bottom(hit) == 1) {  //ãƒãƒƒãƒ—ã¨ã®å½“ãŸã‚Šåˆ¤å®š
+			if (velocity_ > 0) {                                                       //ç›´å‰ã®prevelã®è¨ˆç®—ã‚’ãªã‹ã£ãŸã“ã¨ã«ã—ã€ãƒãƒƒãƒ—ã¨ã®è·é›¢ã‚’æ±‚ã‚ç›´æ¥velocityã«ä»£å…¥
+				velocity_ = velocity_ - prevel - 1;
 			}
 			break;
 		}
@@ -99,7 +87,7 @@ void Physic::init_velocity(){
 	velocity = 0;
 }
 
-/*void Physic::rebound_X()//ƒoƒEƒ“ƒh‚Ìˆ—‚ª•K—v‚É‚È‚Á‚½‚ç‘‚­‚æ
+/*void Physic::rebound_X()//ãƒã‚¦ãƒ³ãƒ‰ã®å‡¦ç†ãŒå¿…è¦ã«ãªã£ãŸã‚‰æ›¸ãã‚ˆ
 {
 	velocityX *= -repulsion;
 }

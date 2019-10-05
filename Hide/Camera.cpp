@@ -19,9 +19,9 @@ void Camera::update()
 {
 	//カメラの位置を再調整
 	{
-		//プレイヤを画面の何処に置くか(今回は画面中央)
-		int px = System::width / 2;
-		int py = System::height / 2;
+		//プレイヤを画面の何処に置くか
+		int px = System::width / 4;
+		int py = System::height / 8;
 		//プレイヤを画面中央の置いた時のカメラの左上座標を求める
 		int cpx = ct->gts->player->get_point().x - px+ ct->gts->player->get_point().w/2;//player.wの半分だけたす
 		int cpy = ct->gts->player->get_point().y - py + ct->gts->player->get_point().h / 2;

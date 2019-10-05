@@ -11,6 +11,7 @@ class GameTaskSystem
 {
 private:
 	bool feed_flag;
+	bool map_createflag;
 	/*void attack_player_item();
 	*/
 protected:
@@ -26,10 +27,20 @@ public:
 	std::unique_ptr<Map> map;
 	std::unique_ptr<Goal> goal;
 
+
 	//アイテム
 	std::shared_ptr<std::vector<std::shared_ptr<Item>>> item;
 	//setter
 	void set_feed_flag(bool);
+	void Set_createflag();
+
+	static std::unique_ptr<SpawnItem> spawnitem;
+
+	//map
+	const char*  mapnum;
+	int mapsize;
+
+
 	
 };
 
