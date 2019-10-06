@@ -75,14 +75,15 @@ void GameTaskSystem::update()
 	goal->update();
 
 
+	player->update();
+	Camera::update();
+
 	//--------------------------------
 	//アイテム-----------------------------
 	for (auto itr = item->begin(); itr != item->end(); ++itr) {
 		(*itr)->update();
 	}
-	player->update();
-	Camera::update();
-	/*attack_player_item();*/
+	attack_player_item();
 
 	//ポーズへの遷移---------------------------------------------
 	if (Keyboard::key_down(KEY_INPUT_BACK)) {
@@ -168,7 +169,7 @@ void GameTaskSystem::Set_createflag() {
 
 
 
-/*void GameTaskSystem::attack_player_item()
+void GameTaskSystem::attack_player_item()
 {
 	for (auto itr = item->begin(); itr != item->end(); itr++) {
 		if (CheckHit(player->get_point(), (*itr)->get_point())) {
@@ -176,4 +177,4 @@ void GameTaskSystem::Set_createflag() {
 			break;
 		}
 	}
-}*/
+}

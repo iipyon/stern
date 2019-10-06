@@ -12,8 +12,8 @@ class GameTaskSystem
 private:
 	bool feed_flag;
 	bool map_createflag;
-	/*void attack_player_item();
-	*/
+	void attack_player_item();
+	
 protected:
 public:
 	GameTaskSystem();

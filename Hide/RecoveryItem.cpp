@@ -8,5 +8,10 @@ RecoveryItem::RecoveryItem(Point point_) : Item(point_)
 
 void RecoveryItem::affect()
 {
-	player->speed += 0.5;
+	if (player->speed < 30 - 5) {
+		player->speed += 5;
+	}
+	else {
+		player->speed = 30;
+	}
 }

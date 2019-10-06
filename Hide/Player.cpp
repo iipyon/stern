@@ -42,7 +42,11 @@ void Player::update()
 	think();
 	move();
 	//anim();
-	
+	if (speed >= 10) {
+		speed -= 0.01f;
+		ct->score += int(speed*10 - 100);
+	}
+
 	//フックを出す処理
 	if (Mouse::Mouse_press()) {
 		int posX=0;//一時計算用
@@ -54,6 +58,9 @@ void Player::update()
 	if (ct->gts->map->total_mapsizex - System::width <= point.x) {//マップ生成のタイミングを伝える
 		ct->gts->Set_createflag();
 	}
+
+	DrawFormatString(0, 0, GetColor(0, 0, 0), "%fkm", speed);
+	DrawFormatString(1800, 0, GetColor(0, 0, 0), "%d点", ct->score);
 
 	shape->draw(point);
 	/*if (invincible % 4 <= 2) {//無敵状態の設定（現在必要なし）
