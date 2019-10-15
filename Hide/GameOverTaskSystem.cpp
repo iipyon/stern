@@ -46,6 +46,9 @@ void GameOverTaskSystem::update()
 	else {
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
+
+	//スコアの表示
+	DrawFormatString(1800, 0, GetColor(1, 1, 1), "%d点", ct->score);
 }
 
 void GameOverTaskSystem::finalize()

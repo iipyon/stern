@@ -71,7 +71,7 @@ void StageSelectTaskSystem::update()
 			{
 			case 1:
 				//ct->gts->map->Create((char*)"1",0);
-				ct->gts->player->spawn(64, 1728, 64, 128);
+				ct->gts->player->spawn(64, 1344, 64, 128);
 				//ct->gts->goal->spawn(7488, 1728, 128, 128);
 				//spawnitem->create("1", 0);
 

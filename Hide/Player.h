@@ -51,11 +51,11 @@ public:	//アクセサメソッド
 	void set_invincible(int);
 	int get_invincible();
 
-
+	float speed;
 	
 protected:
 	//変数
-	float speed;
+
 	double angle;//カーソルの傾き
 	int invincible;//無敵時間
 	enum Angle_LR{Left,Right};

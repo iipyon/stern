@@ -155,7 +155,6 @@
     <ClCompile Include="RecoveryItem.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="BasicObject.cpp" />
-    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -171,7 +170,6 @@
     <ClCompile Include="StageSelectTaskSystem.cpp" />
     <ClCompile Include="StageselectTaskTextBox.cpp" />
     <ClCompile Include="System.cpp" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="TitleTaskSystem.cpp" />
   </ItemGroup>
@@ -213,7 +211,6 @@
     <ClInclude Include="GameTaskSystem.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="BasicObject.h" />
-    <ClInclude Include="Effect.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Physic.h" />

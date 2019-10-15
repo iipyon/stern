@@ -42,6 +42,8 @@ void GameOverUI::update()
 	//セレクターの描画
 	draw_selecter();
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);		//ブレンドモードをオフ
+
+
 }
 
 void GameOverUI::draw_selecter()

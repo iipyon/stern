@@ -39,6 +39,27 @@ Map::Map()
 	
 }
 
+void Map::init() {
+	//可変
+	//チップファイル一つの大きさと横のマス
+	chipsize = 64;
+	chipwidth = 6;
+	//初期化
+	mapsizex = 0;
+	mapsizey = 0;
+	total_mapsizex = 0;
+	camera.x = 0;
+	camera.y = 0;
+	camera.w = 0;
+	camera.h = 0;
+	createflag = false;
+	for (int y = 0; y < 30; ++y) {
+		for (int x = 0; x < MAP_DATA_X_SIZE; ++x) {
+			data[y][x] = 0;
+		}
+	}
+}
+
 int Map::Create(const char* map_,int primaryx_)
 {
 	//jsonの読み込み
@@ -84,7 +105,7 @@ int Map::Create(const char* map_,int primaryx_)
 		std::string lineText;
 		getline(fin, lineText);
 		std::istringstream ss_lt(lineText);
-		for (int x = primaryx_ / chipsize; x < total_mapsizex / chipsize; ++x) {
+		for (int x = primaryx_ / chipsize; x < total_mapsizex / chipsize; ++x) {//最後に生成されたマップの次のX座標から開始
 			std::string  tc;
 			getline(ss_lt, tc, ',');
 			std::stringstream ss;

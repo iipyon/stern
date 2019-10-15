@@ -15,7 +15,7 @@ void SpawnItem::create(std::string stg, int posx_)
 	for (auto &item_d : data[stg].array_items())
 	{
 		//初期値制御---------------------------------------------------------------------------------------------------------
-		class Point i_point = { item_d["x"].int_value(),item_d["y"].int_value(), item_d["w"].int_value(), item_d["h"].int_value() };
+		Point i_point = { item_d["x"].int_value(),item_d["y"].int_value(), item_d["w"].int_value(), item_d["h"].int_value() };
 		//---------------------------------------------------------------------------------------------------------
 		i_point.x += posx_;
 		//回復

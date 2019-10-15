@@ -52,9 +52,6 @@
     <Filter Include="interfaces\keyboard">
       <UniqueIdentifier>{d9cbbcef-46c0-4875-ba55-f1f8c6946e41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models\effect">
-      <UniqueIdentifier>{298cd158-365f-4521-808b-33eb721e2482}</UniqueIdentifier>
-    </Filter>
     <Filter Include="models\items">
       <UniqueIdentifier>{00e149f7-a444-4e5f-a503-65df645d1e6b}</UniqueIdentifier>
     </Filter>
@@ -157,9 +154,6 @@
     <ClCompile Include="Keyboard.cpp">
       <Filter>interfaces\keyboard</Filter>
     </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>models\effect</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>models\items\super</Filter>
     </ClCompile>
@@ -238,9 +232,6 @@
     <ClCompile Include="production.cpp">
       <Filter>config\environments</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>config\environments</Filter>
-    </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
       <Filter>views\game</Filter>
     </ClCompile>
@@ -299,9 +290,6 @@
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>interfaces\keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>models\effect</Filter>
     </ClInclude>
     <ClInclude Include="application_helper.h">
       <Filter>helper\application_helper</Filter>
@@ -396,9 +384,6 @@
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SpawnItem.h">
-      <Filter>controllers\spawn\super</Filter>
-    </ClInclude>
     <ClInclude Include="SelectTaskConfig.h">
       <Filter>config</Filter>
     </ClInclude>
@@ -427,6 +412,9 @@
     </ClInclude>
     <ClInclude Include="Mouse.h">
       <Filter>interfaces\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnItem.h">
+      <Filter>controllers\spawn\item</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

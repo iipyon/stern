@@ -11,6 +11,7 @@
 class Map {
 public:
 	Map();
+	void init();
 	int Create(const char*,int);
 	void draw();
 	void update();
@@ -31,7 +32,7 @@ private:
 	std::string chipmap;
 	int graph;//絵
 	int backgraph;
-	int data[MAP_DATA_Y_SIZE][MAP_DATA_X_SIZE];
+	int data[MAP_DATA_Y_SIZE][MAP_DATA_X_SIZE];//データの格納に限界がある
 	int chipsize;
 	int chipwidth;
 	bool createflag;

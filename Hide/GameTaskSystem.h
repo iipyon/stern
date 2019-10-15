@@ -5,7 +5,6 @@
 #include"Goal.h"
 #include"Camera.h"
 #include"RecoveryItem.h"
-#include"GravityStar.h"
 
 class GameTaskSystem
 {
@@ -22,6 +21,7 @@ public:
 	void init_member();
 	void update();
 	void finalize();
+	void callGameOver();
 	//~GameTaskSystem();
 	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;

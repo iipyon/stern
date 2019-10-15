@@ -58,6 +58,8 @@ void CoreTask::init()
 	Audio::init();
 	ScreenFunc::initialize();
 
+	
+
 	Item::player = gts->player;
 	//メンバ生成
 	ssts = std::make_shared<StageSelectTaskSystem>();

@@ -9,6 +9,7 @@
 #include"Scene.h"
 #include"PlayerController.h"
 #include"GameTaskController.h"
+#include "time.h"
 
 std::unique_ptr<SpawnItem> GameTaskSystem::spawnitem;
 
@@ -51,11 +52,13 @@ void GameTaskSystem::init()
 		break;
 	}
 	Camera::init();
+	map->init();
 	player->init();
 	goal->init();
 	feed_flag = false;
 
 	//map
+	srand((unsigned int)time(NULL));
 	map_createflag = false;
 	mapsize=map->Create((char*)"1", 0);
 	spawnitem->create("1", 0);
@@ -115,7 +118,7 @@ void GameTaskSystem::update()
 	}
 
 	if (map_createflag) {
-		int rand_mapnum = rand() % 4;
+		int rand_mapnum = rand() % 4+1;
 		switch (rand_mapnum) {
 		case 1:
 			mapnum = "1";
@@ -130,10 +133,15 @@ void GameTaskSystem::update()
 			mapnum = "4";
 			break;
 		}
-		spawnitem->create("1", mapsize);//アイテムの生成
+		spawnitem->create(mapnum, mapsize);//アイテムの生成
 		mapsize=map->Create(mapnum, mapsize);
 		map_createflag = false;
 	}
+
+	//スコアの表示
+	DrawFormatString(1800, 0, GetColor(0, 0, 0), "%d点", ct->score);
+	//速度の表示
+	DrawFormatString(0, 0, GetColor(0, 0, 0), "%fkm", ct->gts->player->speed);
 }
 
 void GameTaskSystem::finalize()
@@ -178,3 +186,26 @@ void GameTaskSystem::attack_player_item()
 		}
 	}
 }
+
+void GameTaskSystem::callGameOver()
+{
+	//音楽を止める
+	switch (ct->ssts->get_stage()) {
+	case 1:
+		Audio::stop("stage1");
+		break;
+	case 2:
+		Audio::stop("stage2");
+		break;
+	case 3:
+		Audio::stop("stage3");
+		break;
+	case 4:
+		Audio::stop("stage4");
+		break;
+
+	}
+
+	Scene::set_scene(SceneType::gameover);
+}
+

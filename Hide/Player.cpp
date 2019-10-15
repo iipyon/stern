@@ -30,6 +30,7 @@ void Player::spawn(int x_, int y_, int w_, int h_)
 void Player::init()
 {
 	point = p_point;
+	speed = 10;
 
 	shape->set("player_idol_Right");//resource.jsonのnameが"player"のものをセットする
 }
@@ -59,8 +60,8 @@ void Player::update()
 		ct->gts->Set_createflag();
 	}
 
-	DrawFormatString(0, 0, GetColor(0, 0, 0), "%fkm", speed);
-	DrawFormatString(1800, 0, GetColor(0, 0, 0), "%d点", ct->score);
+
+
 
 	shape->draw(point);
 	/*if (invincible % 4 <= 2) {//無敵状態の設定（現在必要なし）
@@ -69,6 +70,10 @@ void Player::update()
 	if (invincible > 0) {
 		invincible--;
 	}*/
+
+	if (point.y >= 1728) {
+		ct->gts->callGameOver();
+	}
 }
 
 bool Player::damage()//使うかも？
