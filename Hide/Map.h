@@ -26,6 +26,7 @@ public:
 	int mapsizey;
 
 	int total_mapsizex;
+	Point outer_CheckHit(Point);
 
 	
 private:
@@ -36,6 +37,8 @@ private:
 	int chipsize;
 	int chipwidth;
 	bool createflag;
+	
+	int Check_hit(int, int, int, int);
 	
 
 	int sx, sy, ex, ey;  //ループ範囲

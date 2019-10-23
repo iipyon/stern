@@ -22,28 +22,10 @@ Map::Map()
 	//チップファイル一つの大きさと横のマス
 	chipsize = 64;
 	chipwidth = 6;
-	//初期化
-	mapsizex = 0;
-	mapsizey = 0;
-	total_mapsizex = 0;
-	camera.x = 0;
-	camera.y = 0;
-	camera.w = 0;
-	camera.h = 0;
-	createflag = false;
-	for (int y = 0; y < 30; ++y) {
-		for (int x = 0; x < MAP_DATA_X_SIZE; ++x) {
-			data[y][x] = 0;
-		}
-	}
 	
 }
 
 void Map::init() {
-	//可変
-	//チップファイル一つの大きさと横のマス
-	chipsize = 64;
-	chipwidth = 6;
 	//初期化
 	mapsizex = 0;
 	mapsizey = 0;
@@ -53,7 +35,7 @@ void Map::init() {
 	camera.w = 0;
 	camera.h = 0;
 	createflag = false;
-	for (int y = 0; y < 30; ++y) {
+	for (int y = 0; y < MAP_DATA_Y_SIZE; ++y) {
 		for (int x = 0; x < MAP_DATA_X_SIZE; ++x) {
 			data[y][x] = 0;
 		}
@@ -80,21 +62,12 @@ int Map::Create(const char* map_,int primaryx_)
 	mapsizex = map["sizex"].int_value();
 	mapsizey = map["sizey"].int_value();
 
-	//マップサイズを足す
+	//マップサイズを足して戻り値を作る
 	total_mapsizex += mapsizex;
 
 	//画像の読み込み
 	graph = LoadGraph(map["chippath"].string_value().c_str());
 	backgraph = LoadGraph(map["background"].string_value().c_str());
-
-	//txtの読み込み
-	/*std::ifstream fin(map["txtpath"].string_value().c_str());
-	if (!fin) { return; }
-	for (int y = 0; y < mapsizey / chipsize; ++y) {
-		for (int x = 0; x < mapsizex / chipsize; ++x) {
-			fin >> data[y][x];
-		}
-	}*/
 
 	//csvの読み込む
 	chipmap = map["csvpath"].string_value().c_str();
@@ -151,7 +124,6 @@ void Map::draw()
 	if (mapsizey < camera.h) { camera.y = m.top; }*/
 
 	//ループの範囲を決定
-	//全体を描画することで処理は増えるが成功した
 	sx = 0;		
 	sy = 0;	
 	ex = total_mapsizex / chipsize;	
@@ -184,138 +156,53 @@ void Map::update()
 	draw();
 
 }
-//-----------------------------------------------------------------------------------------------------------
-//問題点　charaが二つのマップチップをまたいでいるとき左（または上)のチップのみリターンされ、ほかのチップが無視される
-//-----------------------------------------------------------------------------------------------------------
-/*int Map::get_left(Point chara_)
-{
-	int sx = (chara_.x-1 )/ chipsize;
-	int sy = chara_.y / chipsize;
-	int ex = chara_.x / chipsize;
-	int ey = (chara_.y + chara_.h) / chipsize;
-	for (int y = sy; y < ey; ++y) {
-		for (int x = sx; sx < ex; ++x) {
-			return data[y][x];
-		}
-	}
-	return 0;
-}
 
-int Map::get_right(Point chara_)
-{
-	int sx = (chara_.x + chara_.w) / chipsize;
-	int sy = chara_.y / chipsize;
-	int ex = ((chara_.x + chara_.w) +1)/ chipsize;
-	int ey = (chara_.y + chara_.h) / chipsize;
-	for (int y = sy; y < ey; ++y) {
-		for (int x = sx; sx < ex; ++x) {
-			return data[y][x];
-		}
-	}
-	return 0;
-}
-
-int Map::get_top(Point chara_)
-{
-	int sx = chara_.x/ chipsize;
-	int sy = (chara_.y-1) / chipsize;
-	int ex = (chara_.x + chara_.w) / chipsize;
-	int ey = chara_.y / chipsize;
-	for (int y = sy; y < ey; ++y) {
-		for (int x = sx; sx < ex; ++x) {
-			return data[y][x];
-		}
-	}
-	return 0;
-}
-
-int Map::get_bottom(Point chara_)
-{
-	//マップタイル１つが30*30のため
-	int sx = chara_.x / chipsize;
-	int sy = (chara_.y + chara_.h) / chipsize;
-	int ex = (chara_.x + chara_.w) / chipsize;
-	int ey = ((chara_.y + chara_.h)+1) / chipsize;
-	//範囲内の障害物を探す
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; sx <= ex; ++x) {
-			return data[y][x];
-		}
-	}
-	return 0;
-}*/
 //-----------------------------------------------------------------------------------------------------------
-//仮処理　チップが当たり判定を持っているときのみ1を返す　今後ダメージ床は2を返すなどの拡張が可能
+//　チップが当たり判定を持っているときのみ1を返す　今後ダメージ床は2を返すなどの拡張が可能
 //-----------------------------------------------------------------------------------------------------------
 int Map::get_left(Point chara_)
 {
+	chara_ = outer_CheckHit(chara_);
 	int sx = (chara_.x-1) / chipsize;
 	int sy = chara_.y / chipsize;
 	int ex = (chara_.x-1) / chipsize;
 	int ey = (chara_.y + chara_.h) / chipsize;
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 6) {//今回の場合は１のチップのみに当たり判定を持たせる
-				return 1;
-			}
-			
-		}
-	}
-	return 0;
+	return Check_hit(sx, sy, ex, ey);
 }
 
 int Map::get_right(Point chara_)
 {
+	chara_ = outer_CheckHit(chara_);
 	int sx = (chara_.x + chara_.w) / chipsize;
 	int sy = chara_.y / chipsize;
 	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = (chara_.y + chara_.h) / chipsize;
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
-				return 1;
-			}
-
-		}
-	}
-	return 0;
+	return Check_hit(sx, sy, ex, ey);
 }
 
 int Map::get_top(Point chara_)
 {
+	chara_ = outer_CheckHit(chara_);
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y-1) / chipsize;
 	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = (chara_.y-1) / chipsize;
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
-				return 1;
-			}
-
-		}
-	}
-	return 0;
+	return Check_hit(sx, sy, ex, ey);
 }
 
 int Map::get_bottom(Point chara_)
 {
+	chara_ = outer_CheckHit(chara_);
 	int sx = chara_.x / chipsize;
 	int sy = (chara_.y + chara_.h) / chipsize;
 	int ex = (chara_.x + chara_.w) / chipsize;
 	int ey = (chara_.y + chara_.h)  / chipsize;
-	//範囲内の障害物を探す
-	for (int y = sy; y <= ey; ++y) {
-		for (int x = sx; x <= ex; ++x) {
-			if (data[y][x] >= 6) {//今回の場合は7のチップのみに当たり判定を持たせる
-				return 1;
-			}
-		}
-	}
-	return 0;
+	return Check_hit(sx, sy, ex, ey);
+
 }
 int Map::get_floar_bottom(Point chara_)//足元の矩形をもらう(x,y+h-1,w,1)
 {
+	chara_ = outer_CheckHit(chara_);
 	int sx = chara_.x / chipsize;//足
 	int ex = (chara_.x + chara_.w) / chipsize;
 	int y = (chara_.y) / chipsize;
@@ -331,6 +218,39 @@ int Map::get_floar_bottom(Point chara_)//足元の矩形をもらう(x,y+h-1,w,1
 	}
 
 	return 0;
+}
+
+int Map::Check_hit(int sx,int sy,int ex,int ey) {
+
+	//範囲内の障害物を探す
+	for (int y = sy; y <= ey; ++y) {
+		for (int x = sx; x <= ex; ++x) {
+			if (data[y][x] >= 6) {//今回の場合は6以降のチップに当たり判定を持たせる
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+Point Map::outer_CheckHit(Point chara_) {//マップ外を検知してプレイヤーの矩形を削る
+	RECT p = {
+		chara_.x,
+		chara_.y,
+		chara_.x + chara_.w,
+		chara_.y + chara_.h
+	};
+	RECT m = {
+		0,
+		0,
+		0 + total_mapsizex,
+		0 + mapsizey
+	};
+	if (p.left < m.left) { p.left = m.left; }
+	if (p.top < m.top) { p.top = m.top; }
+	if (p.right > m.right) { p.right = m.right; }
+	if (p.bottom > m.bottom) { p.bottom = m.bottom; }
+	return Point{ p.left,p.top,p.right - p.left,p.bottom - p.top };
 }
 
 Point Map::get_camera()

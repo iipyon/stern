@@ -71,7 +71,7 @@ void Player::update()
 		invincible--;
 	}*/
 
-	if (point.y >= 1728) {
+	if (point.y >= ct->gts->map->mapsizey- 192) {
 		ct->gts->callGameOver();
 	}
 }

@@ -9,6 +9,7 @@
 #include"Scene.h"
 #include"PlayerController.h"
 #include"GameTaskController.h"
+#include"System.h"
 #include "time.h"
 
 std::unique_ptr<SpawnItem> GameTaskSystem::spawnitem;
@@ -113,7 +114,7 @@ void GameTaskSystem::update()
 			}
 		}
 	}
-	else {//フェードフラグさえ起動していないならとにかく薄くすrurururururururu
+	else {//フェードフラグさえ起動していないならとにかく薄くする
 		ScreenFunc::FeedIn(ScreenHelperGraph::black_graph);
 	}
 
@@ -139,7 +140,7 @@ void GameTaskSystem::update()
 	}
 
 	//スコアの表示
-	DrawFormatString(1800, 0, GetColor(0, 0, 0), "%d点", ct->score);
+	DrawFormatString(System::width-100, 0, GetColor(0, 0, 0), "%d点", ct->score);
 	//速度の表示
 	DrawFormatString(0, 0, GetColor(0, 0, 0), "%fkm", ct->gts->player->speed);
 }
@@ -205,7 +206,7 @@ void GameTaskSystem::callGameOver()
 		break;
 
 	}
-
+		item->clear();
 	Scene::set_scene(SceneType::gameover);
 }
 
