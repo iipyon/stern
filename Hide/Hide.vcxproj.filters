@@ -25,12 +25,6 @@
     <Filter Include="assets\graphic">
       <UniqueIdentifier>{2169dc4c-231c-4a53-804e-65796e69e471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="config\environments">
-      <UniqueIdentifier>{64846bbd-a572-425e-9ae2-66f41cdc1dbe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="config\initializers">
-      <UniqueIdentifier>{ca865167-b1ae-4912-aab1-de67612345df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="controllers\core">
       <UniqueIdentifier>{e4fc772f-f689-4c9d-9f3d-c647f324f892}</UniqueIdentifier>
     </Filter>
@@ -70,9 +64,6 @@
     <Filter Include="assets\rendering">
       <UniqueIdentifier>{bb7d3ca8-9a9d-431d-b38c-8489b66a2f4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models\goal">
-      <UniqueIdentifier>{3c7c894a-f92b-444f-b706-13c27aa610c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="models\extend">
       <UniqueIdentifier>{6b3d0d62-12d0-4aa9-98ab-a76994009a1a}</UniqueIdentifier>
     </Filter>
@@ -85,14 +76,8 @@
     <Filter Include="views\game_over">
       <UniqueIdentifier>{8cb7ade6-fe77-4a32-9407-ff4bf7234738}</UniqueIdentifier>
     </Filter>
-    <Filter Include="views\pause">
-      <UniqueIdentifier>{d935008a-5b03-4d74-8e25-beb304c67ecc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="views\clear">
       <UniqueIdentifier>{bbd17328-4566-4451-8a2a-bf189b0603b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="views\stage_select">
-      <UniqueIdentifier>{61fb2592-aa40-44dc-be56-e5ef9a6ae294}</UniqueIdentifier>
     </Filter>
     <Filter Include="views\title">
       <UniqueIdentifier>{4bc695e6-6df0-4b3a-b616-1106520efd93}</UniqueIdentifier>
@@ -121,15 +106,6 @@
     </Filter>
     <Filter Include="interfaces\Scene">
       <UniqueIdentifier>{565f1bcf-0b34-4cfd-8bb8-a3455f33deac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="controllers\player">
-      <UniqueIdentifier>{cb704434-c103-4213-8c24-58fab3836872}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="config\ClearConfig">
-      <UniqueIdentifier>{96ae2f67-f70f-42ea-9cbf-5865a31128f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="views\demo">
-      <UniqueIdentifier>{1ddc7e5d-184b-4bc4-afb2-49a9a5f44992}</UniqueIdentifier>
     </Filter>
     <Filter Include="models\fook">
       <UniqueIdentifier>{00fe8344-7ff8-4091-8084-807779bfedd9}</UniqueIdentifier>
@@ -169,9 +145,6 @@
     <ClCompile Include="Rendering.cpp">
       <Filter>assets\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Goal.cpp">
-      <Filter>models\goal</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>models\player</Filter>
     </ClCompile>
@@ -193,24 +166,6 @@
     <ClCompile Include="BasicUI.cpp">
       <Filter>views\super</Filter>
     </ClCompile>
-    <ClCompile Include="PauseTaskSystem.cpp">
-      <Filter>views\pause</Filter>
-    </ClCompile>
-    <ClCompile Include="PauseTaskUI.cpp">
-      <Filter>views\pause</Filter>
-    </ClCompile>
-    <ClCompile Include="StageselectChara.cpp">
-      <Filter>views\stage_select</Filter>
-    </ClCompile>
-    <ClCompile Include="StageSelectTaskMass.cpp">
-      <Filter>views\stage_select</Filter>
-    </ClCompile>
-    <ClCompile Include="StageSelectTaskSystem.cpp">
-      <Filter>views\stage_select</Filter>
-    </ClCompile>
-    <ClCompile Include="StageselectTaskTextBox.cpp">
-      <Filter>views\stage_select</Filter>
-    </ClCompile>
     <ClCompile Include="TitleTaskSystem.cpp">
       <Filter>views\title</Filter>
     </ClCompile>
@@ -225,12 +180,6 @@
     </ClCompile>
     <ClCompile Include="json11.cpp">
       <Filter>Resources\json11</Filter>
-    </ClCompile>
-    <ClCompile Include="development.cpp">
-      <Filter>config\environments</Filter>
-    </ClCompile>
-    <ClCompile Include="production.cpp">
-      <Filter>config\environments</Filter>
     </ClCompile>
     <ClCompile Include="GameTaskSystem.cpp">
       <Filter>views\game</Filter>
@@ -253,17 +202,11 @@
     <ClCompile Include="Scene.cpp">
       <Filter>interfaces\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>controllers\player</Filter>
-    </ClCompile>
     <ClCompile Include="GameTaskController.cpp">
       <Filter>views\game</Filter>
     </ClCompile>
     <ClCompile Include="ClearUI.cpp">
       <Filter>views\clear</Filter>
-    </ClCompile>
-    <ClCompile Include="Demo.cpp">
-      <Filter>views\demo</Filter>
     </ClCompile>
     <ClCompile Include="fook.cpp">
       <Filter>models\fook</Filter>
@@ -278,12 +221,6 @@
     </ClInclude>
     <ClInclude Include="Audio.h">
       <Filter>assets\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="environments.h">
-      <Filter>config\environments</Filter>
-    </ClInclude>
-    <ClInclude Include="application_init.h">
-      <Filter>config\initializers</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>interfaces\camera</Filter>
@@ -302,9 +239,6 @@
     </ClInclude>
     <ClInclude Include="BasicObject.h">
       <Filter>models\super</Filter>
-    </ClInclude>
-    <ClInclude Include="Goal.h">
-      <Filter>models\goal</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>controllers\map</Filter>
@@ -326,24 +260,6 @@
     </ClInclude>
     <ClInclude Include="Spawn.h">
       <Filter>controllers\spawn\super</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseTaskSystem.h">
-      <Filter>views\pause</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseTaskUI.h">
-      <Filter>views\pause</Filter>
-    </ClInclude>
-    <ClInclude Include="StageselectChara.h">
-      <Filter>views\stage_select</Filter>
-    </ClInclude>
-    <ClInclude Include="StageSelectTaskMass.h">
-      <Filter>views\stage_select</Filter>
-    </ClInclude>
-    <ClInclude Include="StageselectTaskTextBox.h">
-      <Filter>views\stage_select</Filter>
-    </ClInclude>
-    <ClInclude Include="StageSelectTaskSystem.h">
-      <Filter>views\stage_select</Filter>
     </ClInclude>
     <ClInclude Include="TitleTaskSystem.h">
       <Filter>views\title</Filter>
@@ -384,28 +300,14 @@
     <ClInclude Include="Scene.h">
       <Filter>interfaces\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SelectTaskConfig.h">
-      <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="ThrowingEnemyConfig.h">
-    </ClInclude>
     <ClInclude Include="MapConfig.h">
       <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>controllers\player</Filter>
     </ClInclude>
     <ClInclude Include="GameTaskController.h">
       <Filter>views\game</Filter>
     </ClInclude>
     <ClInclude Include="ClearUI.h">
       <Filter>views\clear</Filter>
-    </ClInclude>
-    <ClInclude Include="ClearConfig.h">
-      <Filter>config\ClearConfig</Filter>
-    </ClInclude>
-    <ClInclude Include="Demo.h">
-      <Filter>views\demo</Filter>
     </ClInclude>
     <ClInclude Include="fook.h">
       <Filter>models\fook</Filter>

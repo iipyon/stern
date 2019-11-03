@@ -2,7 +2,6 @@
 #include "Player.h"
 #include"Map.h"
 #include<memory>
-#include"Goal.h"
 #include"Camera.h"
 #include"RecoveryItem.h"
 
@@ -25,7 +24,6 @@ public:
 	//~GameTaskSystem();
 	std::shared_ptr<Player> player;
 	std::unique_ptr<Map> map;
-	std::unique_ptr<Goal> goal;
 
 
 	//アイテム

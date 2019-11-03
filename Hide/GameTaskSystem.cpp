@@ -7,7 +7,6 @@
 #include "screen_helper.h"
 #include "screenhelper_config.h"
 #include"Scene.h"
-#include"PlayerController.h"
 #include"GameTaskController.h"
 #include"System.h"
 #include "time.h"
@@ -21,7 +20,6 @@ GameTaskSystem::GameTaskSystem()
 	class Point g_point;
 	struct PhysicState p_physic_state = { 1 };//gra,過去の遺物(rep,wei)
 	//メモリ確保
-	goal = std::make_unique<Goal>(g_point);
 	map = std::make_unique<Map>();
 	player = std::make_shared<Player>(p_point, p_physic_state);
 	item = std::make_shared<std::vector<std::shared_ptr<Item>>>();
@@ -37,27 +35,12 @@ GameTaskSystem::~GameTaskSystem()
 
 void GameTaskSystem::init()
 {
-	//ステージごとに音楽を入れ替える
-	switch (StageSelectTaskSystem::get_stage()) {
-	case 1:
-		Audio::play("stage1");
-		break;
-	case 2:
-		Audio::play("stage2");
-		break;
-	case 3:
-		Audio::play("stage3");
-		break;
-	case 4:
-		Audio::play("stage4");
-		break;
-	}
+	Audio::play("stage1");
 	Camera::init();
 	map->init();
 	player->init();
-	goal->init();
 	feed_flag = false;
-
+	ct->score = 0;
 	//map
 	srand((unsigned int)time(NULL));
 	map_createflag = false;
@@ -69,14 +52,12 @@ void GameTaskSystem::init_member()
 {
 	feed_flag = false;
 	GameOverController::set_gameover(false);
-	goal->set_clearflag(false);
 }
 
 
 void GameTaskSystem::update()
 {
 	map->update();
-	goal->update();
 
 
 	player->update();
@@ -94,13 +75,7 @@ void GameTaskSystem::update()
 		Audio::play("decision");
 		feed_flag = true;
 	}
-	if (goal->get_clear_flag()) {//ゴール時
 
-		if (ScreenFunc::FeedOut(ScreenHelperGraph::white_graph)) {
-			finalize();
-			Scene::set_scene(SceneType::clear);
-		}
-	}
 	else if (feed_flag) {//ゴールしてなくてフェードフラグが起動したら
 		//ポーズ遷移
 		//プレイヤーの死亡フラグ分が追加になるかもしれない
@@ -108,9 +83,6 @@ void GameTaskSystem::update()
 			if (GameOverController::get_gameover_flag()) 
 			{//trueなら
 				Scene::set_scene(SceneType::gameover);
-			}
-			else {
-				Scene::set_scene(SceneType::pause);
 			}
 		}
 	}
@@ -140,29 +112,14 @@ void GameTaskSystem::update()
 	}
 
 	//スコアの表示
-	DrawFormatString(System::width-100, 0, GetColor(0, 0, 0), "%d点", ct->score);
+	DrawFormatString(System::width-100, 0, GetColor(255, 255, 255), "%d点", ct->score);
 	//速度の表示
-	DrawFormatString(0, 0, GetColor(0, 0, 0), "%fkm", ct->gts->player->speed);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%fkm", ct->gts->player->speed);
 }
 
 void GameTaskSystem::finalize()
 {
-	//ステージごとに音楽を入れ替える
-	switch (ct->ssts->get_stage()) {
-	case 1:
-		Audio::stop("stage1");
-		break;
-	case 2:
-		Audio::stop("stage2");
-		break;
-	case 3:
-		Audio::stop("stage3");
-		break;
-	case 4:
-		Audio::stop("stage4");
-		break;
-
-	}
+	Audio::stop("stage1");
 
 	item->clear();
 }
@@ -190,22 +147,7 @@ void GameTaskSystem::attack_player_item()
 
 void GameTaskSystem::callGameOver()
 {
-	//音楽を止める
-	switch (ct->ssts->get_stage()) {
-	case 1:
-		Audio::stop("stage1");
-		break;
-	case 2:
-		Audio::stop("stage2");
-		break;
-	case 3:
-		Audio::stop("stage3");
-		break;
-	case 4:
-		Audio::stop("stage4");
-		break;
-
-	}
+	Audio::stop("stage1");
 		item->clear();
 	Scene::set_scene(SceneType::gameover);
 }

@@ -42,20 +42,20 @@ void Player::update()
 {
 	think();
 	move();
-	//anim();
-	if (speed >= 10) {
+	//anim();//未実装
+	if (speed > 10) {
 		speed -= 0.01f;
 		ct->score += int(speed*10 - 100);
 	}
 
-	//フックを出す処理
+	/*//フックを出す処理//未実装
 	if (Mouse::Mouse_press()) {
 		int posX=0;//一時計算用
 		int posY=0;
 		GetMousePoint(&posX, &posY);
 		Point clickpos{posX,posY,0,0 };
 		createfook(clickpos);
-	}
+	}*/
 	if (ct->gts->map->total_mapsizex - System::width <= point.x) {//マップ生成のタイミングを伝える
 		ct->gts->Set_createflag();
 	}
@@ -78,12 +78,12 @@ void Player::update()
 
 bool Player::damage()//使うかも？
 {
-	if (invincible <= 0) {
+	/*if (invincible <= 0) {
 		invincible = PLAYER_INVINCIBLE;
 		//damageanim = true;
 		Audio::play("damage");
 
-	}
+	}*/
 	return false;
 }
 
@@ -313,14 +313,14 @@ void Player::move()
 
 
 void Player::createfook(Point pos) {
-	DrawFormatString(300, 0, GetColor(0, 0, 0), "%d", pos.x);
+	//DrawFormatString(300, 0, GetColor(0, 0, 0), "%d", pos.x);
 }
 
 
 //アクセサメソッド
 
 
-void Player::set_angle(double angle) {
+/*void Player::set_angle(double angle) {
 	this->angle = angle;
 }
 double Player::get_angle()
@@ -332,4 +332,4 @@ void Player::set_invincible(int invincible) {
 }
 int Player::get_invincible() {
 	return this->invincible;
-}
+}*/

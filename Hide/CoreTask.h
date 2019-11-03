@@ -1,9 +1,6 @@
 ﻿#pragma once
 #include<memory>
 #include"GameTaskSystem.h"
-#include"StageSelectTaskSystem.h"
-#include "ClearTaskSystem.h"
-#include"Demo.h"
 
 
 
@@ -15,8 +12,6 @@ public:
 	void init();
 	void finalize();
 	std::shared_ptr<GameTaskSystem> gts;
-	std::shared_ptr<StageSelectTaskSystem> ssts;
-	std::unique_ptr<Demo> demo;
 	int score;
 };
 
